@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC026A84-F071-4047-92AE-16A5BD2C9B0C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Server.Host</RootNamespace>
+    <AssemblyName>Server.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Server.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
+      <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
+      <Name>Init.DAL.Sync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.DB\Init.DbCore.DB.csproj">
+      <Project>{c03fa54c-a8ea-42ec-9c11-c0be5a0b946e}</Project>
+      <Name>Init.DbCore.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.Sql\Init.DbCore.DB.MsSql.csproj">
+      <Project>{7b5f1552-ca79-4662-8575-ef9591ec8cc9}</Project>
+      <Name>Init.DbCore.DB.MsSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
+      <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
+      <Name>Init.DbCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
+      <Project>{76db3053-1978-4d3e-9b26-dd3e2096467e}</Project>
+      <Name>Init.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.Web\Init.Web.csproj">
+      <Project>{24704fdd-23e3-41df-8aee-ad684ec9ee82}</Project>
+      <Name>Init.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Server.Dal.csproj">
+      <Project>{4600b640-adf9-437e-8b17-08032b7cd058}</Project>
+      <Name>Server.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server.ServiceOperation\Server.WCF.csproj">
+      <Project>{87ff8d95-30d3-4494-bead-c05dbbd62ed0}</Project>
+      <Name>Server.WCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

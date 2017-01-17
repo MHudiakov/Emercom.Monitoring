@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Init.DbCore" />
+  <xs:complexType name="Store">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q1:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+          <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+          <xs:element minOccurs="0" name="Radius" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Store" nillable="true" type="tns:Store" />
+  <xs:complexType name="Trip">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q2:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Trip" nillable="true" type="tns:Trip" />
+  <xs:complexType name="TripComplectation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q3:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EquipmentId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsStart" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TripId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TripComplectation" nillable="true" type="tns:TripComplectation" />
+  <xs:complexType name="Tag">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q4:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EquipmentId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Rfid" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Tag" nillable="true" type="tns:Tag" />
+  <xs:complexType name="GeoPoints">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q5:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+          <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+          <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TripId" type="xs:int" />
+          <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GeoPoints" nillable="true" type="tns:GeoPoints" />
+  <xs:complexType name="ArrayOfStore">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Store" nillable="true" type="tns:Store" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStore" nillable="true" type="tns:ArrayOfStore" />
+  <xs:complexType name="ArrayOfTrip">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Trip" nillable="true" type="tns:Trip" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrip" nillable="true" type="tns:ArrayOfTrip" />
+  <xs:complexType name="ArrayOfTripComplectation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TripComplectation" nillable="true" type="tns:TripComplectation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTripComplectation" nillable="true" type="tns:ArrayOfTripComplectation" />
+  <xs:complexType name="ArrayOfGeoPoints">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GeoPoints" nillable="true" type="tns:GeoPoints" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGeoPoints" nillable="true" type="tns:ArrayOfGeoPoints" />
+  <xs:complexType name="ArrayOfTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tag" nillable="true" type="tns:Tag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTag" nillable="true" type="tns:ArrayOfTag" />
+  <xs:complexType name="kObject">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q6:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsStore" type="xs:int" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="kObject" nillable="true" type="tns:kObject" />
+  <xs:complexType name="ArrayOfkObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="kObject" nillable="true" type="tns:kObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfkObject" nillable="true" type="tns:ArrayOfkObject" />
+  <xs:complexType name="Unit">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q7:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BortNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GosNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="kObjectId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Unit" nillable="true" type="tns:Unit" />
+  <xs:complexType name="ArrayOfUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Unit" nillable="true" type="tns:Unit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUnit" nillable="true" type="tns:ArrayOfUnit" />
+  <xs:complexType name="UniqEquipmentObject">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q8:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EquipmentId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UniqEquipmentObject" nillable="true" type="tns:UniqEquipmentObject" />
+  <xs:complexType name="ArrayOfUniqEquipmentObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UniqEquipmentObject" nillable="true" type="tns:UniqEquipmentObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUniqEquipmentObject" nillable="true" type="tns:ArrayOfUniqEquipmentObject" />
+  <xs:complexType name="NonUniqEquipmentObject">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q9:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+          <xs:element minOccurs="0" name="kEquipmentId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NonUniqEquipmentObject" nillable="true" type="tns:NonUniqEquipmentObject" />
+  <xs:complexType name="ArrayOfNonUniqEquipmentObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NonUniqEquipmentObject" nillable="true" type="tns:NonUniqEquipmentObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNonUniqEquipmentObject" nillable="true" type="tns:ArrayOfNonUniqEquipmentObject" />
+</xs:schema>

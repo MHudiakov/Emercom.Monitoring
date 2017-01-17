@@ -1,0 +1,16 @@
+<StyleCopSettings Version="105">
+  <Parsers>
+    <Parser ParserId="StyleCop.CSharp.CsParser">
+      <ParserSettings>
+        <BooleanProperty Name="AnalyzeDesignerFiles">False</BooleanProperty>
+      </ParserSettings>
+    </Parser>
+  </Parsers>
+  <Analyzers>
+    <Analyzer AnalyzerId="StyleCopPlus.StyleCopPlusRules">
+      <AnalyzerSettings>
+        <StringProperty Name="AdvancedNaming_Words"> 3D A AIS B BL C cb com DAL DB DC FIO fm FxCop gc ID IDs IO k lc lci me OK sb SQL StyleCop te uc UI x X</StringProperty>
+      </AnalyzerSettings>
+    </Analyzer>
+  </Analyzers>
+</StyleCopSettings>

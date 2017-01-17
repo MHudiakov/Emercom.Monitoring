@@ -1,0 +1,71 @@
+﻿@model Web.Models.FilterMovementModel
+
+@{
+    ViewBag.Title = "Движения по складу";
+}
+
+@section CSS{
+    <link href="@Url.Content("~/Scripts/plugins/forms/datepicker/datepicker.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/spinner.css")" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/plugins/forms/datepicker/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/forms/datepicker/locales/bootstrap-datepicker.ru.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/globalize/globalize.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/controls.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/spinner.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        function onFail() {
+            spinner.stop();
+            $("#movements").html('<h2 align="center">Ошибка получения данных</h2>');
+        }
+    </script>
+}
+
+<div class="panel-body">
+    @using (Ajax.BeginForm("List", "Movement", null, new AjaxOptions { UpdateTargetId = "movements", OnBegin = "spinner.start", OnSuccess = "spinner.stop", OnFailure = "onFail", InsertionMode = InsertionMode.Replace }))
+    {       
+        <div class="row">
+            <div class="col-lg-6">
+                @Html.DropDownListFor(model => model.EquipmentId, Model.EquipmentList as SelectList, "- RFId оборудования -",
+                                     htmlAttributes: new { @class = "input-group" })
+                @Html.ValidationMessageFor(model => model.EquipmentId)
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <div class="row">
+                <div class="col-lg-3">
+                    <span class="input-group-addon">Дата начала </span>
+                    <div class="input-group-addon">
+                        @Html.TextBoxFor(model => model.DtBegin, "{0:d.MM.yyyy}", new { @class = "input-group datepicker", id = "DtBegin" })
+                        @Html.ValidationMessageFor(model => model.DtBegin)
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <span class="input-group-addon">Дата окончания</span>
+                    <div class="input-group-addon">
+                        @Html.TextBoxFor(model => model.DtEnd, "{0:d.MM.yyyy}", new { @class = "input-group datepicker", id = "DtEnd" })
+                        @Html.ValidationMessageFor(model => model.DtBegin)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1">
+                <button type="submit" class="btn btn-default btn-sm pull-left">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Найти
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="panel-body" id="movements">
+    @{Html.RenderAction("List", "Movement", Model);}
+</div>

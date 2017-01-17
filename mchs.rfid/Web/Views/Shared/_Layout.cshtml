@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @RenderSection("head", required: false)
+    @Html.Partial("_html5shiv")
+    <meta name="author" content="InitCenter" />
+    <meta name="description" content="Клиентское приложение" />
+    <meta name="keywords" content="Пример работ" />
+    <meta name="application-name" content="mchs.rfid" />
+    @Html.Partial("_FontsPartial")
+    @Styles.Render("~/Content/css")
+    @Html.Partial("_IconsPartial")
+   
+    @RenderSection("CSS", required: false)
+</head>
+<body>
+    @Html.Partial("_HeaderPartial")
+    <div class="main">
+        <aside id="sidebar">
+            <div class="side-options">
+                <ul>
+                    <li><a href="#" id="collapse-nav" class="act act-primary tip" title="Скрыть навигацию"><i class="icon16 i-arrow-left-7"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-wrapper">
+                @Html.Partial("_LeftMenuPartial")
+
+                @RenderSection("LeftMenuWidgets", false)
+            </div>
+        </aside>
+        <section id="content">
+            <div class="wrapper">
+                @Html.MvcSiteMap().SiteMapPath("BootstrapSiteMapPathHelperModel")
+                <div class="container-fluid">
+
+                    @Html.Partial("_PageHeaderLine")
+
+                    @Html.Partial("_alerts")
+                    @Html.Partial("_validationSummary")
+                    @RenderSection("featured", required: false)
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+    </div>
+    @Scripts.Render("~/jsmain")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

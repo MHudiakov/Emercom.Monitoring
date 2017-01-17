@@ -1,0 +1,17 @@
+﻿.back-btn {
+    float: right;
+    margin-top:9px; 
+    margin-right: 10px;
+}
+
+td.success {
+    background-color: #dff0d8 !important
+}
+
+td.warning {
+    background-color: #faf2cc !important
+}
+
+td.error {
+    background-color: #f2dede !important
+}

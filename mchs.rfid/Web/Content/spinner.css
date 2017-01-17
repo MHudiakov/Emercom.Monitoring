@@ -1,0 +1,14 @@
+﻿.modal-dialog
+{
+    margin-top: 20%;
+    width: 300px;
+}
+
+.modal-content
+{
+    height: 90px;
+}
+
+.modal {
+    overflow-y: hidden !important;
+}

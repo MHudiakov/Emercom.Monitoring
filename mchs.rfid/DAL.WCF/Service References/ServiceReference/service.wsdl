@@ -1,0 +1,1259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceOperation" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="TcpServiceOperatorEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DAL.SQL.DataObjects" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Init.DbCore" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Init.DAL.Sync" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Init.DAL.Sync.Transfer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceOperation_TestConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestConnection" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_TestConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddkEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddkEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddkEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddkEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditkEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditkEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditkEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditkEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeletekEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletekEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeletekEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletekEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllkEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllkEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllkEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllkEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllTrips_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrips" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllTrips_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllTripComplectations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripComplectations" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllTripComplectations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTripComplectationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEquipment" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetComplectationByTripId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComplectationByTripId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetComplectationByTripId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComplectationByTripIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMovement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetLastMovements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastMovements" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetLastMovements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastMovementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMovement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMovement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMovement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovementListByTripId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementListByTripId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovementListByTripId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementListByTripIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovementListByEquipmentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementListByEquipmentId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovementListByEquipmentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementListByEquipmentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovementListByTimeAndUnitId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementListByTimeAndUnitId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovementListByTimeAndUnitId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementListByTimeAndUnitIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetMovement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddGeoPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeoPoint" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddGeoPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGeoPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllGeoPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGeoPoints" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllGeoPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGeoPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetGeoPointListByTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeoPointListByTime" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetGeoPointListByTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeoPointListByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetGeoPointListByTripId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeoPointListByTripId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetGeoPointListByTripId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGeoPointListByTripIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTag" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditTag" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTag" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTags" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddkObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddkObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddkObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddkObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditkObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditkObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditkObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditkObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeletekObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletekObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeletekObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletekObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllkObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllkObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllkObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllkObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUnit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUnit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetСomplectationListByUnitId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetСomplectationListByUnitId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetСomplectationListByUnitId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetСomplectationListByUnitIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetLastTrip_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastTrip" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetLastTrip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastTripResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetUniqEquipmentObjectListByUnitId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUniqEquipmentObjectListByUnitId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetUniqEquipmentObjectListByUnitId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUniqEquipmentObjectListByUnitIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddNonUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNonUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_AddNonUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNonUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditNonUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditNonUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_EditNonUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditNonUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteNonUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNonUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteNonUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNonUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllNonUniqEquipmentObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNonUniqEquipmentObject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetAllNonUniqEquipmentObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllNonUniqEquipmentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetNonUniqEquipmentListObjectByUnitId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonUniqEquipmentListObjectByUnitId" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetNonUniqEquipmentListObjectByUnitId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonUniqEquipmentListObjectByUnitIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_Count_InputMessage">
+    <wsdl:part name="parameters" element="tns:Count" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_Count_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_Add_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_Add_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_Edit_InputMessage">
+    <wsdl:part name="parameters" element="tns:Edit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_Edit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteWhere_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWhere" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_DeleteWhere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetItemsWhere_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsWhere" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetItemsWhere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemsWhereResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_TransferItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferItems" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_TransferItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPage" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceOperation">
+    <wsdl:operation name="TestConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/TestConnection" message="tns:IServiceOperation_TestConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/TestConnectionResponse" message="tns:IServiceOperation_TestConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddkEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddkEquipment" message="tns:IServiceOperation_AddkEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddkEquipmentResponse" message="tns:IServiceOperation_AddkEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditkEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditkEquipment" message="tns:IServiceOperation_EditkEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditkEquipmentResponse" message="tns:IServiceOperation_EditkEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletekEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeletekEquipment" message="tns:IServiceOperation_DeletekEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeletekEquipmentResponse" message="tns:IServiceOperation_DeletekEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllkEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllkEquipment" message="tns:IServiceOperation_GetAllkEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllkEquipmentResponse" message="tns:IServiceOperation_GetAllkEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddGroup" message="tns:IServiceOperation_AddGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddGroupResponse" message="tns:IServiceOperation_AddGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditGroup" message="tns:IServiceOperation_EditGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditGroupResponse" message="tns:IServiceOperation_EditGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteGroup" message="tns:IServiceOperation_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteGroupResponse" message="tns:IServiceOperation_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllGroup" message="tns:IServiceOperation_GetAllGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllGroupResponse" message="tns:IServiceOperation_GetAllGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddStore" message="tns:IServiceOperation_AddStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddStoreResponse" message="tns:IServiceOperation_AddStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditStore" message="tns:IServiceOperation_EditStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditStoreResponse" message="tns:IServiceOperation_EditStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteStore" message="tns:IServiceOperation_DeleteStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteStoreResponse" message="tns:IServiceOperation_DeleteStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllStore" message="tns:IServiceOperation_GetAllStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllStoreResponse" message="tns:IServiceOperation_GetAllStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrips">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllTrips" message="tns:IServiceOperation_GetAllTrips_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllTripsResponse" message="tns:IServiceOperation_GetAllTrips_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTripComplectations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllTripComplectations" message="tns:IServiceOperation_GetAllTripComplectations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllTripComplectationsResponse" message="tns:IServiceOperation_GetAllTripComplectations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddEquipment" message="tns:IServiceOperation_AddEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddEquipmentResponse" message="tns:IServiceOperation_AddEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditEquipment" message="tns:IServiceOperation_EditEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditEquipmentResponse" message="tns:IServiceOperation_EditEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteEquipment" message="tns:IServiceOperation_DeleteEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteEquipmentResponse" message="tns:IServiceOperation_DeleteEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllEquipment" message="tns:IServiceOperation_GetAllEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllEquipmentResponse" message="tns:IServiceOperation_GetAllEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComplectationByTripId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetComplectationByTripId" message="tns:IServiceOperation_GetComplectationByTripId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetComplectationByTripIdResponse" message="tns:IServiceOperation_GetComplectationByTripId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddMovement" message="tns:IServiceOperation_AddMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddMovementResponse" message="tns:IServiceOperation_AddMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMovements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetLastMovements" message="tns:IServiceOperation_GetLastMovements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetLastMovementsResponse" message="tns:IServiceOperation_GetLastMovements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditMovement" message="tns:IServiceOperation_EditMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditMovementResponse" message="tns:IServiceOperation_EditMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteMovement" message="tns:IServiceOperation_DeleteMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteMovementResponse" message="tns:IServiceOperation_DeleteMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllMovement" message="tns:IServiceOperation_GetAllMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllMovementResponse" message="tns:IServiceOperation_GetAllMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementListByTripId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementListByTripId" message="tns:IServiceOperation_GetMovementListByTripId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementListByTripIdResponse" message="tns:IServiceOperation_GetMovementListByTripId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementListByEquipmentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementListByEquipmentId" message="tns:IServiceOperation_GetMovementListByEquipmentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementListByEquipmentIdResponse" message="tns:IServiceOperation_GetMovementListByEquipmentId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementListByTimeAndUnitId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementListByTimeAndUnitId" message="tns:IServiceOperation_GetMovementListByTimeAndUnitId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementListByTimeAndUnitIdResponse" message="tns:IServiceOperation_GetMovementListByTimeAndUnitId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetMovement" message="tns:IServiceOperation_GetMovement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetMovementResponse" message="tns:IServiceOperation_GetMovement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGeoPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddGeoPoint" message="tns:IServiceOperation_AddGeoPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddGeoPointResponse" message="tns:IServiceOperation_AddGeoPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGeoPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllGeoPoints" message="tns:IServiceOperation_GetAllGeoPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllGeoPointsResponse" message="tns:IServiceOperation_GetAllGeoPoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeoPointListByTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetGeoPointListByTime" message="tns:IServiceOperation_GetGeoPointListByTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetGeoPointListByTimeResponse" message="tns:IServiceOperation_GetGeoPointListByTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeoPointListByTripId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetGeoPointListByTripId" message="tns:IServiceOperation_GetGeoPointListByTripId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetGeoPointListByTripIdResponse" message="tns:IServiceOperation_GetGeoPointListByTripId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddTag" message="tns:IServiceOperation_AddTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddTagResponse" message="tns:IServiceOperation_AddTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditTag" message="tns:IServiceOperation_EditTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditTagResponse" message="tns:IServiceOperation_EditTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteTag" message="tns:IServiceOperation_DeleteTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteTagResponse" message="tns:IServiceOperation_DeleteTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllTags" message="tns:IServiceOperation_GetAllTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllTagsResponse" message="tns:IServiceOperation_GetAllTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddkObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddkObject" message="tns:IServiceOperation_AddkObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddkObjectResponse" message="tns:IServiceOperation_AddkObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditkObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditkObject" message="tns:IServiceOperation_EditkObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditkObjectResponse" message="tns:IServiceOperation_EditkObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletekObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeletekObject" message="tns:IServiceOperation_DeletekObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeletekObjectResponse" message="tns:IServiceOperation_DeletekObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllkObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllkObject" message="tns:IServiceOperation_GetAllkObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllkObjectResponse" message="tns:IServiceOperation_GetAllkObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddUnit" message="tns:IServiceOperation_AddUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddUnitResponse" message="tns:IServiceOperation_AddUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditUnit" message="tns:IServiceOperation_EditUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditUnitResponse" message="tns:IServiceOperation_EditUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteUnit" message="tns:IServiceOperation_DeleteUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteUnitResponse" message="tns:IServiceOperation_DeleteUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllUnit" message="tns:IServiceOperation_GetAllUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllUnitResponse" message="tns:IServiceOperation_GetAllUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetСomplectationListByUnitId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetСomplectationListByUnitId" message="tns:IServiceOperation_GetСomplectationListByUnitId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetСomplectationListByUnitIdResponse" message="tns:IServiceOperation_GetСomplectationListByUnitId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastTrip">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetLastTrip" message="tns:IServiceOperation_GetLastTrip_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetLastTripResponse" message="tns:IServiceOperation_GetLastTrip_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddUniqEquipmentObject" message="tns:IServiceOperation_AddUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddUniqEquipmentObjectResponse" message="tns:IServiceOperation_AddUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditUniqEquipmentObject" message="tns:IServiceOperation_EditUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditUniqEquipmentObjectResponse" message="tns:IServiceOperation_EditUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteUniqEquipmentObject" message="tns:IServiceOperation_DeleteUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteUniqEquipmentObjectResponse" message="tns:IServiceOperation_DeleteUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllUniqEquipmentObject" message="tns:IServiceOperation_GetAllUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllUniqEquipmentObjectResponse" message="tns:IServiceOperation_GetAllUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUniqEquipmentObjectListByUnitId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetUniqEquipmentObjectListByUnitId" message="tns:IServiceOperation_GetUniqEquipmentObjectListByUnitId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetUniqEquipmentObjectListByUnitIdResponse" message="tns:IServiceOperation_GetUniqEquipmentObjectListByUnitId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNonUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddNonUniqEquipmentObject" message="tns:IServiceOperation_AddNonUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddNonUniqEquipmentObjectResponse" message="tns:IServiceOperation_AddNonUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditNonUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/EditNonUniqEquipmentObject" message="tns:IServiceOperation_EditNonUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditNonUniqEquipmentObjectResponse" message="tns:IServiceOperation_EditNonUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNonUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteNonUniqEquipmentObject" message="tns:IServiceOperation_DeleteNonUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteNonUniqEquipmentObjectResponse" message="tns:IServiceOperation_DeleteNonUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNonUniqEquipmentObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetAllNonUniqEquipmentObject" message="tns:IServiceOperation_GetAllNonUniqEquipmentObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetAllNonUniqEquipmentObjectResponse" message="tns:IServiceOperation_GetAllNonUniqEquipmentObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNonUniqEquipmentListObjectByUnitId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetNonUniqEquipmentListObjectByUnitId" message="tns:IServiceOperation_GetNonUniqEquipmentListObjectByUnitId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetNonUniqEquipmentListObjectByUnitIdResponse" message="tns:IServiceOperation_GetNonUniqEquipmentListObjectByUnitId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Count">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/Count" message="tns:IServiceOperation_Count_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/CountResponse" message="tns:IServiceOperation_Count_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/Add" message="tns:IServiceOperation_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/AddResponse" message="tns:IServiceOperation_Add_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/Edit" message="tns:IServiceOperation_Edit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/EditResponse" message="tns:IServiceOperation_Edit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWhere">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/DeleteWhere" message="tns:IServiceOperation_DeleteWhere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/DeleteWhereResponse" message="tns:IServiceOperation_DeleteWhere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsWhere">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetItemsWhere" message="tns:IServiceOperation_GetItemsWhere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetItemsWhereResponse" message="tns:IServiceOperation_GetItemsWhere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/TransferItems" message="tns:IServiceOperation_TransferItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/TransferItemsResponse" message="tns:IServiceOperation_TransferItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetPage" message="tns:IServiceOperation_GetPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetPageResponse" message="tns:IServiceOperation_GetPage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TcpServiceOperatorEndpoint" type="tns:IServiceOperation">
+    <wsp:PolicyReference URI="#TcpServiceOperatorEndpoint_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="TestConnection">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/TestConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddkEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddkEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditkEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditkEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletekEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeletekEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllkEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllkEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroup">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditGroup">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStore">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditStore">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStore">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStore">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrips">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllTrips" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTripComplectations">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllTripComplectations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEquipment">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComplectationByTripId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetComplectationByTripId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovement">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddMovement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMovements">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetLastMovements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMovement">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditMovement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovement">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteMovement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMovement">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllMovement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementListByTripId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetMovementListByTripId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementListByEquipmentId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetMovementListByEquipmentId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovementListByTimeAndUnitId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetMovementListByTimeAndUnitId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovement">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetMovement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGeoPoint">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddGeoPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGeoPoints">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllGeoPoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeoPointListByTime">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetGeoPointListByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeoPointListByTripId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetGeoPointListByTripId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTag">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditTag">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTag">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteTag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTags">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllTags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddkObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddkObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditkObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditkObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletekObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeletekObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllkObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllkObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUnit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUnit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUnit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetСomplectationListByUnitId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetСomplectationListByUnitId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastTrip">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetLastTrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUniqEquipmentObjectListByUnitId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetUniqEquipmentObjectListByUnitId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNonUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/AddNonUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditNonUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/EditNonUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNonUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteNonUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNonUniqEquipmentObject">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetAllNonUniqEquipmentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNonUniqEquipmentListObjectByUnitId">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetNonUniqEquipmentListObjectByUnitId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Count">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/Count" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Edit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/Edit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWhere">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/DeleteWhere" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsWhere">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetItemsWhere" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferItems">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/TransferItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceOperation">
+    <wsdl:port name="TcpServiceOperatorEndpoint" binding="tns:TcpServiceOperatorEndpoint">
+      <soap12:address location="net.tcp://localhost:8733/ServiceOperation" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8733/ServiceOperation</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

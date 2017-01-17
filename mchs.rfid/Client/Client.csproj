@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8A45E0D-C541-4F8B-89F5-D68254D82628}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.1.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI\Controls\ucTripHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucTripHistory.Designer.cs">
+      <DependentUpon>ucTripHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucTripRealTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucTripRealTime.Designer.cs">
+      <DependentUpon>ucTripRealTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditkObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditkObject.Designer.cs">
+      <DependentUpon>fmEditkObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditNonUniqEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditNonUniqEquipment.Designer.cs">
+      <DependentUpon>fmEditNonUniqEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditUniqEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditUniqEquipment.Designer.cs">
+      <DependentUpon>fmEditUniqEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditUnit.Designer.cs">
+      <DependentUpon>fmEditUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditkEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditkEquipment.Designer.cs">
+      <DependentUpon>fmEditkEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditGroup.Designer.cs">
+      <DependentUpon>fmEditGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditForms\fmEditEquipment.Designer.cs">
+      <DependentUpon>fmEditEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Map\CityBoundaryUI.cs" />
+    <Compile Include="UI\Map\CityConvexPolygonUi.cs" />
+    <Compile Include="UI\Map\ConvexPolygonMap.cs" />
+    <Compile Include="UI\Map\ServerManagerMap.cs" />
+    <Compile Include="UI\SpecialForms\fmStoreBoundariesOnMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmStoreBoundariesOnMap.Designer.cs">
+      <DependentUpon>fmStoreBoundariesOnMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmEquipment.Designer.cs">
+      <DependentUpon>fmEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmMovement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmMovement.Designer.cs">
+      <DependentUpon>fmMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\fmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\fmMain.Designer.cs">
+      <DependentUpon>fmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucCatalogkEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucCatalogkEquipment.Designer.cs">
+      <DependentUpon>ucCatalogkEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucCatalogkGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucCatalogkGroup.Designer.cs">
+      <DependentUpon>ucCatalogkGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucCatalogkObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucCatalogkObject.Designer.cs">
+      <DependentUpon>ucCatalogkObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucEquipments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucEquipments.Designer.cs">
+      <DependentUpon>ucEquipments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucMovementLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucMovementLog.Designer.cs">
+      <DependentUpon>ucMovementLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucRealTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucRealTime.Designer.cs">
+      <DependentUpon>ucRealTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ucUnits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ucUnits.Designer.cs">
+      <DependentUpon>ucUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmTripOnMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpecialForms\fmTripOnMap.Designer.cs">
+      <DependentUpon>fmTripOnMap.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\Controls\ucTripHistory.resx">
+      <DependentUpon>ucTripHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucTripRealTime.resx">
+      <DependentUpon>ucTripRealTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\fmEditkObject.resx">
+      <DependentUpon>fmEditkObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\fmEditNonUniqEquipment.resx">
+      <DependentUpon>fmEditNonUniqEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\fmEditUniqEquipment.resx">
+      <DependentUpon>fmEditUniqEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\fmEditUnit.resx">
+      <DependentUpon>fmEditUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\fmEditkEquipment.resx">
+      <DependentUpon>fmEditkEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditForms\fmEditGroup.resx">
+      <DependentUpon>fmEditGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\EditForms\fmEditEquipment.resx">
+      <DependentUpon>fmEditEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpecialForms\fmStoreBoundariesOnMap.resx">
+      <DependentUpon>fmStoreBoundariesOnMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpecialForms\fmEquipment.resx">
+      <DependentUpon>fmEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpecialForms\fmMovement.resx">
+      <DependentUpon>fmMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\fmMain.resx">
+      <DependentUpon>fmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucCatalogkEquipment.resx">
+      <DependentUpon>ucCatalogkEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucCatalogkGroup.resx">
+      <DependentUpon>ucCatalogkGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucCatalogkObject.resx">
+      <DependentUpon>ucCatalogkObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucEquipments.resx">
+      <DependentUpon>ucEquipments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucMovementLog.resx">
+      <DependentUpon>ucMovementLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucRealTime.resx">
+      <DependentUpon>ucRealTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ucUnits.resx">
+      <DependentUpon>ucUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpecialForms\fmTripOnMap.resx">
+      <DependentUpon>fmTripOnMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
+      <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
+      <Name>Init.DAL.Sync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.Wcf\Init.DbCore.Wcf.csproj">
+      <Project>{8d8a798a-9544-4113-9749-4c43bc7d9bf5}</Project>
+      <Name>Init.DbCore.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
+      <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
+      <Name>Init.DbCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.Tools.DevExpress\Project\Init.Tools.DevExpress.csproj">
+      <Project>{8a582d3d-7137-487c-92db-4ab1c77ba440}</Project>
+      <Name>Init.Tools.DevExpress</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.Tools\Tools.UI\Init.Tools.UI.csproj">
+      <Project>{1352ed84-6c4b-456e-88f7-ae832b9a8b5c}</Project>
+      <Name>Init.Tools.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
+      <Project>{76db3053-1978-4d3e-9b26-dd3e2096467e}</Project>
+      <Name>Init.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\PointLocalisation\PointLocalisation.csproj">
+      <Project>{f8bdf603-ed14-46f6-b1c0-107a26336a00}</Project>
+      <Name>PointLocalisation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.WCF\DAL.WCF.csproj">
+      <Project>{78d251fd-33f3-414a-ab6a-a1d8709ca7e1}</Project>
+      <Name>DAL.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maps\Maps.csproj">
+      <Project>{d094fcf4-2b31-4241-861c-e8cb128c8358}</Project>
+      <Name>Maps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\xGraphic\xGraphic.csproj">
+      <Project>{551a88c1-ccb2-4002-890a-05577c14cd19}</Project>
+      <Name>xGraphic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xCancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Messages_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_icon_presen_16_act.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knigi-i-literatura-kipia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RemontLog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Products.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OperPrograms_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PurposeTypes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TimeLostLog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HistoryLog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shedule96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FireTruck_Red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FireTruck_Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filefind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoveHistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tripRealTime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WorkShedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CityBoundary.png" />
+    <Content Include="Resources\CityBoundaryFocused.png" />
+    <None Include="Resources\polygon_16x16.png" />
+    <None Include="Resources\CityBoundary_16x16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

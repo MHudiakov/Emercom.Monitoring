@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Init.DAL.Sync.Transfer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Init.DAL.Sync.Transfer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TransferPartIdent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PartNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="ResourceId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferPartIdent" nillable="true" type="tns:TransferPartIdent" />
+  <xs:complexType name="TransferPart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsLast" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q1:ArrayOfanyType" />
+      <xs:element minOccurs="0" name="TransferPartIdent" nillable="true" type="tns:TransferPartIdent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferPart" nillable="true" type="tns:TransferPart" />
+</xs:schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6be492df-33c1-4faa-9f19-4acd0ac2d836" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8733/ServiceOperation/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f3d9313a-2bdc-4a90-a728-d1212860db96" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="dacf5f9b-6bde-4057-9374-eb690788a87c" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="DAL.SQL.DataObjects.xsd" MetadataType="Schema" ID="57362ca4-505c-49dd-9304-3f56532de3ea" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="Init.DbCore.xsd" MetadataType="Schema" ID="35c64fe2-b2b5-43d6-8c19-749b8b09b7e8" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="Server.Dal.SQL.DataObjects.xsd" MetadataType="Schema" ID="e9073dcb-8e0e-45c0-a15f-e3f49df05f80" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="41c87141-5243-4dc9-bf3e-88dc35df83d3" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="Init.DAL.Sync.xsd" MetadataType="Schema" ID="0aeb3ca7-431e-4422-b207-7970d28c2f6b" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="e64195f5-d797-4fb9-b3d9-f29fc33cab34" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+    <MetadataFile FileName="Init.DAL.Sync.Transfer.xsd" MetadataType="Schema" ID="d96be07d-bbff-40a8-a768-cd3d9e759ac3" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

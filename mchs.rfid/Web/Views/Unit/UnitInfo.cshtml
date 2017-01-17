@@ -1,0 +1,47 @@
+﻿@model Web.Models.Unit.UnitInfoModel
+
+@{
+    ViewBag.Title = "Данные по объекту";
+}
+
+@section scripts {
+    <script type="text/javascript" src="/Scripts/plugins/jquery.timer.js"></script>
+    <script type="text/javascript" src="/Scripts/Views/Unit/UnitInfo.js"></script>
+}
+
+<h2>Данные по объекту</h2>
+
+<div class="panel-body">
+    <input id="UnitId" type="text" style="display: none" value="@Model.Unit.Id" />
+    <div class="row">
+        <div class="col-lg-6">
+            Объект: @Model.Unit.Name (@Model.Unit.Type)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            прим: @Model.Unit.Description
+        </div>
+    </div>
+</div>
+
+<div class="panel-body">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#equipment" aria-controls="equipment" role="tab" data-toggle="tab">Оборудование</a></li>
+      <li role="presentation"><a href="#movement" aria-controls="movement" role="tab" data-toggle="tab">Движение</a></li>
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!--Списки-->
+        <div role="tabpanel" class="tab-pane active" id="equipment">
+            @{ Html.RenderPartial("UnitInfoPartial", Model); }
+        </div>
+
+        <!--Движение-->
+        <div role="tabpanel" class="tab-pane" id="movement">
+            @{ Html.RenderPartial("UnitMovementPartial", Model); }
+        </div>
+    </div>
+</div>

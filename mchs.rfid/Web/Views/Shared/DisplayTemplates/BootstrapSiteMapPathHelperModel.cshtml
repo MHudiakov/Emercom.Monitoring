@@ -1,0 +1,27 @@
+﻿@model SiteMapPathHelperModel
+@using System.Linq
+@if (Model.Nodes.Count != 1)
+{
+    <div class="crumb">
+        <ul class="breadcrumb">
+            @foreach (var node in Model.Nodes)
+            {
+                if (node == Model.Nodes.First())
+                {
+                    <li><a href="~/"><i class="icon16 i-home-4"></i>Главная</a></li>
+                    continue;
+                }
+
+                if (node != Model.Nodes.Last())
+                {
+                    string url = node.IsClickable ? node.Url : "#";
+                    <li><a href="@url">@node.Title</a><span class="divider"></span></li>
+                }
+                else
+                {
+                    <li class="active">@node.Title</li>
+                }
+            }
+        </ul>
+    </div>
+}

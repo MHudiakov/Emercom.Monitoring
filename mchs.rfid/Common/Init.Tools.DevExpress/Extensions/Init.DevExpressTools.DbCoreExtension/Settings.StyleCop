@@ -1,0 +1,9 @@
+<StyleCopSettings Version="105">
+  <Analyzers>
+    <Analyzer AnalyzerId="StyleCopPlus.StyleCopPlusRules">
+      <AnalyzerSettings>
+        <StringProperty Name="AdvancedNaming_Words"> 3D A AIS B BL C cb com DAL DB FIO fm FxCop gc GPS ID IDs IO k lc lci me OK sb SQL StyleCop te uc UI X</StringProperty>
+      </AnalyzerSettings>
+    </Analyzer>
+  </Analyzers>
+</StyleCopSettings>
