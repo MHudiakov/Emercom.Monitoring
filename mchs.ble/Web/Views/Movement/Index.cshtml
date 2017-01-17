@@ -30,7 +30,7 @@
     {       
         <div class="row">
             <div class="col-lg-6">
-                @Html.DropDownListFor(model => model.EquipmentId, Model.EquipmentList as SelectList, "- RFId оборудования -",
+                @Html.DropDownListFor(model => model.EquipmentId, Model.EquipmentList as SelectList, "- BLE оборудования -",
                                      htmlAttributes: new { @class = "input-group" })
                 @Html.ValidationMessageFor(model => model.EquipmentId)
             </div>
