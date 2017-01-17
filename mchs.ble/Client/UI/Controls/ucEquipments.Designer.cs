@@ -177,7 +177,7 @@
             // 
             // clmEquipmentRFId
             // 
-            this.clmEquipmentRFId.Caption = "Тэг RFid";
+            this.clmEquipmentRFId.Caption = "Тэг BLE";
             this.clmEquipmentRFId.FieldName = "RFId";
             this.clmEquipmentRFId.Name = "clmEquipmentRFId";
             this.clmEquipmentRFId.OptionsColumn.AllowEdit = false;

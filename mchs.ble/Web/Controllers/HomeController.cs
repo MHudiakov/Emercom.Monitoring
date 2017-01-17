@@ -32,7 +32,7 @@ namespace Web.Controllers
         [AllowAnonymous]
         public ActionResult About()
         {
-            ViewBag.Message = "mchs.rfid";
+            ViewBag.Message = "mchs.ble";
 
             return View();
         }

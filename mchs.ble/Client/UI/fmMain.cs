@@ -49,7 +49,7 @@ namespace Client.UI
             try
             {
                 var date = new DateTime(2016, 5, 10).ToShortDateString().ToString();
-                Text = "МЧС.RFId (Версия от " + date + ")";
+                Text = "МЧС.BLE (Версия от " + date + ")";
             }
             catch (Exception ex)
             {

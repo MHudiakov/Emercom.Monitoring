@@ -8,7 +8,7 @@
                     Справочник оборудования
                 </th>
                 <th style="width: 20%">
-                    RFId  оборудования
+                    BLE  оборудования
                 </th>
                 <th style="width: 20%">
                     Прибыло/убыло
@@ -22,10 +22,10 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.kEquipment.Name)
+                        @Html.DisplayFor(modelItem => item.kEquipmentName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Equipment.RFId)
+                        @Html.DisplayFor(modelItem => item.EquipmentRFId)
                     </td>
                     <td>
                         @(item.IsArrived?"Прибыло":"Убыло")
