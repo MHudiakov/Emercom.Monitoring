@@ -11,13 +11,14 @@ namespace DAL
 {
     using System;
 
-    using DAL.SQL.DataObjects;
     using DAL.SQL.Repositories;
 
     using Init.DAL.Sync.GeneralDataPoint;
     using Init.DbCore;
     using Init.DbCore.DataAccess;
     using Init.Tools;
+
+    using Server.Dal.Sql.DataObjects;
     using Server.Dal.SQL.Repositories;
     using Server.Dal.SQL.DataObjects;
 
@@ -56,8 +57,8 @@ namespace DAL
             RegisterRepository(new TripRepository(this));
             RegisterRepository(new TripComplectationRepository(this));
 
-            _kEquipmentRepository = new Lazy<kEquipmentRepository>(() => GetRepository<kEquipment>() as kEquipmentRepository, true);
-            _groupRepository = new Lazy<GroupRepository>(() => GetRepository<Group>() as GroupRepository, true);
+            _kEquipmentRepository = new Lazy<kEquipmentRepository>(() => GetRepository<KEquipment>() as kEquipmentRepository, true);
+            _groupRepository = new Lazy<GroupRepository>(() => GetRepository<EquipmentGroup>() as GroupRepository, true);
             _movementRepository = new Lazy<MovementRepository>(() => GetRepository<Movement>() as MovementRepository, true);
             _equipmentRepository = new Lazy<EquipmentRepository>(() => GetRepository<Equipment>() as EquipmentRepository, true);
             _kObjectRepository = new Lazy<kObjectRepository>(() => GetRepository<kObject>() as kObjectRepository, true);
@@ -165,7 +166,7 @@ namespace DAL
 
         #endregion
 
-        #region Group
+        #region EquipmentGroup
 
         /// <summary>
         /// Кешированная ссылка на репозиторий групп

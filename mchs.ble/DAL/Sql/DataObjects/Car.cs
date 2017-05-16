@@ -1,6 +1,5 @@
 ﻿namespace Server.Dal.Sql.DataObjects
 {
-    using System;
     using System.Runtime.Serialization;
 
     using Init.DbCore;
@@ -8,14 +7,14 @@
     using Init.DbCore.Metadata;
 
     /// <summary>
-    /// Движение оборудования
+    /// Модель машины
     /// </summary>
     [DataContract]
-    [DbTable("Movement")]
-    public class Movement : DbObject
+    [DbTable("Car")]
+    public class Car : DbObject
     {
         /// <summary>
-        /// Id 
+        /// Id
         /// </summary>
         [DataMember]
         [DbMember("Id", typeof(int))]
@@ -24,31 +23,31 @@
         public int Id { get; set; }
 
         /// <summary>
-        /// Id оборудования
+        /// Id подразделения, к которому приписана машина
         /// </summary>
         [DataMember]
-        [DbMember("EquipmentId", typeof(int))]
-        public int EquipmentId { get; set; }
+        [DbMember("DivisionId", typeof(int))]
+        public int DivisionId { get; set; }
 
         /// <summary>
-        /// Ид машины
+        /// Название
         /// </summary>
         [DataMember]
-        [DbMember("CarId", typeof(int))]
-        public int CarId { get; set; }
+        [DbMember("Name", typeof(string))]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Прибыло/Убыло
+        /// Номер машины
         /// </summary>
         [DataMember]
-        [DbMember("IsArrived", typeof(int))]
-        public bool IsArrived { get; set; }
+        [DbMember("Number", typeof(string))]
+        public string Number { get; set; }
 
         /// <summary>
-        /// Дата перемещения
+        /// Описание/примечание группы
         /// </summary>
         [DataMember]
-        [DbMember("Date", typeof(DateTime))]
-        public DateTime Date { get; set; }
+        [DbMember("Description", typeof(string))]
+        public string Description { get; set; }
     }
 }

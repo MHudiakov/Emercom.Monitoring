@@ -12,8 +12,6 @@ namespace DAL.SQL.Repositories
     using System;
     using System.Linq;
 
-    using DAL.SQL.DataObjects;
-
     using Init.DbCore.DB.MsSql;
     using Init.DbCore.Repository;
 

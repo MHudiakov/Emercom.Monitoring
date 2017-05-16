@@ -7,20 +7,27 @@
     using Init.DbCore.Metadata;
 
     /// <summary>
-    /// Классификатор оборудования
-    /// </summary>
+    /// Группа оборудования
+    /// </summary>   
+    [DbTable("EquipmentGroup")]
     [DataContract]
-    [DbTable("kEquipment")]
-    public class KEquipment : DbObject
+    public class EquipmentGroup : DbObject
     {
         /// <summary>
-        /// Id
+        /// Id группы оборудования
         /// </summary>
         [DataMember]
         [DbMember("Id", typeof(int))]
         [DbIdentity]
         [DbKey]
         public int Id { get; set; }
+
+        /// <summary>
+        /// Id родительской группы
+        /// </summary>
+        [DataMember]
+        [DbMember("ParentId", typeof(int?))]
+        public int? ParentId { get; set; }
 
         /// <summary>
         /// Название
@@ -30,17 +37,10 @@
         public string Name { get; set; }
 
         /// <summary>
-        /// Описание
+        /// Описание/примечание группы
         /// </summary>
         [DataMember]
         [DbMember("Description", typeof(string))]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Id группы, к которой относится оборудование
-        /// </summary>
-        [DataMember]
-        [DbMember("EquipmentGroupId", typeof(int))]
-        public int EquipmentGroupId { get; set; }
     }
 }

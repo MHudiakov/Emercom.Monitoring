@@ -6,12 +6,14 @@
     using Init.DbCore.DB.Metadata;
     using Init.DbCore.Metadata;
 
+    using Server.Dal.Sql.Enums;
+
     /// <summary>
-    /// Оборудование
+    /// Пользователь
     /// </summary>
     [DataContract]
-    [DbTable("Equipment")]
-    public class Equipment : DbObject
+    [DbTable("Division")]
+    public class User : DbObject
     {
         /// <summary>
         /// Id
@@ -23,18 +25,25 @@
         public int Id { get; set; }
 
         /// <summary>
-        /// Id машины, к которой приписано оборудование
+        /// Id подразделения, к которому приписан пользователь
         /// </summary>
         [DataMember]
-        [DbMember("CarId", typeof(int))]
-        public int CarId { get; set; }
+        [DbMember("DivisionId", typeof(int))]
+        public int DivisionId { get; set; }
 
         /// <summary>
-        /// Id классификатора оборудования
+        /// Логин
         /// </summary>
         [DataMember]
-        [DbMember("KEquipmentId", typeof(int))]
-        public int KEquipmentId { get; set; }
+        [DbMember("Login", typeof(string))]
+        public string Login { get; set; }
+
+        /// <summary>
+        /// Хэш пароля
+        /// </summary>
+        [DataMember]
+        [DbMember("PasswordHash", typeof(string))]
+        public string PasswordHash { get; set; }
 
         /// <summary>
         /// Название
@@ -44,24 +53,17 @@
         public string Name { get; set; }
 
         /// <summary>
-        /// Тэг BLE метки
+        /// Роль пользователя
         /// </summary>
         [DataMember]
-        [DbMember("Tag", typeof(string))]
-        public string Tag { get; set; }
+        [DbMember("Role", typeof(int))]
+        public UserRole Role { get; set; }
 
         /// <summary>
-        /// Описание/примечание группы
+        /// Описание
         /// </summary>
         [DataMember]
         [DbMember("Description", typeof(string))]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Ссылка на последнее движение
-        /// </summary>
-        [DataMember]
-        [DbMember("LastMovementId", typeof(int?))]
-        public int? LastMovementId { get; set; }
     }
 }

@@ -11,16 +11,16 @@ namespace DAL.SQL.Repositories
 {
     using System;
 
-    using DAL.SQL.DataObjects;
-
     using Init.DbCore.DB.MsSql;
 
     using Init.DbCore.Repository;
 
+    using Server.Dal.Sql.DataObjects;
+
     /// <summary>
     /// Репозиторий групп оборудования
     /// </summary>
-    public class GroupRepository : Repository<Group>
+    public class GroupRepository : Repository<EquipmentGroup>
     {
         /// <summary>
         /// Конструктор репозитория Групп оборудования
@@ -29,7 +29,7 @@ namespace DAL.SQL.Repositories
         /// Дата-менеджер
         /// </param>
         public GroupRepository(DalDataManager dataManager)
-            : base(new MsSqlDataAccess<Group>(dataManager.GetContext), dataManager)
+            : base(new MsSqlDataAccess<EquipmentGroup>(dataManager.GetContext), dataManager)
         {
         }
 
@@ -37,7 +37,7 @@ namespace DAL.SQL.Repositories
         /// Редактировать группу оборудования в кэше и в базе
         /// </summary>
         /// <param name="item">Объект</param>
-        protected override void EditOverride(Group item)
+        protected override void EditOverride(EquipmentGroup item)
         {
             if (string.IsNullOrWhiteSpace(item.Name))
                 throw new ArgumentException(@"Не задано название группы оборудования", "item");

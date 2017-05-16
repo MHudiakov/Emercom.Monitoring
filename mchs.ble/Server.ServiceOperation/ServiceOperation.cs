@@ -18,7 +18,6 @@ namespace Service
     using System.Xml;
 
     using DAL;
-    using DAL.SQL.DataObjects;
 
     using Init.DAL.Sync;
     using Init.DAL.Sync.GeneralDataPoint;
@@ -27,6 +26,8 @@ namespace Service
     using Init.Web;
     using Server.Dal.SQL.DataObjects;
     using PointLocalisation;
+
+    using Server.Dal.Sql.DataObjects;
 
     /// <summary>
     /// WCF сервис
@@ -70,7 +71,7 @@ namespace Service
         /// <param name="item">
         /// Элемент классификатора оборудования
         /// </param>
-        public void AddkEquipment(kEquipment item)
+        public void AddkEquipment(KEquipment item)
         {
             DalContainer.DataManager.kEquipmentRepository.Add(item);
         }
@@ -81,7 +82,7 @@ namespace Service
         /// <param name="item">
         /// Элемент классификатора оборудования
         /// </param>
-        public void EditkEquipment(kEquipment item)
+        public void EditkEquipment(KEquipment item)
         {
             DalContainer.DataManager.kEquipmentRepository.Edit(item);
         }
@@ -92,7 +93,7 @@ namespace Service
         /// <param name="item">
         /// Элемент классификатора оборудования
         /// </param>
-        public void DeletekEquipment(kEquipment item)
+        public void DeletekEquipment(KEquipment item)
         {
             DalContainer.DataManager.kEquipmentRepository.Delete(item);
         }
@@ -103,7 +104,7 @@ namespace Service
         /// <returns>
         /// Список классификаторов оборудования
         /// </returns>
-        public List<kEquipment> GetAllkEquipment()
+        public List<KEquipment> GetAllkEquipment()
         {
             return DalContainer.DataManager.kEquipmentRepository.GetAll();
         }
@@ -232,7 +233,7 @@ namespace Service
 
         #endregion
 
-        #region Group
+        #region EquipmentGroup
 
         /// <summary>
         /// Добавить группу оборудования
@@ -240,7 +241,7 @@ namespace Service
         /// <param name="item">
         /// Группа оборудования
         /// </param>
-        public void AddGroup(Group item)
+        public void AddGroup(EquipmentGroup item)
         {
             DalContainer.DataManager.GroupRepository.Add(item);
         }
@@ -251,7 +252,7 @@ namespace Service
         /// <param name="item">
         /// Группа оборудования
         /// </param>
-        public void EditGroup(Group item)
+        public void EditGroup(EquipmentGroup item)
         {
             DalContainer.DataManager.GroupRepository.Edit(item);
         }
@@ -262,7 +263,7 @@ namespace Service
         /// <param name="item">
         /// Группа оборудования
         /// </param>
-        public void DeleteGroup(Group item)
+        public void DeleteGroup(EquipmentGroup item)
         {
             DalContainer.DataManager.GroupRepository.Delete(item);
         }
@@ -273,7 +274,7 @@ namespace Service
         /// <returns>
         /// Группа оборудования
         /// </returns>
-        public List<Group> GetAllGroup()
+        public List<EquipmentGroup> GetAllGroup()
         {
             return DalContainer.DataManager.GroupRepository.GetAll();
         }

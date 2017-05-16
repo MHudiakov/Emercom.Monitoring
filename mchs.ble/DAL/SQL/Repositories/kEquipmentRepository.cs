@@ -11,15 +11,15 @@ namespace DAL.SQL.Repositories
 {
     using System;
 
-    using DAL.SQL.DataObjects;
-
     using Init.DbCore.DB.MsSql;
     using Init.DbCore.Repository;
+
+    using Server.Dal.Sql.DataObjects;
 
     /// <summary>
     /// Репозиторий оборудования
     /// </summary>
-    public class kEquipmentRepository : Repository<kEquipment> 
+    public class kEquipmentRepository : Repository<KEquipment> 
     {
         /// <summary>
         /// Конструктор репозитория оборудования
@@ -28,7 +28,7 @@ namespace DAL.SQL.Repositories
         /// Дата-менеджер
         /// </param>
         public kEquipmentRepository(DalDataManager dataManager)
-            : base(new MsSqlDataAccess<kEquipment>(dataManager.GetContext), dataManager)         
+            : base(new MsSqlDataAccess<KEquipment>(dataManager.GetContext), dataManager)         
         {
         }
 
@@ -36,7 +36,7 @@ namespace DAL.SQL.Repositories
         /// Редактировать оборудование в кэше и в базе
         /// </summary>
         /// <param name="item">Объект</param>
-        protected override void EditOverride(kEquipment item)
+        protected override void EditOverride(KEquipment item)
         {
             if (string.IsNullOrWhiteSpace(item.Name))
                 throw new ArgumentException(@"Не задано название оборудования", "item");

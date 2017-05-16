@@ -13,11 +13,10 @@ namespace DAL.SQL.Repositories
     using System.Collections.Generic;
     using System.Linq;
 
-    using DAL.SQL.DataObjects;
-
     using Init.DbCore.DB.MsSql;
     using Init.DbCore.Repository;
 
+    using Server.Dal.Sql.DataObjects;
     using Server.Dal.SQL.DataObjects;
 
     // todo удаление перегрузить ?
@@ -56,7 +55,7 @@ namespace DAL.SQL.Repositories
                     store = units.FirstOrDefault(u => u.kObjectId == typeStore.Id);
             }
 
-            var kequipment = DalContainer.DataManager.kEquipmentRepository.GetAll().FirstOrDefault(eq => eq.Id == item.kEquipmentId);
+            var kequipment = DalContainer.DataManager.kEquipmentRepository.GetAll().FirstOrDefault(eq => eq.Id == item.KEquipmentId);
 
             if (kequipment.IsUniq)
             {
@@ -92,8 +91,8 @@ namespace DAL.SQL.Repositories
             base.EditOverride(item);
 
             var kEquipmentList = DalContainer.DataManager.kEquipmentRepository.GetAll().ToList();
-            var oldkEquipment = kEquipmentList.FirstOrDefault(eq => eq.Id == oldItem.kEquipmentId);
-            var newkEquipment = kEquipmentList.FirstOrDefault(eq => eq.Id == item.kEquipmentId);
+            var oldkEquipment = kEquipmentList.FirstOrDefault(eq => eq.Id == oldItem.KEquipmentId);
+            var newkEquipment = kEquipmentList.FirstOrDefault(eq => eq.Id == item.KEquipmentId);
 
             if (oldkEquipment != newkEquipment)
             {

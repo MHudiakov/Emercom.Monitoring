@@ -13,19 +13,19 @@ namespace Service
     using System.Collections.Generic;
     using System.ServiceModel;
 
-    using DAL.SQL.DataObjects;
-
     using Init.DAL.Sync;
     using Init.DAL.Sync.Transfer;
     using Init.DbCore;
+
+    using Server.Dal.Sql.DataObjects;
     using Server.Dal.SQL.DataObjects;
 
     /// <summary>
     /// Интерфейс WCF сервиса
     /// </summary>
     [ServiceContract]
-    [ServiceKnownType(typeof(Group))]
-    [ServiceKnownType(typeof(kEquipment))]
+    [ServiceKnownType(typeof(EquipmentGroup))]
+    [ServiceKnownType(typeof(KEquipment))]
     [ServiceKnownType(typeof(Equipment))]
     [ServiceKnownType(typeof(Movement))]
     [ServiceKnownType(typeof(DbObject))]
@@ -51,7 +51,7 @@ namespace Service
         /// Элемент классификатора оборудования
         /// </param>
         [OperationContract]
-        void AddkEquipment(kEquipment item);
+        void AddkEquipment(KEquipment item);
 
         /// <summary>
         /// Редактировать классификатора оборудования
@@ -60,7 +60,7 @@ namespace Service
         /// Элемент классификатора оборудования
         /// </param>
         [OperationContract]
-        void EditkEquipment(kEquipment item);
+        void EditkEquipment(KEquipment item);
 
         /// <summary>
         /// Удалить классификатора оборудования
@@ -69,7 +69,7 @@ namespace Service
         /// Элемент классификатора оборудования
         /// </param>
         [OperationContract]
-        void DeletekEquipment(kEquipment item);
+        void DeletekEquipment(KEquipment item);
 
         /// <summary>
         /// Получить список классификаторов оборудования
@@ -78,11 +78,11 @@ namespace Service
         /// Список классификаторов оборудования
         /// </returns>
         [OperationContract]
-        List<kEquipment> GetAllkEquipment();
+        List<KEquipment> GetAllkEquipment();
 
         #endregion
 
-        #region Group
+        #region EquipmentGroup
 
         /// <summary>
         /// Добавить группу оборудования
@@ -91,7 +91,7 @@ namespace Service
         /// Группа оборудования
         /// </param>
         [OperationContract]
-        void AddGroup(Group item);
+        void AddGroup(EquipmentGroup item);
 
         /// <summary>
         /// Редактировать группу оборудование
@@ -100,7 +100,7 @@ namespace Service
         /// Группа оборудования
         /// </param>
         [OperationContract]
-        void EditGroup(Group item);
+        void EditGroup(EquipmentGroup item);
 
         /// <summary>
         /// Удалить группу оборудование
@@ -109,7 +109,7 @@ namespace Service
         /// Группа оборудования
         /// </param>
         [OperationContract]
-        void DeleteGroup(Group item);
+        void DeleteGroup(EquipmentGroup item);
 
         /// <summary>
         /// Получить весь список групп оборудования
@@ -118,7 +118,7 @@ namespace Service
         /// Группа оборудования
         /// </returns>
         [OperationContract]
-        List<Group> GetAllGroup();
+        List<EquipmentGroup> GetAllGroup();
 
         #endregion
 

@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Group.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2014г.
-// </copyright>
-// <summary>
-//   Оборудование
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace DAL.SQL.DataObjects
+﻿namespace Server.Dal.Sql.DataObjects
 {
     using System.Runtime.Serialization;
 
@@ -16,30 +7,30 @@ namespace DAL.SQL.DataObjects
     using Init.DbCore.Metadata;
 
     /// <summary>
-    /// Оборудование
-    /// </summary>   
-    [DbTable("kGroup")]
+    /// Подразделение МЧС
+    /// </summary>
     [DataContract]
-    public class Group : DbObject
+    [DbTable("Division")]
+    public class Division : DbObject
     {
         /// <summary>
-        /// Id группы оборудования
+        /// Id
         /// </summary>
         [DataMember]
         [DbMember("Id", typeof(int))]
-        [DbIdentityAttribute]
-        [DbKeyAttribute]
+        [DbIdentity]
+        [DbKey]
         public int Id { get; set; }
-
+ 
         /// <summary>
-        /// Id группы оборудования, которой принадлежит данная
+        /// Id родительского подразделения
         /// </summary>
         [DataMember]
         [DbMember("ParentId", typeof(int?))]
         public int? ParentId { get; set; }
 
         /// <summary>
-        /// Название группы
+        /// Название
         /// </summary>
         [DataMember]
         [DbMember("Name", typeof(string))]
