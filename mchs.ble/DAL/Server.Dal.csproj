@@ -91,10 +91,6 @@
       <Project>{76db3053-1978-4d3e-9b26-dd3e2096467e}</Project>
       <Name>Init.Tools</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\PointLocalisation\PointLocalisation.csproj">
-      <Project>{f8bdf603-ed14-46f6-b1c0-107a26336a00}</Project>
-      <Name>PointLocalisation</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
