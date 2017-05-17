@@ -7,29 +7,19 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Server.Dal;
+using System;
+using Init.DbCore.DB.MsSql;
+using Init.DbCore.Repository;
+using Server.Dal.Sql.DataObjects;
 
-namespace DAL.SQL.Repositories
+namespace Server.Dal.Sql.Repositories
 {
-    using System;
-
-    using Init.DbCore.DB.MsSql;
-    using Init.DbCore.Repository;
-
-    using Server.Dal.Sql.DataObjects;
-
     /// <summary>
-    /// Репозиторий оборудования
+    /// Репозиторий классификаторов оборудования
     /// </summary>
-    public class kEquipmentRepository : Repository<KEquipment> 
+    public class KEquipmentRepository : Repository<KEquipment> 
     {
-        /// <summary>
-        /// Конструктор репозитория оборудования
-        /// </summary>
-        /// <param name="dataManager">
-        /// Дата-менеджер
-        /// </param>
-        public kEquipmentRepository(DataManager dataManager)
+        public KEquipmentRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<KEquipment>(dataManager.GetContext), dataManager)         
         {
         }
@@ -41,7 +31,7 @@ namespace DAL.SQL.Repositories
         protected override void EditOverride(KEquipment item)
         {
             if (string.IsNullOrWhiteSpace(item.Name))
-                throw new ArgumentException(@"Не задано название оборудования", "item");
+                throw new ArgumentException(@"Не задано название оборудования", nameof(item));
 
             base.EditOverride(item);
         }

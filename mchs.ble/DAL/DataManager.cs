@@ -6,6 +6,7 @@ using Init.DbCore.DataAccess;
 using Init.Tools;
 using Server.Dal.Sql.DataObjects;
 using Server.Dal.Sql.Repositories;
+using Server.Dal.SQL.Repositories;
 
 namespace Server.Dal
 {
@@ -14,11 +15,6 @@ namespace Server.Dal
     /// </summary>
     public sealed class DataManager : Init.DbCore.DataManager
     {
-        /// <summary>
-        /// Логер
-        /// </summary>
-        public Loger Loger { get; } = new Loger();
-
         /// <summary>
         /// Cтратегия универсальной точки обмена данными
         /// </summary>
@@ -34,6 +30,8 @@ namespace Server.Dal
             /////////////////////////////////////
             // Создаем и регистрируем репозитории
             /////////////////////////////////////
+
+            Log.Add("Info", "Start creating repos");
 
             // Репозиторий групп оборудования
             RegisterRepository(new EquipmentGroupRepository(this));
@@ -53,6 +51,37 @@ namespace Server.Dal
                 new Lazy<UserRepository>(() => GetRepository<User>() as UserRepository,
                     true);
 
+            // Репозиторий настроек
+            RegisterRepository(new SettingsRepository(this));
+            _settingsRepository =
+                new Lazy<SettingsRepository>(() => GetRepository<Settings>() as SettingsRepository,
+                    true);
+
+            // Репозиторий юнитов
+            RegisterRepository(new UnitRepository(this));
+            _unitRepository =
+                new Lazy<UnitRepository>(() => GetRepository<Unit>() as UnitRepository,
+                    true);
+
+            // Репозиторий классификаторов оборудования
+            RegisterRepository(new KEquipmentRepository(this));
+            _kEquipmentRepository =
+                new Lazy<KEquipmentRepository>(() => GetRepository<KEquipment>() as KEquipmentRepository,
+                    true);
+
+            // Репозиторий оборудования
+            RegisterRepository(new EquipmentRepository(this));
+            _equipmentRepository =
+                new Lazy<EquipmentRepository>(() => GetRepository<Equipment>() as EquipmentRepository,
+                    true);
+
+            // Репозиторий передвижений оборудования
+            RegisterRepository(new MovementRepository(this));
+            _movementRepository =
+                new Lazy<MovementRepository>(() => GetRepository<Movement>() as MovementRepository,
+                    true);
+
+            Log.Add("Info", "Finished creating repos");
         }
 
         /// <summary>
@@ -117,6 +146,76 @@ namespace Server.Dal
         /// Репозиторий пользователей
         /// </summary>
         public UserRepository UserRepository => _userRepository.Value;
+
+        #endregion
+
+        #region SettingsRepo
+
+        /// <summary>
+        /// Кешированная ссылка на репозиторий настроек
+        /// </summary>
+        private readonly Lazy<SettingsRepository> _settingsRepository;
+
+        /// <summary>
+        /// Репозиторий настроек
+        /// </summary>
+        public SettingsRepository SettingsRepository => _settingsRepository.Value;
+
+        #endregion
+
+        #region UnitRepo
+
+        /// <summary>
+        /// Кешированная ссылка на репозиторий юнитов
+        /// </summary>
+        private readonly Lazy<UnitRepository> _unitRepository;
+
+        /// <summary>
+        /// Репозиторий юнитов
+        /// </summary>
+        public UnitRepository UnitRepository => _unitRepository.Value;
+
+        #endregion
+
+        #region KEquipmentRepo
+
+        /// <summary>
+        /// Кешированная ссылка на репозиторий классификаторов оборудования
+        /// </summary>
+        private readonly Lazy<KEquipmentRepository> _kEquipmentRepository;
+
+        /// <summary>
+        /// Репозиторий классификаторов оборудования
+        /// </summary>
+        public KEquipmentRepository KEquipmentRepository => _kEquipmentRepository.Value;
+
+        #endregion
+
+        #region EquipmentRepo
+
+        /// <summary>
+        /// Кешированная ссылка на репозиторий оборудования
+        /// </summary>
+        private readonly Lazy<EquipmentRepository> _equipmentRepository;
+
+        /// <summary>
+        /// Репозиторий оборудования
+        /// </summary>
+        public EquipmentRepository EquipmentRepository => _equipmentRepository.Value;
+
+        #endregion
+
+        #region MovementRepo
+
+        /// <summary>
+        /// Кешированная ссылка на репозиторий передвижений оборудования
+        /// </summary>
+        private readonly Lazy<MovementRepository> _movementRepository;
+
+        /// <summary>
+        /// Репозиторий передвижений оборудования
+        /// </summary>
+        public MovementRepository MovementRepository => _movementRepository.Value;
 
         #endregion
     }

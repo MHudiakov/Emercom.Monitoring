@@ -52,18 +52,11 @@
     <Compile Include="Sql\DataObjects\User.cs" />
     <Compile Include="Sql\Enums\UserRole.cs" />
     <Compile Include="Sql\Repositories\DivisionRepository.cs" />
-    <Compile Include="Sql\Repositories\GeoPointsRepository.cs" />
     <Compile Include="Sql\Repositories\kEquipmentRepository.cs" />
     <Compile Include="Sql\Repositories\EquipmentGroupRepository.cs" />
-    <Compile Include="Sql\Repositories\kObjectRepository.cs" />
     <Compile Include="Sql\Repositories\MovementRepository.cs" />
     <Compile Include="Sql\Repositories\EquipmentRepository.cs" />
-    <Compile Include="Sql\Repositories\NonUniqEquipmentObjectRepository.cs" />
-    <Compile Include="Sql\Repositories\StoreRepository.cs" />
-    <Compile Include="Sql\Repositories\TagRepository.cs" />
-    <Compile Include="Sql\Repositories\TripComplectationRepository.cs" />
-    <Compile Include="Sql\Repositories\TripRepository.cs" />
-    <Compile Include="Sql\Repositories\UniqEquipmentObjectRepository.cs" />
+    <Compile Include="Sql\Repositories\SettingsRepository.cs" />
     <Compile Include="Sql\Repositories\UnitRepository.cs" />
     <Compile Include="Sql\Repositories\UserRepository.cs" />
   </ItemGroup>
