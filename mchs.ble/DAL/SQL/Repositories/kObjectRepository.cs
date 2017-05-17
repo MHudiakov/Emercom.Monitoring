@@ -25,7 +25,7 @@ namespace Server.Dal.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public kObjectRepository(DalDataManager dataManager)
+        public kObjectRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<kObject>(dataManager.GetContext), dataManager)
         {
         }

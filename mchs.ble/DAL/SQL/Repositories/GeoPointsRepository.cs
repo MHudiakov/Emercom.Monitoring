@@ -26,7 +26,7 @@ namespace Server.Dal.SQL.Repositories
         /// Конструктор репозитория гео меток
         /// </summary>
         /// <param name="dataManager"></param>
-        public GeoPointsRepository(DalDataManager dataManager)
+        public GeoPointsRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<GeoPoints>(dataManager.GetContext), dataManager)
         {
         }

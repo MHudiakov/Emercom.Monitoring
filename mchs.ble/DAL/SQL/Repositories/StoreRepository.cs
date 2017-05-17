@@ -29,7 +29,7 @@ namespace Server.Dal.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public StoreRepository(DalDataManager dataManager)
+        public StoreRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Store>(dataManager.GetContext), dataManager)
         {
         }

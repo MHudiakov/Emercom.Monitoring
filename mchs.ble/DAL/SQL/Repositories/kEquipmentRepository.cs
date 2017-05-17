@@ -7,6 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Server.Dal;
+
 namespace DAL.SQL.Repositories
 {
     using System;
@@ -27,7 +29,7 @@ namespace DAL.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public kEquipmentRepository(DalDataManager dataManager)
+        public kEquipmentRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<KEquipment>(dataManager.GetContext), dataManager)         
         {
         }

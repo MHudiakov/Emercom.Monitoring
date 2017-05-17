@@ -7,22 +7,19 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DAL.SQL.Repositories
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Linq;
+using Init.DbCore.DB.MsSql;
+using Init.DbCore.Repository;
+using Init.Tools;
+using Server.Dal.Sql.DataObjects;
+
+namespace Server.Dal.Sql.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.SqlClient;
-    using System.Data.SqlTypes;
-    using System.Linq;
-
-    using Init.DbCore.DB.MsSql;
-    using Init.DbCore.Repository;
-    using Init.Tools;
-
-    using Server.Dal.Sql.DataObjects;
-    using Server.Dal.SQL.DataObjects;
-
     /// <summary>
     /// Репозиторий движения оборудования
     /// </summary>
@@ -34,7 +31,7 @@ namespace DAL.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public MovementRepository(DalDataManager dataManager)
+        public MovementRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Movement>(dataManager.GetContext), dataManager)
         {
         }

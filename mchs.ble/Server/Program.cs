@@ -15,6 +15,7 @@ namespace Server
 
     using Init.Tools;
 
+    using Server.Dal;
     using Server.Host.Properties;
 
     using Service;
@@ -78,20 +79,20 @@ namespace Server
             try
             {
                 var connectionString = Settings.Default.ConnectionString;
-                var context = new DalDataContext(connectionString);               
+                var context = new DataContext(connectionString);               
 
-                var dataManger = new DalDataManager(context);
+                var dataManger = new DataManager(context);
                 DalContainer.RegisterDataManger(dataManger);
 
                 dataManger.Loger.OnLogMsg += msg =>
                 {
-                    Log.Add("main", msg, "DalDataManager");
-                    Console.WriteLine(@"{0}>> DalDataManager: {1}", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.ffff"), msg);
+                    Log.Add("main", msg, "DataManager");
+                    Console.WriteLine(@"{0}>> DataManager: {1}", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.ffff"), msg);
                 };
                 dataManger.Loger.OnLogException += ex =>
                 {
-                    Log.AddException("errors", ex, "DalDataManager");
-                    Log.Add("main", string.Format("Произошла ошибка. Подробности: {0}", ex.Message), "DalDataManager");
+                    Log.AddException("errors", ex, "DataManager");
+                    Log.Add("main", string.Format("Произошла ошибка. Подробности: {0}", ex.Message), "DataManager");
                     s_logger.LogException(ex);
                 };
             }

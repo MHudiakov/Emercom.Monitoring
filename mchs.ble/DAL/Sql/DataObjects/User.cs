@@ -6,14 +6,14 @@
     using Init.DbCore.DB.Metadata;
     using Init.DbCore.Metadata;
 
-    using Server.Dal.Sql.Enums;
+    using Enums;
 
     /// <summary>
     /// Пользователь
     /// </summary>
     [DataContract]
     [DbTable("Division")]
-    public class User : DbObject
+    public sealed class User : DbObject
     {
         /// <summary>
         /// Id

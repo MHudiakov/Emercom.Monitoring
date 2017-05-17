@@ -11,7 +11,7 @@
     /// </summary>
     [DataContract]
     [DbTable("Division")]
-    public class Division : DbObject
+    public sealed class Division : DbObject
     {
         /// <summary>
         /// Id

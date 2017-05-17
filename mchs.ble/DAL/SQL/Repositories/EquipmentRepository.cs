@@ -16,6 +16,7 @@ namespace DAL.SQL.Repositories
     using Init.DbCore.DB.MsSql;
     using Init.DbCore.Repository;
 
+    using Server.Dal;
     using Server.Dal.Sql.DataObjects;
     using Server.Dal.SQL.DataObjects;
 
@@ -31,7 +32,7 @@ namespace DAL.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public EquipmentRepository(DalDataManager dataManager)
+        public EquipmentRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Equipment>(dataManager.GetContext), dataManager)
         {
         }

@@ -29,7 +29,7 @@ namespace Server.Dal.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public UniqEquipmentObjectRepository(DalDataManager dataManager)
+        public UniqEquipmentObjectRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<UniqEquipmentObject>(dataManager.GetContext), dataManager)
         {
         }

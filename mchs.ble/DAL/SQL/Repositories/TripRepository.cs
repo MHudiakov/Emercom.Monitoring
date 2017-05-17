@@ -23,7 +23,7 @@ namespace Server.Dal.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public TripRepository(DalDataManager dataManager)
+        public TripRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Trip>(dataManager.GetContext), dataManager)
         {
         }

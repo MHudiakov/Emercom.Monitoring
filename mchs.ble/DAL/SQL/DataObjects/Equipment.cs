@@ -11,7 +11,7 @@
     /// </summary>
     [DataContract]
     [DbTable("Equipment")]
-    public class Equipment : DbObject
+    public sealed class Equipment : DbObject
     {
         /// <summary>
         /// Id
@@ -26,8 +26,8 @@
         /// Id машины, к которой приписано оборудование
         /// </summary>
         [DataMember]
-        [DbMember("CarId", typeof(int))]
-        public int CarId { get; set; }
+        [DbMember("UnitId", typeof(int))]
+        public int UnitId { get; set; }
 
         /// <summary>
         /// Id классификатора оборудования

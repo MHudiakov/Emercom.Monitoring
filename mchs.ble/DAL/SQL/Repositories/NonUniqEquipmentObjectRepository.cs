@@ -25,7 +25,7 @@ namespace Server.Dal.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public NonUniqEquipmentObjectRepository(DalDataManager dataManager)
+        public NonUniqEquipmentObjectRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<NonUniqEquipmentObject>(dataManager.GetContext), dataManager)
         {
         }

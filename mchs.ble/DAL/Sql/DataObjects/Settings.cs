@@ -11,7 +11,7 @@
     /// </summary>
     [DataContract]
     [DbTable("Settings")]
-    public class Settings : DbObject
+    public sealed class Settings : DbObject
     {
         /// <summary>
         /// Id

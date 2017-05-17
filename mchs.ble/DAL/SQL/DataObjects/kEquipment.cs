@@ -11,7 +11,7 @@
     /// </summary>
     [DataContract]
     [DbTable("kEquipment")]
-    public class KEquipment : DbObject
+    public sealed class KEquipment : DbObject
     {
         /// <summary>
         /// Id

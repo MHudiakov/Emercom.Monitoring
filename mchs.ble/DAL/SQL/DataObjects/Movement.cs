@@ -12,7 +12,7 @@
     /// </summary>
     [DataContract]
     [DbTable("Movement")]
-    public class Movement : DbObject
+    public sealed class Movement : DbObject
     {
         /// <summary>
         /// Id 
@@ -34,8 +34,8 @@
         /// Ид машины
         /// </summary>
         [DataMember]
-        [DbMember("CarId", typeof(int))]
-        public int CarId { get; set; }
+        [DbMember("UnitId", typeof(int))]
+        public int UnitId { get; set; }
 
         /// <summary>
         /// Прибыло/Убыло

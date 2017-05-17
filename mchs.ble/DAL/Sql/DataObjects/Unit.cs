@@ -7,11 +7,11 @@
     using Init.DbCore.Metadata;
 
     /// <summary>
-    /// Модель машины
+    /// Модель машины/места локации оборудовния
     /// </summary>
     [DataContract]
-    [DbTable("Car")]
-    public class Car : DbObject
+    [DbTable("Unit")]
+    public sealed class Unit : DbObject
     {
         /// <summary>
         /// Id
@@ -44,7 +44,7 @@
         public string Number { get; set; }
 
         /// <summary>
-        /// Описание/примечание группы
+        /// Описание
         /// </summary>
         [DataMember]
         [DbMember("Description", typeof(string))]

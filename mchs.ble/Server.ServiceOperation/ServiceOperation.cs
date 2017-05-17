@@ -27,6 +27,7 @@ namespace Service
     using Server.Dal.SQL.DataObjects;
     using PointLocalisation;
 
+    using Server.Dal;
     using Server.Dal.Sql.DataObjects;
 
     /// <summary>
@@ -50,7 +51,7 @@ namespace Service
             _standartDataPointStrategy = new StandartDataPointStrategy();
             _standartDataPointStrategy.RegisterDataAccess(DalContainer.DataManager.kEquipmentRepository);
             _standartDataPointStrategy.RegisterDataAccess(DalContainer.DataManager.EquipmentRepository);
-            _standartDataPointStrategy.RegisterDataAccess(DalContainer.DataManager.GroupRepository);
+            _standartDataPointStrategy.RegisterDataAccess(DalContainer.DataManager.EquipmentGroupRepository);
             _standartDataPointStrategy.RegisterDataAccess(DalContainer.DataManager.MovementRepository);
         }
 
@@ -243,7 +244,7 @@ namespace Service
         /// </param>
         public void AddGroup(EquipmentGroup item)
         {
-            DalContainer.DataManager.GroupRepository.Add(item);
+            DalContainer.DataManager.EquipmentGroupRepository.Add(item);
         }
 
         /// <summary>
@@ -254,7 +255,7 @@ namespace Service
         /// </param>
         public void EditGroup(EquipmentGroup item)
         {
-            DalContainer.DataManager.GroupRepository.Edit(item);
+            DalContainer.DataManager.EquipmentGroupRepository.Edit(item);
         }
 
         /// <summary>
@@ -265,7 +266,7 @@ namespace Service
         /// </param>
         public void DeleteGroup(EquipmentGroup item)
         {
-            DalContainer.DataManager.GroupRepository.Delete(item);
+            DalContainer.DataManager.EquipmentGroupRepository.Delete(item);
         }
 
         /// <summary>
@@ -276,7 +277,7 @@ namespace Service
         /// </returns>
         public List<EquipmentGroup> GetAllGroup()
         {
-            return DalContainer.DataManager.GroupRepository.GetAll();
+            return DalContainer.DataManager.EquipmentGroupRepository.GetAll();
         }
 
         #endregion

@@ -38,11 +38,11 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DalDataContext.cs" />
-    <Compile Include="DalDataManager.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="DataManager.cs" />
     <Compile Include="DalContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sql\DataObjects\Car.cs" />
+    <Compile Include="Sql\DataObjects\Unit.cs" />
     <Compile Include="Sql\DataObjects\Division.cs" />
     <Compile Include="Sql\DataObjects\KEquipment.cs" />
     <Compile Include="Sql\DataObjects\EquipmentGroup.cs" />
@@ -51,9 +51,10 @@
     <Compile Include="Sql\DataObjects\Settings.cs" />
     <Compile Include="Sql\DataObjects\User.cs" />
     <Compile Include="Sql\Enums\UserRole.cs" />
+    <Compile Include="Sql\Repositories\DivisionRepository.cs" />
     <Compile Include="Sql\Repositories\GeoPointsRepository.cs" />
     <Compile Include="Sql\Repositories\kEquipmentRepository.cs" />
-    <Compile Include="Sql\Repositories\GroupRepository.cs" />
+    <Compile Include="Sql\Repositories\EquipmentGroupRepository.cs" />
     <Compile Include="Sql\Repositories\kObjectRepository.cs" />
     <Compile Include="Sql\Repositories\MovementRepository.cs" />
     <Compile Include="Sql\Repositories\EquipmentRepository.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Sql\Repositories\TripRepository.cs" />
     <Compile Include="Sql\Repositories\UniqEquipmentObjectRepository.cs" />
     <Compile Include="Sql\Repositories\UnitRepository.cs" />
+    <Compile Include="Sql\Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -27,7 +27,7 @@ namespace Server.Dal.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public UnitRepository(DalDataManager dataManager)
+        public UnitRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Unit>(dataManager.GetContext), dataManager)
         {
         }

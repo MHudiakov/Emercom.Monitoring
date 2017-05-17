@@ -7,6 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Server.Dal;
+
 namespace DAL.SQL.Repositories
 {
     using System;
@@ -28,7 +30,7 @@ namespace DAL.SQL.Repositories
         /// <param name="dataManager">
         /// Дата-менеджер
         /// </param>
-        public TagRepository(DalDataManager dataManager)
+        public TagRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Tag>(dataManager.GetContext), dataManager)
         {
         }
