@@ -1,28 +1,11 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Program.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2014г.
-// </copyright>
-// <summary>
-//   Сервера
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System;
+using Init.Tools;
+using Server.Dal;
+using Server.WCF;
+using Settings = Server.Host.Properties.Settings;
 
-namespace Server
+namespace Server.Host
 {
-    using System;
-
-    using DAL;
-
-    using Init.Tools;
-
-    using Server.Dal;
-    using Server.Host.Properties;
-
-    using Service;
-
-    /// <summary>
-    /// Сервера
-    /// </summary>
     public class Program
     {
         /// <summary>
@@ -38,18 +21,16 @@ namespace Server
         {
             var ex =
                 new Exception(
-                    string.Format(
-                        "Необработанная ошибка в домене приложения. {0}",
-                        args.IsTerminating ? "Приложение будет закрыто" : "Приложение не будет закрыто"),
+                    $"Необработанная ошибка в домене приложения. {(args.IsTerminating ? "Приложение будет закрыто" : "Приложение не будет закрыто")}",
                     args.ExceptionObject as Exception);
 
-            s_logger.LogException(ex);
+            sLogger.LogException(ex);
         }
 
         /// <summary>
         /// Обертка системы логирования
         /// </summary>
-        private static Loger s_logger;
+        private static Loger sLogger;
 
         /// <summary>
         /// Точка входа сервера
@@ -57,20 +38,20 @@ namespace Server
         public static void Main()
         {
             // настраиваем систему логирования
-            s_logger = new Loger();
+            sLogger = new Loger();
 
-            s_logger.OnLogMsg += msg =>
+            sLogger.OnLogMsg += msg =>
             {
                 Log.Add("main", msg);
-                Console.WriteLine(@"{0}>> {1}", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.ffff"), msg);
+                Console.WriteLine(@"{0:dd.MM.yyyy HH:mm:ss.ffff}>> {1}", DateTime.Now, msg);
             };
-            s_logger.OnLogException += ex =>
+            sLogger.OnLogException += ex =>
             {
                 Log.AddException("errors", ex);
-                Log.Add("main", string.Format("Произошла ошибка. Подробности: {0}", ex.Message));
+                Log.Add("main", $"Произошла ошибка. Подробности: {ex.Message}");
             };
 
-            s_logger.LogMsg("Запуск сервера");
+            sLogger.LogMsg("Запуск сервера");
 
             // подписываемся на перехват ошибок в домене приложения
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
@@ -86,23 +67,23 @@ namespace Server
 
                 dataManger.Loger.OnLogMsg += msg =>
                 {
-                    Log.Add("main", msg, "DataManager");
-                    Console.WriteLine(@"{0}>> DataManager: {1}", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.ffff"), msg);
+                    Log.Add("main", msg, "GetDataManager");
+                    Console.WriteLine(@"{0:dd.MM.yyyy HH:mm:ss.ffff}>> GetDataManager: {1}", DateTime.Now, msg);
                 };
                 dataManger.Loger.OnLogException += ex =>
                 {
-                    Log.AddException("errors", ex, "DataManager");
-                    Log.Add("main", string.Format("Произошла ошибка. Подробности: {0}", ex.Message), "DataManager");
-                    s_logger.LogException(ex);
+                    Log.AddException("errors", ex, "GetDataManager");
+                    Log.Add("main", $"Произошла ошибка. Подробности: {ex.Message}", "GetDataManager");
+                    sLogger.LogException(ex);
                 };
             }
             catch (Exception ex)
             {
-                s_logger.LogException(new Exception("Ошибка создания подключения к DB. Приложение будет закрыто.", ex));
+                sLogger.LogException(new Exception("Ошибка создания подключения к DB. Приложение будет закрыто.", ex));
                 return;
             }
 
-            s_logger.LogMsg("Создание сервиса");                    
+            sLogger.LogMsg("Создание сервиса");                    
             try
             {
                 var serviceOperation = new ServiceOperation();
@@ -111,29 +92,45 @@ namespace Server
                 serviceOperation.Logger.OnLogException += ex =>
                 {
                     Log.AddException("errors", ex, "ServiceOperation");
-                    Log.Add("main", string.Format("Произошла ошибка. Подробности: {0}", ex.Message), "ServiceOperation");
-                    s_logger.LogException(new Exception("Ошибка на сервисе", ex));
+                    Log.Add("main", $"Произошла ошибка. Подробности: {ex.Message}", "ServiceOperation");
+                    sLogger.LogException(new Exception("Ошибка на сервисе", ex));
                 };
 
                 serviceOperation.Faulted += (sender, eventArgs) =>
                 {
-                    s_logger.LogMsg("Service перешел в состоянии Faulted. Перезапускаем сервис.");
+                    sLogger.LogMsg("Service перешел в состоянии Faulted. Перезапускаем сервис.");
                     serviceOperation.Stop();
                     serviceOperation.Start();
                 };
 
-                s_logger.LogMsg("Запуск сервиса");
+                sLogger.LogMsg("Запуск сервиса");
                 serviceOperation.Start();
             }
             catch (Exception exception)
             {
-                s_logger.LogException(new Exception("Ошибка запуска сервиса", exception));
+                sLogger.LogException(new Exception("Ошибка запуска сервиса", exception));
                 throw;
             }
 
+
+            //EquipmentGroup equipmentGroup = new EquipmentGroup();
+            //equipmentGroup.Name = "Test";
+            //equipmentGroup.ParentId = null;
+            //DalContainer.GetDataManager.EquipmentGroupRepository.Add(equipmentGroup);
+
+            //KEquipment kEquipment = new KEquipment();
+            //kEquipment.EquipmentGroupId = equipmentGroup.Id;
+            //kEquipment.Name = "dfsa";
+            //DalContainer.GetDataManager.KEquipmentRepository.Add(kEquipment);
+
+
+
+            var t = DalContainer.GetDataManager.MovementRepository.GetByTimeAndUnitId(1, DateTime.MinValue, DateTime.MinValue);
+
+
             do
             {
-                s_logger.LogMsg("для остановки сервера введите exit");
+                sLogger.LogMsg("для остановки сервера введите exit");
                 Console.Write(@"> ");
             }
 

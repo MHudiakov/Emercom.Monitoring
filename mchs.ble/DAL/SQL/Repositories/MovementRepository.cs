@@ -1,5 +1,13 @@
-﻿using Init.DbCore.DB.MsSql;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Linq;
+using Init.DbCore.DB.Metadata;
+using Init.DbCore.DB.MsSql;
 using Init.DbCore.Repository;
+using Init.Tools;
 using Server.Dal.Sql.DataObjects;
 
 namespace Server.Dal.Sql.Repositories
@@ -10,125 +18,108 @@ namespace Server.Dal.Sql.Repositories
             : base(new MsSqlDataAccess<Movement>(dataManager.GetContext), dataManager)
         {}
 
-        //private string TableName = "Movement";
+        private string MovementTableName => ((DbTableAttribute)Attribute.GetCustomAttribute(typeof(Movement), 
+            typeof(DbTableAttribute))).TableName;
 
-        ///// <summary>
-        ///// Изменение последнего передвижения
-        ///// </summary>
-        ///// <param name="item"></param>
-        //protected override void AddOverride(Movement item)
-        //{
-        //    base.AddOverride(item);
-        //    var equipment =
-        //        DalContainer.DataManager.EquipmentRepository.GetAll()
-        //            .FirstOrDefault(eq => eq.Id == item.Equipment.Id);
-        //    equipment.LastMovementId = item.Id;
-        //    DalContainer.DataManager.EquipmentRepository.Edit(equipment);
-        //}
+        /// <summary>
+        /// Изменение последнего передвижения у оборудования
+        /// </summary>
+        /// <param name="movement"></param>
+        protected override void AddOverride(Movement movement)
+        {
+            base.AddOverride(movement);
+            var equipment = movement.GetEquipment;
+            equipment.LastMovementId = movement.Id;
+            DalContainer.GetDataManager.EquipmentRepository.Edit(equipment);
+        }
 
-        ///// <summary>
-        ///// Метод получения списка передвижений по ид оборудования и промежутку времени
-        ///// </summary>
-        ///// <param name="equipmentId"></param>
-        ///// <param name="minTime"></param>
-        ///// <param name="maxTime"></param>
-        ///// <returns></returns>
-        //public List<Movement> GetByTimeAndUnitId(int unitId, DateTime minTime, DateTime maxTime)
-        //{
-        //    try
-        //    {
-        //        var context = DalContainer.DataManager.GetContext();
-        //        //проверка наличия времени
-        //        minTime = minTime < (DateTime)SqlDateTime.MinValue ? (DateTime)SqlDateTime.MinValue : minTime;
-        //        maxTime = maxTime <= (DateTime)SqlDateTime.MinValue ? DateTime.Now : maxTime;
-        //        var dt =
-        //            context.ExecuteDataTable(
-        //                string.Format(
-        //                    "SELECT * FROM [{0}] WHERE[DateOfMovement] >= @from AND [DateOfMovement] < @to",
-        //                    TableName),
-        //                new SqlParameter("from", minTime),
-        //                new SqlParameter("to", maxTime));
+        /// <summary>
+        /// Метод получения списка передвижений по ид оборудования и промежутку времени
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <param name="minTime"></param>
+        /// <param name="maxTime"></param>
+        /// <returns></returns>
+        public List<Movement> GetByTimeAndUnitId(int unitId, DateTime minTime, DateTime maxTime)
+        {
+            try
+            {
+                var context = DalContainer.GetDataManager.GetContext();
+                
+                // Проверка корректности времени
+                if (minTime < (DateTime) SqlDateTime.MinValue)
+                    minTime = (DateTime) SqlDateTime.MinValue;
 
-        //        if (dt.HasErrors)
-        //            throw new Exception(
-        //                string.Format("Ошибка выполнения запроса к {0} с параметрами:{1}", TableName, unitId));
+                if (maxTime <= minTime)
+                    maxTime = DateTime.Now;
+                
+                var dt =
+                    context.ExecuteDataTable(
+                        $"SELECT * FROM [{MovementTableName}] WHERE [Date] >= @from AND [Date] < @to and UnitId = @unitId",
+                        new SqlParameter("from", minTime),
+                        new SqlParameter("to", maxTime),
+                        new SqlParameter("unitId", unitId));
 
-        //        var listMovement = GetListMovement(dt);
-        //        return unitId != 0 ? listMovement.Where(x => x.UnitId == unitId).ToList() : listMovement;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(
-        //            string.Format(
-        //                "Ошибка создания списка объектов {0} по идентификаторам объекта {1} за промежуток времени от {2} по {3}",
-        //                typeof(Movement).FullName,
-        //                unitId,
-        //                minTime,
-        //                maxTime),
-        //            ex);
-        //    }
-        //}
+                if (dt.HasErrors)
+                    throw new Exception($"Ошибка выполнения запроса к {MovementTableName} с параметрами: {unitId}");
 
-        ///// <summary>
-        ///// Метод получения списка движений оборудования по ид оборудования
-        ///// </summary>
-        ///// <param name="equipmentId"></param>
-        ///// <returns></returns>
-        //public List<Movement> GetByEquipmentId(int? equipmentId)
-        //{
-        //    try
-        //    {
-        //        var context = DalContainer.DataManager.GetContext();
-        //        var dt =
-        //            context.ExecuteDataTable(
-        //                string.Format("SELECT * FROM [{0}] WHERE[EquipmentId] = @EquipmentId", TableName),
-        //                new SqlParameter("EquipmentId", equipmentId));
+                var listMovement = GetMovementList(dt);
+                return listMovement;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ошибка создания списка объектов {typeof(Movement).FullName} по идентификаторам объекта {unitId} за промежуток времени от {minTime} по {maxTime}",
+                    ex);
+            }
+        }
 
-        //        if (dt.HasErrors)
-        //            throw new Exception(
-        //                string.Format("Ошибка выполнения запроса к {0} с параметрами:{1}", TableName, equipmentId));
+        /// <summary>
+        /// Метод получения списка движений оборудования по ид оборудования
+        /// </summary>
+        /// <param name="equipmentId"></param>
+        /// <returns></returns>
+        public List<Movement> GetByEquipmentId(int? equipmentId)
+        {
+            try
+            {
+                var context = DalContainer.GetDataManager.GetContext();
+                var dt =
+                    context.ExecuteDataTable(
+                        $"SELECT * FROM [{MovementTableName}] WHERE[EquipmentId] = @EquipmentId",
+                        new SqlParameter("EquipmentId", equipmentId));
 
-        //        return GetListMovement(dt);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(
-        //            string.Format(
-        //                "Ошибка создания списка объектов {0} по идентификаторам оборудования {1}",
-        //                typeof(Movement).FullName,
-        //                equipmentId),
-        //            ex);
-        //    }
-        //}
+                if (dt.HasErrors)
+                    throw new Exception($"Ошибка выполнения запроса к {MovementTableName} с параметрами:{equipmentId}");
 
-        ///// <summary>
-        ///// получение списка передвижений из таблицы
-        ///// </summary>
-        ///// <param name="dt"></param>
-        ///// <returns></returns>
-        //private static List<Movement> GetListMovement(DataTable dt)
-        //{
-        //    var listMovement = (from DataRow row in dt.Rows
-        //                        select
-        //                            new Movement
-        //                                {
-        //                                    Id = row["Id"].ToInt(),
-        //                                    UnitId = row["UnitId"].ToInt(),
-        //                                    DateOfMovement = row["DateOfMovement"].ToDateTime(),
-        //                                    EquipmentId = row["EquipmentId"].ToInt(),
-        //                                    IsArrived = row["IsArrived"].ToBoolean()
-        //                                }).ToList();
-        //    return listMovement;
-        //}
+                return GetMovementList(dt);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ошибка создания списка объектов {typeof(Movement).FullName} по идентификаторам оборудования {equipmentId}",
+                    ex);
+            }
+        }
 
-        ///// <summary>
-        /////Поулчение списка последних передвижений длявсего оборудования
-        ///// </summary>
-        ///// <returns></returns>
-        //public List<Movement> GetLastMovements()
-        //{
-        //    var equipmentList = DalContainer.DataManager.EquipmentRepository.GetAll();
-        //    return equipmentList.Select(equipment => equipment.LastMovement).ToList();
-        //}
+        /// <summary>
+        /// получение списка передвижений из таблицы
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        private static List<Movement> GetMovementList(DataTable dt)
+        {
+            var listMovement = (from DataRow row in dt.Rows
+                                select
+                                    new Movement
+                                    {
+                                        Id = row["Id"].ToInt(),
+                                        UnitId = row["UnitId"].ToInt(),
+                                        Date = row["Date"].ToDateTime(),
+                                        EquipmentId = row["EquipmentId"].ToInt(),
+                                        IsArrived = row["IsArrived"].ToBoolean()
+                                    }).ToList();
+            return listMovement;
+        }
     }
 }

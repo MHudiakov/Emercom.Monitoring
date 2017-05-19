@@ -2,8 +2,6 @@
 {
     using System;
 
-    using DAL;
-
     /// <summary>
     /// Контейнер слоя доступа к данным
     /// </summary>
@@ -18,7 +16,7 @@
         /// Singletone instance объекта доступа к данным
         /// </summary>
         /// <exception cref="Exception">Если объект не зарегистрирован возбуждается исключение</exception>
-        public static DataManager DataManager
+        public static DataManager GetDataManager
         {
             get
             {

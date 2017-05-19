@@ -63,5 +63,12 @@
         [DataMember]
         [DbMember("LastMovementId", typeof(int?))]
         public int? LastMovementId { get; set; }
+
+        /// <summary>
+        /// Получить последнее движение оборудования
+        /// </summary>
+        public Movement GetLastMovement => LastMovementId != null ? 
+            DalContainer.GetDataManager.MovementRepository.Get(LastMovementId) : 
+            null;
     }
 }

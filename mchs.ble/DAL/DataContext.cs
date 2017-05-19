@@ -1,7 +1,7 @@
-﻿namespace DAL
-{
-    using Init.DbCore.DB.MsSql;
+﻿using Init.DbCore.DB.MsSql;
 
+namespace Server.Dal
+{
     /// <summary>
     /// Контекст доступа к БД
     /// </summary>

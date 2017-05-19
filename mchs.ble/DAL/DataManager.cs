@@ -1,5 +1,4 @@
 ﻿using System;
-using DAL;
 using Init.DAL.Sync.GeneralDataPoint;
 using Init.DbCore;
 using Init.DbCore.DataAccess;
@@ -15,6 +14,8 @@ namespace Server.Dal
     /// </summary>
     public sealed class DataManager : Init.DbCore.DataManager
     {
+        public Loger Loger { get; } = new Loger();
+
         /// <summary>
         /// Cтратегия универсальной точки обмена данными
         /// </summary>

@@ -7,33 +7,17 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Service
+using System;
+using System.Collections.Generic;
+using System.ServiceModel;
+using Server.Dal.Sql.DataObjects;
+
+namespace Server.WCF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ServiceModel;
-
-    using Init.DAL.Sync;
-    using Init.DAL.Sync.Transfer;
-    using Init.DbCore;
-
-    using Server.Dal.Sql.DataObjects;
-    using Server.Dal.SQL.DataObjects;
-
     /// <summary>
     /// Интерфейс WCF сервиса
     /// </summary>
     [ServiceContract]
-    [ServiceKnownType(typeof(EquipmentGroup))]
-    [ServiceKnownType(typeof(KEquipment))]
-    [ServiceKnownType(typeof(Equipment))]
-    [ServiceKnownType(typeof(Movement))]
-    [ServiceKnownType(typeof(DbObject))]
-    [ServiceKnownType(typeof(Tag))]
-    [ServiceKnownType(typeof(GeoPoints))]
-    [ServiceKnownType(typeof(Store))]
-    [ServiceKnownType(typeof(Trip))]
-    [ServiceKnownType(typeof(TripComplectation))]
     public interface IServiceOperation
     {
         /// <summary>
@@ -41,46 +25,6 @@ namespace Service
         /// </summary>
         [OperationContract]
         void TestConnection();
-
-        #region kEquipment
-
-        /// <summary>
-        /// Добавить классификатора оборудования
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора оборудования
-        /// </param>
-        [OperationContract]
-        void AddkEquipment(KEquipment item);
-
-        /// <summary>
-        /// Редактировать классификатора оборудования
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора оборудования
-        /// </param>
-        [OperationContract]
-        void EditkEquipment(KEquipment item);
-
-        /// <summary>
-        /// Удалить классификатора оборудования
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора оборудования
-        /// </param>
-        [OperationContract]
-        void DeletekEquipment(KEquipment item);
-
-        /// <summary>
-        /// Получить список классификаторов оборудования
-        /// </summary>
-        /// <returns>
-        /// Список классификаторов оборудования
-        /// </returns>
-        [OperationContract]
-        List<KEquipment> GetAllkEquipment();
-
-        #endregion
 
         #region EquipmentGroup
 
@@ -118,76 +62,60 @@ namespace Service
         /// Группа оборудования
         /// </returns>
         [OperationContract]
-        List<EquipmentGroup> GetAllGroup();
+        List<EquipmentGroup> GetGroupList();
 
         #endregion
 
-        #region Store
+
+
+
+
+
+
+
+
+
+        #region kEquipment
 
         /// <summary>
-        /// Добавить базу
+        /// Добавить классификатора оборудования
         /// </summary>
         /// <param name="item">
-        /// Группа оборудования
+        /// Классификатор оборудования
         /// </param>
         [OperationContract]
-        void AddStore(Store item);
+        void AddKEquipment(KEquipment item);
 
         /// <summary>
-        /// Редактировать базу
+        /// Редактировать классификатор оборудования
         /// </summary>
         /// <param name="item">
-        /// Группа оборудования
+        /// Классификатор оборудования
         /// </param>
         [OperationContract]
-        void EditStore(Store item);
+        void EditKEquipment(KEquipment item);
 
         /// <summary>
-        /// Удалить базу
+        /// Удалить классификатор оборудования
         /// </summary>
         /// <param name="item">
-        /// Группа оборудования
+        /// Классификатор оборудования
         /// </param>
         [OperationContract]
-        void DeleteStore(Store item);
+        void DeleteKEquipment(KEquipment item);
 
         /// <summary>
-        /// Получить весь список баз
+        /// Получить список классификаторов оборудования
         /// </summary>
         /// <returns>
-        /// Группа оборудования
+        /// Список классификаторов оборудования
         /// </returns>
         [OperationContract]
-        List<Store> GetAllStore();
+        List<KEquipment> GetKEquipmentList();
 
         #endregion
 
-        #region Trip
-
-
-        /// <summary>
-        /// Получить весь список поездок
-        /// </summary>
-        /// <returns>
-        /// Группа оборудования
-        /// </returns>
-        [OperationContract]
-        List<Trip> GetAllTrips();
-
-        #endregion
-
-        #region TripComplectation
-
-        /// <summary>
-        /// Получить весь список коплектации в поездке
-        /// </summary>
-        /// <returns>
-        /// Группа оборудования
-        /// </returns>
-        [OperationContract]
-        List<TripComplectation> GetAllTripComplectations();
-
-        #endregion
+        
 
         #region Equipment
 
@@ -227,21 +155,6 @@ namespace Service
         [OperationContract]
         List<Equipment> GetAllEquipment();
 
-        /// <summary>
-        /// Получить комплектацию машины во время конкретной поездке
-        /// </summary>
-        /// <param name="tripId">
-        /// Ид поездки
-        /// </param>
-        /// <param name="isStart">
-        /// Флаг, показывает, в начале или конце поездки получаем комплектацию
-        /// </param>
-        /// <returns>
-        /// Список оборудования
-        /// </returns>
-        [OperationContract]
-        List<Equipment> GetComplectationByTripId(int tripId, bool isStart);
-
         #endregion
 
         #region Movement
@@ -254,15 +167,6 @@ namespace Service
         /// </param>
         [OperationContract]
         void AddMovement(Movement item);
-
-        /// <summary>
-        /// Получить список последних передвижений
-        /// </summary>
-        /// <param name="item">
-        /// Движение оборудования
-        /// </param>
-        [OperationContract]
-        List<Movement> GetLastMovements();
 
         /// <summary>
         /// Редактировать движение оборудования
@@ -292,14 +196,6 @@ namespace Service
         List<Movement> GetAllMovement();
 
         /// <summary>
-        /// Метод получения списка передвижений по ид поездки
-        /// </summary>
-        /// <param name="tripId"></param>
-        /// <returns></returns>
-        [OperationContract]
-        List<Movement> GetMovementListByTripId(int tripId);
-
-        /// <summary>
         /// Полчения списка передвижений оборудования
         /// </summary>
         /// <param name="equipmentId"></param>
@@ -324,127 +220,6 @@ namespace Service
         /// <returns></returns>
         [OperationContract]
         Movement GetMovement(int? id);
-
-        #endregion
-
-        #region GeoPoints
-
-        /// <summary>
-        /// Добавить гео метку
-        /// </summary>
-        /// <param name="item">
-        /// Движение оборудования
-        /// </param>
-        [OperationContract]
-        void AddGeoPoint(GeoPoints item);
-
-        /// <summary>
-        /// Получить список гео меток
-        /// </summary>
-        /// <returns>
-        /// Список движений
-        /// </returns>
-        [OperationContract]
-        List<GeoPoints> GetAllGeoPoints();
-
-
-        /// <summary>
-        /// Получить список координат по промежутку времени и номеру объекта
-        /// </summary>
-        /// <returns>
-        /// Список движений
-        /// </returns>
-        [OperationContract]
-        List<GeoPoints> GetGeoPointListByTime(int itemId, DateTime minTime, DateTime maxTime);
-
-        /// <summary>
-        /// Получить список координат по поездке
-        /// </summary>
-        /// <returns>
-        /// Список движений
-        /// </returns>
-        [OperationContract]
-        List<GeoPoints> GetGeoPointListByTripId(int tripId, int idFrom, int count);
-
-        #endregion
-
-        #region Tag
-
-        /// <summary>
-        /// Добавить тег
-        /// </summary>
-        /// <param name="item">
-        /// Тег
-        /// </param>
-        [OperationContract]
-        void AddTag(Tag item);
-
-        /// <summary>
-        /// Редактировать тег
-        /// </summary>
-        /// <param name="item">
-        /// Тег
-        /// </param>
-        [OperationContract]
-        void EditTag(Tag item);
-
-        /// <summary>
-        /// Удалить тег
-        /// </summary>
-        /// <param name="item">
-        /// Тег
-        /// </param>
-        [OperationContract]
-        void DeleteTag(Tag item);
-
-        /// <summary>
-        /// Получить список тегов
-        /// </summary>
-        /// <returns>
-        /// Список тегов
-        /// </returns>
-        [OperationContract]
-        List<Tag> GetAllTags();
-
-        #endregion
-
-        #region kObject
-
-        /// <summary>
-        /// Добавление классификатора типа объекта
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора типа объекта
-        /// </param>
-        [OperationContract]
-        void AddkObject(kObject item);
-
-        /// <summary>
-        /// Редактирование классификатора типа объекта
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора типа объекта
-        /// </param>
-        [OperationContract]
-        void EditkObject(kObject item);
-
-        /// <summary>
-        /// Удаление классификатора типа объекта
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора типа объекта
-        /// </param>
-        [OperationContract]
-        void DeletekObject(kObject item);
-
-        /// <summary>
-        /// Получение списка классификаторов типов объектов
-        /// </summary>
-        /// <returns>
-        /// Список классификаторов типов объектов
-        /// </returns>
-        [OperationContract]
-        List<kObject> GetAllkObject();
 
         #endregion
 
@@ -485,210 +260,6 @@ namespace Service
         /// </returns>
         [OperationContract]
         List<Unit> GetAllUnit();
-
-        /// <summary>
-        /// Получение списка оборудования в объекте
-        /// </summary>
-        /// <param name="unitId"></param>
-        /// <returns></returns>
-        [OperationContract]
-        List<Equipment> GetСomplectationListByUnitId(int unitId);
-
-        /// <summary>
-        /// Получение последней поездки
-        /// </summary>
-        /// <param name="unitId"></param>
-        /// <returns></returns>
-        [OperationContract]
-        Trip GetLastTrip(int unitId);
-
-        #endregion
-
-        #region UniqEquipmentObject
-
-        /// <summary>
-        /// Добавление классификатора уникального оборудования для машины
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора уникального оборудования для машины
-        /// </param>
-        [OperationContract]
-        void AddUniqEquipmentObject(UniqEquipmentObject item);
-
-        /// <summary>
-        /// Редактирование классификатора уникального оборудования для машины
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора уникального оборудования для машины
-        /// </param>
-        [OperationContract]
-        void EditUniqEquipmentObject(UniqEquipmentObject item);
-
-        /// <summary>
-        /// Удаление классификатора уникального оборудования для машины
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора уникального оборудования для машины
-        /// </param>
-        [OperationContract]
-        void DeleteUniqEquipmentObject(UniqEquipmentObject item);
-
-        /// <summary>
-        /// Получение списка классификаторов уникального оборудования для машины
-        /// </summary>
-        /// <returns>
-        /// Список классификаторов уникального оборудования для машины
-        /// </returns>
-        [OperationContract]
-        List<UniqEquipmentObject> GetAllUniqEquipmentObject();
-
-        /// <summary>
-        /// Получение списка классификаторов уникального оборудования для машины 
-        /// </summary>
-        /// <returns>
-        /// Список классификаторов уникального оборудования для машины
-        /// </returns>
-        [OperationContract]
-        List<UniqEquipmentObject> GetUniqEquipmentObjectListByUnitId(int unitId);
-
-        #endregion
-
-        #region NonUniqEquipmentObject
-
-        /// <summary>
-        /// Добавление классификатора не уникального оборудования для машины
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора не уникального оборудования для машины
-        /// </param>
-        [OperationContract]
-        void AddNonUniqEquipmentObject(NonUniqEquipmentObject item);
-
-        /// <summary>
-        /// Редактирование классификатора не уникального оборудования для машины
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора не уникального оборудования для машины
-        /// </param>
-        [OperationContract]
-        void EditNonUniqEquipmentObject(NonUniqEquipmentObject item);
-
-        /// <summary>
-        /// Удаление классификатора не уникального оборудования для машины
-        /// </summary>
-        /// <param name="item">
-        /// Элемент классификатора не уникального оборудования для машины
-        /// </param>
-        [OperationContract]
-        void DeleteNonUniqEquipmentObject(NonUniqEquipmentObject item);
-
-        /// <summary>
-        /// Получение списка классификаторов не уникального оборудования для машины
-        /// </summary>
-        /// <returns>
-        /// Список классификаторов не уникального оборудования для машины
-        /// </returns>
-        [OperationContract]
-        List<NonUniqEquipmentObject> GetAllNonUniqEquipmentObject();
-
-        /// <summary>
-        /// Получение списка классификаторов неуникального оборудования для машины 
-        /// </summary>
-        /// <returns>
-        /// Список классификаторов уникального оборудования для машины
-        /// </returns>
-        [OperationContract]
-        List<NonUniqEquipmentObject> GetNonUniqEquipmentListObjectByUnitId(int unitId);
-        #endregion
-
-        #region GeneralDataPoint
-
-        /// <summary>
-        /// Получить количество элементов
-        /// </summary>
-        /// <param name="typeName">
-        /// Имя шлюза записи
-        /// </param>
-        /// <returns>
-        /// Количество элементов, доступное через шлюз записи
-        /// </returns>
-        [OperationContract]
-        long Count(string typeName);
-
-        /// <summary>
-        /// Добавляет запись
-        /// </summary>
-        /// <param name="item">
-        /// Информация о добавляемой записи
-        /// </param>
-        /// <returns>
-        /// Измененный объект, если есть автогенерируемые поля
-        /// </returns>
-        [OperationContract]
-        Change Add(Change item);
-
-        /// <summary>
-        /// Редактирование записи
-        /// </summary>
-        /// <param name="item">
-        /// Новое состояние записи
-        /// </param>
-        /// <returns>
-        ///  Измененный объект (Возврат изменений сервера)
-        /// </returns>
-        [OperationContract]
-        Change Edit(Change item);
-
-        /// <summary>
-        /// Удаление записи
-        /// </summary>
-        /// <param name="item">
-        /// Новое состояние записи
-        /// </param>
-        [OperationContract]
-        void DeleteWhere(Change item);
-
-        /// <summary>
-        /// Получение части записей по фильтру
-        /// </summary>
-        /// <param name="typeName">
-        /// Имя шлюза записи
-        /// </param>
-        /// <param name="keys">
-        /// Улюч-фильтр
-        /// </param>
-        /// <returns>
-        /// Часть объектов шлюза таблицы, проходищих фильтр keys
-        /// </returns>
-        [OperationContract]
-        List<Change> GetItemsWhere(string typeName, Dictionary<string, object> keys);
-
-        /// <summary>
-        /// Получение данных посредством TransferManager
-        /// </summary>
-        /// <param name="typeName">Имя шлюза записи</param>
-        /// <param name="ident">Идентификатор части</param>
-        /// <returns>Часть данных со списка</returns>
-        [OperationContract]
-        TransferPart TransferItems(string typeName, TransferPartIdent ident);
-
-        /// <summary>
-        /// Получение части объектов
-        /// </summary>
-        /// <param name="typeName">
-        /// Имя шлюза записи
-        /// </param>
-        /// <param name="pageIndex">
-        /// Номер страницы
-        /// </param>
-        /// <param name="count">
-        /// Количество объектов
-        /// </param>
-        /// <returns>
-        /// Список объектов начиная с idFrom длинной не более count
-        /// </returns>
-        [OperationContract]
-        List<Change> GetPage(string typeName, int pageIndex, int count);
 
         #endregion
     }

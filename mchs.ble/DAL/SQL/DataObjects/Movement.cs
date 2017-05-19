@@ -50,5 +50,10 @@
         [DataMember]
         [DbMember("Date", typeof(DateTime))]
         public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Получить оборудование, по которому было совершено передвижение
+        /// </summary>
+        public Equipment GetEquipment => DalContainer.GetDataManager.EquipmentRepository.Get(EquipmentId);
     }
 }
