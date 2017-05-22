@@ -8,23 +8,18 @@
 
         #region Группа
 
-        private Group group = null;
+        private EquipmentGroup _group;
 
         /// <summary>
         /// Группа оборудования
         /// </summary>
-        public Group Group
+        public EquipmentGroup EquipmentGroup
         {
             get
             {
-                if (group == null)
-                    group = DalContainer.WcfDataManager.EquipmentGroupList.SingleOrDefault(e => e.Id == this.KEquipment.GroupId);
-
-                return group;
-            }
-            set
-            {
-                group = value;
+                return _group ?? (_group =
+                           DalContainer.WcfDataManager.EquipmentGroupList.SingleOrDefault(
+                               e => e.Id == KEquipment.EquipmentGroupId));
             }
         }
 
@@ -32,17 +27,17 @@
 
         #region Тип оборудования
 
-        private kEquipment _kEquipment = null;
+        private KEquipment _kEquipment;
 
         /// <summary>
         /// Класс оборудования
         /// </summary>
-        public kEquipment KEquipment
+        public KEquipment KEquipment
         {
             get
             {
                 if (_kEquipment == null)
-                    _kEquipment = DalContainer.WcfDataManager.KEquipmentList.SingleOrDefault(e => e.GroupName == this.KEquipmentId);
+                    _kEquipment = DalContainer.WcfDataManager.KEquipmentList.SingleOrDefault(e => e.Id == this.KEquipmentId);
 
                 return _kEquipment;
             }
@@ -50,92 +45,31 @@
 
         #endregion
 
-        #region Метка RFId
-
-        private Tag _tag = null;
-
-        /// <summary>
-        /// Класс оборудования
-        /// </summary>
-        public Tag Tag
-        {
-            get
-            {
-                return this._tag
-                       ?? (this._tag = DalContainer.WcfDataManager.TagList.SingleOrDefault(e => e.Id == this.TagId));
-            }
-        }
-
-        #endregion
-
-        #region Поля в таблице
-
-        public string RFId { get { return this.Tag.Rfid ?? ""; } }
-
-        public string EquipmentName { get { return this.KEquipment.Name ?? ""; } }
-
-        public string EquipmentGroupName { get { return this.KEquipment.GroupName ?? ""; } }
-
-        public bool IsUniq { get { return this.KEquipment != null ? this.KEquipment.IsUniq : false; } }
-
-        #endregion
-
         #region Последнее движение
 
-        private Movement _movement = null;
+        private Movement _lastMovement;
         public Movement LastMovement
         {
             get
             {
-                if ((_movement == null) && (this.LastMovementId != null))
-                    _movement = DalContainer.WcfDataManager.MovementList.FirstOrDefault(m => m.Id == this.LastMovementId); // ServiceOperationClient.GetMovement(this.LastMovementId);
+                if (_lastMovement != null || LastMovementId == null) return _lastMovement;
+                if (LastMovementId != null)
+                    _lastMovement = DalContainer.WcfDataManager.ServiceOperationClient.GetMovement((int)LastMovementId);
 
-                return _movement;
+                return _lastMovement;
             }
         }
 
         /// <summary>
         /// Id последнего объекта, с/на которого(ый) происходило движение
         /// </summary>
-        public int LastUnitId
-        {
-            get
-            {
-                return this.LastMovement != null ? this.LastMovement.UnitId : 0;
-            }
-        }
+        public int LastUnitId => LastMovement?.UnitId ?? 0;
 
         /// <summary>
         /// Тип последнего движения - пришло/ушло
         /// </summary>
-        public bool IsArrivedBool
-        {
-            get
-            {
-                return LastMovement.IsArrived;
-            }
-        }
+        public bool IsArrivedBool => LastMovement.IsArrived;
 
-        /// <summary>
-        /// Является ли последний объект движения складом ?
-        /// </summary>
-        public bool IsInStore
-        {
-            get
-            {
-                if (LastUnitId != 0)
-                {
-                    var unit = DalContainer.WcfDataManager.UnitList.FirstOrDefault(u => u.Id == this.LastUnitId);
-
-                    return unit.IsStore;
-                }
-                else
-                    return true;
-            }
-        }
         #endregion
-
-        public int flag { get; set; }
-        public int RealCount { get; set; }
     }
 }

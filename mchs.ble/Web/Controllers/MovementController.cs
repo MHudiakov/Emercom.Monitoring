@@ -51,7 +51,7 @@ namespace Web.Controllers
                 movementList = movementList.Where(e => e.DateOfMovement.Date <= filter.DtEnd).ToList();
 
             if (filter.EquipmentId != null)
-                movementList = movementList.Where(movement => movement.kEquipment.Id == filter.EquipmentId).ToList();
+                movementList = movementList.Where(movement => movement.KEquipment.Id == filter.EquipmentId).ToList();
 
 
             var movementModelList = movementList.Select(movement => new MovementModel(movement))

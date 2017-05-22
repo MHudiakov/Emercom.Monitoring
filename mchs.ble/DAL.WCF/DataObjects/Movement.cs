@@ -1,101 +1,46 @@
 ﻿namespace DAL.WCF.ServiceReference
 {
-    using System;
     using System.Linq;
-    using System.Collections.Generic;
-
-    using DAL.WCF;
-
-    using Init.DbCore.Metadata;
+    using WCF;
 
     /// <summary>
     /// Движение по складу
     /// </summary>
     public partial class Movement
     {
-        /// <summary>
-        /// Определяем метод преобразования к строке для всех объектов БД
-        /// </summary>
-        /// <returns>
-        /// Название движения оборудования по складу
-        /// </returns>
-        public override string ToString()
-        {
-            return this.Id.ToString();
-        }
-
         #region Навигационные свойства
 
-
-        private Unit unit = null;
-        /// <summary>
-        /// Наличие оборудования на складе
-        /// </summary>
+        private Unit _unit;
+        
         public Unit Unit
         {
             get
             {
-                if (unit == null)
-                    unit = DalContainer.WcfDataManager.UnitList.SingleOrDefault(e => e.Id == this.UnitId);
-
-                return unit;
+                return _unit ?? (_unit = DalContainer.WcfDataManager.UnitList.SingleOrDefault(e => e.Id == UnitId));
             }
         }
 
-        public string UnitName { get { return this.Unit != null ? this.Unit.Name : ""; } }
+        public string UnitName => Unit != null ? Unit.Name : "";
 
-        private Equipment equipment = null;
-        /// <summary>
-        /// Наличие оборудования на складе
-        /// </summary>
+        private Equipment _equipment;
+        
         public Equipment Equipment 
         { 
             get
             {
-                if (equipment == null)
-                    equipment = DalContainer.WcfDataManager.EquipmentList.SingleOrDefault(e => e.Id == this.EquipmentId);
-                    
-                return equipment;
+                return _equipment ?? (_equipment =
+                           DalContainer.WcfDataManager.EquipmentList.SingleOrDefault(e => e.Id == EquipmentId));
             }
         }
 
-
-        private kEquipment kequipment = null;
-        /// <summary>
-        /// Оборудование
-        /// </summary>
-        public kEquipment kEquipment
-        {
-            get
-            {
-                if ((kequipment == null) && (kEquipmentId != 0))
-                    kequipment = DalContainer.WcfDataManager.KEquipmentList.SingleOrDefault(e => e.Id == this.kEquipmentId);
-
-                return kequipment;
-            }
-        }
-
-        public string EquipmentName { get { return this.Equipment != null ? this.Equipment.EquipmentName : ""; } }
-
-        public int kEquipmentId { get { return this.Equipment != null ? this.Equipment.kEquipmentId : 0; } }
-
-        public int ArrivedInt { get { return this.IsArrived ? 1 : 0; } }
-
-        private string arrived = null;
+        public string EquipmentName => Equipment != null ? Equipment.Name : "";
+        
+        public int ArrivedInt => IsArrived ? 1 : 0;
 
         /// <summary>
         /// Прибыло/Убыло
         /// </summary>
-        public string Arrived 
-        {
-            get
-            {
-                if (arrived == null)
-                    this.arrived = this.IsArrived ? "Прибыло" : "Убыло";
-                
-                return arrived;
-            }
-        }
+        public string Arrived => IsArrived ? "Прибыло" : "Убыло";
 
         #endregion
     }

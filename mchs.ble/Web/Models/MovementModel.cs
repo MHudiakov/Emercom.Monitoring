@@ -41,7 +41,7 @@ namespace Web.Models
                 DateOfMovement = movement.DateOfMovement;
                 DateOfMovementStr = movement.DateOfMovement.ToString("G");
                 EquipmentRFId = movement.Equipment != null ? movement.Equipment.RFId : "";
-                kEquipmentName = movement.kEquipment != null ? movement.kEquipment.Name : "";
+                kEquipmentName = movement.KEquipment != null ? movement.KEquipment.Name : "";
             }
         }
         #region DataFields
