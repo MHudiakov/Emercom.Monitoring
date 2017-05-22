@@ -41,17 +41,17 @@ namespace Web.Controllers
         {
             var movementList = DalContainer.WcfDataManager.MovementList;
 
-            if ((filter.DtBegin != null) && (filter.DtEnd != null))
-                movementList = movementList.Where(e => e.DateOfMovement.Date >= filter.DtBegin && e.DateOfMovement.Date <= filter.DtEnd).ToList();
+            //if ((filter.DtBegin != null) && (filter.DtEnd != null))
+            //    movementList = movementList.Where(e => e.DateOfMovement.Date >= filter.DtBegin && e.DateOfMovement.Date <= filter.DtEnd).ToList();
 
-            else if (filter.DtBegin != null)
-                movementList = movementList.Where(e => e.DateOfMovement.Date >= filter.DtBegin).ToList();
+            //else if (filter.DtBegin != null)
+            //    movementList = movementList.Where(e => e.DateOfMovement.Date >= filter.DtBegin).ToList();
 
-            else if (filter.DtEnd != null)
-                movementList = movementList.Where(e => e.DateOfMovement.Date <= filter.DtEnd).ToList();
+            //else if (filter.DtEnd != null)
+            //    movementList = movementList.Where(e => e.DateOfMovement.Date <= filter.DtEnd).ToList();
 
-            if (filter.EquipmentId != null)
-                movementList = movementList.Where(movement => movement.kEquipment.Id == filter.EquipmentId).ToList();
+            //if (filter.EquipmentId != null)
+            //    movementList = movementList.Where(movement => movement.KEquipment.Id == filter.EquipmentId).ToList();
 
 
             var movementModelList = movementList.Select(movement => new MovementModel(movement))

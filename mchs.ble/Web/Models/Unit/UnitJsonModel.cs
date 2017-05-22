@@ -37,10 +37,6 @@ namespace Web.Models.Unit
         /// </summary>
         public bool IsStore { get; private set; }
 
-        public List<UniqEquipmentObjectModel> UniqEquipmentObjectList { get; set; }
-
-        public List<NonUniqEquipmentObjectModel> NonUniqEquipmentObjectList { get; private set; }
-
         public List<MovementModel> MovmentList { get; private set; }
 
         public UnitJsonModel(Unit unit)
@@ -48,12 +44,8 @@ namespace Web.Models.Unit
             this.Id = unit.Id;
             this.Name = unit.Name;
             this.Description = unit.Description;
-            this.kObjectId = unit.kObjectId;
-            this.Type = unit.TypeName;
-            this.IsStore = unit.IsStore;
-
-            this.UniqEquipmentObjectList = new List<UniqEquipmentObjectModel>();
-            if (this.IsStore)
+            
+        /*    if (this.IsStore)
             {
                 foreach (var unEquip in DalContainer.WcfDataManager.UniqEquipmentList.Where(e => e.UnitId == unit.Id))
                 {
@@ -115,7 +107,7 @@ namespace Web.Models.Unit
             // последние 50 движений которые отображаем
             this.MovmentList = DalContainer.WcfDataManager.ServiceOperationClient
                 .GetMovementListByTimeAndUnitId(DateTime.MinValue, DateTime.Now, unit.Id).OrderByDescending(m => m.DateOfMovement)
-                .Take(50).Select(e => new MovementModel(e)).ToList();
+                .Take(50).Select(e => new MovementModel(e)).ToList();*/
         }
     }
 }

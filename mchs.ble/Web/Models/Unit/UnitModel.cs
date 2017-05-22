@@ -7,11 +7,11 @@
         public UnitModel(Unit unit)
         {
             this.Id = unit.Id;
-            this.Name = unit.Name;
+          /*  this.Name = unit.Name;
             this.Description = unit.Description;
             this.kObjectId = unit.kObjectId;
             this.Type = unit.TypeName;
-            this.IsStore = unit.IsStore;
+            this.IsStore = unit.IsStore;*/
         }
 
         public int Id { get; set; }

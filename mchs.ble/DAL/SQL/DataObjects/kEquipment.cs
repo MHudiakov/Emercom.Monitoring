@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="kEquipment.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2014г.
-// </copyright>
-// <summary>
-//   Оборудование
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace DAL.SQL.DataObjects
+﻿namespace Server.Dal.Sql.DataObjects
 {
     using System.Runtime.Serialization;
 
@@ -16,30 +7,30 @@ namespace DAL.SQL.DataObjects
     using Init.DbCore.Metadata;
 
     /// <summary>
-    /// Оборудование
+    /// Классификатор оборудования
     /// </summary>
     [DataContract]
     [DbTable("kEquipment")]
-    public class kEquipment : DbObject
+    public sealed class KEquipment : DbObject
     {
         /// <summary>
-        /// Id оборудования
+        /// Id
         /// </summary>
         [DataMember]
         [DbMember("Id", typeof(int))]
-        [DbIdentityAttribute]
-        [DbKeyAttribute]
+        [DbIdentity]
+        [DbKey]
         public int Id { get; set; }
 
         /// <summary>
-        /// Название оборудования
+        /// Название
         /// </summary>
         [DataMember]
         [DbMember("Name", typeof(string))]
         public string Name { get; set; }
 
         /// <summary>
-        /// Описание/примечание оборудования
+        /// Описание
         /// </summary>
         [DataMember]
         [DbMember("Description", typeof(string))]
@@ -49,14 +40,7 @@ namespace DAL.SQL.DataObjects
         /// Id группы, к которой относится оборудование
         /// </summary>
         [DataMember]
-        [DbMember("kGroupId", typeof(int))]
-        public int GroupId { get; set; }
-
-        /// <summary>
-        /// Флаг, указывающий на уникальность этого оборудования
-        /// </summary>
-        [DataMember]
-        [DbMember("IsUniq", typeof(int))]
-        public bool IsUniq { get; set; }
+        [DbMember("EquipmentGroupId", typeof(int))]
+        public int EquipmentGroupId { get; set; }
     }
 }

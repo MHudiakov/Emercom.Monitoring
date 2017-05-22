@@ -64,10 +64,6 @@
       <Project>{24704fdd-23e3-41df-8aee-ad684ec9ee82}</Project>
       <Name>Init.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\PointLocalisation\PointLocalisation.csproj">
-      <Project>{f8bdf603-ed14-46f6-b1c0-107a26336a00}</Project>
-      <Name>PointLocalisation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\Server.Dal.csproj">
       <Project>{4600b640-adf9-437e-8b17-08032b7cd058}</Project>
       <Name>Server.Dal</Name>

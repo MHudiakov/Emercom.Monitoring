@@ -10,10 +10,9 @@
 namespace DAL.WCF
 {
     using System;
-    using System.Linq;
     using System.ServiceModel;
 
-    using DAL.WCF.ServiceReference;
+    using ServiceReference;
     using System.Collections.Generic;
     using Init.Tools;
     using System.Threading;
@@ -27,7 +26,21 @@ namespace DAL.WCF
         /// <summary>
         /// Контекст подключения к WCF
         /// </summary>
-        public WcfDataContext Context { get; private set; }
+        public WcfDataContext Context { get; }
+
+        public List<Division> DivisionList { get; private set; }
+
+        public List<Equipment> EquipmentList { get; private set; }
+
+        public List<EquipmentGroup> EquipmentGroupList { get; private set; }
+
+        public List<KEquipment> KEquipmentList { get; private set; }
+
+        public List<Movement> MovementList { get; private set; }
+
+        public List<Unit> UnitList { get; private set; }
+
+        public List<User> UserList { get; private set; }
 
         /// <summary>
         /// Конструктор
@@ -38,28 +51,25 @@ namespace DAL.WCF
         public WcfDataManager(WcfDataContext context)
         {
             if (context == null)
-                throw new ArgumentNullException("context");
+                throw new ArgumentNullException(nameof(context));
 
             Context = context;
             Thread.Sleep(5000); 
             RefreshCashLists();
 
-            var thread = new Thread(new ThreadStart(this.LoadUnitTask)) { IsBackground = true };
+            var thread = new Thread(LoadUnitTask) { IsBackground = true };
             thread.Start();
         }
 
         public void RefreshCashLists()
         {
-            UnitList = this.ServiceOperationClient.GetAllUnit().ToList();
-            MovementList = this.ServiceOperationClient.GetLastMovements().ToList();
-            EquipmentList = this.ServiceOperationClient.GetAllEquipment().ToList();
-            UniqEquipmentList = this.ServiceOperationClient.GetAllUniqEquipmentObject().ToList();
-            NonUniqEquipmentList = this.ServiceOperationClient.GetAllNonUniqEquipmentObject().ToList();
-            TagList = this.ServiceOperationClient.GetAllTags().ToList();
-            kEquipmentList = this.ServiceOperationClient.GetAllkEquipment().ToList();
-            kObjectList = this.ServiceOperationClient.GetAllkObject().ToList();
-            GroupList = this.ServiceOperationClient.GetAllGroup().ToList();
-            TripList = this.ServiceOperationClient.GetAllTrips().ToList();
+            DivisionList = ServiceOperationClient.GetDivisionList();
+            EquipmentList = ServiceOperationClient.GetEquipmentList();
+            EquipmentGroupList = ServiceOperationClient.GetGroupList();
+            KEquipmentList = ServiceOperationClient.GetKEquipmentList();
+            MovementList = ServiceOperationClient.GetMovementList();
+            UnitList = ServiceOperationClient.GetUnitList();
+            UserList = ServiceOperationClient.GetUserList();
         }
 
         /// <summary>
@@ -83,27 +93,7 @@ namespace DAL.WCF
                 return _serviceOperationClient;
             }
         }
-
-        public List<Trip> TripList { get; private set; }
-
-        public List<Unit> UnitList { get; private set; }
-
-        public List<Movement> MovementList { get; private set; }
-
-        public List<Equipment> EquipmentList { get; private set; }
-
-        public List<UniqEquipmentObject> UniqEquipmentList { get; private set; }
-
-        public List<NonUniqEquipmentObject> NonUniqEquipmentList { get; private set; }
-
-        public List<Tag> TagList { get; private set; }
-
-        public List<kEquipment> kEquipmentList { get; private set; }
-
-        public List<kObject> kObjectList { get; private set; }
-
-        public List<Group> GroupList { get; private set; }
-
+        
         /// <summary>
         /// Поток обновления списков
         /// </summary>
@@ -124,7 +114,5 @@ namespace DAL.WCF
                 }
             }
         }
-
-
     }
 }

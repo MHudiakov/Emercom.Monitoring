@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Movement.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2014г.
-// </copyright>
-// <summary>
-//   Движение по складу
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace DAL.SQL.DataObjects
+﻿namespace Server.Dal.Sql.DataObjects
 {
     using System;
     using System.Runtime.Serialization;
@@ -17,27 +8,34 @@ namespace DAL.SQL.DataObjects
     using Init.DbCore.Metadata;
 
     /// <summary>
-    /// Движение по складу
+    /// Движение оборудования
     /// </summary>
     [DataContract]
     [DbTable("Movement")]
-    public class Movement : DbObject
+    public sealed class Movement : DbObject
     {
         /// <summary>
         /// Id 
         /// </summary>
         [DataMember]
         [DbMember("Id", typeof(int))]
-        [DbIdentityAttribute]
-        [DbKeyAttribute]
+        [DbIdentity]
+        [DbKey]
         public int Id { get; set; }
 
         /// <summary>
-        /// Id наличия на складе
+        /// Id оборудования
         /// </summary>
         [DataMember]
-        [DbMember("EquipmentId", typeof(int?))]
-        public int? EquipmentId { get; set; }
+        [DbMember("EquipmentId", typeof(int))]
+        public int EquipmentId { get; set; }
+
+        /// <summary>
+        /// Ид машины
+        /// </summary>
+        [DataMember]
+        [DbMember("UnitId", typeof(int))]
+        public int UnitId { get; set; }
 
         /// <summary>
         /// Прибыло/Убыло
@@ -45,31 +43,17 @@ namespace DAL.SQL.DataObjects
         [DataMember]
         [DbMember("IsArrived", typeof(int))]
         public bool IsArrived { get; set; }
-        
+
         /// <summary>
         /// Дата перемещения
         /// </summary>
         [DataMember]
-        [DbMember("DateOfMovement", typeof(DateTime))]
-        public DateTime DateOfMovement { get; set; }
+        [DbMember("Date", typeof(DateTime))]
+        public DateTime Date { get; set; }
 
         /// <summary>
-        /// Ид объекта
+        /// Получить оборудование, по которому было совершено передвижение
         /// </summary>
-        [DataMember]
-        [DbMember("UnitId", typeof(int))]
-        public int UnitId { get; set; }
-
-        /// <summary>
-        /// Ссылка на объект
-        /// </summary>
-        public Equipment Equipment
-        {
-            get
-            {
-                return DalContainer.DataManager.EquipmentRepository.Get(this.EquipmentId);
-            }
-        }
-
+        public Equipment GetEquipment => DalContainer.GetDataManager.EquipmentRepository.Get(EquipmentId);
     }
 }

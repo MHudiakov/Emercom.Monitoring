@@ -7,28 +7,20 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DAL.SQL.Repositories
+using System;
+using Init.DbCore.DB.MsSql;
+using Init.DbCore.Repository;
+using Server.Dal.Sql.DataObjects;
+
+namespace Server.Dal.Sql.Repositories
 {
-    using System;
-
-    using DAL.SQL.DataObjects;
-
-    using Init.DbCore.DB.MsSql;
-    using Init.DbCore.Repository;
-
     /// <summary>
-    /// Репозиторий оборудования
+    /// Репозиторий классификаторов оборудования
     /// </summary>
-    public class kEquipmentRepository : Repository<kEquipment> 
+    public class KEquipmentRepository : Repository<KEquipment> 
     {
-        /// <summary>
-        /// Конструктор репозитория оборудования
-        /// </summary>
-        /// <param name="dataManager">
-        /// Дата-менеджер
-        /// </param>
-        public kEquipmentRepository(DalDataManager dataManager)
-            : base(new MsSqlDataAccess<kEquipment>(dataManager.GetContext), dataManager)         
+        public KEquipmentRepository(DataManager dataManager)
+            : base(new MsSqlDataAccess<KEquipment>(dataManager.GetContext), dataManager)         
         {
         }
 
@@ -36,10 +28,10 @@ namespace DAL.SQL.Repositories
         /// Редактировать оборудование в кэше и в базе
         /// </summary>
         /// <param name="item">Объект</param>
-        protected override void EditOverride(kEquipment item)
+        protected override void EditOverride(KEquipment item)
         {
             if (string.IsNullOrWhiteSpace(item.Name))
-                throw new ArgumentException(@"Не задано название оборудования", "item");
+                throw new ArgumentException(@"Не задано название оборудования", nameof(item));
 
             base.EditOverride(item);
         }

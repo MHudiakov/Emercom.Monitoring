@@ -15,227 +15,9 @@ namespace DAL.WCF.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="kEquipment", Namespace="http://schemas.datacontract.org/2004/07/DAL.SQL.DataObjects")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentGroup", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
     [System.SerializableAttribute()]
-    public partial class kEquipment : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int GroupIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsUniqField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int GroupId {
-            get {
-                return this.GroupIdField;
-            }
-            set {
-                if ((this.GroupIdField.Equals(value) != true)) {
-                    this.GroupIdField = value;
-                    this.RaisePropertyChanged("GroupId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsUniq {
-            get {
-                return this.IsUniqField;
-            }
-            set {
-                if ((this.IsUniqField.Equals(value) != true)) {
-                    this.IsUniqField = value;
-                    this.RaisePropertyChanged("IsUniq");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Equipment", Namespace="http://schemas.datacontract.org/2004/07/DAL.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class Equipment : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> LastMovementIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TagIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int kEquipmentIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastMovementId {
-            get {
-                return this.LastMovementIdField;
-            }
-            set {
-                if ((this.LastMovementIdField.Equals(value) != true)) {
-                    this.LastMovementIdField = value;
-                    this.RaisePropertyChanged("LastMovementId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TagId {
-            get {
-                return this.TagIdField;
-            }
-            set {
-                if ((this.TagIdField.Equals(value) != true)) {
-                    this.TagIdField = value;
-                    this.RaisePropertyChanged("TagId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int kEquipmentId {
-            get {
-                return this.kEquipmentIdField;
-            }
-            set {
-                if ((this.kEquipmentIdField.Equals(value) != true)) {
-                    this.kEquipmentIdField = value;
-                    this.RaisePropertyChanged("kEquipmentId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Group", Namespace="http://schemas.datacontract.org/2004/07/DAL.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class Group : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class EquipmentGroup : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -326,7 +108,241 @@ namespace DAL.WCF.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Movement", Namespace="http://schemas.datacontract.org/2004/07/DAL.SQL.DataObjects")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KEquipment", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
+    [System.SerializableAttribute()]
+    public partial class KEquipment : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EquipmentGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EquipmentGroupId {
+            get {
+                return this.EquipmentGroupIdField;
+            }
+            set {
+                if ((this.EquipmentGroupIdField.Equals(value) != true)) {
+                    this.EquipmentGroupIdField = value;
+                    this.RaisePropertyChanged("EquipmentGroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Equipment", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
+    [System.SerializableAttribute()]
+    public partial class Equipment : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int KEquipmentIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> LastMovementIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UnitIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int KEquipmentId {
+            get {
+                return this.KEquipmentIdField;
+            }
+            set {
+                if ((this.KEquipmentIdField.Equals(value) != true)) {
+                    this.KEquipmentIdField = value;
+                    this.RaisePropertyChanged("KEquipmentId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LastMovementId {
+            get {
+                return this.LastMovementIdField;
+            }
+            set {
+                if ((this.LastMovementIdField.Equals(value) != true)) {
+                    this.LastMovementIdField = value;
+                    this.RaisePropertyChanged("LastMovementId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tag {
+            get {
+                return this.TagField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagField, value) != true)) {
+                    this.TagField = value;
+                    this.RaisePropertyChanged("Tag");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UnitId {
+            get {
+                return this.UnitIdField;
+            }
+            set {
+                if ((this.UnitIdField.Equals(value) != true)) {
+                    this.UnitIdField = value;
+                    this.RaisePropertyChanged("UnitId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Movement", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
     [System.SerializableAttribute()]
     public partial class Movement : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -334,10 +350,10 @@ namespace DAL.WCF.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateOfMovementField;
+        private System.DateTime DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> EquipmentIdField;
+        private int EquipmentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -359,20 +375,20 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DateOfMovement {
+        public System.DateTime Date {
             get {
-                return this.DateOfMovementField;
+                return this.DateField;
             }
             set {
-                if ((this.DateOfMovementField.Equals(value) != true)) {
-                    this.DateOfMovementField = value;
-                    this.RaisePropertyChanged("DateOfMovement");
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> EquipmentId {
+        public int EquipmentId {
             get {
                 return this.EquipmentIdField;
             }
@@ -435,613 +451,7 @@ namespace DAL.WCF.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Store", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class Store : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LatitudeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LongitudeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double RadiusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StoreBoundariesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Latitude {
-            get {
-                return this.LatitudeField;
-            }
-            set {
-                if ((this.LatitudeField.Equals(value) != true)) {
-                    this.LatitudeField = value;
-                    this.RaisePropertyChanged("Latitude");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Longitude {
-            get {
-                return this.LongitudeField;
-            }
-            set {
-                if ((this.LongitudeField.Equals(value) != true)) {
-                    this.LongitudeField = value;
-                    this.RaisePropertyChanged("Longitude");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Radius {
-            get {
-                return this.RadiusField;
-            }
-            set {
-                if ((this.RadiusField.Equals(value) != true)) {
-                    this.RadiusField = value;
-                    this.RaisePropertyChanged("Radius");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StoreBoundaries {
-            get {
-                return this.StoreBoundariesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StoreBoundariesField, value) != true)) {
-                    this.StoreBoundariesField = value;
-                    this.RaisePropertyChanged("StoreBoundaries");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Trip", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class Trip : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime EndTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime StartTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UnitIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime EndTime {
-            get {
-                return this.EndTimeField;
-            }
-            set {
-                if ((this.EndTimeField.Equals(value) != true)) {
-                    this.EndTimeField = value;
-                    this.RaisePropertyChanged("EndTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime StartTime {
-            get {
-                return this.StartTimeField;
-            }
-            set {
-                if ((this.StartTimeField.Equals(value) != true)) {
-                    this.StartTimeField = value;
-                    this.RaisePropertyChanged("StartTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UnitId {
-            get {
-                return this.UnitIdField;
-            }
-            set {
-                if ((this.UnitIdField.Equals(value) != true)) {
-                    this.UnitIdField = value;
-                    this.RaisePropertyChanged("UnitId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TripComplectation", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class TripComplectation : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EquipmentIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsStartField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TripIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EquipmentId {
-            get {
-                return this.EquipmentIdField;
-            }
-            set {
-                if ((this.EquipmentIdField.Equals(value) != true)) {
-                    this.EquipmentIdField = value;
-                    this.RaisePropertyChanged("EquipmentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsStart {
-            get {
-                return this.IsStartField;
-            }
-            set {
-                if ((this.IsStartField.Equals(value) != true)) {
-                    this.IsStartField = value;
-                    this.RaisePropertyChanged("IsStart");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TripId {
-            get {
-                return this.TripIdField;
-            }
-            set {
-                if ((this.TripIdField.Equals(value) != true)) {
-                    this.TripIdField = value;
-                    this.RaisePropertyChanged("TripId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class Tag : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> EquipmentIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RfidField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> EquipmentId {
-            get {
-                return this.EquipmentIdField;
-            }
-            set {
-                if ((this.EquipmentIdField.Equals(value) != true)) {
-                    this.EquipmentIdField = value;
-                    this.RaisePropertyChanged("EquipmentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Rfid {
-            get {
-                return this.RfidField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RfidField, value) != true)) {
-                    this.RfidField = value;
-                    this.RaisePropertyChanged("Rfid");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GeoPoints", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class GeoPoints : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LatitudeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LongitudeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double SpeedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TripIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UnitIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Latitude {
-            get {
-                return this.LatitudeField;
-            }
-            set {
-                if ((this.LatitudeField.Equals(value) != true)) {
-                    this.LatitudeField = value;
-                    this.RaisePropertyChanged("Latitude");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Longitude {
-            get {
-                return this.LongitudeField;
-            }
-            set {
-                if ((this.LongitudeField.Equals(value) != true)) {
-                    this.LongitudeField = value;
-                    this.RaisePropertyChanged("Longitude");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Speed {
-            get {
-                return this.SpeedField;
-            }
-            set {
-                if ((this.SpeedField.Equals(value) != true)) {
-                    this.SpeedField = value;
-                    this.RaisePropertyChanged("Speed");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Time {
-            get {
-                return this.TimeField;
-            }
-            set {
-                if ((this.TimeField.Equals(value) != true)) {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TripId {
-            get {
-                return this.TripIdField;
-            }
-            set {
-                if ((this.TripIdField.Equals(value) != true)) {
-                    this.TripIdField = value;
-                    this.RaisePropertyChanged("TripId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UnitId {
-            get {
-                return this.UnitIdField;
-            }
-            set {
-                if ((this.UnitIdField.Equals(value) != true)) {
-                    this.UnitIdField = value;
-                    this.RaisePropertyChanged("UnitId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="kObject", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
-    [System.SerializableAttribute()]
-    public partial class kObject : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsStoreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsStore {
-            get {
-                return this.IsStoreField;
-            }
-            set {
-                if ((this.IsStoreField.Equals(value) != true)) {
-                    this.IsStoreField = value;
-                    this.RaisePropertyChanged("IsStore");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Unit", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Unit", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
     [System.SerializableAttribute()]
     public partial class Unit : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1049,13 +459,10 @@ namespace DAL.WCF.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BortNumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string GosNumField;
+        private int DivisionIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -1064,10 +471,7 @@ namespace DAL.WCF.ServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SerialNumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int kObjectIdField;
+        private string NumberField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1076,19 +480,6 @@ namespace DAL.WCF.ServiceReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BortNum {
-            get {
-                return this.BortNumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BortNumField, value) != true)) {
-                    this.BortNumField = value;
-                    this.RaisePropertyChanged("BortNum");
-                }
             }
         }
         
@@ -1106,14 +497,14 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GosNum {
+        public int DivisionId {
             get {
-                return this.GosNumField;
+                return this.DivisionIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.GosNumField, value) != true)) {
-                    this.GosNumField = value;
-                    this.RaisePropertyChanged("GosNum");
+                if ((this.DivisionIdField.Equals(value) != true)) {
+                    this.DivisionIdField = value;
+                    this.RaisePropertyChanged("DivisionId");
                 }
             }
         }
@@ -1145,27 +536,14 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SerialNum {
+        public string Number {
             get {
-                return this.SerialNumField;
+                return this.NumberField;
             }
             set {
-                if ((object.ReferenceEquals(this.SerialNumField, value) != true)) {
-                    this.SerialNumField = value;
-                    this.RaisePropertyChanged("SerialNum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int kObjectId {
-            get {
-                return this.kObjectIdField;
-            }
-            set {
-                if ((this.kObjectIdField.Equals(value) != true)) {
-                    this.kObjectIdField = value;
-                    this.RaisePropertyChanged("kObjectId");
+                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
                 }
             }
         }
@@ -1182,21 +560,18 @@ namespace DAL.WCF.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UniqEquipmentObject", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Settings", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
     [System.SerializableAttribute()]
-    public partial class UniqEquipmentObject : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Settings : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EquipmentIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UnitIdField;
+        private string WcfServiceAddressField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1209,14 +584,81 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EquipmentId {
+        public int Id {
             get {
-                return this.EquipmentIdField;
+                return this.IdField;
             }
             set {
-                if ((this.EquipmentIdField.Equals(value) != true)) {
-                    this.EquipmentIdField = value;
-                    this.RaisePropertyChanged("EquipmentId");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WcfServiceAddress {
+            get {
+                return this.WcfServiceAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WcfServiceAddressField, value) != true)) {
+                    this.WcfServiceAddressField = value;
+                    this.RaisePropertyChanged("WcfServiceAddress");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Division", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
+    [System.SerializableAttribute()]
+    public partial class Division : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ParentIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
                 }
             }
         }
@@ -1235,14 +677,27 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UnitId {
+        public string Name {
             get {
-                return this.UnitIdField;
+                return this.NameField;
             }
             set {
-                if ((this.UnitIdField.Equals(value) != true)) {
-                    this.UnitIdField = value;
-                    this.RaisePropertyChanged("UnitId");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ParentId {
+            get {
+                return this.ParentIdField;
+            }
+            set {
+                if ((this.ParentIdField.Equals(value) != true)) {
+                    this.ParentIdField = value;
+                    this.RaisePropertyChanged("ParentId");
                 }
             }
         }
@@ -1259,24 +714,33 @@ namespace DAL.WCF.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="NonUniqEquipmentObject", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.SQL.DataObjects")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects")]
     [System.SerializableAttribute()]
-    public partial class NonUniqEquipmentObject : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class User : Init.DbCore.DbObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CountField;
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DivisionIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UnitIdField;
+        private string LoginField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int kEquipmentIdField;
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DAL.WCF.ServiceReference.UserRole RoleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1289,14 +753,27 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Count {
+        public string Description {
             get {
-                return this.CountField;
+                return this.DescriptionField;
             }
             set {
-                if ((this.CountField.Equals(value) != true)) {
-                    this.CountField = value;
-                    this.RaisePropertyChanged("Count");
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DivisionId {
+            get {
+                return this.DivisionIdField;
+            }
+            set {
+                if ((this.DivisionIdField.Equals(value) != true)) {
+                    this.DivisionIdField = value;
+                    this.RaisePropertyChanged("DivisionId");
                 }
             }
         }
@@ -1315,27 +792,53 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UnitId {
+        public string Login {
             get {
-                return this.UnitIdField;
+                return this.LoginField;
             }
             set {
-                if ((this.UnitIdField.Equals(value) != true)) {
-                    this.UnitIdField = value;
-                    this.RaisePropertyChanged("UnitId");
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int kEquipmentId {
+        public string Name {
             get {
-                return this.kEquipmentIdField;
+                return this.NameField;
             }
             set {
-                if ((this.kEquipmentIdField.Equals(value) != true)) {
-                    this.kEquipmentIdField = value;
-                    this.RaisePropertyChanged("kEquipmentId");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PasswordHash {
+            get {
+                return this.PasswordHashField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordHashField, value) != true)) {
+                    this.PasswordHashField = value;
+                    this.RaisePropertyChanged("PasswordHash");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DAL.WCF.ServiceReference.UserRole Role {
+            get {
+                return this.RoleField;
+            }
+            set {
+                if ((this.RoleField.Equals(value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
                 }
             }
         }
@@ -1348,6 +851,17 @@ namespace DAL.WCF.ServiceReference {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserRole", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums")]
+    public enum UserRole : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        User = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Administrator = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1357,47 +871,29 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/TestConnection", ReplyAction="http://tempuri.org/IServiceOperation/TestConnectionResponse")]
         void TestConnection();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddkEquipment", ReplyAction="http://tempuri.org/IServiceOperation/AddkEquipmentResponse")]
-        void AddkEquipment(DAL.WCF.ServiceReference.kEquipment item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditkEquipment", ReplyAction="http://tempuri.org/IServiceOperation/EditkEquipmentResponse")]
-        void EditkEquipment(DAL.WCF.ServiceReference.kEquipment item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeletekEquipment", ReplyAction="http://tempuri.org/IServiceOperation/DeletekEquipmentResponse")]
-        void DeletekEquipment(DAL.WCF.ServiceReference.kEquipment item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllkEquipment", ReplyAction="http://tempuri.org/IServiceOperation/GetAllkEquipmentResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.kEquipment> GetAllkEquipment();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddGroup", ReplyAction="http://tempuri.org/IServiceOperation/AddGroupResponse")]
-        void AddGroup(DAL.WCF.ServiceReference.Group item);
+        void AddGroup(DAL.WCF.ServiceReference.EquipmentGroup item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditGroup", ReplyAction="http://tempuri.org/IServiceOperation/EditGroupResponse")]
-        void EditGroup(DAL.WCF.ServiceReference.Group item);
+        void EditGroup(DAL.WCF.ServiceReference.EquipmentGroup item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteGroup", ReplyAction="http://tempuri.org/IServiceOperation/DeleteGroupResponse")]
-        void DeleteGroup(DAL.WCF.ServiceReference.Group item);
+        void DeleteGroup(DAL.WCF.ServiceReference.EquipmentGroup item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllGroup", ReplyAction="http://tempuri.org/IServiceOperation/GetAllGroupResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Group> GetAllGroup();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetGroupList", ReplyAction="http://tempuri.org/IServiceOperation/GetGroupListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.EquipmentGroup> GetGroupList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddStore", ReplyAction="http://tempuri.org/IServiceOperation/AddStoreResponse")]
-        void AddStore(DAL.WCF.ServiceReference.Store item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddKEquipment", ReplyAction="http://tempuri.org/IServiceOperation/AddKEquipmentResponse")]
+        void AddKEquipment(DAL.WCF.ServiceReference.KEquipment item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditStore", ReplyAction="http://tempuri.org/IServiceOperation/EditStoreResponse")]
-        void EditStore(DAL.WCF.ServiceReference.Store item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditKEquipment", ReplyAction="http://tempuri.org/IServiceOperation/EditKEquipmentResponse")]
+        void EditKEquipment(DAL.WCF.ServiceReference.KEquipment item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteStore", ReplyAction="http://tempuri.org/IServiceOperation/DeleteStoreResponse")]
-        void DeleteStore(DAL.WCF.ServiceReference.Store item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteKEquipment", ReplyAction="http://tempuri.org/IServiceOperation/DeleteKEquipmentResponse")]
+        void DeleteKEquipment(DAL.WCF.ServiceReference.KEquipment item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllStore", ReplyAction="http://tempuri.org/IServiceOperation/GetAllStoreResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Store> GetAllStore();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllTrips", ReplyAction="http://tempuri.org/IServiceOperation/GetAllTripsResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Trip> GetAllTrips();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllTripComplectations", ReplyAction="http://tempuri.org/IServiceOperation/GetAllTripComplectationsResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.TripComplectation> GetAllTripComplectations();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetKEquipmentList", ReplyAction="http://tempuri.org/IServiceOperation/GetKEquipmentListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.KEquipment> GetKEquipmentList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddEquipment", ReplyAction="http://tempuri.org/IServiceOperation/AddEquipmentResponse")]
         void AddEquipment(DAL.WCF.ServiceReference.Equipment item);
@@ -1408,17 +904,11 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteEquipment", ReplyAction="http://tempuri.org/IServiceOperation/DeleteEquipmentResponse")]
         void DeleteEquipment(DAL.WCF.ServiceReference.Equipment item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllEquipment", ReplyAction="http://tempuri.org/IServiceOperation/GetAllEquipmentResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetAllEquipment();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetComplectationByTripId", ReplyAction="http://tempuri.org/IServiceOperation/GetComplectationByTripIdResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetComplectationByTripId(int tripId, bool isStart);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetEquipmentList", ReplyAction="http://tempuri.org/IServiceOperation/GetEquipmentListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetEquipmentList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddMovement", ReplyAction="http://tempuri.org/IServiceOperation/AddMovementResponse")]
         void AddMovement(DAL.WCF.ServiceReference.Movement item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetLastMovements", ReplyAction="http://tempuri.org/IServiceOperation/GetLastMovementsResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetLastMovements();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditMovement", ReplyAction="http://tempuri.org/IServiceOperation/EditMovementResponse")]
         void EditMovement(DAL.WCF.ServiceReference.Movement item);
@@ -1426,56 +916,17 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteMovement", ReplyAction="http://tempuri.org/IServiceOperation/DeleteMovementResponse")]
         void DeleteMovement(DAL.WCF.ServiceReference.Movement item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllMovement", ReplyAction="http://tempuri.org/IServiceOperation/GetAllMovementResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetAllMovement();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetMovementListByTripId", ReplyAction="http://tempuri.org/IServiceOperation/GetMovementListByTripIdResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByTripId(int tripId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetMovementList", ReplyAction="http://tempuri.org/IServiceOperation/GetMovementListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetMovementListByEquipmentId", ReplyAction="http://tempuri.org/IServiceOperation/GetMovementListByEquipmentIdResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByEquipmentId(System.Nullable<int> equipmentId);
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByEquipmentId(int equipmentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetMovementListByTimeAndUnitId", ReplyAction="http://tempuri.org/IServiceOperation/GetMovementListByTimeAndUnitIdResponse")]
         System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByTimeAndUnitId(System.DateTime minTime, System.DateTime maxTime, int unitId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetMovement", ReplyAction="http://tempuri.org/IServiceOperation/GetMovementResponse")]
-        DAL.WCF.ServiceReference.Movement GetMovement(System.Nullable<int> id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddGeoPoint", ReplyAction="http://tempuri.org/IServiceOperation/AddGeoPointResponse")]
-        void AddGeoPoint(DAL.WCF.ServiceReference.GeoPoints item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllGeoPoints", ReplyAction="http://tempuri.org/IServiceOperation/GetAllGeoPointsResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints> GetAllGeoPoints();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetGeoPointListByTime", ReplyAction="http://tempuri.org/IServiceOperation/GetGeoPointListByTimeResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints> GetGeoPointListByTime(int itemId, System.DateTime minTime, System.DateTime maxTime);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetGeoPointListByTripId", ReplyAction="http://tempuri.org/IServiceOperation/GetGeoPointListByTripIdResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints> GetGeoPointListByTripId(int tripId, int idFrom, int count);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddTag", ReplyAction="http://tempuri.org/IServiceOperation/AddTagResponse")]
-        void AddTag(DAL.WCF.ServiceReference.Tag item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditTag", ReplyAction="http://tempuri.org/IServiceOperation/EditTagResponse")]
-        void EditTag(DAL.WCF.ServiceReference.Tag item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteTag", ReplyAction="http://tempuri.org/IServiceOperation/DeleteTagResponse")]
-        void DeleteTag(DAL.WCF.ServiceReference.Tag item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllTags", ReplyAction="http://tempuri.org/IServiceOperation/GetAllTagsResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Tag> GetAllTags();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddkObject", ReplyAction="http://tempuri.org/IServiceOperation/AddkObjectResponse")]
-        void AddkObject(DAL.WCF.ServiceReference.kObject item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditkObject", ReplyAction="http://tempuri.org/IServiceOperation/EditkObjectResponse")]
-        void EditkObject(DAL.WCF.ServiceReference.kObject item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeletekObject", ReplyAction="http://tempuri.org/IServiceOperation/DeletekObjectResponse")]
-        void DeletekObject(DAL.WCF.ServiceReference.kObject item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllkObject", ReplyAction="http://tempuri.org/IServiceOperation/GetAllkObjectResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.kObject> GetAllkObject();
+        DAL.WCF.ServiceReference.Movement GetMovement(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddUnit", ReplyAction="http://tempuri.org/IServiceOperation/AddUnitResponse")]
         void AddUnit(DAL.WCF.ServiceReference.Unit item);
@@ -1486,98 +937,44 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteUnit", ReplyAction="http://tempuri.org/IServiceOperation/DeleteUnitResponse")]
         void DeleteUnit(DAL.WCF.ServiceReference.Unit item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllUnit", ReplyAction="http://tempuri.org/IServiceOperation/GetAllUnitResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetAllUnit();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUnitList", ReplyAction="http://tempuri.org/IServiceOperation/GetUnitListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetСomplectationListByUnitId", ReplyAction="http://tempuri.org/IServiceOperation/GetСomplectationListByUnitIdResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetСomplectationListByUnitId(int unitId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddSettings", ReplyAction="http://tempuri.org/IServiceOperation/AddSettingsResponse")]
+        void AddSettings(DAL.WCF.ServiceReference.Settings item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetLastTrip", ReplyAction="http://tempuri.org/IServiceOperation/GetLastTripResponse")]
-        DAL.WCF.ServiceReference.Trip GetLastTrip(int unitId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditSettings", ReplyAction="http://tempuri.org/IServiceOperation/EditSettingsResponse")]
+        void EditSettings(DAL.WCF.ServiceReference.Settings item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/AddUniqEquipmentObjectResponse")]
-        void AddUniqEquipmentObject(DAL.WCF.ServiceReference.UniqEquipmentObject item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteSettings", ReplyAction="http://tempuri.org/IServiceOperation/DeleteSettingsResponse")]
+        void DeleteSettings(DAL.WCF.ServiceReference.Settings item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/EditUniqEquipmentObjectResponse")]
-        void EditUniqEquipmentObject(DAL.WCF.ServiceReference.UniqEquipmentObject item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetSettings", ReplyAction="http://tempuri.org/IServiceOperation/GetSettingsResponse")]
+        DAL.WCF.ServiceReference.Settings GetSettings();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/DeleteUniqEquipmentObjectResponse")]
-        void DeleteUniqEquipmentObject(DAL.WCF.ServiceReference.UniqEquipmentObject item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddDivision", ReplyAction="http://tempuri.org/IServiceOperation/AddDivisionResponse")]
+        void AddDivision(DAL.WCF.ServiceReference.Division item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/GetAllUniqEquipmentObjectResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.UniqEquipmentObject> GetAllUniqEquipmentObject();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditDivision", ReplyAction="http://tempuri.org/IServiceOperation/EditDivisionResponse")]
+        void EditDivision(DAL.WCF.ServiceReference.Division item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUniqEquipmentObjectListByUnitId", ReplyAction="http://tempuri.org/IServiceOperation/GetUniqEquipmentObjectListByUnitIdResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.UniqEquipmentObject> GetUniqEquipmentObjectListByUnitId(int unitId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteDivision", ReplyAction="http://tempuri.org/IServiceOperation/DeleteDivisionResponse")]
+        void DeleteDivision(DAL.WCF.ServiceReference.Division item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddNonUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/AddNonUniqEquipmentObjectResponse")]
-        void AddNonUniqEquipmentObject(DAL.WCF.ServiceReference.NonUniqEquipmentObject item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetDivisionList", ReplyAction="http://tempuri.org/IServiceOperation/GetDivisionListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Division> GetDivisionList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditNonUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/EditNonUniqEquipmentObjectResponse")]
-        void EditNonUniqEquipmentObject(DAL.WCF.ServiceReference.NonUniqEquipmentObject item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddUser", ReplyAction="http://tempuri.org/IServiceOperation/AddUserResponse")]
+        void AddUser(DAL.WCF.ServiceReference.User item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteNonUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/DeleteNonUniqEquipmentObjectResponse")]
-        void DeleteNonUniqEquipmentObject(DAL.WCF.ServiceReference.NonUniqEquipmentObject item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditUser", ReplyAction="http://tempuri.org/IServiceOperation/EditUserResponse")]
+        void EditUser(DAL.WCF.ServiceReference.User item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetAllNonUniqEquipmentObject", ReplyAction="http://tempuri.org/IServiceOperation/GetAllNonUniqEquipmentObjectResponse")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.NonUniqEquipmentObject> GetAllNonUniqEquipmentObject();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteUser", ReplyAction="http://tempuri.org/IServiceOperation/DeleteUserResponse")]
+        void DeleteUser(DAL.WCF.ServiceReference.User item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetNonUniqEquipmentListObjectByUnitId", ReplyAction="http://tempuri.org/IServiceOperation/GetNonUniqEquipmentListObjectByUnitIdRespons" +
-            "e")]
-        System.Collections.Generic.List<DAL.WCF.ServiceReference.NonUniqEquipmentObject> GetNonUniqEquipmentListObjectByUnitId(int unitId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/Count", ReplyAction="http://tempuri.org/IServiceOperation/CountResponse")]
-        long Count(string typeName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/Add", ReplyAction="http://tempuri.org/IServiceOperation/AddResponse")]
-        Init.DAL.Sync.Change Add(Init.DAL.Sync.Change item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/Edit", ReplyAction="http://tempuri.org/IServiceOperation/EditResponse")]
-        Init.DAL.Sync.Change Edit(Init.DAL.Sync.Change item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/DeleteWhere", ReplyAction="http://tempuri.org/IServiceOperation/DeleteWhereResponse")]
-        void DeleteWhere(Init.DAL.Sync.Change item);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetItemsWhere", ReplyAction="http://tempuri.org/IServiceOperation/GetItemsWhereResponse")]
-        System.Collections.Generic.List<Init.DAL.Sync.Change> GetItemsWhere(string typeName, System.Collections.Generic.Dictionary<string, object> keys);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/TransferItems", ReplyAction="http://tempuri.org/IServiceOperation/TransferItemsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Equipment))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Group))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Movement))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.kEquipment))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.kEquipment>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Group>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Init.DbCore.DbObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Store))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Trip))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.TripComplectation))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Tag))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.GeoPoints))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Store>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Trip>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.TripComplectation>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Tag>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.kObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.kObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.Unit))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.UniqEquipmentObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.UniqEquipmentObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(DAL.WCF.ServiceReference.NonUniqEquipmentObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<DAL.WCF.ServiceReference.NonUniqEquipmentObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Init.DAL.Sync.Change))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<Init.DAL.Sync.Change>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Init.DAL.Sync.Transfer.TransferPartIdent))]
-        Init.DAL.Sync.Transfer.TransferPart TransferItems(string typeName, Init.DAL.Sync.Transfer.TransferPartIdent ident);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetPage", ReplyAction="http://tempuri.org/IServiceOperation/GetPageResponse")]
-        System.Collections.Generic.List<Init.DAL.Sync.Change> GetPage(string typeName, int pageIndex, int count);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUserList", ReplyAction="http://tempuri.org/IServiceOperation/GetUserListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.User> GetUserList();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1611,60 +1008,36 @@ namespace DAL.WCF.ServiceReference {
             base.Channel.TestConnection();
         }
         
-        public void AddkEquipment(DAL.WCF.ServiceReference.kEquipment item) {
-            base.Channel.AddkEquipment(item);
-        }
-        
-        public void EditkEquipment(DAL.WCF.ServiceReference.kEquipment item) {
-            base.Channel.EditkEquipment(item);
-        }
-        
-        public void DeletekEquipment(DAL.WCF.ServiceReference.kEquipment item) {
-            base.Channel.DeletekEquipment(item);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.kEquipment> GetAllkEquipment() {
-            return base.Channel.GetAllkEquipment();
-        }
-        
-        public void AddGroup(DAL.WCF.ServiceReference.Group item) {
+        public void AddGroup(DAL.WCF.ServiceReference.EquipmentGroup item) {
             base.Channel.AddGroup(item);
         }
         
-        public void EditGroup(DAL.WCF.ServiceReference.Group item) {
+        public void EditGroup(DAL.WCF.ServiceReference.EquipmentGroup item) {
             base.Channel.EditGroup(item);
         }
         
-        public void DeleteGroup(DAL.WCF.ServiceReference.Group item) {
+        public void DeleteGroup(DAL.WCF.ServiceReference.EquipmentGroup item) {
             base.Channel.DeleteGroup(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Group> GetAllGroup() {
-            return base.Channel.GetAllGroup();
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.EquipmentGroup> GetGroupList() {
+            return base.Channel.GetGroupList();
         }
         
-        public void AddStore(DAL.WCF.ServiceReference.Store item) {
-            base.Channel.AddStore(item);
+        public void AddKEquipment(DAL.WCF.ServiceReference.KEquipment item) {
+            base.Channel.AddKEquipment(item);
         }
         
-        public void EditStore(DAL.WCF.ServiceReference.Store item) {
-            base.Channel.EditStore(item);
+        public void EditKEquipment(DAL.WCF.ServiceReference.KEquipment item) {
+            base.Channel.EditKEquipment(item);
         }
         
-        public void DeleteStore(DAL.WCF.ServiceReference.Store item) {
-            base.Channel.DeleteStore(item);
+        public void DeleteKEquipment(DAL.WCF.ServiceReference.KEquipment item) {
+            base.Channel.DeleteKEquipment(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Store> GetAllStore() {
-            return base.Channel.GetAllStore();
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Trip> GetAllTrips() {
-            return base.Channel.GetAllTrips();
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.TripComplectation> GetAllTripComplectations() {
-            return base.Channel.GetAllTripComplectations();
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.KEquipment> GetKEquipmentList() {
+            return base.Channel.GetKEquipmentList();
         }
         
         public void AddEquipment(DAL.WCF.ServiceReference.Equipment item) {
@@ -1679,20 +1052,12 @@ namespace DAL.WCF.ServiceReference {
             base.Channel.DeleteEquipment(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetAllEquipment() {
-            return base.Channel.GetAllEquipment();
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetComplectationByTripId(int tripId, bool isStart) {
-            return base.Channel.GetComplectationByTripId(tripId, isStart);
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetEquipmentList() {
+            return base.Channel.GetEquipmentList();
         }
         
         public void AddMovement(DAL.WCF.ServiceReference.Movement item) {
             base.Channel.AddMovement(item);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetLastMovements() {
-            return base.Channel.GetLastMovements();
         }
         
         public void EditMovement(DAL.WCF.ServiceReference.Movement item) {
@@ -1703,15 +1068,11 @@ namespace DAL.WCF.ServiceReference {
             base.Channel.DeleteMovement(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetAllMovement() {
-            return base.Channel.GetAllMovement();
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementList() {
+            return base.Channel.GetMovementList();
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByTripId(int tripId) {
-            return base.Channel.GetMovementListByTripId(tripId);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByEquipmentId(System.Nullable<int> equipmentId) {
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Movement> GetMovementListByEquipmentId(int equipmentId) {
             return base.Channel.GetMovementListByEquipmentId(equipmentId);
         }
         
@@ -1719,56 +1080,8 @@ namespace DAL.WCF.ServiceReference {
             return base.Channel.GetMovementListByTimeAndUnitId(minTime, maxTime, unitId);
         }
         
-        public DAL.WCF.ServiceReference.Movement GetMovement(System.Nullable<int> id) {
+        public DAL.WCF.ServiceReference.Movement GetMovement(int id) {
             return base.Channel.GetMovement(id);
-        }
-        
-        public void AddGeoPoint(DAL.WCF.ServiceReference.GeoPoints item) {
-            base.Channel.AddGeoPoint(item);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints> GetAllGeoPoints() {
-            return base.Channel.GetAllGeoPoints();
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints> GetGeoPointListByTime(int itemId, System.DateTime minTime, System.DateTime maxTime) {
-            return base.Channel.GetGeoPointListByTime(itemId, minTime, maxTime);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.GeoPoints> GetGeoPointListByTripId(int tripId, int idFrom, int count) {
-            return base.Channel.GetGeoPointListByTripId(tripId, idFrom, count);
-        }
-        
-        public void AddTag(DAL.WCF.ServiceReference.Tag item) {
-            base.Channel.AddTag(item);
-        }
-        
-        public void EditTag(DAL.WCF.ServiceReference.Tag item) {
-            base.Channel.EditTag(item);
-        }
-        
-        public void DeleteTag(DAL.WCF.ServiceReference.Tag item) {
-            base.Channel.DeleteTag(item);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Tag> GetAllTags() {
-            return base.Channel.GetAllTags();
-        }
-        
-        public void AddkObject(DAL.WCF.ServiceReference.kObject item) {
-            base.Channel.AddkObject(item);
-        }
-        
-        public void EditkObject(DAL.WCF.ServiceReference.kObject item) {
-            base.Channel.EditkObject(item);
-        }
-        
-        public void DeletekObject(DAL.WCF.ServiceReference.kObject item) {
-            base.Channel.DeletekObject(item);
-        }
-        
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.kObject> GetAllkObject() {
-            return base.Channel.GetAllkObject();
         }
         
         public void AddUnit(DAL.WCF.ServiceReference.Unit item) {
@@ -1783,84 +1096,56 @@ namespace DAL.WCF.ServiceReference {
             base.Channel.DeleteUnit(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetAllUnit() {
-            return base.Channel.GetAllUnit();
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitList() {
+            return base.Channel.GetUnitList();
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetСomplectationListByUnitId(int unitId) {
-            return base.Channel.GetСomplectationListByUnitId(unitId);
+        public void AddSettings(DAL.WCF.ServiceReference.Settings item) {
+            base.Channel.AddSettings(item);
         }
         
-        public DAL.WCF.ServiceReference.Trip GetLastTrip(int unitId) {
-            return base.Channel.GetLastTrip(unitId);
+        public void EditSettings(DAL.WCF.ServiceReference.Settings item) {
+            base.Channel.EditSettings(item);
         }
         
-        public void AddUniqEquipmentObject(DAL.WCF.ServiceReference.UniqEquipmentObject item) {
-            base.Channel.AddUniqEquipmentObject(item);
+        public void DeleteSettings(DAL.WCF.ServiceReference.Settings item) {
+            base.Channel.DeleteSettings(item);
         }
         
-        public void EditUniqEquipmentObject(DAL.WCF.ServiceReference.UniqEquipmentObject item) {
-            base.Channel.EditUniqEquipmentObject(item);
+        public DAL.WCF.ServiceReference.Settings GetSettings() {
+            return base.Channel.GetSettings();
         }
         
-        public void DeleteUniqEquipmentObject(DAL.WCF.ServiceReference.UniqEquipmentObject item) {
-            base.Channel.DeleteUniqEquipmentObject(item);
+        public void AddDivision(DAL.WCF.ServiceReference.Division item) {
+            base.Channel.AddDivision(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.UniqEquipmentObject> GetAllUniqEquipmentObject() {
-            return base.Channel.GetAllUniqEquipmentObject();
+        public void EditDivision(DAL.WCF.ServiceReference.Division item) {
+            base.Channel.EditDivision(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.UniqEquipmentObject> GetUniqEquipmentObjectListByUnitId(int unitId) {
-            return base.Channel.GetUniqEquipmentObjectListByUnitId(unitId);
+        public void DeleteDivision(DAL.WCF.ServiceReference.Division item) {
+            base.Channel.DeleteDivision(item);
         }
         
-        public void AddNonUniqEquipmentObject(DAL.WCF.ServiceReference.NonUniqEquipmentObject item) {
-            base.Channel.AddNonUniqEquipmentObject(item);
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Division> GetDivisionList() {
+            return base.Channel.GetDivisionList();
         }
         
-        public void EditNonUniqEquipmentObject(DAL.WCF.ServiceReference.NonUniqEquipmentObject item) {
-            base.Channel.EditNonUniqEquipmentObject(item);
+        public void AddUser(DAL.WCF.ServiceReference.User item) {
+            base.Channel.AddUser(item);
         }
         
-        public void DeleteNonUniqEquipmentObject(DAL.WCF.ServiceReference.NonUniqEquipmentObject item) {
-            base.Channel.DeleteNonUniqEquipmentObject(item);
+        public void EditUser(DAL.WCF.ServiceReference.User item) {
+            base.Channel.EditUser(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.NonUniqEquipmentObject> GetAllNonUniqEquipmentObject() {
-            return base.Channel.GetAllNonUniqEquipmentObject();
+        public void DeleteUser(DAL.WCF.ServiceReference.User item) {
+            base.Channel.DeleteUser(item);
         }
         
-        public System.Collections.Generic.List<DAL.WCF.ServiceReference.NonUniqEquipmentObject> GetNonUniqEquipmentListObjectByUnitId(int unitId) {
-            return base.Channel.GetNonUniqEquipmentListObjectByUnitId(unitId);
-        }
-        
-        public long Count(string typeName) {
-            return base.Channel.Count(typeName);
-        }
-        
-        public Init.DAL.Sync.Change Add(Init.DAL.Sync.Change item) {
-            return base.Channel.Add(item);
-        }
-        
-        public Init.DAL.Sync.Change Edit(Init.DAL.Sync.Change item) {
-            return base.Channel.Edit(item);
-        }
-        
-        public void DeleteWhere(Init.DAL.Sync.Change item) {
-            base.Channel.DeleteWhere(item);
-        }
-        
-        public System.Collections.Generic.List<Init.DAL.Sync.Change> GetItemsWhere(string typeName, System.Collections.Generic.Dictionary<string, object> keys) {
-            return base.Channel.GetItemsWhere(typeName, keys);
-        }
-        
-        public Init.DAL.Sync.Transfer.TransferPart TransferItems(string typeName, Init.DAL.Sync.Transfer.TransferPartIdent ident) {
-            return base.Channel.TransferItems(typeName, ident);
-        }
-        
-        public System.Collections.Generic.List<Init.DAL.Sync.Change> GetPage(string typeName, int pageIndex, int count) {
-            return base.Channel.GetPage(typeName, pageIndex, count);
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.User> GetUserList() {
+            return base.Channel.GetUserList();
         }
     }
 }
