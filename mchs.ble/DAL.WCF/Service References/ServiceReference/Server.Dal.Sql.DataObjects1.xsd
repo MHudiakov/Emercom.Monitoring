@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Init.DbCore" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums" />
+  <xs:complexType name="EquipmentGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q1:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EquipmentGroup" nillable="true" type="tns:EquipmentGroup" />
+  <xs:complexType name="ArrayOfEquipmentGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipmentGroup" nillable="true" type="tns:EquipmentGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipmentGroup" nillable="true" type="tns:ArrayOfEquipmentGroup" />
+  <xs:complexType name="KEquipment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q2:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EquipmentGroupId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KEquipment" nillable="true" type="tns:KEquipment" />
+  <xs:complexType name="ArrayOfKEquipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KEquipment" nillable="true" type="tns:KEquipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKEquipment" nillable="true" type="tns:ArrayOfKEquipment" />
+  <xs:complexType name="Equipment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q3:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="KEquipmentId" type="xs:int" />
+          <xs:element minOccurs="0" name="LastMovementId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Equipment" nillable="true" type="tns:Equipment" />
+  <xs:complexType name="ArrayOfEquipment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Equipment" nillable="true" type="tns:Equipment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipment" nillable="true" type="tns:ArrayOfEquipment" />
+  <xs:complexType name="Movement">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q4:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EquipmentId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsArrived" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Movement" nillable="true" type="tns:Movement" />
+  <xs:complexType name="ArrayOfMovement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Movement" nillable="true" type="tns:Movement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMovement" nillable="true" type="tns:ArrayOfMovement" />
+  <xs:complexType name="Unit">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q5:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DivisionId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Unit" nillable="true" type="tns:Unit" />
+  <xs:complexType name="ArrayOfUnit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Unit" nillable="true" type="tns:Unit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUnit" nillable="true" type="tns:ArrayOfUnit" />
+  <xs:complexType name="Settings">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q6:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="WcfServiceAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Settings" nillable="true" type="tns:Settings" />
+  <xs:complexType name="Division">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q7:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Division" nillable="true" type="tns:Division" />
+  <xs:complexType name="ArrayOfDivision">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Division" nillable="true" type="tns:Division" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDivision" nillable="true" type="tns:ArrayOfDivision" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q8:DbObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DivisionId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums" minOccurs="0" name="Role" type="q9:UserRole" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+</xs:schema>

@@ -19,7 +19,7 @@ namespace DAL.WCF
         /// <summary>
         /// Менеджер данных WCF
         /// </summary>
-        private static WcfDataManager _wcfDataManager;
+        private static WcfDataManager sWcfDataManager;
 
         /// <summary>
         /// Менеджер данных WCF
@@ -28,9 +28,9 @@ namespace DAL.WCF
         {
             get
             {
-                if (_wcfDataManager == null)
+                if (sWcfDataManager == null)
                     throw new Exception("Не зарегистрирован WcfDataManager!");
-                return _wcfDataManager;
+                return sWcfDataManager;
             }
         }
 
@@ -43,9 +43,9 @@ namespace DAL.WCF
         public static void RegisterWcfDataMager(WcfDataManager wcfDataManager)
         {
             if (wcfDataManager == null)
-                throw new ArgumentNullException("wcfDataManager");
+                throw new ArgumentNullException(nameof(wcfDataManager));
 
-            _wcfDataManager = wcfDataManager;
+            sWcfDataManager = wcfDataManager;
         }
     }
 }

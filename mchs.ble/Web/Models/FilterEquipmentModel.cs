@@ -34,7 +34,7 @@ namespace Web.Models
         {
             get
             {
-                var kEquipmentList = DalContainer.WcfDataManager.kEquipmentList;
+                var kEquipmentList = DalContainer.WcfDataManager.KEquipmentList;
                 return new SelectList(kEquipmentList.OrderBy(e => e.Name), "Id", "Name");
             }
         }

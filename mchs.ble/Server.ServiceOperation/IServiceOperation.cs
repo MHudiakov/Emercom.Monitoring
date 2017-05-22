@@ -66,19 +66,10 @@ namespace Server.WCF
 
         #endregion
 
-
-
-
-
-
-
-
-
-
-        #region kEquipment
+        #region KEquipment
 
         /// <summary>
-        /// Добавить классификатора оборудования
+        /// Добавить классификатор оборудования
         /// </summary>
         /// <param name="item">
         /// Классификатор оборудования
@@ -114,8 +105,6 @@ namespace Server.WCF
         List<KEquipment> GetKEquipmentList();
 
         #endregion
-
-        
 
         #region Equipment
 
@@ -153,7 +142,7 @@ namespace Server.WCF
         /// Список оборудования
         /// </returns>
         [OperationContract]
-        List<Equipment> GetAllEquipment();
+        List<Equipment> GetEquipmentList();
 
         #endregion
 
@@ -187,21 +176,23 @@ namespace Server.WCF
         void DeleteMovement(Movement item);
 
         /// <summary>
-        /// Получить список перемещений оборудования
+        /// Получить список весь перемещений оборудования
         /// </summary>
         /// <returns>
         /// Список движений
         /// </returns>
         [OperationContract]
-        List<Movement> GetAllMovement();
+        List<Movement> GetMovementList();
 
         /// <summary>
-        /// Полчения списка передвижений оборудования
+        /// Полчения списка передвижений конкретного оборудования
         /// </summary>
-        /// <param name="equipmentId"></param>
+        /// <param name="equipmentId">
+        /// Ид оборудования
+        /// </param>
         /// <returns></returns>
         [OperationContract]
-        List<Movement> GetMovementListByEquipmentId(int? equipmentId);
+        List<Movement> GetMovementListByEquipmentId(int equipmentId);
 
         /// <summary>
         /// Получение списка передвижений оборудования по объекту и времени
@@ -219,47 +210,167 @@ namespace Server.WCF
         /// <param name="id"></param>
         /// <returns></returns>
         [OperationContract]
-        Movement GetMovement(int? id);
+        Movement GetMovement(int id);
 
         #endregion
 
         #region Unit
 
         /// <summary>
-        /// Добавление классификатора объекта
+        /// Добавление юнита
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора объекта
+        /// Юнит
         /// </param>
         [OperationContract]
         void AddUnit(Unit item);
 
         /// <summary>
-        /// Редактирование классификатора объекта
+        /// Редактирование юнита
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора объекта
+        /// Юнит
         /// </param>
         [OperationContract]
         void EditUnit(Unit item);
 
         /// <summary>
-        /// Удаление классификатора объекта
+        /// Удаление юнита
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора объекта
+        /// Юнит
         /// </param>
         [OperationContract]
         void DeleteUnit(Unit item);
 
         /// <summary>
-        /// Получение списка классификаторов объектов
+        /// Получение списка юнитов
         /// </summary>
         /// <returns>
-        /// Список классификаторов объектов
+        /// Список юнитов
         /// </returns>
         [OperationContract]
-        List<Unit> GetAllUnit();
+        List<Unit> GetUnitList();
+
+        #endregion
+
+        #region Settings
+
+        /// <summary>
+        /// Добавление настроек сервера
+        /// </summary>
+        /// <param name="item">
+        /// Настрйки сервера
+        /// </param>
+        [OperationContract]
+        void AddSettings(Settings item);
+
+        /// <summary>
+        /// Редактирование настроек сервера
+        /// </summary>
+        /// <param name="item">
+        /// Настрйки сервера
+        /// </param>
+        [OperationContract]
+        void EditSettings(Settings item);
+
+        /// <summary>
+        /// Удаление настроек сервера
+        /// </summary>
+        /// <param name="item">
+        /// Настрйки сервера
+        /// </param>
+        [OperationContract]
+        void DeleteSettings(Settings item);
+
+        /// <summary>
+        /// Получение настроек сервера
+        /// </summary>
+        /// <returns>
+        /// Настрйки сервера
+        /// </returns>
+        [OperationContract]
+        Settings GetSettings();
+
+        #endregion
+
+        #region Division
+
+        /// <summary>
+        /// Добавление подразделения
+        /// </summary>
+        /// <param name="item">
+        /// Подразделение
+        /// </param>
+        [OperationContract]
+        void AddDivision(Division item);
+
+        /// <summary>
+        /// Редактирование подразделения
+        /// </summary>
+        /// <param name="item">
+        /// Подразделение
+        /// </param>
+        [OperationContract]
+        void EditDivision(Division item);
+
+        /// <summary>
+        /// Удаление подразделения
+        /// </summary>
+        /// <param name="item">
+        /// Подразделение
+        /// </param>
+        [OperationContract]
+        void DeleteDivision(Division item);
+
+        /// <summary>
+        /// Получение списка юнитов
+        /// </summary>
+        /// <returns>
+        /// Список подразделений
+        /// </returns>
+        [OperationContract]
+        List<Division> GetDivisionList();
+
+        #endregion
+
+        #region User
+
+        /// <summary>
+        /// Добавление пользователя
+        /// </summary>
+        /// <param name="item">
+        /// Пользователь
+        /// </param>
+        [OperationContract]
+        void AddUser(User item);
+
+        /// <summary>
+        /// Редактирование пользователя
+        /// </summary>
+        /// <param name="item">
+        /// Пользователь
+        /// </param>
+        [OperationContract]
+        void EditUser(User item);
+
+        /// <summary>
+        /// Удаление пользователя
+        /// </summary>
+        /// <param name="item">
+        /// Пользователь
+        /// </param>
+        [OperationContract]
+        void DeleteUser(User item);
+
+        /// <summary>
+        /// Получение списка пользователей
+        /// </summary>
+        /// <returns>
+        /// Список пользователей
+        /// </returns>
+        [OperationContract]
+        List<User> GetUserList();
 
         #endregion
     }

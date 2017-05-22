@@ -1,18 +1,10 @@
 ﻿namespace DAL.WCF.ServiceReference
 {
-    using System;
     using System.Linq;
-    using System.Collections.Generic;
-    using DAL.WCF;
-    using Init.DbCore.Metadata;
+    using WCF;
 
     public partial class Equipment
     {
-        // public Equipment()
-        // {
-        //     if (this.LastMovementId != null)
-        //         _movement = DalContainer.WcfDataManager.ServiceOperationClient.GetMovement(this.LastMovementId);
-        // }
 
         #region Группа
 
@@ -26,7 +18,7 @@
             get
             {
                 if (group == null)
-                    group = DalContainer.WcfDataManager.GroupList.SingleOrDefault(e => e.Id == this.kEquipment.GroupId);
+                    group = DalContainer.WcfDataManager.EquipmentGroupList.SingleOrDefault(e => e.Id == this.KEquipment.GroupId);
 
                 return group;
             }
@@ -40,19 +32,19 @@
 
         #region Тип оборудования
 
-        private kEquipment equipment = null;
+        private kEquipment _kEquipment = null;
 
         /// <summary>
         /// Класс оборудования
         /// </summary>
-        public kEquipment kEquipment
+        public kEquipment KEquipment
         {
             get
             {
-                if (equipment == null)
-                    equipment = DalContainer.WcfDataManager.kEquipmentList.SingleOrDefault(e => e.Id == this.kEquipmentId);
+                if (_kEquipment == null)
+                    _kEquipment = DalContainer.WcfDataManager.KEquipmentList.SingleOrDefault(e => e.GroupName == this.KEquipmentId);
 
-                return equipment;
+                return _kEquipment;
             }
         }
 
@@ -80,11 +72,11 @@
 
         public string RFId { get { return this.Tag.Rfid ?? ""; } }
 
-        public string EquipmentName { get { return this.kEquipment.Name ?? ""; } }
+        public string EquipmentName { get { return this.KEquipment.Name ?? ""; } }
 
-        public string EquipmentGroupName { get { return this.kEquipment.GroupName ?? ""; } }
+        public string EquipmentGroupName { get { return this.KEquipment.GroupName ?? ""; } }
 
-        public bool IsUniq { get { return this.kEquipment != null ? this.kEquipment.IsUniq : false; } }
+        public bool IsUniq { get { return this.KEquipment != null ? this.KEquipment.IsUniq : false; } }
 
         #endregion
 

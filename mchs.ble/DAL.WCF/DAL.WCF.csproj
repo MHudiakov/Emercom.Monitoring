@@ -41,14 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\kEquipment.cs" />
-    <Compile Include="DataObjects\Group.cs" />
-    <Compile Include="DataObjects\kObject.cs" />
+    <Compile Include="DataObjects\EquipmentGroup.cs" />
     <Compile Include="DataObjects\Movement.cs" />
     <Compile Include="DataObjects\Equipment.cs" />
-    <Compile Include="DataObjects\NonUniqEquipmentObject.cs" />
-    <Compile Include="DataObjects\UniqEquipmentObject.cs" />
-    <Compile Include="DataObjects\Unit.cs" />
-    <Compile Include="Enums\ColourEnum.cs" />
     <Compile Include="Enums\UnitTypeEnum.cs" />
     <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -70,61 +65,37 @@
     </None>
     <None Include="Properties\DataSources\Init.DAL.Sync.Change.datasource" />
     <None Include="Properties\DataSources\Init.DAL.Sync.Transfer.TransferPart.datasource" />
-    <None Include="Service References\ServiceReference\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.SQL.DataObjects.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Division.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Equipment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.GeoPoints.datasource">
+    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.EquipmentGroup.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Group.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.kEquipment.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.kObject.datasource">
+    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.KEquipment1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Movement.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.NonUniqEquipmentObject.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Store.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Tag.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Trip.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.TripComplectation1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.UniqEquipmentObject.datasource">
+    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Settings.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Unit.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\Init.DAL.Sync.Transfer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\Init.DAL.Sync.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference\Init.DbCore.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\Server.Dal.SQL.DataObjects.xsd">
+    <None Include="Service References\ServiceReference\Server.Dal.Sql.DataObjects1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Server.Dal.Sql.Enums.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\service.wsdl" />

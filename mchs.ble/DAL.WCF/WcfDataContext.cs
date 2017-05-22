@@ -9,10 +9,9 @@
 
 namespace DAL.WCF
 {
-    using System;
     using System.ServiceModel;
 
-    using DAL.WCF.ServiceReference;
+    using ServiceReference;
 
     /// <summary>
     /// Контекст доступа к серверу приложения по технологии WCF

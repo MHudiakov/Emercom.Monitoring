@@ -69,7 +69,7 @@
             get
             {
                 if ((kequipment == null) && (kEquipmentId != 0))
-                    kequipment = DalContainer.WcfDataManager.kEquipmentList.SingleOrDefault(e => e.Id == this.kEquipmentId);
+                    kequipment = DalContainer.WcfDataManager.KEquipmentList.SingleOrDefault(e => e.Id == this.kEquipmentId);
 
                 return kequipment;
             }

@@ -1,17 +1,12 @@
 ﻿namespace DAL.WCF.ServiceReference
 {
-    using System;
     using System.Linq;
-    using System.Collections.Generic;
-
-    using DAL.WCF;
-
-    using Init.DbCore.Metadata;
+    using WCF;
 
     /// <summary>
     /// Оборудование
     /// </summary>
-    public partial class kEquipment
+    public partial class KEquipment
     {
         /// <summary>
         /// Определяем метод преобразования к строке для всех объектов БД
@@ -21,7 +16,7 @@
         /// </returns>
         public override string ToString()
         {
-            return this.Name;
+            return Name;
         }
 
         #region Навигационные свойства
@@ -29,23 +24,17 @@
         /// <summary>
         /// Группа, к которой относится оборудование
         /// </summary> 
-        public Group Group 
+        public EquipmentGroup EquipmentGroup 
         {
             get
             {
-                if (group == null)
-                    group = DalContainer.WcfDataManager.GroupList.SingleOrDefault(e => e.Id == this.GroupId);
-                    
-                return group;
+                return _group ?? (_group =
+                           DalContainer.WcfDataManager.EquipmentGroupList.SingleOrDefault(
+                               e => e.Id == this.EquipmentGroupId));
             } 
         }
         
-        private Group group = null;
-
-        /// <summary>
-        /// Имя группы оборудования
-        /// </summary>
-        public string GroupName { get { return Group.Name ?? ""; } }
+        private EquipmentGroup _group;
 
         #endregion
 

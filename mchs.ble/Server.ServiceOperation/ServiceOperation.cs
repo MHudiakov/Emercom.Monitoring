@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Init.Web;
 using Server.Dal;
 using Server.Dal.Sql.DataObjects;
@@ -73,39 +74,13 @@ namespace Server.WCF
 
         #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        #region kEquipment
+        #region KEquipment
 
         /// <summary>
-        /// Добавить классификатора оборудования
+        /// Добавить классификатор оборудования
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора оборудования
+        /// Классификатор оборудования
         /// </param>
         public void AddKEquipment(KEquipment item)
         {
@@ -113,10 +88,10 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Редактировать классификатора оборудования
+        /// Редактировать классификатор оборудования
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора оборудования
+        /// Классификатор оборудования
         /// </param>
         public void EditKEquipment(KEquipment item)
         {
@@ -124,10 +99,10 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Удалить классификатора оборудования
+        /// Удалить классификатор оборудования
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора оборудования
+        /// Классификатор оборудования
         /// </param>
         public void DeleteKEquipment(KEquipment item)
         {
@@ -146,8 +121,6 @@ namespace Server.WCF
         }
 
         #endregion
-
-        
 
         #region Equipment
 
@@ -190,7 +163,7 @@ namespace Server.WCF
         /// <returns>
         /// Список оборудования
         /// </returns>
-        public List<Equipment> GetAllEquipment()
+        public List<Equipment> GetEquipmentList()
         {
             return DalContainer.GetDataManager.EquipmentRepository.GetAll();
         }
@@ -238,7 +211,7 @@ namespace Server.WCF
         /// <returns>
         /// Список движений
         /// </returns>
-        public List<Movement> GetAllMovement()
+        public List<Movement> GetMovementList()
         {
             return DalContainer.GetDataManager.MovementRepository.GetAll();
         }
@@ -248,9 +221,9 @@ namespace Server.WCF
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Movement GetMovement(int? id)
+        public Movement GetMovement(int id)
         {
-            return id != null ? DalContainer.GetDataManager.MovementRepository.Get(id) : null;
+            return DalContainer.GetDataManager.MovementRepository.Get(id);
         }
 
         /// <summary>
@@ -262,19 +235,17 @@ namespace Server.WCF
         /// <returns></returns>
         public List<Movement> GetMovementListByTimeAndUnitId(DateTime minTime, DateTime maxTime, int unitId)
         {
-            throw new NotImplementedException();
-            // return DalContainer.GetDataManager.MovementRepository.GetByTimeAndUnitId(unitId, minTime, maxTime);
+            return DalContainer.GetDataManager.MovementRepository.GetByTimeAndUnitId(unitId, minTime, maxTime);
         }
 
         /// <summary>
-        /// Полчения списка передвижений оборудования
+        /// Полчения списка передвижений конкретного оборудования 
         /// </summary>
         /// <param name="equipmentId"></param>
         /// <returns></returns>
-        public List<Movement> GetMovementListByEquipmentId(int? equipmentId)
+        public List<Movement> GetMovementListByEquipmentId(int equipmentId)
         {
-            throw new NotImplementedException();
-            //  return DalContainer.GetDataManager.MovementRepository.GetByEquipmentId(equipmentId);
+            return DalContainer.GetDataManager.MovementRepository.GetByEquipmentId(equipmentId);
         }
 
         #endregion
@@ -282,10 +253,10 @@ namespace Server.WCF
         #region Unit
 
         /// <summary>
-        /// Добавление классификатора объекта
+        /// Добавление юнита
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора объекта
+        /// Юнит
         /// </param>
         public void AddUnit(Unit item)
         {
@@ -293,10 +264,10 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Редактирование классификатора объекта
+        /// Редактирование юнита
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора объекта
+        /// Юнит
         /// </param>
         public void EditUnit(Unit item)
         {
@@ -304,10 +275,10 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Удаление классификатора объекта
+        /// Удаление юнита
         /// </summary>
         /// <param name="item">
-        /// Элемент классификатора объекта
+        /// Юнит
         /// </param>
         public void DeleteUnit(Unit item)
         {
@@ -315,14 +286,157 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Получение списка классификаторов объектов
+        /// Получение списка юнитов
         /// </summary>
         /// <returns>
-        /// Список классификаторов объектов
+        /// Список юнитов
         /// </returns>
-        public List<Unit> GetAllUnit()
+        public List<Unit> GetUnitList()
         {
             return DalContainer.GetDataManager.UnitRepository.GetAll();
+        }
+
+        #endregion
+
+        #region Settings
+
+        /// <summary>
+        /// Добавление настроек сервера
+        /// </summary>
+        /// <param name="item">
+        /// Настрйки сервера
+        /// </param>
+        public void AddSettings(Settings item)
+        {
+            DalContainer.GetDataManager.SettingsRepository.Add(item);
+        }
+
+        /// <summary>
+        /// Редактирование настроек сервера
+        /// </summary>
+        /// <param name="item">
+        /// Настрйки сервера
+        /// </param>
+        public void EditSettings(Settings item)
+        {
+            DalContainer.GetDataManager.SettingsRepository.Edit(item);
+        }
+
+        /// <summary>
+        /// Удаление настроек сервера
+        /// </summary>
+        /// <param name="item">
+        /// Настрйки сервера
+        /// </param>
+        public void DeleteSettings(Settings item)
+        {
+            DalContainer.GetDataManager.SettingsRepository.Delete(item);
+        }
+
+        /// <summary>
+        /// Получение настроек сервера
+        /// </summary>
+        /// <returns>
+        /// Настрйки сервера
+        /// </returns>
+        public Settings GetSettings()
+        {
+            return DalContainer.GetDataManager.SettingsRepository.GetAll().FirstOrDefault();
+        }
+
+        #endregion
+
+        #region Division
+
+        /// <summary>
+        /// Добавление подразделения
+        /// </summary>
+        /// <param name="item">
+        /// Подразделение
+        /// </param>
+        public void AddDivision(Division item)
+        {
+            DalContainer.GetDataManager.DivisionRepository.Add(item);
+        }
+
+        /// <summary>
+        /// Редактирование подразделения
+        /// </summary>
+        /// <param name="item">
+        /// Подразделение
+        /// </param>
+        public void EditDivision(Division item)
+        {
+            DalContainer.GetDataManager.DivisionRepository.Edit(item);
+        }
+
+        /// <summary>
+        /// Удаление подразделения
+        /// </summary>
+        /// <param name="item">
+        /// Подразделение
+        /// </param>
+        public void DeleteDivision(Division item)
+        {
+            DalContainer.GetDataManager.DivisionRepository.Delete(item);
+        }
+
+        /// <summary>
+        /// Получение списка юнитов
+        /// </summary>
+        /// <returns>
+        /// Список подразделений
+        /// </returns>
+        public List<Division> GetDivisionList()
+        {
+            return DalContainer.GetDataManager.DivisionRepository.GetAll();
+        }
+        #endregion
+
+        #region User
+
+        /// <summary>
+        /// Добавление пользователя
+        /// </summary>
+        /// <param name="item">
+        /// Пользователь
+        /// </param>
+        public void AddUser(User item)
+        {
+            DalContainer.GetDataManager.UserRepository.Add(item);
+        }
+
+        /// <summary>
+        /// Редактирование пользователя
+        /// </summary>
+        /// <param name="item">
+        /// Пользователь
+        /// </param>
+        public void EditUser(User item)
+        {
+            DalContainer.GetDataManager.UserRepository.Edit(item);
+        }
+
+        /// <summary>
+        /// Удаление пользователя
+        /// </summary>
+        /// <param name="item">
+        /// Пользователь
+        /// </param>
+        public void DeleteUser(User item)
+        {
+            DalContainer.GetDataManager.UserRepository.Delete(item);
+        }
+
+        /// <summary>
+        /// Получение списка пользователей
+        /// </summary>
+        /// <returns>
+        /// Список пользователей
+        /// </returns>
+        public List<User> GetUserList()
+        {
+            return DalContainer.GetDataManager.UserRepository.GetAll();
         }
 
         #endregion

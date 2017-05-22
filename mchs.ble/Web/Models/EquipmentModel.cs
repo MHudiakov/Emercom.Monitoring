@@ -39,7 +39,7 @@ namespace Web.Models
                 RFId = equipment.RFId;
                 kEquipmentId = equipment.kEquipmentId;
                 Description = equipment.Description;
-                kEquipment = equipment.kEquipment;
+                kEquipment = equipment.KKEquipment;
             }
         }
 
