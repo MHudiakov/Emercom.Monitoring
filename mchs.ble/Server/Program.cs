@@ -112,22 +112,6 @@ namespace Server.Host
                 throw;
             }
 
-
-            //EquipmentGroup equipmentGroup = new EquipmentGroup();
-            //equipmentGroup.Name = "Test";
-            //equipmentGroup.ParentId = null;
-            //DalContainer.GetDataManager.EquipmentGroupRepository.Add(equipmentGroup);
-
-            //KEquipment kEquipment = new KEquipment();
-            //kEquipment.EquipmentGroupId = equipmentGroup.Id;
-            //kEquipment.Name = "dfsa";
-            //DalContainer.GetDataManager.KEquipmentRepository.Add(kEquipment);
-
-
-
-            var t = DalContainer.GetDataManager.MovementRepository.GetByTimeAndUnitId(1, DateTime.MinValue, DateTime.MinValue);
-
-
             do
             {
                 sLogger.LogMsg("для остановки сервера введите exit");

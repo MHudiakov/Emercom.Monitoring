@@ -36,10 +36,10 @@ namespace Web.Models
             if (equipment != null)
             {
                 Id = equipment.Id;
-                RFId = equipment.RFId;
+           /*     RFId = equipment.RFId;
                 kEquipmentId = equipment.kEquipmentId;
                 Description = equipment.Description;
-                kEquipment = equipment.KKEquipment;
+                kEquipment = equipment.KKEquipment;*/
             }
         }
 
@@ -50,7 +50,7 @@ namespace Web.Models
 
 
         [DisplayName("Оборудование")]
-        public kEquipment kEquipment { get; set; }
+        public KEquipment kEquipment { get; set; }
 
 
         #region DataFields

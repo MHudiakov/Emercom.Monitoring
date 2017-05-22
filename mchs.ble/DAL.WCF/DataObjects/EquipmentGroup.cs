@@ -10,62 +10,26 @@
     public partial class EquipmentGroup
     {
         /// <summary>
-        /// Определяем метод преобразования к строке для всех объектов БД
-        /// </summary>
-        /// <returns>
-        /// Название группы
-        /// </returns>
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        #region Навигационные свойства
-
-        private List<KEquipment> _kEquipmentList;
-
-        /// <summary>
         /// Оборудование группы
         /// </summary>
-        public List<KEquipment> KEquipmentList
+        public List<KEquipment> KEquipmentList => DalContainer.WcfDataManager.KEquipmentList
+            .Where(e => e.EquipmentGroupId == Id)
+            .ToList();
+
+        public List<EquipmentGroup> ChildrenList => GetChildrenNodes(_childrenList, this);
+
+        private readonly List<EquipmentGroup> _childrenList = new List<EquipmentGroup>();
+
+        private List<EquipmentGroup> GetChildrenNodes(List<EquipmentGroup> nodes, EquipmentGroup node)
         {
-            get
+            var directNodes = DalContainer.WcfDataManager.EquipmentGroupList.Where(d => d.ParentId == node.Id).ToList();
+            nodes.AddRange(directNodes);
+            foreach (var group in directNodes)
             {
-                return _kEquipmentList ?? (_kEquipmentList =
-                           DalContainer.WcfDataManager.KEquipmentList.Where(e => e.EquipmentGroupId == Id)
-                               .ToList());
+                GetChildrenNodes(nodes, group);
             }
-        }
 
-        private List<EquipmentGroup> _innerGroups;
-
-        /// <summary>
-        /// Вложенные каталоги
-        /// </summary>
-        public List<EquipmentGroup> InnerGroups
-        {
-            get
-            {
-                return _innerGroups
-                       ?? (_innerGroups =
-                           DalContainer.WcfDataManager.EquipmentGroupList.Where(
-                               e => e.ParentId == Id && e.Id != Id).ToList());
-            }
-        }
-
-        #endregion
-
-        public List<KEquipment> KEquipmentsList
-        {
-            get
-            {
-                var list = KEquipmentList.ToList();
-
-                foreach (var innerGroup in InnerGroups.Where(innerGroup => innerGroup.KEquipmentsList != null))
-                    list.AddRange(innerGroup.KEquipmentsList);
-
-                return list;
-            }
+            return nodes;
         }
     }
 }

@@ -33,6 +33,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -260,11 +261,7 @@
     <Compile Include="Models\FilterEquipmentModel.cs" />
     <Compile Include="Models\MovementModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
-    <Compile Include="Models\Unit\NonUniqEquipmentObjectListModel.cs" />
-    <Compile Include="Models\NonUniqEquipmentObjectModel.cs" />
     <Compile Include="Models\Unit\MovementListModel.cs" />
-    <Compile Include="Models\Unit\UniqEquipmentObjectListModel.cs" />
-    <Compile Include="Models\UniqEquipmentObjectModel.cs" />
     <Compile Include="Models\Unit\UnitInfoModel.cs" />
     <Compile Include="Models\Unit\UnitJsonModel.cs" />
     <Compile Include="Models\Unit\UnitModel.cs" />

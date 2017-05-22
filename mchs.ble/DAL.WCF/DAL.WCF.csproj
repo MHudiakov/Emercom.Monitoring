@@ -40,17 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataObjects\kEquipment.cs" />
+    <Compile Include="DataObjects\Division.cs" />
+    <Compile Include="DataObjects\KEquipment.cs" />
     <Compile Include="DataObjects\EquipmentGroup.cs" />
     <Compile Include="DataObjects\Movement.cs" />
     <Compile Include="DataObjects\Equipment.cs" />
-    <Compile Include="Enums\UnitTypeEnum.cs" />
+    <Compile Include="DataObjects\Unit.cs" />
+    <Compile Include="DataObjects\User.cs" />
     <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ServiceReference\ServiceOperationClient.cs" />
     <Compile Include="WcfDataManager.cs" />
     <Compile Include="DalContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +123,10 @@
     <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
       <Project>{76db3053-1978-4d3e-9b26-dd3e2096467e}</Project>
       <Name>Init.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Server.Dal.csproj">
+      <Project>{4600B640-ADF9-437E-8B17-08032B7CD058}</Project>
+      <Name>Server.Dal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

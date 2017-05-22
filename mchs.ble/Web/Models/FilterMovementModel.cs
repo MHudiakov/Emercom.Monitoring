@@ -45,7 +45,7 @@ namespace Web.Models
             get
             {
                 var equipmentList = DalContainer.WcfDataManager.EquipmentList;
-                return new SelectList(equipmentList.OrderBy(e => e.RFId), "Id", "RFId");
+                return new SelectList(equipmentList, "Id", "ble");
             }
         }
     }

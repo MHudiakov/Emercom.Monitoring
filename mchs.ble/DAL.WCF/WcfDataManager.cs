@@ -68,8 +68,8 @@ namespace DAL.WCF
             EquipmentGroupList = ServiceOperationClient.GetGroupList();
             KEquipmentList = ServiceOperationClient.GetKEquipmentList();
             MovementList = ServiceOperationClient.GetMovementList();
-            UnitList = this.ServiceOperationClient.GetUnitList();
-            UserList = this.ServiceOperationClient.GetUserList();
+            UnitList = ServiceOperationClient.GetUnitList();
+            UserList = ServiceOperationClient.GetUserList();
         }
 
         /// <summary>
