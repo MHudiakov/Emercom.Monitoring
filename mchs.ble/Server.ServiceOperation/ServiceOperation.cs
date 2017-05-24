@@ -296,6 +296,20 @@ namespace Server.WCF
             return DalContainer.GetDataManager.UnitRepository.GetAll();
         }
 
+        /// <summary>
+        /// Получить список юнитов, которые может просматривать данный пользователь
+        /// </summary>
+        /// <param name="userId">
+        /// Id пользователя
+        /// </param>
+        /// <returns>
+        /// Список юнитов
+        /// </returns>
+        public List<Unit> GetUnitListForUser(int userId)
+        {
+            return DalContainer.GetDataManager.UnitRepository.GetUnitListForUser(userId);
+        }
+
         #endregion
 
         #region Settings

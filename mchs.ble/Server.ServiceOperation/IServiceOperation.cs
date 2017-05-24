@@ -252,6 +252,18 @@ namespace Server.WCF
         [OperationContract]
         List<Unit> GetUnitList();
 
+        /// <summary>
+        /// Получить список юнитов, которые может просматривать данный пользователь
+        /// </summary>
+        /// <param name="userId">
+        /// Id пользователя
+        /// </param>
+        /// <returns>
+        /// Список юнитов
+        /// </returns>
+        [OperationContract]
+        List<Unit> GetUnitListForUser(int userId);
+
         #endregion
 
         #region Settings

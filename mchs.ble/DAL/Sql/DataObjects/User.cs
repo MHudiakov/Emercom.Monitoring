@@ -32,6 +32,8 @@ namespace Server.Dal.Sql.DataObjects
         [DbMember("DivisionId", typeof(int))]
         public int DivisionId { get; set; }
 
+        public Division GetDivision => DalContainer.GetDataManager.DivisionRepository.Get(DivisionId);
+
         /// <summary>
         /// Логин
         /// </summary>
