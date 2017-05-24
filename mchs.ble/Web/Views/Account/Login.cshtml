@@ -1,4 +1,4 @@
-﻿@model AIS.Web.Models.LoginModel
+﻿@model Web.Models.LoginModel
 @{
     Layout = null;
 }
@@ -10,7 +10,7 @@
     <meta name="author" content="InitCenter" />
     <meta name="description" content="Клиентское приложение" />
     <meta name="keywords" content="Пример работ" />
-    <meta name="application-name" content="АИС Диспетчер" />
+    <meta name="application-name" content="МЧС BLE" />
     @Html.Partial("_FontsPartial")
     @Styles.Render("~/Content/css")
     @Html.Partial("_IconsPartial")
@@ -33,8 +33,8 @@
                                 <div class="icon">
                                     <i class="icon20 i-user"></i>
                                 </div>
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Имя пользователя" })
-                                @Html.ValidationMessageFor(m => m.UserName)
+                                @Html.TextBoxFor(m => m.Login, new { @class = "form-control", placeholder = "Имя пользователя" })
+                                @Html.ValidationMessageFor(m => m.Login)
                             </div>
                             <div class="form-group relative">
                                 <div class="icon">
@@ -44,12 +44,7 @@
                                 @Html.ValidationMessageFor(m => m.Password)
                             </div>
                             <div class="form-group relative">
-                                <label class="control-label" class="checkbox pull-left">
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    Запомнить ?
-                                </label>
-                                <button id="loginBtn" type="submit" class="btn btn-primary pull-right col-lg-5">
-                                    Войти</button>
+                                <button id="loginBtn" type="submit" class="btn btn-primary pull-right col-lg-5">Войти</button>
                             </div>
                         </div>
                     }

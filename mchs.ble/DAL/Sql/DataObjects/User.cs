@@ -1,4 +1,7 @@
-﻿namespace Server.Dal.Sql.DataObjects
+﻿using System;
+using Ble.Common.Enums;
+
+namespace Server.Dal.Sql.DataObjects
 {
     using System.Runtime.Serialization;
 
@@ -6,13 +9,11 @@
     using Init.DbCore.DB.Metadata;
     using Init.DbCore.Metadata;
 
-    using Enums;
-
     /// <summary>
     /// Пользователь
     /// </summary>
     [DataContract]
-    [DbTable("Division")]
+    [DbTable("User")]
     public sealed class User : DbObject
     {
         /// <summary>
@@ -57,7 +58,19 @@
         /// </summary>
         [DataMember]
         [DbMember("Role", typeof(int))]
-        public UserRole Role { get; set; }
+        public int RoleId { get; set; }
+
+        public UserRole Role
+        {
+            get
+            {
+                return (UserRole)Enum.ToObject(typeof(UserRole), RoleId);
+            }
+            set
+            {
+                RoleId = (int) value;
+            }
+        }
 
         /// <summary>
         /// Описание

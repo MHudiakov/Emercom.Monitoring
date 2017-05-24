@@ -50,7 +50,6 @@
     <Compile Include="Sql\DataObjects\Equipment.cs" />
     <Compile Include="Sql\DataObjects\Settings.cs" />
     <Compile Include="Sql\DataObjects\User.cs" />
-    <Compile Include="Sql\Enums\UserRole.cs" />
     <Compile Include="Sql\Repositories\DivisionRepository.cs" />
     <Compile Include="Sql\Repositories\kEquipmentRepository.cs" />
     <Compile Include="Sql\Repositories\EquipmentGroupRepository.cs" />
@@ -62,6 +61,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
+      <Project>{0e58c5d2-a158-4dae-8c80-118a7b1e4eb5}</Project>
+      <Name>Ble.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
       <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
       <Name>Init.DAL.Sync</Name>

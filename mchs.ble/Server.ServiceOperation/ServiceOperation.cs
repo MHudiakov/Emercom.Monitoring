@@ -436,7 +436,7 @@ namespace Server.WCF
         /// </returns>
         public List<User> GetUserList()
         {
-            return DalContainer.GetDataManager.UserRepository.GetAll();
+           return DalContainer.GetDataManager.UserRepository.GetAll();
         }
 
         #endregion

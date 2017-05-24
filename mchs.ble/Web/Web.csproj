@@ -250,6 +250,7 @@
     <Compile Include="BootstrapSupport\HtmlHelpers\GlyphIcons.cs" />
     <Compile Include="BootstrapSupport\HtmlHelpers\Paging.cs" />
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovementController.cs" />
@@ -259,6 +260,7 @@
     </Compile>
     <Compile Include="Models\FilterMovementModel.cs" />
     <Compile Include="Models\FilterEquipmentModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MovementModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
     <Compile Include="Models\Unit\MovementListModel.cs" />
@@ -1747,6 +1749,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
+      <Project>{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}</Project>
+      <Name>Ble.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
       <Project>{D8529B4F-AEFE-4387-80AB-CF097E67BC14}</Project>
       <Name>Init.DAL.Sync</Name>

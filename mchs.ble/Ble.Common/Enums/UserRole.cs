@@ -1,4 +1,4 @@
-﻿namespace Server.Dal.Sql.Enums
+﻿namespace Ble.Common.Enums
 {
     /// <summary>
     /// Роли пользователй
