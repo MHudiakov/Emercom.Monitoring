@@ -59,7 +59,6 @@
     <Compile Include="Sql\Repositories\UnitRepository.cs" />
     <Compile Include="Sql\Repositories\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
       <Project>{0e58c5d2-a158-4dae-8c80-118a7b1e4eb5}</Project>

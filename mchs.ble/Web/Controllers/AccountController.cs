@@ -40,11 +40,11 @@ namespace Web.Controllers
 
             string passwordHash = CryptographyHelper.GetSha256Hash(model.Password);
             var user = DalContainer.WcfDataManager.UserList.SingleOrDefault(
-                item => item.Login.Equals(model.Login) && item.PasswordHash.Equals(passwordHash));
+                item => item.Login.Equals(model.UserLogin) && item.PasswordHash.Equals(passwordHash));
 
             if (user != null)
             {
-                var authTicket = new FormsAuthenticationTicket(1, model.Login, DateTime.Now, DateTime.Now.AddDays(1), false, user.Role.ToString(), "/");
+                var authTicket = new FormsAuthenticationTicket(1, model.UserLogin, DateTime.Now, DateTime.Now.AddDays(1), false, user.Role.ToString(), "/");
                 var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
                 Response.Cookies.Add(cookie);
                 Response.Cookies.Add(cookie);

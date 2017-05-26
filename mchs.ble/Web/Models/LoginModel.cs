@@ -13,7 +13,7 @@ namespace Web.Models
         /// </summary>
         [DisplayName("Имя")]
         [Required]
-        public string Login { get; set; }
+        public string UserLogin { get; set; }
 
         /// <summary>
         /// Пароль
