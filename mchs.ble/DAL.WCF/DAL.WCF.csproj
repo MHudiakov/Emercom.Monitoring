@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL.WCF</RootNamespace>
     <AssemblyName>DAL.WCF</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,9 +30,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Init.DbCore, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -56,6 +62,7 @@
     <Compile Include="DalContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WcfDataContext.cs" />
+    <Compile Include="Wrappers\UserStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -64,6 +71,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Init.DAL.Sync.Change.datasource" />
     <None Include="Properties\DataSources\Init.DAL.Sync.Transfer.TransferPart.datasource" />
     <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.Division.datasource" />
@@ -102,9 +110,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\Server.Dal.Sql.DataObjects1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\Server.Dal.Sql.Enums.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\service.wsdl" />
