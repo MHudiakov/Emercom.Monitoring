@@ -16,9 +16,14 @@
             .Where(e => e.EquipmentGroupId == Id)
             .ToList();
 
-        public List<EquipmentGroup> ChildrenList => GetChildrenNodes(_childrenList, this);
-
-        private readonly List<EquipmentGroup> _childrenList = new List<EquipmentGroup>();
+        public List<EquipmentGroup> ChildrenList
+        {
+            get
+            {
+                var childrenList = new List<EquipmentGroup>();
+                return GetChildrenNodes(childrenList, this);
+            }
+        }
 
         private List<EquipmentGroup> GetChildrenNodes(List<EquipmentGroup> nodes, EquipmentGroup node)
         {

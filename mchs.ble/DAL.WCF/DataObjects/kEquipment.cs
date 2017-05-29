@@ -12,5 +12,8 @@ namespace DAL.WCF.ServiceReference
 
         public List<Equipment> EquipmentList => DalContainer.WcfDataManager.EquipmentList
             .Where(e => e.KEquipmentId == this.Id).ToList();
+
+        // todo: for test only
+        public int ParentId => 0;
     }
 }
