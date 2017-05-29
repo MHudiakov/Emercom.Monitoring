@@ -14,6 +14,7 @@ namespace Web.Controllers
     /// <summary>
     /// Контроллер главной страницы
     /// </summary>
+    [Authorize]
     public class HomeController : Controller
     {
         /// <summary>

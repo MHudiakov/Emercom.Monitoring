@@ -47,8 +47,7 @@ namespace Web.Controllers
                 var authTicket = new FormsAuthenticationTicket(1, model.UserLogin, DateTime.Now, DateTime.Now.AddDays(1), false, user.Role.ToString(), "/");
                 var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
                 Response.Cookies.Add(cookie);
-                Response.Cookies.Add(cookie);
-                return this.Redirect(Url.Action("Index", "Unit"));
+                return this.Redirect(Url.Action("Index", "Home"));
             }
 
             this.ModelState.AddModelError(string.Empty, @"Не верное имя пользователя, или пароль");

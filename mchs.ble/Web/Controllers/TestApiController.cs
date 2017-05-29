@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 using DAL.WCF;
 using DAL.WCF.ServiceReference;
 
@@ -41,9 +40,8 @@ namespace Web.Controllers
                 MovementList = movementList,
                 EquipmentList = equipmentList
             };
-
-            var jsonData = new JavaScriptSerializer().Serialize(unitModel);
-            return new JsonResult { Data = jsonData, JsonRequestBehavior = JsonRequestBehavior.AllowGet, ContentType = "application/json" };
+            
+            return new JsonResult { Data = unitModel, JsonRequestBehavior = JsonRequestBehavior.AllowGet, ContentType = "application/json" };
         }
 
         [HttpGet]
@@ -58,8 +56,7 @@ namespace Web.Controllers
                     x.ParentId
                 });
             
-            var jsonData = new JavaScriptSerializer().Serialize(kEquipmentList);
-            return new JsonResult { Data = jsonData, JsonRequestBehavior = JsonRequestBehavior.AllowGet, ContentType = "application/json" };
+            return new JsonResult { Data = kEquipmentList, JsonRequestBehavior = JsonRequestBehavior.AllowGet, ContentType = "application/json"};
         }
     }
 }
