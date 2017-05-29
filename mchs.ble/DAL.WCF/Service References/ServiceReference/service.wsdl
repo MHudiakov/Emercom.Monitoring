@@ -14,7 +14,6 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Init.DbCore" />
     </xsd:schema>
@@ -162,6 +161,12 @@
   </wsdl:message>
   <wsdl:message name="IServiceOperation_GetUnitList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUnitListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetUnitListForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitListForUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetUnitListForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnitListForUserResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceOperation_AddSettings_InputMessage">
     <wsdl:part name="parameters" element="tns:AddSettings" />
@@ -331,6 +336,10 @@
     <wsdl:operation name="GetUnitList">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetUnitList" message="tns:IServiceOperation_GetUnitList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetUnitListResponse" message="tns:IServiceOperation_GetUnitList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitListForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetUnitListForUser" message="tns:IServiceOperation_GetUnitListForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetUnitListForUserResponse" message="tns:IServiceOperation_GetUnitListForUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddSettings">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddSettings" message="tns:IServiceOperation_AddSettings_InputMessage" />
@@ -594,6 +603,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUnitList">
       <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetUnitList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitListForUser">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetUnitListForUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

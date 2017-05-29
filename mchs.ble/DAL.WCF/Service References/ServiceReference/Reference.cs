@@ -929,6 +929,9 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUnitList", ReplyAction="http://tempuri.org/IServiceOperation/GetUnitListResponse")]
         System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitList();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUnitListForUser", ReplyAction="http://tempuri.org/IServiceOperation/GetUnitListForUserResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitListForUser(int userId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddSettings", ReplyAction="http://tempuri.org/IServiceOperation/AddSettingsResponse")]
         void AddSettings(DAL.WCF.ServiceReference.Settings item);
         
@@ -1087,6 +1090,10 @@ namespace DAL.WCF.ServiceReference {
         
         public System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitList() {
             return base.Channel.GetUnitList();
+        }
+        
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitListForUser(int userId) {
+            return base.Channel.GetUnitListForUser(userId);
         }
         
         public void AddSettings(DAL.WCF.ServiceReference.Settings item) {

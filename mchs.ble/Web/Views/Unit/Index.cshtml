@@ -7,7 +7,7 @@
 <div class="panel-body">
     <div class="row">
         <div class="col-lg-12">
-            <table class=" table table-bordered">
+            <table class="table table-bordered">
                 <tr>
                     <th>Объект</th>
                     <th>Тип объекта</th>
@@ -17,29 +17,12 @@
 
                 @foreach (var item in Model)
                 {
-                    string className;
-                    if (item.UniqEquipmentObjectList.Any(e => e.ColorForAppearance == 3) || item.NonUniqEquipmentObjectList.Any(e => e.ColorForAppearance == 3))
-                    {
-                        className = "danger";
-                    }
-                    else if (item.UniqEquipmentObjectList.Any(e => e.ColorForAppearance == 4) || item.NonUniqEquipmentObjectList.Any(e => e.ColorForAppearance == 4))
-                    {
-                        className = "warning";
-                    }
-                    else if (item.UniqEquipmentObjectList.Any(e => e.ColorForAppearance == 2) || item.NonUniqEquipmentObjectList.Any(e => e.ColorForAppearance == 2))
-                    {
-                        className = "";
-                    }
-                    else
-                    {
-                        className = "success";
-                    }
-                    <tr class="@className">
+                    <tr class="success">
                         <td>
                             @Html.DisplayFor(modelItem => item.Unit.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Unit.Type)
+                            @Html.DisplayFor(modelItem => item.Unit.Number)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Unit.Description)
