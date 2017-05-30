@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using DAL.WCF.Wrappers;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -14,8 +9,6 @@ namespace Web
     {
         public void Configuration(IAppBuilder app)
         {
-         //   app.CreatePerOwinContext<>(CustomUserManager.);
-
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,

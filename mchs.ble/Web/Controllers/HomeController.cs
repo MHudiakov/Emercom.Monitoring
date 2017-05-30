@@ -9,8 +9,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Security;
 using DAL.WCF;
+using DAL.WCF.DataObjects.Enum;
 using DAL.WCF.ServiceReference;
 
 namespace Web.Controllers
@@ -20,7 +20,7 @@ namespace Web.Controllers
     /// <summary>
     /// Контроллер главной страницы
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = UserRolesConsts.User)]
     public class HomeController : Controller
     {
         /// <summary>
@@ -29,7 +29,8 @@ namespace Web.Controllers
         /// <returns>Главная страницы</returns>
         public ActionResult Index()
         {
-            var userLogin = System.Web.HttpContext.Current.User.Identity.Name;
+            
+            var userLogin = User.Identity.Name;
             var user = DalContainer.WcfDataManager.UserList.Single(u => u.Login.Equals(userLogin));
             List<Unit> unitList = DalContainer.WcfDataManager.ServiceOperationClient.GetUnitListForUser(user.Id);
             return View(unitList);

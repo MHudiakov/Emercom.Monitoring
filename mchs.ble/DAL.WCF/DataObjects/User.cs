@@ -22,8 +22,8 @@ namespace DAL.WCF.ServiceReference
         }
 
         public string UserName {
-            get { return Name; }
-            set { Name = value; }
+            get { return Login; }
+            set { Login = value; }
         }
     }
 }
