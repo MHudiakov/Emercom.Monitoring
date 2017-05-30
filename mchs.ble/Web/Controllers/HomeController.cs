@@ -20,7 +20,7 @@ namespace Web.Controllers
     /// <summary>
     /// Контроллер главной страницы
     /// </summary>
-    [Authorize(Roles = "User")]
+    [Authorize]
     public class HomeController : Controller
     {
         /// <summary>

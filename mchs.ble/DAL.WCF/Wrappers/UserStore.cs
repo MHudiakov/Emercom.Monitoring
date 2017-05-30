@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Ble.Common.Enums;
 using DAL.WCF.ServiceReference;
 using Microsoft.AspNet.Identity;
 
@@ -44,7 +44,7 @@ namespace DAL.WCF.Wrappers
         {
             if (userName == null)
                 throw new ArgumentNullException(nameof(userName));
-            return Task.Run(() => DalContainer.WcfDataManager.UserList.SingleOrDefault(user => user.Name.Equals(userName)));
+            return Task.Run(() => DalContainer.WcfDataManager.UserList.SingleOrDefault(user => user.Login.Equals(userName)));
         }
 
         public Task SetPasswordHashAsync(User user, string passwordHash)
@@ -74,7 +74,7 @@ namespace DAL.WCF.Wrappers
 
         public Task<IList<string>> GetRolesAsync(User user)
         {
-            throw new NotImplementedException();
+            return Task.Run(() => (IList<string>)Enum.GetNames(typeof(UserRole)).ToList());
         }
 
         public Task<bool> IsInRoleAsync(User user, string roleName)

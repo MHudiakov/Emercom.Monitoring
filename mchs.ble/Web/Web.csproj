@@ -116,10 +116,6 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.IO, Version=2.6.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.1.1.6\lib\net40\System.IO.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net40\System.Net.Http.dll</HintPath>
@@ -137,19 +133,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime, Version=2.6.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.1.1.6\lib\net40\System.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ServiceModel">
       <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Threading.Tasks, Version=2.6.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.1.1.6\lib\net40\System.Threading.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData">
       <Private>True</Private>

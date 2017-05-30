@@ -7,16 +7,22 @@ using System.Web.Security;
 using Ble.Common;
 using DAL.WCF;
 using DAL.WCF.ServiceReference;
-using Web.Models;
 using Microsoft.AspNet.Identity;
+using Web.Models;
+using DAL.WCF.Wrappers;
 
 namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<User, int> _userManager;
+        private readonly CustomUserManager _userManager;
 
-        public AccountController(UserManager<User, int> userManager)
+        public AccountController()
+            : this(new CustomUserManager(new UserStore()))
+        {
+        }
+
+        public AccountController(CustomUserManager userManager)
         {
             this._userManager = userManager;
         }
@@ -28,6 +34,7 @@ namespace Web.Controllers
         /// View авторизации пользователя в системе
         /// </returns>
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
@@ -66,18 +73,30 @@ namespace Web.Controllers
         //}
 
 
-        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindAsync(model.UserName, model.Password);
+                var user = await _userManager.FindAsync(model.UserLogin, model.Password);
+                if (user != null)
+                {
+                    await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                    return this.RedirectToAction("Index", "Home");
+                }
+
+                this.ModelState.AddModelError(string.Empty, @"Некорректно введен пароль");
             }
 
             // If we got this far, something failed, redisplay form
-                return View(model);
+            return View(model);
         }
 
-
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            return this.RedirectToAction("Index", "Home");
+        }
 
         /// <summary>
         /// Завершение работы пользователя в системе

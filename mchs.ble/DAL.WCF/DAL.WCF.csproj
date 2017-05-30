@@ -42,7 +42,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +61,8 @@
     <Compile Include="DalContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WcfDataContext.cs" />
+    <Compile Include="Wrappers\CustomPasswordHasher.cs" />
+    <Compile Include="Wrappers\CustomUserManager.cs" />
     <Compile Include="Wrappers\UserStore.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,14 +125,6 @@
     <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
       <Project>{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}</Project>
       <Name>Ble.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
-      <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
-      <Name>Init.DAL.Sync</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.Wcf\Init.DbCore.Wcf.csproj">
-      <Project>{8d8a798a-9544-4113-9749-4c43bc7d9bf5}</Project>
-      <Name>Init.DbCore.Wcf</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
       <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
