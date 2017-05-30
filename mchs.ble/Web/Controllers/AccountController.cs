@@ -10,6 +10,7 @@ using DAL.WCF.ServiceReference;
 using Microsoft.AspNet.Identity;
 using Web.Models;
 using DAL.WCF.Wrappers;
+using Microsoft.Owin.Security;
 
 namespace Web.Controllers
 {
@@ -91,6 +92,15 @@ namespace Web.Controllers
             return View(model);
         }
 
+        private async Task SignInAsync(User user, bool isPersistent)
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, identity);
+        }
+
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -104,10 +114,10 @@ namespace Web.Controllers
         /// <returns>
         /// The <see cref="ActionResult"/>.
         /// </returns>
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return this.View("Login");
-        }
+        //public ActionResult Logout()
+        //{
+        //    AuthenticationManager.SignOut();
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }
