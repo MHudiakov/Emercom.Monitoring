@@ -4,7 +4,7 @@
             '<div class="modal-dialog">' +
             '<div class="modal-content">' +
             '<div class="modal-body">' +
-            '<h5 align="center"><img src="..Content/images/ajax-loader.gif" style="margin-left: -10px; margin-right: 10px"/>Пожалуйста, подождите...</h5>' +
+            '<h5 align="center"><img src="Content/images/ajax-loader.gif" style="margin-left: -10px; margin-right: 10px"/>Пожалуйста, подождите...</h5>' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -19,6 +19,3 @@
         }
     };    
 })();
-
-
-
