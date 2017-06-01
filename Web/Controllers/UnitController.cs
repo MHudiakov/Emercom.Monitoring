@@ -9,17 +9,14 @@
 namespace Web.Controllers
 {
     using System.Linq;
-    using System.Text.RegularExpressions;
-    using System.Web;
     using System.Web.Mvc;
-    using System.Web.Script.Serialization;
-
     using DAL.WCF;
-    using Web.Models.Unit;
+    using Models.Unit;
 
     /// <summary>
     /// Контроллер раздела "Оборудование на складе"
     /// </summary>
+    [Authorize(Roles = UserRolesConsts.Administrator)]
     public class UnitController : Controller
     {
         /// <summary>
