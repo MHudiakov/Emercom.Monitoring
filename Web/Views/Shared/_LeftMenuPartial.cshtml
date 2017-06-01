@@ -22,7 +22,7 @@
 
                     @* Подразделения *@
                     <li>
-                        <a href="@Url.Action("Index", "Unit")">
+                        <a href="@Url.Action("1", "1")">
                             <span class="icon"><i class="icon20 i-office"></i></span>
                             <span class="txt">Подразделения</span>
                         </a>
@@ -38,7 +38,7 @@
 
                     @* Группы оборудования *@
                     <li>
-                        <a href="@Url.Action("Index", "Unit")">
+                        <a href="@Url.Action("1", "1")">
                             <span class="icon"><i class="icon20 i-hammer"></i></span>
                             <span class="txt">Группы оборудования</span>
                         </a>
@@ -46,15 +46,15 @@
 
                     @* Классификатор оборудования *@
                     <li>
-                        <a href="@Url.Action("Index", "Unit")">
+                        <a href="@Url.Action("1", "1")">
                             <span class="icon"><i class="icon20 i-hammer-2"></i></span>
-                            <span class="txt">Классификатор оборудования</span>
+                            <span class="txt">Классификатор</span>
                         </a>
                     </li>
 
                     @* Оборудование *@
                     <li>
-                        <a href="@Url.Action("Index", "Unit")">
+                        <a href="@Url.Action("1", "1")">
                             <span class="icon"><i class="icon20 i-barcode-2"></i></span>
                             <span class="txt">Оборудование</span>
                         </a>
@@ -79,7 +79,7 @@
         @if (User.IsInRole(UserRolesConsts.Administrator))
         {
             <li>
-                <a href="@Url.Action("Index", "Unit")">
+                <a href="@Url.Action("1", "1")">
                     <span class="icon"><i class="icon20 i-settings"></i></span>
                     <span class="txt">Настройки</span>
                 </a>

@@ -9,59 +9,34 @@
 namespace Web.Controllers
 {
     using System.Linq;
-    using System.Text.RegularExpressions;
-    using System.Web;
     using System.Web.Mvc;
-    using System.Web.Script.Serialization;
-
     using DAL.WCF;
-    using Web.Models.Unit;
+    using Models.Unit;
 
     /// <summary>
     /// Контроллер раздела "Оборудование на складе"
     /// </summary>
+    [Authorize(Roles = UserRolesConsts.Administrator)]
     public class UnitController : Controller
     {
         /// <summary>
-        /// Главная страница раздела "Наличие на складе"
+        /// Получение главной страницы
         /// </summary>
-        /// <returns>Представление</returns>
-        [HttpGet]
+        /// <returns>Главная страницы</returns>
         public ActionResult Index()
         {
-            var model = DalContainer.WcfDataManager.UnitList.Select(u => new UnitInfoModel(u)).ToList();
-            return View(model);
+            var filter = new FilterUnitModel();
+            return View(filter);
         }
 
-        public ActionResult UnitInfo(int id)
+        public PartialViewResult List(FilterUnitModel filter)
         {
-            var unit = DalContainer.WcfDataManager.UnitList.FirstOrDefault(u => u.Id == id);
-            var model = new UnitInfoModel(unit);
-            return View(model);
-        }
+            var unitList = filter.DivisionId == null ?
+                DalContainer.WcfDataManager.UnitList :
+                DalContainer.WcfDataManager.UnitList.Where(user => user.DivisionId == filter.DivisionId);
 
-        public ActionResult UnitInfoPartial(int id)
-        {
-            var unit = DalContainer.WcfDataManager.UnitList.FirstOrDefault(u => u.Id == id);
-            var model = new UnitInfoModel(unit);
-            return PartialView(model);
-        }
-
-        public ActionResult UnitMovementPartial(int id)
-        {
-            var unit = DalContainer.WcfDataManager.UnitList.FirstOrDefault(u => u.Id == id);
-            var model = new UnitInfoModel(unit);
-            return PartialView(model);
-        }
-
-        public JsonResult GetJsonUnitData()
-        {
-            var units = DalContainer.WcfDataManager.UnitList;
-            var model = units.Select(e => new UnitJsonModel(e)).ToList();
-            var sjSerializer = new JavaScriptSerializer();
-            var json = sjSerializer.Serialize(model);
-            var array = sjSerializer.DeserializeObject(json);
-            return new JsonResult { Data = array, JsonRequestBehavior = JsonRequestBehavior.AllowGet, ContentType = "application/json" };
+            var unitModelList = unitList.Select(unit => new UnitModel(unit)).OrderBy(user => user.DivisionName).ThenBy(user => user.Name).ToList();
+            return PartialView(unitModelList);
         }
     }
 }
