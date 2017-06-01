@@ -43,7 +43,6 @@ namespace Web.Controllers
                 var user = await _userManager.FindAsync(model.UserLogin, model.Password);
                 if (user != null)
                 {
-                    // await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
                     await SignInAsync(user, true);
                     return this.RedirectToAction("Index", "Home");
                 }

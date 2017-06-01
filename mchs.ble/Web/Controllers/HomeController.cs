@@ -10,8 +10,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DAL.WCF;
-using DAL.WCF.DataObjects.Enum;
-using DAL.WCF.ServiceReference;
+using Web.Models.Unit;
 
 namespace Web.Controllers
 {
@@ -20,7 +19,7 @@ namespace Web.Controllers
     /// <summary>
     /// Контроллер главной страницы
     /// </summary>
-    [Authorize(Roles = UserRolesConsts.User)]
+    [Authorize]
     public class HomeController : Controller
     {
         /// <summary>
@@ -29,10 +28,12 @@ namespace Web.Controllers
         /// <returns>Главная страницы</returns>
         public ActionResult Index()
         {
-            
             var userLogin = User.Identity.Name;
             var user = DalContainer.WcfDataManager.UserList.Single(u => u.Login.Equals(userLogin));
-            List<Unit> unitList = DalContainer.WcfDataManager.ServiceOperationClient.GetUnitListForUser(user.Id);
+            List<UnitModel> unitList =
+                DalContainer.WcfDataManager.ServiceOperationClient.GetUnitListForUser(user.Id).
+                    Select(unit
+                        => new UnitModel(unit)).ToList();
             return View(unitList);
         }
 
@@ -44,7 +45,6 @@ namespace Web.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "mchs.ble";
-
             return View();
         }
     }

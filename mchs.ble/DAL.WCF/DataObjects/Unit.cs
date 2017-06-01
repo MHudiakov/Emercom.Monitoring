@@ -12,12 +12,6 @@ namespace DAL.WCF.ServiceReference
         public List<Equipment> GetEquipmentList => DalContainer.WcfDataManager.EquipmentList.Where(e => e.UnitId == Id)
             .ToList();
 
-
-
-
-
         public List<Movement> MovementList => DalContainer.WcfDataManager.ServiceOperationClient.GetMovementList();
-
-
     }
 }

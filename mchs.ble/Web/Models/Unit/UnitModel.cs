@@ -1,4 +1,6 @@
-﻿namespace Web.Models.Unit
+﻿using System;
+
+namespace Web.Models.Unit
 {
     using DAL.WCF.ServiceReference;
 
@@ -6,8 +8,13 @@
     {
         public UnitModel(Unit unit)
         {
+            if (unit == null)
+            {
+                throw new ArgumentNullException(nameof(unit));
+            }
+
             this.Id = unit.Id;
-            this.DivisionId = unit.DivisionId;
+            this.DivisionName = unit.GetDivision.Name;
             this.Name = unit.Name;
             this.Number = unit.Number;
             this.Description = unit.Description;
@@ -16,9 +23,9 @@
         public int Id { get; set; }
 
         /// <summary>
-        /// Ид подразделения, которому принадлежит юнит
+        /// Название подразделения, которому принадлежит юнит
         /// </summary>
-        public int DivisionId { get; set; }
+        public string DivisionName { get; set; }
 
         /// <summary>
         /// Название объекта
