@@ -267,6 +267,7 @@
     <Compile Include="BootstrapSupport\HtmlHelpers\Paging.cs" />
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="Controllers\TestApiController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -276,6 +277,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Division\DivisionModel.cs" />
+    <Compile Include="Models\Division\FilterDivisionModel.cs" />
     <Compile Include="Models\FilterMovementModel.cs" />
     <Compile Include="Models\FilterEquipmentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -1769,6 +1772,8 @@
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Unit\List.cshtml" />
+    <Content Include="Views\Division\Index.cshtml" />
+    <Content Include="Views\Division\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
