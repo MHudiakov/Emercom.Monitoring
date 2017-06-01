@@ -34,5 +34,11 @@ namespace DAL.WCF.ServiceReference
 
         public List<User> GetUserList =>
             DalContainer.WcfDataManager.UserList.Where(user => user.DivisionId == Id).ToList();
+
+        public override string ToString()
+        {
+            var parent = GetParent;
+            return parent == null ? Name : $"{parent}/{Name}";
+        }
     }
 }

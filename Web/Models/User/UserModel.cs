@@ -16,7 +16,7 @@ namespace Web.Models.User
             this.Login = user.Login;
             this.Name = user.Name;
             this.IsAdmin = user.Role == UserRole.Administrator;
-            this.DivisionName = user.GetDivision.Name;
+            this.DivisionName = user.GetDivision.ToString();
             this.Description = user.Description;
         }
 
