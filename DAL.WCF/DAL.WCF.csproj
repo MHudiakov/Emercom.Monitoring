@@ -33,7 +33,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Init.DbCore, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -122,6 +121,10 @@
     <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
       <Project>{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}</Project>
       <Name>Ble.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
+      <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
+      <Name>Init.DbCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
       <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
