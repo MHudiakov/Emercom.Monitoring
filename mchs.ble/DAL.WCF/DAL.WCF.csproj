@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL.WCF</RootNamespace>
     <AssemblyName>DAL.WCF</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,14 +30,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Init.DbCore, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -64,8 +69,17 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Init.DAL.Sync.Change.datasource" />
     <None Include="Properties\DataSources\Init.DAL.Sync.Transfer.TransferPart.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.Division.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.Equipment.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.EquipmentGroup.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.KEquipment.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.Movement.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.Settings.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.Unit.datasource" />
+    <None Include="Properties\DataSources\Server.Dal.Sql.DataObjects.User.datasource" />
     <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Division.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -75,7 +89,7 @@
     <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.EquipmentGroup.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.KEquipment1.datasource">
+    <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.KEquipment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference\DAL.WCF.ServiceReference.Movement.datasource">
@@ -96,9 +110,6 @@
     <None Include="Service References\ServiceReference\Server.Dal.Sql.DataObjects1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\Server.Dal.Sql.Enums.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServiceReference\service.wsdl" />
     <None Include="Service References\ServiceReference\service.xsd">
       <SubType>Designer</SubType>
@@ -108,13 +119,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
-      <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
-      <Name>Init.DAL.Sync</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.Wcf\Init.DbCore.Wcf.csproj">
-      <Project>{8d8a798a-9544-4113-9749-4c43bc7d9bf5}</Project>
-      <Name>Init.DbCore.Wcf</Name>
+    <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
+      <Project>{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}</Project>
+      <Name>Ble.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
       <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
@@ -123,10 +130,6 @@
     <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
       <Project>{76db3053-1978-4d3e-9b26-dd3e2096467e}</Project>
       <Name>Init.Tools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\Server.Dal.csproj">
-      <Project>{4600B640-ADF9-437E-8B17-08032B7CD058}</Project>
-      <Name>Server.Dal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

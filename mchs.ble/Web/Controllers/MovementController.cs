@@ -6,6 +6,10 @@
 //   Контроллер раздела "Движение по складу"
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using System.Collections.Generic;
+using DAL.WCF.ServiceReference;
+
 namespace Web.Controllers
 {
     using System;
@@ -39,23 +43,23 @@ namespace Web.Controllers
         /// <returns>Частичное представление</returns>
         public ActionResult List(FilterMovementModel filter)
         {
-            var movementList = DalContainer.WcfDataManager.MovementList;
+            var movementList = new List<Movement>();
 
             //if ((filter.DtBegin != null) && (filter.DtEnd != null))
-            //    movementList = movementList.Where(e => e.DateOfMovement.Date >= filter.DtBegin && e.DateOfMovement.Date <= filter.DtEnd).ToList();
+            //    movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin && e.Date.Date <= filter.DtEnd).ToList();
 
             //else if (filter.DtBegin != null)
-            //    movementList = movementList.Where(e => e.DateOfMovement.Date >= filter.DtBegin).ToList();
+            //    movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin).ToList();
 
             //else if (filter.DtEnd != null)
-            //    movementList = movementList.Where(e => e.DateOfMovement.Date <= filter.DtEnd).ToList();
+            //    movementList = movementList.Where(e => e.Date.Date <= filter.DtEnd).ToList();
 
             //if (filter.EquipmentId != null)
             //    movementList = movementList.Where(movement => movement.KEquipment.Id == filter.EquipmentId).ToList();
 
 
             var movementModelList = movementList.Select(movement => new MovementModel(movement))
-                .OrderBy(movement => movement.DateOfMovement)
+                .OrderBy(movement => movement.Date)
                 .ToList();
 
             return PartialView(movementModelList);

@@ -1,4 +1,4 @@
-﻿@model List<Web.Models.Unit.UnitInfoModel>
+﻿@model List<Web.Models.Unit.UnitModel>
 
 @{
     ViewBag.Title = "Список объектов";
@@ -7,45 +7,32 @@
 <div class="panel-body">
     <div class="row">
         <div class="col-lg-12">
-            <table class=" table table-bordered">
+            <table class="table table-bordered">
                 <tr>
+                    <th>Подразделение</th>
                     <th>Объект</th>
-                    <th>Тип объекта</th>
+                    <th>Номер</th>
                     <th>Описание/Примечание</th>
                     <th></th>
                 </tr>
 
                 @foreach (var item in Model)
                 {
-                    string className;
-                    if (item.UniqEquipmentObjectList.Any(e => e.ColorForAppearance == 3) || item.NonUniqEquipmentObjectList.Any(e => e.ColorForAppearance == 3))
-                    {
-                        className = "danger";
-                    }
-                    else if (item.UniqEquipmentObjectList.Any(e => e.ColorForAppearance == 4) || item.NonUniqEquipmentObjectList.Any(e => e.ColorForAppearance == 4))
-                    {
-                        className = "warning";
-                    }
-                    else if (item.UniqEquipmentObjectList.Any(e => e.ColorForAppearance == 2) || item.NonUniqEquipmentObjectList.Any(e => e.ColorForAppearance == 2))
-                    {
-                        className = "";
-                    }
-                    else
-                    {
-                        className = "success";
-                    }
-                    <tr class="@className">
+                    <tr class="success">
                         <td>
-                            @Html.DisplayFor(modelItem => item.Unit.Name)
+                            @Html.DisplayFor(modelItem => item.DivisionName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Unit.Type)
+                            @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Unit.Description)
+                            @Html.DisplayFor(modelItem => item.Number)
                         </td>
                         <td>
-                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("UnitInfo", "Unit", new { id = item.Unit.Id })">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("UnitInfo", "Unit", new { id = item.Id })">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
                             </a>
                         </td>

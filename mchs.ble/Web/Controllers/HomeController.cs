@@ -7,6 +7,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Linq;
+using DAL.WCF;
+using Web.Models.Unit;
+
 namespace Web.Controllers
 {
     using System.Web.Mvc;
@@ -14,6 +19,7 @@ namespace Web.Controllers
     /// <summary>
     /// Контроллер главной страницы
     /// </summary>
+    [Authorize]
     public class HomeController : Controller
     {
         /// <summary>
@@ -22,7 +28,13 @@ namespace Web.Controllers
         /// <returns>Главная страницы</returns>
         public ActionResult Index()
         {
-            return this.View();
+            var userLogin = User.Identity.Name;
+            var user = DalContainer.WcfDataManager.UserList.Single(u => u.Login.Equals(userLogin));
+            List<UnitModel> unitList =
+                DalContainer.WcfDataManager.ServiceOperationClient.GetUnitListForUser(user.Id).
+                    Select(unit
+                        => new UnitModel(unit)).ToList();
+            return View(unitList);
         }
 
         /// <summary>
@@ -33,7 +45,6 @@ namespace Web.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "mchs.ble";
-
             return View();
         }
     }

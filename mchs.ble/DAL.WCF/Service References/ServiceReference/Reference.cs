@@ -740,7 +740,7 @@ namespace DAL.WCF.ServiceReference {
         private string PasswordHashField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DAL.WCF.ServiceReference.UserRole RoleField;
+        private int RoleIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -831,14 +831,14 @@ namespace DAL.WCF.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DAL.WCF.ServiceReference.UserRole Role {
+        public int RoleId {
             get {
-                return this.RoleField;
+                return this.RoleIdField;
             }
             set {
-                if ((this.RoleField.Equals(value) != true)) {
-                    this.RoleField = value;
-                    this.RaisePropertyChanged("Role");
+                if ((this.RoleIdField.Equals(value) != true)) {
+                    this.RoleIdField = value;
+                    this.RaisePropertyChanged("RoleId");
                 }
             }
         }
@@ -851,17 +851,6 @@ namespace DAL.WCF.ServiceReference {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserRole", Namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums")]
-    public enum UserRole : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        User = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Administrator = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -939,6 +928,9 @@ namespace DAL.WCF.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUnitList", ReplyAction="http://tempuri.org/IServiceOperation/GetUnitListResponse")]
         System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetUnitListForUser", ReplyAction="http://tempuri.org/IServiceOperation/GetUnitListForUserResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitListForUser(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddSettings", ReplyAction="http://tempuri.org/IServiceOperation/AddSettingsResponse")]
         void AddSettings(DAL.WCF.ServiceReference.Settings item);
@@ -1098,6 +1090,10 @@ namespace DAL.WCF.ServiceReference {
         
         public System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitList() {
             return base.Channel.GetUnitList();
+        }
+        
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Unit> GetUnitListForUser(int userId) {
+            return base.Channel.GetUnitListForUser(userId);
         }
         
         public void AddSettings(DAL.WCF.ServiceReference.Settings item) {

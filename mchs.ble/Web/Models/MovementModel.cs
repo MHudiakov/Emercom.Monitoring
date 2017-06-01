@@ -9,13 +9,6 @@
 namespace Web.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web.Mvc;
-
-    using DAL.WCF;
     using DAL.WCF.ServiceReference;
 
     /// <summary>
@@ -36,24 +29,14 @@ namespace Web.Models
                 Id = movement.Id;
                 UnitId = movement.UnitId;
                 EquipmentId = movement.EquipmentId;
-              /*  kEquipmentId = movement.kEquipmentId;
+                
                 IsArrived = movement.IsArrived;
-                DateOfMovement = movement.DateOfMovement;
-                DateOfMovementStr = movement.DateOfMovement.ToString("G");
-                EquipmentRFId = movement.Equipment != null ? movement.Equipment.RFId : "";
-                kEquipmentName = movement.KEquipment != null ? movement.KEquipment.Name : "";*/
+                Date = movement.Date;
+                DateOfMovementStr = movement.Date.ToString("G");
             }
         }
+
         #region DataFields
-
-        /// <summary>
-        /// Оборудование
-        /// </summary>
-        public int kEquipmentId { get; set; }
-
-        public string kEquipmentName { get; set; }
-
-        public string EquipmentRFId { get; set; }
 
         public int UnitId { get; set; }
 
@@ -75,9 +58,10 @@ namespace Web.Models
         /// <summary>
         /// Дата перемещения
         /// </summary>
-        public DateTime DateOfMovement { get; set; }
+        public DateTime Date { get; set; }
 
-        public String DateOfMovementStr { get; set; }
+        public string DateOfMovementStr { get; set; }
+
         #endregion
     }
 }

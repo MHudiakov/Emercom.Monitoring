@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/Init.DbCore" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums" />
   <xs:complexType name="EquipmentGroup">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Init.DbCore" base="q1:DbObject">
@@ -142,7 +141,7 @@
           <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
-          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.Enums" minOccurs="0" name="Role" type="q9:UserRole" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

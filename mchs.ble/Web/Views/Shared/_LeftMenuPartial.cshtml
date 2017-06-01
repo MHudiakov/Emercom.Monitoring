@@ -1,22 +1,98 @@
-﻿<nav id="mainnav">
+﻿@using Web
+<nav id="mainnav">
     <ul class="nav nav-list">
+
+        @* Объекты учета *@
         <li>
-             <a href="@Url.Action("Index", "Unit")">
-                 <span class="icon"><i class="icon20 i-archive"></i></span>
-                 <span class="txt">Объекты</span>
-             </a>
-         </li>
-        <li>
-            <a href="@Url.Action("Index", "Equipment")">
-                <span class="icon"><i class="icon20 i-archive"></i></span>
-                <span class="txt">Оборудование</span>
+            <a href="@Url.Action("Index", "Home")">
+                <span class="icon"><i class="icon20 i-car"></i></span>
+                <span class="txt">Объекты учета</span>
             </a>
         </li>
+        
+        @* Справочники *@
+        @if (User.IsInRole(UserRolesConsts.Administrator))
+        {
+            <li class="hasSub">
+                <a href="#">
+                    <span class="icon"><i class="icon20 i-archive"></i></span>
+                    <span class="txt">Справочники</span>
+                </a>
+                <ul class="sub">
+
+                    @* Подразделения *@
+                    <li>
+                        <a href="@Url.Action("Index", "Unit")">
+                            <span class="icon"><i class="icon20 i-office"></i></span>
+                            <span class="txt">Подразделения</span>
+                        </a>
+                    </li>
+
+                    @* Объекты учета *@
+                    <li>
+                        <a href="@Url.Action("Index", "Unit")">
+                            <span class="icon"><i class="icon20 i-car"></i></span>
+                            <span class="txt">Объекты учета</span>
+                        </a>
+                    </li>
+
+                    @* Группы оборудования *@
+                    <li>
+                        <a href="@Url.Action("Index", "Unit")">
+                            <span class="icon"><i class="icon20 i-hammer"></i></span>
+                            <span class="txt">Группы оборудования</span>
+                        </a>
+                    </li>
+
+                    @* Классификатор оборудования *@
+                    <li>
+                        <a href="@Url.Action("Index", "Unit")">
+                            <span class="icon"><i class="icon20 i-hammer-2"></i></span>
+                            <span class="txt">Классификатор оборудования</span>
+                        </a>
+                    </li>
+
+                    @* Оборудование *@
+                    <li>
+                        <a href="@Url.Action("Index", "Unit")">
+                            <span class="icon"><i class="icon20 i-barcode-2"></i></span>
+                            <span class="txt">Оборудование</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+        }
+
+        @* Пользователи *@
+        @if (User.IsInRole(UserRolesConsts.Administrator))
+        {
+            <li>
+                <a href="@Url.Action("Index", "User")">
+                    <span class="icon"><i class="icon20 i-user"></i></span>
+                    <span class="txt">Пользователи</span>
+                </a>
+            </li>
+        }
+
+        @* Настройки *@
+        @if (User.IsInRole(UserRolesConsts.Administrator))
+        {
+            <li>
+                <a href="@Url.Action("Index", "Unit")">
+                    <span class="icon"><i class="icon20 i-settings"></i></span>
+                    <span class="txt">Настройки</span>
+                </a>
+            </li>
+        }
+
+        @* Выход *@
         <li>
-            <a href="@Url.Action("Index", "Movement")">
-                <span class="icon"><i class="icon20 i-archive"></i></span>
-                <span class="txt">Движения по складу</span>
+            <a href="@Url.Action("Logout", "Account")">
+                <span class="icon"><i class="icon20 i-exit"></i></span>
+                <span class="txt">Выход</span>
             </a>
         </li>
+
     </ul>
 </nav>

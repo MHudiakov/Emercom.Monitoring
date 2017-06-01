@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Server.Dal</RootNamespace>
     <AssemblyName>Server.Dal</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -50,7 +52,6 @@
     <Compile Include="Sql\DataObjects\Equipment.cs" />
     <Compile Include="Sql\DataObjects\Settings.cs" />
     <Compile Include="Sql\DataObjects\User.cs" />
-    <Compile Include="Sql\Enums\UserRole.cs" />
     <Compile Include="Sql\Repositories\DivisionRepository.cs" />
     <Compile Include="Sql\Repositories\kEquipmentRepository.cs" />
     <Compile Include="Sql\Repositories\EquipmentGroupRepository.cs" />
@@ -60,8 +61,11 @@
     <Compile Include="Sql\Repositories\UnitRepository.cs" />
     <Compile Include="Sql\Repositories\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
+      <Project>{0e58c5d2-a158-4dae-8c80-118a7b1e4eb5}</Project>
+      <Name>Ble.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
       <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
       <Name>Init.DAL.Sync</Name>

@@ -295,10 +295,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUnitListForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnitListForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetUnitListForUserResult" nillable="true" type="q24:ArrayOfUnit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddSettings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q24:Settings" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q25:Settings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -310,7 +324,7 @@
   <xs:element name="EditSettings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q25:Settings" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q26:Settings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -322,7 +336,7 @@
   <xs:element name="DeleteSettings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q26:Settings" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q27:Settings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -339,14 +353,14 @@
   <xs:element name="GetSettingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetSettingsResult" nillable="true" type="q27:Settings" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetSettingsResult" nillable="true" type="q28:Settings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddDivision">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q28:Division" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q29:Division" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -358,7 +372,7 @@
   <xs:element name="EditDivision">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q29:Division" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q30:Division" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -370,7 +384,7 @@
   <xs:element name="DeleteDivision">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q30:Division" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q31:Division" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -387,14 +401,14 @@
   <xs:element name="GetDivisionListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetDivisionListResult" nillable="true" type="q31:ArrayOfDivision" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetDivisionListResult" nillable="true" type="q32:ArrayOfDivision" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q32:User" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q33:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -406,7 +420,7 @@
   <xs:element name="EditUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q33:User" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q34:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -418,7 +432,7 @@
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q34:User" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q35:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -435,7 +449,7 @@
   <xs:element name="GetUserListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetUserListResult" nillable="true" type="q35:ArrayOfUser" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="GetUserListResult" nillable="true" type="q36:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

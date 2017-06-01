@@ -28,7 +28,6 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="dacf5f9b-6bde-4057-9374-eb690788a87c" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
     <MetadataFile FileName="Server.Dal.Sql.DataObjects1.xsd" MetadataType="Schema" ID="539686aa-113e-41ea-b1d3-f43f3618a63f" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
     <MetadataFile FileName="Init.DbCore.xsd" MetadataType="Schema" ID="35c64fe2-b2b5-43d6-8c19-749b8b09b7e8" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
-    <MetadataFile FileName="Server.Dal.Sql.Enums.xsd" MetadataType="Schema" ID="877299d1-c1a9-484d-8e74-8b6d8e403d5f" SourceId="1" SourceUrl="net.tcp://localhost:8733/ServiceOperation/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

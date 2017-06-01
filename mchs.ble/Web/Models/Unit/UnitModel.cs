@@ -1,4 +1,6 @@
-﻿namespace Web.Models.Unit
+﻿using System;
+
+namespace Web.Models.Unit
 {
     using DAL.WCF.ServiceReference;
 
@@ -6,20 +8,22 @@
     {
         public UnitModel(Unit unit)
         {
+            if (unit == null)
+                throw new ArgumentNullException(nameof(unit));
+
             this.Id = unit.Id;
-          /*  this.Name = unit.Name;
+            this.DivisionName = unit.GetDivision.Name;
+            this.Name = unit.Name;
+            this.Number = unit.Number;
             this.Description = unit.Description;
-            this.kObjectId = unit.kObjectId;
-            this.Type = unit.TypeName;
-            this.IsStore = unit.IsStore;*/
         }
 
         public int Id { get; set; }
 
         /// <summary>
-        /// Id класса объекта, к которому относится данный
+        /// Название подразделения, которому принадлежит юнит
         /// </summary>
-        public int kObjectId { get; set; }
+        public string DivisionName { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -27,18 +31,13 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// Номер объекта
+        /// </summary>
+        public string Number { get; set; }
+
+        /// <summary>
         /// Описание/примечание объекта
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// Название типа объекта
-        /// </summary>
-        public string Type { get; private set; }
-
-        /// <summary>
-        /// Является ли объект складом
-        /// </summary>
-        public bool IsStore { get; private set; }
     }
 }

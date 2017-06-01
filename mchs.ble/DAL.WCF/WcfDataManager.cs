@@ -36,8 +36,6 @@ namespace DAL.WCF
 
         public List<KEquipment> KEquipmentList { get; private set; }
 
-        public List<Movement> MovementList { get; private set; }
-
         public List<Unit> UnitList { get; private set; }
 
         public List<User> UserList { get; private set; }
@@ -67,7 +65,6 @@ namespace DAL.WCF
             EquipmentList = ServiceOperationClient.GetEquipmentList();
             EquipmentGroupList = ServiceOperationClient.GetGroupList();
             KEquipmentList = ServiceOperationClient.GetKEquipmentList();
-            MovementList = ServiceOperationClient.GetMovementList();
             UnitList = ServiceOperationClient.GetUnitList();
             UserList = ServiceOperationClient.GetUserList();
         }
