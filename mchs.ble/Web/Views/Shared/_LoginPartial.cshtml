@@ -1,14 +1,27 @@
-﻿@if (Request.IsAuthenticated) {
-    <text>
-        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
-            @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-        }
-    </text>
-} else {
-    <ul>
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Html.Partial("_html5shiv")
+    <meta name="author" content="InitCenter" />
+    <meta name="description" content="Клиентское приложение" />
+    <meta name="keywords" content="Пример работ" />
+    <meta name="application-name" content="МЧС BLE" />
+    @Html.Partial("_FontsPartial")
+    @Styles.Render("~/Content/css")
+    @Html.Partial("_IconsPartial")
+</head>
+<body>
+    <section id="content">
+        <div class="wrapper">
+            <div class="container-fluid">
+                @Html.Partial("_validationSummary")
+                @RenderSection("featured", required: false)
+                @RenderBody()
+            </div>
+        </div>
+    </section>
+</body>
+</html>

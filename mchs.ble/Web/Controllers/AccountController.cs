@@ -36,7 +36,7 @@ namespace Web.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Login(LoginModel model)
+        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -44,10 +44,10 @@ namespace Web.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, true);
-                    return this.RedirectToAction("Index", "Home");
+                    return this.RedirectTo(returnUrl);
                 }
 
-                this.ModelState.AddModelError(string.Empty, @"Некорректно введен пароль");
+                this.ModelState.AddModelError(string.Empty, @"Некорректно введен логин или пароль");
             }
 
             // If we got this far, something failed, redisplay form
@@ -63,7 +63,7 @@ namespace Web.Controllers
 
         private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
-        private ActionResult RedirectToLocal(string returnUrl)
+        private ActionResult RedirectTo(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);

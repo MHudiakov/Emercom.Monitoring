@@ -1,62 +1,41 @@
 ﻿@model Web.Models.LoginModel
 @{
-    Layout = null;
+    Layout = "../Shared/_LoginPartial.cshtml";
 }
-<head>
-    <meta charset="utf-8">
-    <title>@ViewBag.Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @Html.Partial("_html5shiv")
-    <meta name="author" content="InitCenter" />
-    <meta name="description" content="Клиентское приложение" />
-    <meta name="keywords" content="Пример работ" />
-    <meta name="application-name" content="МЧС BLE" />
-    @Html.Partial("_FontsPartial")
-    @Styles.Render("~/Content/css")
-    @Html.Partial("_IconsPartial")
-</head>
-<body>
-    <div class="container-fluid">
-        <div id="login">
-            <div class="login-wrapper" data-active="log">
-                <div id="log">
-                    <div class="page-header">
-                        <h3 class="center">
-                            Вход в систему
-                        </h3>
-                    </div>
-                    @using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", id = "login-form", @class = "form-horizontal" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
-                        <div class="row">
-                            <div class="form-group relative">
-                                <div class="icon">
-                                    <i class="icon20 i-user"></i>
-                                </div>
-                                @Html.TextBoxFor(m => m.UserLogin, new { @class = "form-control", placeholder = "Имя пользователя" })
-                                @Html.ValidationMessageFor(m => m.UserLogin)
-                            </div>
-                            <div class="form-group relative">
-                                <div class="icon">
-                                    <i class="icon20 i-key"></i>
-                                </div>
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Пароль" })
-                                @Html.ValidationMessageFor(m => m.Password)
-                            </div>
-                       
-                            <div class="form-group relative">
-                                <button id="loginBtn" type="submit" class="btn btn-primary pull-right col-lg-5">
-                                    Войти
-                                </button>
-                            </div>
 
+<div id="login">
+    <div class="login-wrapper" data-active="log">
+        <div id="log">
+            <div class="page-header">
+                <h3 class="center">
+                    Вход в систему
+                </h3>
+            </div>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { role = "form", id = "login-form", @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="form-group relative">
+                        <div class="icon">
+                            <i class="icon20 i-user"></i>
                         </div>
-                    }
+                        @Html.TextBoxFor(m => m.UserLogin, new { @class = "form-control", placeholder = "Имя пользователя" })
+                    </div>
+                    <div class="form-group relative">
+                        <div class="icon">
+                            <i class="icon20 i-key"></i>
+                        </div>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Пароль" })
+                    </div>
+
+                    <div class="form-group relative">
+                        <button id="loginBtn" type="submit" class="btn btn-primary pull-right col-lg-5">
+                            Войти
+                        </button>
+                    </div>
+
                 </div>
-            </div>
-            <div class="clearfix">
-            </div>
+            }
         </div>
     </div>
-</body>
+</div>

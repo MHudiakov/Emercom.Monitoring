@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using DAL.WCF;
 
 namespace Web.Models.User
 {
-    using DAL.WCF.ServiceReference;
-
     /// <summary>
     /// Модель фильтра списка пользователей
     /// </summary>
