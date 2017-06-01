@@ -1,0 +1,30 @@
+﻿@model Web.Models.User.FilterUserModel
+
+@{
+    ViewBag.Title = "Пользователи";
+}
+
+<div class="panel-body">
+    @using (Ajax.BeginForm("List", "User", null, new AjaxOptions { UpdateTargetId = "users", OnBegin = "spinner.start", OnSuccess = "spinner.stop", OnFailure = "onFail", InsertionMode = InsertionMode.Replace }))
+    {
+        <div class="row">
+            <div class="col-lg-6">
+                @Html.DropDownListFor(model => model.DivisionId, Model.DivisionList, "- выберите подразделение -",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DivisionId)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1">
+                <button type="submit" class="btn btn-default btn-sm pull-left">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Найти
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="panel-body" id="users">
+    @{Html.RenderAction("List", "User", Model);}
+</div>

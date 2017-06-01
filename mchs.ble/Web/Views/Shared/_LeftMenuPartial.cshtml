@@ -1,4 +1,4 @@
-﻿@using DAL.WCF.DataObjects.Enum
+﻿@using Web
 <nav id="mainnav">
     <ul class="nav nav-list">
 
@@ -68,7 +68,7 @@
         @if (User.IsInRole(UserRolesConsts.Administrator))
         {
             <li>
-                <a href="@Url.Action("Index", "Unit")">
+                <a href="@Url.Action("Index", "User")">
                     <span class="icon"><i class="icon20 i-user"></i></span>
                     <span class="txt">Пользователи</span>
                 </a>

@@ -9,9 +9,7 @@ namespace Web.Models.Unit
         public UnitModel(Unit unit)
         {
             if (unit == null)
-            {
                 throw new ArgumentNullException(nameof(unit));
-            }
 
             this.Id = unit.Id;
             this.DivisionName = unit.GetDivision.Name;

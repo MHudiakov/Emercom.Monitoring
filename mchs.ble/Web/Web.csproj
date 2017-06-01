@@ -272,6 +272,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovementController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -284,6 +285,8 @@
     <Compile Include="Models\Unit\UnitInfoModel.cs" />
     <Compile Include="Models\Unit\UnitJsonModel.cs" />
     <Compile Include="Models\Unit\UnitModel.cs" />
+    <Compile Include="Models\User\FilterUserModel.cs" />
+    <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -296,6 +299,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UserRolesConsts.cs" />
     <Compile Include="Wrappers\CustomPasswordHasher.cs" />
     <Compile Include="Wrappers\CustomUserManager.cs" />
     <Compile Include="Wrappers\UserStore.cs" />
@@ -1761,6 +1765,8 @@
     <Content Include="Views\Unit\UnitInfo.cshtml" />
     <Content Include="Views\Unit\UnitInfoPartial.cshtml" />
     <Content Include="Views\Unit\UnitMovementPartial.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

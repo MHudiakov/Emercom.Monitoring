@@ -2,6 +2,7 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using Web.Wrappers;
 
 namespace Web
 {
@@ -9,6 +10,8 @@ namespace Web
     {
         public void Configuration(IAppBuilder app)
         {
+            app.CreatePerOwinContext<CustomUserManager>(CustomUserManager.Create);
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,

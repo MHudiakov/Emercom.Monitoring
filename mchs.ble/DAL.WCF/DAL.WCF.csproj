@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\Division.cs" />
-    <Compile Include="DataObjects\Enum\UserRolesConsts.cs" />
     <Compile Include="DataObjects\KEquipment.cs" />
     <Compile Include="DataObjects\EquipmentGroup.cs" />
     <Compile Include="DataObjects\Movement.cs" />
