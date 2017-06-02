@@ -14,33 +14,30 @@ namespace Server.Dal.Sql.Repositories
         {}
 
         /// <summary>
-        /// Сортировать список подразделений
+        /// Получить список подразделений в древовидной структуре
         /// </summary>
         /// <returns></returns>
-        public List<Division> GetSortedList()
+        public List<Division> GetTreeSortedList()
         {
-            var divisionList = GetAll();
             var sortedList = new List<Division>();
-            foreach (var division in divisionList.Where(d => !d.ParentId.HasValue))
-            {
-                sortedList.Add(division);
-                GetGhilds(division, sortedList);
-            }
+            var parents = GetAll().Where(d => !d.ParentId.HasValue).ToList();
+            AddChildren(parents, sortedList);
             return sortedList;
         }
 
         /// <summary>
         /// Рекурсивная процедура получения детей
         /// </summary>
-        /// <param name="parentDivision"></param>
+        /// <param name="parentList">
+        /// Коллекция родителей, для которой получаем потомков
+        /// </param>
         /// <param name="sortedList"></param>
-        /// <param name="divisionList"></param>
-        private void GetGhilds(Division parentDivision, List<Division> sortedList )
+        private void AddChildren(ICollection<Division> parentList, ICollection<Division> sortedList)
         {
-            foreach (var division in GetAll().Where(d => d.ParentId == parentDivision.Id))
+            foreach (var item in parentList)
             {
-                sortedList.Add(division);
-                GetGhilds(division, sortedList);
+                sortedList.Add(item);
+                AddChildren(item.ChildrenList, sortedList);
             }
         }
     }

@@ -407,15 +407,16 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Получение сортированного списка подразделений
+        /// Получить список подразделений в древовидной структуре
         /// </summary>
         /// <returns>
         /// Список подразделений
         /// </returns>
-        public List<Division> GetSortedDivisionList()
+        public List<Division> GetTreeSortedDivisionList()
         {
-            return DalContainer.GetDataManager.DivisionRepository.GetSortedList();
+            return DalContainer.GetDataManager.DivisionRepository.GetTreeSortedList();
         }
+
         #endregion
 
         #region User

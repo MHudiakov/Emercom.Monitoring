@@ -345,13 +345,13 @@ namespace Server.WCF
         List<Division> GetDivisionList();
 
         /// <summary>
-        /// Получение сортированного списка подразделений
+        /// Получить список подразделений в древовидной структуре
         /// </summary>
         /// <returns>
         /// Список подразделений
         /// </returns>
         [OperationContract]
-        List<Division> GetSortedDivisionList();
+        List<Division> GetTreeSortedDivisionList();
 
         #endregion
 
