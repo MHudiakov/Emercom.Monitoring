@@ -336,13 +336,22 @@ namespace Server.WCF
         void DeleteDivision(Division item);
 
         /// <summary>
-        /// Получение списка юнитов
+        /// Получение списка подразделений
         /// </summary>
         /// <returns>
         /// Список подразделений
         /// </returns>
         [OperationContract]
         List<Division> GetDivisionList();
+
+        /// <summary>
+        /// Получить список подразделений в древовидной структуре
+        /// </summary>
+        /// <returns>
+        /// Список подразделений
+        /// </returns>
+        [OperationContract]
+        List<Division> GetTreeSortedDivisionList();
 
         #endregion
 

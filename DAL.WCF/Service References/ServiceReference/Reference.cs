@@ -956,6 +956,9 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetDivisionList", ReplyAction="http://tempuri.org/IServiceOperation/GetDivisionListResponse")]
         System.Collections.Generic.List<DAL.WCF.ServiceReference.Division> GetDivisionList();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetTreeSortedDivisionList", ReplyAction="http://tempuri.org/IServiceOperation/GetTreeSortedDivisionListResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Division> GetTreeSortedDivisionList();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddUser", ReplyAction="http://tempuri.org/IServiceOperation/AddUserResponse")]
         void AddUser(DAL.WCF.ServiceReference.User item);
         
@@ -1126,6 +1129,10 @@ namespace DAL.WCF.ServiceReference {
         
         public System.Collections.Generic.List<DAL.WCF.ServiceReference.Division> GetDivisionList() {
             return base.Channel.GetDivisionList();
+        }
+        
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Division> GetTreeSortedDivisionList() {
+            return base.Channel.GetTreeSortedDivisionList();
         }
         
         public void AddUser(DAL.WCF.ServiceReference.User item) {

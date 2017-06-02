@@ -12,7 +12,7 @@ namespace Web.Models.Unit
                 throw new ArgumentNullException(nameof(unit));
 
             this.Id = unit.Id;
-            this.DivisionName = unit.GetDivision.Name;
+            this.DivisionName = unit.GetDivision.ToString();
             this.Name = unit.Name;
             this.Number = unit.Number;
             this.Description = unit.Description;

@@ -1,0 +1,28 @@
+﻿@model List<Web.Models.Division.DivisionModel>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table id="tree" class="table table-bordered table-hover tree">
+            <thead>
+                <tr>
+                    <th>Подразделение</th>
+                    <th>Описание/Примечание</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                string parent = "treegrid-parent-" + (item.ParentId.HasValue ? item.ParentId.ToString() : string.Empty);
+                    <tr class="treegrid-@item.Id @parent">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

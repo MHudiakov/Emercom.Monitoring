@@ -15,7 +15,8 @@
     @Html.Partial("_IconsPartial")
     
     <link href="@Url.Content("~/Scripts/plugins/forms/datepicker/datepicker.css")" rel="stylesheet" />
-    <link href="@Url.Content("~/Content/spinner.css")" rel="stylesheet" />   
+    <link href="@Url.Content("~/Content/spinner.css")" rel="stylesheet"/>
+    <link href="@Url.Content("~/Content/datatables.min.css")" rel="stylesheet" />
     @RenderSection("CSS", required: false)
 </head>
 <body>
@@ -58,10 +59,11 @@
     <script src="@Url.Content("~/Scripts/globalize/globalize.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/controls.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/spinner.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/datatables.min.js")" type="text/javascript"></script>
     <script type="text/javascript">
         function onFail() {
             spinner.stop();
-            $("#equipments").html('<h2 align="center">Ошибка получения данных</h2>');
+            //$("#equipments").html('<h2 align="center">Ошибка получения данных</h2>');
         }
     </script>
     @RenderSection("Scripts", required: false)
