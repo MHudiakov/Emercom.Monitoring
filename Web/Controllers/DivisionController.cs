@@ -28,26 +28,14 @@ namespace Web.Controllers
             var divisionList = filter.SearchPattern.IsEmpty() ?
                 DalContainer.WcfDataManager.DivisionList.ToList() :
                 DalContainer.WcfDataManager.DivisionList.Where(division => division.Name.Contains(filter.SearchPattern)).ToList();
-            var sortedList = new List<Division>();
 
-            foreach (var division in divisionList.Where(d => !d.ParentId.HasValue))
-            {
-                sortedList.Add(division);
-                GetGhilds(division, sortedList, divisionList);
-            }
+           
 
             var divisionModelList = divisionList.Select(division => new DivisionModel(division)).ToList();
             return PartialView(divisionModelList);
         }
 
-        private void GetGhilds(Division parentDivision, List<Division> sortedList, List<Division> divisionList)
-        {
-            foreach (var division in divisionList.Where(x => x.ParentId == parentDivision.Id))
-            {
-                sortedList.Add(division);
-                GetGhilds(division, sortedList, divisionList);
-            }
-        }
+       
 
     }
 }

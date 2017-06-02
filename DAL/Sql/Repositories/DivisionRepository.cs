@@ -17,7 +17,7 @@ namespace Server.Dal.Sql.Repositories
         /// Сортировать список подразделений
         /// </summary>
         /// <returns></returns>
-        public List<Division> GetSortedDivisionList()
+        public List<Division> GetSortedList()
         {
             var divisionList = GetAll();
             var sortedList = new List<Division>();

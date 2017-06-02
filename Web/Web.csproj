@@ -355,9 +355,14 @@
     <Content Include="Content\css\genyx-theme\jquery.ui.widget.css" />
     <Content Include="Content\css\icons.css" />
     <Content Include="Content\css\ie8.css" />
+    <Content Include="Content\css\jquery.treegrid.css" />
     <Content Include="Content\datatables.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\ico\ais.ico" />
+    <Content Include="Content\img\collapse.png" />
+    <Content Include="Content\img\expand.png" />
+    <Content Include="Content\img\file.png" />
+    <Content Include="Content\img\folder.png" />
     <Content Include="Content\spinner.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -1587,6 +1592,9 @@
     <Content Include="Scripts\plugins\tables\datatables\jquery.dataTables.css" />
     <Content Include="Scripts\plugins\tables\datatables\jquery.dataTables.js" />
     <Content Include="Scripts\plugins\tables\datatables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\plugins\treegrid\jquery.treegrid.bootstrap3.js" />
+    <Content Include="Scripts\plugins\treegrid\jquery.treegrid.js" />
+    <Content Include="Scripts\plugins\treegrid\jquery.treegrid.min.js" />
     <Content Include="Scripts\plugins\ui\animated-progress-bar\jquery.progressbar.js" />
     <Content Include="Scripts\plugins\ui\jgrowl\jquery.jgrowl.css" />
     <Content Include="Scripts\plugins\ui\jgrowl\jquery.jgrowl.js" />
@@ -1675,6 +1683,7 @@
     <Content Include="Scripts\plugins\upload\plupload\plupload.silverlight.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\spinner.js" />
+    <Content Include="Scripts\Views\Division\Index.js" />
     <Content Include="Scripts\Views\Unit\Index.js" />
     <Content Include="Scripts\Views\Unit\UnitInfo.js" />
     <Content Include="Web.config">
