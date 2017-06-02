@@ -25,12 +25,12 @@ namespace Web.Controllers
 
         public PartialViewResult List(FilterDivisionModel filter)
         {
-            var divisionList = DalContainer.WcfDataManager.ServiceOperationClient.GetTreeSortedDivisionList();
-            //var divisionList = filter.SearchPattern.IsEmpty() ?
-            //    DalContainer.WcfDataManager.DivisionList.ToList() :
-            //    DalContainer.WcfDataManager.DivisionList.Where(division => division.Name.Contains(filter.SearchPattern)).ToList();
+            var treeSortedDivisionList = DalContainer.WcfDataManager.ServiceOperationClient.GetTreeSortedDivisionList();
+            var result = filter.SearchPattern.IsEmpty() ?
+                treeSortedDivisionList :
+                treeSortedDivisionList.Where(division => division.Name.ToLower().Contains(filter.SearchPattern.ToLower())).ToList();
 
-            var divisionModelList = divisionList.Select(division => new DivisionModel(division)).ToList();
+            var divisionModelList = result.Select(division => new DivisionModel(division)).ToList();
             return PartialView(divisionModelList);
         }
     }
