@@ -1490,8 +1490,8 @@ border-color: #c9c9c9;
 		left: 0;
 		bottom: 0;
 		border-right: 1px solid #c9c9c9;
-		/*background: url(../images/patterns/furley_bg.png) repeat;*/
-		/*z-index: -1;*/
+		background: url(../images/patterns/furley_bg.png) repeat;
+		z-index: -1;
 	}
 	#sidebar.hided:after {left:-300px;}
 	#sidebar.isCollapse:after {width: 38px;}
