@@ -355,6 +355,7 @@
     <Content Include="Content\css\genyx-theme\jquery.ui.widget.css" />
     <Content Include="Content\css\icons.css" />
     <Content Include="Content\css\ie8.css" />
+    <Content Include="Content\datatables.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\ico\ais.ico" />
     <Content Include="Content\spinner.css" />
@@ -481,6 +482,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.validate.js" />
     <Content Include="Scripts\controls.js" />
+    <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af-ZA.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.am-ET.js" />

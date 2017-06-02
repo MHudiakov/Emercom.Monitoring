@@ -396,7 +396,7 @@ namespace Server.WCF
         }
 
         /// <summary>
-        /// Получение списка юнитов
+        /// Получение списка подразделений
         /// </summary>
         /// <returns>
         /// Список подразделений
@@ -404,6 +404,17 @@ namespace Server.WCF
         public List<Division> GetDivisionList()
         {
             return DalContainer.GetDataManager.DivisionRepository.GetAll();
+        }
+
+        /// <summary>
+        /// Получение сортированного списка подразделений
+        /// </summary>
+        /// <returns>
+        /// Список подразделений
+        /// </returns>
+        public List<Division> GetSortedDivisionList()
+        {
+            return DalContainer.GetDataManager.DivisionRepository.GetSortedList();
         }
         #endregion
 
