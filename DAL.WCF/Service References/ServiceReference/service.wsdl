@@ -216,6 +216,12 @@
   <wsdl:message name="IServiceOperation_GetDivisionList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDivisionListResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetTreeSortedDivisionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreeSortedDivisionList" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetTreeSortedDivisionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreeSortedDivisionListResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceOperation_AddUser_InputMessage">
     <wsdl:part name="parameters" element="tns:AddUser" />
   </wsdl:message>
@@ -372,6 +378,10 @@
     <wsdl:operation name="GetDivisionList">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetDivisionList" message="tns:IServiceOperation_GetDivisionList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetDivisionListResponse" message="tns:IServiceOperation_GetDivisionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreeSortedDivisionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetTreeSortedDivisionList" message="tns:IServiceOperation_GetTreeSortedDivisionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetTreeSortedDivisionListResponse" message="tns:IServiceOperation_GetTreeSortedDivisionList_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddUser" message="tns:IServiceOperation_AddUser_InputMessage" />
@@ -684,6 +694,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDivisionList">
       <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetDivisionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreeSortedDivisionList">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetTreeSortedDivisionList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
