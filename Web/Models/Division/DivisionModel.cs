@@ -11,7 +11,7 @@ namespace Web.Models.Division
                 throw new ArgumentNullException(nameof(division));
 
             this.Id = division.Id;
-            this.Name = division.ToString();
+            this.Name = division.Name;
             this.Description = division.Description;
             this.ParentId = division.ParentId;
         }

@@ -24,7 +24,7 @@ namespace Server.Dal.Sql.DataObjects
         [DbIdentity]
         [DbKey]
         public int Id { get; set; }
- 
+
         /// <summary>
         /// Id родительского подразделения
         /// </summary>
@@ -69,5 +69,9 @@ namespace Server.Dal.Sql.DataObjects
 
         public List<Unit> GetUnitList =>
             DalContainer.GetDataManager.UnitRepository.GetAll().Where(unit => unit.DivisionId == Id).ToList();
+
+        public List<Division> DirectChildrenList =>
+            ChildrenList.Where(item => item.ParentId == this.Id).ToList();
+
     }
 }

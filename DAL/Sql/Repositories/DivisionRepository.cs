@@ -37,7 +37,7 @@ namespace Server.Dal.Sql.Repositories
             foreach (var item in parentList)
             {
                 sortedList.Add(item);
-                AddChildren(item.ChildrenList, sortedList);
+                AddChildren(item.DirectChildrenList, sortedList);
             }
         }
     }

@@ -10,19 +10,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="treegrid-@item.Id treegrid-parent-@item.ParentId">
+            @foreach (var item in Model)
+            {
+                string parent = "treegrid-parent-" + (item.ParentId.HasValue ? item.ParentId.ToString() : string.Empty);
+                    <tr class="treegrid-@item.Id @parent">
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("List", "Division", new { id = item.Id })">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
-                            </a>
                         </td>
                     </tr>
                 }
