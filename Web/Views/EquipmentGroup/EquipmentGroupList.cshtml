@@ -1,8 +1,5 @@
 ﻿@model List<Web.Models.EquipmetGroup.EquipmentGroupModel>
 
-@section Scripts
-{
-}
 <div class="row">
     <div class="col-md-6">
         <table id="tree"
@@ -16,32 +13,36 @@
             <tbody>
                 @foreach (var item in Model)
             {
-                string parent = "treegrid-parent-" + (item.ParentId.HasValue ? item.ParentId.ToString() : string.Empty);
-                    <tr class="treegrid-@item.Id @parent" data-id="@item.Id">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    <span class="fa fa-navicon fa-fw"></span>
-                                    Действие <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a rel="tooltip" title="Изменить запись в справочнике" onclick="OnEdit(@item.Id)" href="#">
-                                            <i class="fa fa-edit fa-fw"></i> Редактировать
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a rel="tooltip" title="Удалить запись из справочника" onclick="OnDelete(@item.Id)" href="#">
-                                            <i class="fa fa-trash-o fa-fw"></i> Удалить
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                string parent = string.Empty;
+                if (item.ParentId.HasValue && Model.Any(division => division.Id == item.ParentId))
+                {
+                    parent += "treegrid-parent-" + item.ParentId;
+                }
+                <tr class="treegrid-@item.Id @parent" data-id="@item.Id">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="fa fa-navicon fa-fw"></span>
+                                Действие <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a rel="tooltip" title="Изменить запись в справочнике" onclick="OnEdit(@item.Id)" href="#">
+                                        <i class="fa fa-edit fa-fw"></i> Редактировать
+                                    </a>
+                                </li>
+                                <li>
+                                    <a rel="tooltip" title="Удалить запись из справочника" onclick="OnDelete(@item.Id)" href="#">
+                                        <i class="fa fa-trash-o fa-fw"></i> Удалить
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
