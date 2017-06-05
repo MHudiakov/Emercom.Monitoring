@@ -18,7 +18,6 @@ namespace Web.Models.EquipmetGroup
             this.Name = kEquipment.Name;
             this.Description = kEquipment.Description;
             this.EquipmentGroupId = kEquipment.EquipmentGroupId;
-            this.EquipmentList = kEquipment.EquipmentList;
         }
 
         public int Id { get; set; }
@@ -37,11 +36,6 @@ namespace Web.Models.EquipmetGroup
         /// Описание/примечание объекта
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// Список оборудования
-        /// </summary>
-        public List<Equipment> EquipmentList { get; set; }
 
     }
 }

@@ -1790,9 +1790,9 @@
     <Content Include="Views\Unit\List.cshtml" />
     <Content Include="Views\Division\Index.cshtml" />
     <Content Include="Views\Division\List.cshtml" />
-    <Content Include="Views\EquipmentGroup\List.cshtml" />
+    <Content Include="Views\EquipmentGroup\EquipmentGroupList.cshtml" />
     <Content Include="Views\EquipmentGroup\Index.cshtml" />
-    <Content Include="Views\EquipmentGroup\Equipment.cshtml" />
+    <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

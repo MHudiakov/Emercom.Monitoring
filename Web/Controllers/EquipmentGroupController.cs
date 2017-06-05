@@ -19,7 +19,7 @@ namespace Web.Controllers
             return View(filter);
         }
 
-        public PartialViewResult List(FilterEquipmentGroupModel filter)
+        public PartialViewResult EquipmentGroupList(FilterEquipmentGroupModel filter)
         {
             var groupList =
                 DalContainer.WcfDataManager.ServiceOperationClient.GetGroupList()
@@ -36,7 +36,7 @@ namespace Web.Controllers
             return PartialView(groupModelList);
         }
 
-        public PartialViewResult Equipment(int id)
+        public PartialViewResult KEquipmentList(int id)
         {
             var equipmentList =
                 DalContainer.WcfDataManager.ServiceOperationClient.GetKEquipmentList()
