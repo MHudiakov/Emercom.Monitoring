@@ -75,10 +75,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
-      <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
-      <Name>Init.DAL.Sync</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.DB\Init.DbCore.DB.csproj">
       <Project>{c03fa54c-a8ea-42ec-9c11-c0be5a0b946e}</Project>
       <Name>Init.DbCore.DB</Name>

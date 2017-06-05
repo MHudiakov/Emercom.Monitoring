@@ -1798,29 +1798,9 @@
       <Project>{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}</Project>
       <Name>Ble.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
-      <Project>{D8529B4F-AEFE-4387-80AB-CF097E67BC14}</Project>
-      <Name>Init.DAL.Sync</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.Sql\Init.DbCore.DB.MsSql.csproj">
-      <Project>{7B5F1552-CA79-4662-8575-EF9591EC8CC9}</Project>
-      <Name>Init.DbCore.DB.MsSql</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore.Wcf\Init.DbCore.Wcf.csproj">
-      <Project>{8D8A798A-9544-4113-9749-4C43BC7D9BF5}</Project>
-      <Name>Init.DbCore.Wcf</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
       <Project>{F77F1DC7-3F2B-48BB-BE3E-705893815123}</Project>
       <Name>Init.DbCore %28Common\Init.DbCore\Init.DbCore%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
-      <Project>{76DB3053-1978-4D3E-9B26-DD3E2096467E}</Project>
-      <Name>Init.Tools %28Common\Init.Tools\Init.Tools%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.Web\Init.Web.csproj">
-      <Project>{24704FDD-23E3-41DF-8AEE-AD684EC9EE82}</Project>
-      <Name>Init.Web %28Common\Init.Web\Init.Web%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL.WCF\DAL.WCF.csproj">
       <Project>{78d251fd-33f3-414a-ab6a-a1d8709ca7e1}</Project>
