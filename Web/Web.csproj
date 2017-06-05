@@ -268,6 +268,7 @@
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DivisionController.cs" />
+    <Compile Include="Controllers\EquipmentGroupController.cs" />
     <Compile Include="Controllers\TestApiController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -279,6 +280,9 @@
     </Compile>
     <Compile Include="Models\Division\DivisionModel.cs" />
     <Compile Include="Models\Division\FilterDivisionModel.cs" />
+    <Compile Include="Models\EquipmetGroup\EquipmentGroupModel.cs" />
+    <Compile Include="Models\EquipmetGroup\FilterEquipmentGroupModel.cs" />
+    <Compile Include="Models\EquipmetGroup\KEquipmentModel.cs" />
     <Compile Include="Models\FilterMovementModel.cs" />
     <Compile Include="Models\FilterEquipmentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -1684,6 +1688,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\spinner.js" />
     <Content Include="Scripts\Views\Division\Index.js" />
+    <Content Include="Scripts\Views\EquipmentGroup\list.js" />
     <Content Include="Scripts\Views\Unit\Index.js" />
     <Content Include="Scripts\Views\Unit\UnitInfo.js" />
     <Content Include="Web.config">
@@ -1785,6 +1790,9 @@
     <Content Include="Views\Unit\List.cshtml" />
     <Content Include="Views\Division\Index.cshtml" />
     <Content Include="Views\Division\List.cshtml" />
+    <Content Include="Views\EquipmentGroup\List.cshtml" />
+    <Content Include="Views\EquipmentGroup\Index.cshtml" />
+    <Content Include="Views\EquipmentGroup\Equipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

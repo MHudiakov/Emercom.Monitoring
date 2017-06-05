@@ -28,9 +28,9 @@
         private List<EquipmentGroup> GetChildrenNodes(List<EquipmentGroup> nodes, EquipmentGroup node)
         {
             var directNodes = DalContainer.WcfDataManager.EquipmentGroupList.Where(d => d.ParentId == node.Id).ToList();
-            nodes.AddRange(directNodes);
             foreach (var group in directNodes)
             {
+                nodes.Add(group);
                 GetChildrenNodes(nodes, group);
             }
 
