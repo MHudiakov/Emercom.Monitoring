@@ -40,7 +40,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.XML" />
   </ItemGroup>
@@ -50,17 +49,9 @@
     <Compile Include="ServiceOperation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DAL.Sync\Init.DAL.Sync.csproj">
-      <Project>{d8529b4f-aefe-4387-80ab-cf097e67bc14}</Project>
-      <Name>Init.DAL.Sync</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
       <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
       <Name>Init.DbCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
-      <Project>{76DB3053-1978-4D3E-9B26-DD3E2096467E}</Project>
-      <Name>Init.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Init.Web\Init.Web.csproj">
       <Project>{24704fdd-23e3-41df-8aee-ad684ec9ee82}</Project>
