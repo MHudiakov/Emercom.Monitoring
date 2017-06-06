@@ -33,14 +33,14 @@ namespace Web.Models
         {
             this.Equipment = equipment;
 
-            if (equipment != null)
-            {
-                this.Id = equipment.Id;
-                this.RFId = equipment.Tag;
-                this.kEquipmentId = equipment.KEquipmentId;
-                this.Description = equipment.Description;
-                this.kEquipment = equipment.KEquipment;
-            }
+            if (equipment == null)
+                throw new ArgumentNullException(nameof(equipment));
+
+            this.Id = equipment.Id;
+            this.RFId = equipment.Tag;
+            this.kEquipmentId = equipment.KEquipmentId;
+            this.Description = equipment.Description;
+            this.kEquipment = equipment.KEquipment;
         }
 
         /// <summary>
