@@ -26,8 +26,9 @@ namespace Web.Models
             this.Tag = equipment.Tag;
             this.KEquipmentId = equipment.KEquipmentId;
             this.Description = equipment.Description;
+            this.LastMovement = equipment.LastMovement;
         }
-        
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -37,5 +38,9 @@ namespace Web.Models
         public int KEquipmentId { get; set; }
 
         public string Description { get; set; }
+
+        public Movement LastMovement { get; set; }
+
+        public string Date => LastMovement?.Date.ToString("g") ?? "";
     }
 }

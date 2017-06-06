@@ -1,4 +1,8 @@
-﻿@model List<Web.Models.EquipmentModel>
+﻿@model  List<Web.Models.EquipmentModel>
+
+@{
+    ViewBag.Title = "Формуляр ПТВ";
+}
 
 <div class="row">
     <div class="col-lg-12">
@@ -17,7 +21,7 @@
 
             @foreach (var item in Model)
             {
-                <tr class="@(item.LastMovement.IsArrived ? "success" : "")">
+                <tr class="@(item.LastMovement != null && item.LastMovement.IsArrived ? "success" : "")">
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
@@ -25,7 +29,7 @@
                         @Html.DisplayFor(modelItem => item.Tag)
                     </td>
                     <td>
-                        @item.LastMovement.Date.ToString("g")
+                        @item.Date
                     </td>
                 </tr>
             }

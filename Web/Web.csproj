@@ -270,6 +270,7 @@
     <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="Controllers\EquipmentGroupController.cs" />
     <Compile Include="Controllers\TestApiController.cs" />
+    <Compile Include="Controllers\UnitComplectationController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovementController.cs" />
@@ -1793,10 +1794,12 @@
     <Content Include="Views\EquipmentGroup\EquipmentGroupList.cshtml" />
     <Content Include="Views\EquipmentGroup\Index.cshtml" />
     <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
+    <Content Include="Views\UnitComplectation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\patterns\" />
+    <Folder Include="Models\UnitComplectation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
