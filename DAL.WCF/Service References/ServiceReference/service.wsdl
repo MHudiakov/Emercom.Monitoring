@@ -96,6 +96,18 @@
   <wsdl:message name="IServiceOperation_GetEquipmentList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEquipmentListResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetEquipmentListForUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentListForUnit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetEquipmentListForUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentListForUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetCurrentComplectationForUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentComplectationForUnit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceOperation_GetCurrentComplectationForUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentComplectationForUnitResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceOperation_AddMovement_InputMessage">
     <wsdl:part name="parameters" element="tns:AddMovement" />
   </wsdl:message>
@@ -298,6 +310,14 @@
     <wsdl:operation name="GetEquipmentList">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetEquipmentList" message="tns:IServiceOperation_GetEquipmentList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetEquipmentListResponse" message="tns:IServiceOperation_GetEquipmentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentListForUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetEquipmentListForUnit" message="tns:IServiceOperation_GetEquipmentListForUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetEquipmentListForUnitResponse" message="tns:IServiceOperation_GetEquipmentListForUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentComplectationForUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/GetCurrentComplectationForUnit" message="tns:IServiceOperation_GetCurrentComplectationForUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOperation/GetCurrentComplectationForUnitResponse" message="tns:IServiceOperation_GetCurrentComplectationForUnit_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddMovement">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceOperation/AddMovement" message="tns:IServiceOperation_AddMovement_InputMessage" />
@@ -514,6 +534,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetEquipmentList">
       <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetEquipmentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentListForUnit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetEquipmentListForUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentComplectationForUnit">
+      <soap12:operation soapAction="http://tempuri.org/IServiceOperation/GetCurrentComplectationForUnit" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

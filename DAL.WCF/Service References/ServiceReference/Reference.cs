@@ -896,6 +896,12 @@ namespace DAL.WCF.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetEquipmentList", ReplyAction="http://tempuri.org/IServiceOperation/GetEquipmentListResponse")]
         System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetEquipmentList();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetEquipmentListForUnit", ReplyAction="http://tempuri.org/IServiceOperation/GetEquipmentListForUnitResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetEquipmentListForUnit(int unitId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/GetCurrentComplectationForUnit", ReplyAction="http://tempuri.org/IServiceOperation/GetCurrentComplectationForUnitResponse")]
+        System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetCurrentComplectationForUnit(int unitId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddMovement", ReplyAction="http://tempuri.org/IServiceOperation/AddMovementResponse")]
         void AddMovement(DAL.WCF.ServiceReference.Movement item);
         
@@ -1049,6 +1055,14 @@ namespace DAL.WCF.ServiceReference {
         
         public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetEquipmentList() {
             return base.Channel.GetEquipmentList();
+        }
+        
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetEquipmentListForUnit(int unitId) {
+            return base.Channel.GetEquipmentListForUnit(unitId);
+        }
+        
+        public System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetCurrentComplectationForUnit(int unitId) {
+            return base.Channel.GetCurrentComplectationForUnit(unitId);
         }
         
         public void AddMovement(DAL.WCF.ServiceReference.Movement item) {
