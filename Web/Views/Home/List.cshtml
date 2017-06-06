@@ -4,23 +4,23 @@
     <div class="col-lg-12">
         <table class="table table-bordered table-hover">
             <thead>
-                <tr>
-                    <th>Подразделение</th>
-                    <th>Объект</th>
-                    <th>Номер</th>
-                    <th>Описание/Примечание</th>
-                    <th>Действие</th>
-                </tr>
+            <tr>
+                <th>Объект</th>
+                <th>Подразделение</th>
+                <th>Номер</th>
+                <th>Описание/Примечание</th>
+                <th style="width: 15%"></th>
+            </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DivisionName)
+                            @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Name)
+                            @Html.DisplayFor(modelItem => item.DivisionName)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Number)
@@ -29,7 +29,7 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("UnitInfo", "Unit", new { id = item.Id })">
+                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("UnitInfo", "Unit", new {id = item.Id})">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
                             </a>
                         </td>
