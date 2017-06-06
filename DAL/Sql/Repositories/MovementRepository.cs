@@ -83,16 +83,8 @@ namespace Server.Dal.Sql.Repositories
         {
             try
             {
-                var context = DalContainer.GetDataManager.GetContext();
-                var dt =
-                    context.ExecuteDataTable(
-                        $"SELECT * FROM [{MovementTableName}] WHERE[EquipmentId] = @EquipmentId",
-                        new SqlParameter("EquipmentId", equipmentId));
-
-                if (dt.HasErrors)
-                    throw new Exception($"Ошибка выполнения запроса к {MovementTableName} с параметрами:{equipmentId}");
-
-                return GetMovementList(dt);
+                var result = this.GetItemsWhere(new Dictionary<string, object> {{"EquipmentId", equipmentId}});
+                return result;
             }
             catch (Exception ex)
             {
@@ -121,5 +113,6 @@ namespace Server.Dal.Sql.Repositories
                                     }).ToList();
             return listMovement;
         }
+
     }
 }
