@@ -8,7 +8,7 @@ namespace Server.Dal.Sql.Repositories
     /// <summary>
     /// Репозиторий групп оборудования
     /// </summary>
-    public sealed class EquipmentGroupRepository : Repository<EquipmentGroup>
+    public sealed class EquipmentGroupRepository : ClassifierRepository<EquipmentGroup>
     {
         /// <summary>
         /// Конструктор репозитория Групп оборудования

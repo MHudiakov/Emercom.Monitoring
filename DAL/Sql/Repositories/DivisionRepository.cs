@@ -7,7 +7,7 @@ namespace Server.Dal.Sql.Repositories
     using System.Collections.Generic;
     using System.Linq;
 
-    public sealed class DivisionRepository : Repository<Division>
+    public sealed class DivisionRepository : ClassifierRepository<Division>
     {
         public DivisionRepository(DataManager dataManager) :   
             base(new MsSqlDataAccess<Division>(dataManager.GetContext), dataManager)

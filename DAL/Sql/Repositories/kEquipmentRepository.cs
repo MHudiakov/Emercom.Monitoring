@@ -17,7 +17,7 @@ namespace Server.Dal.Sql.Repositories
     /// <summary>
     /// Репозиторий классификаторов оборудования
     /// </summary>
-    public class KEquipmentRepository : Repository<KEquipment> 
+    public class KEquipmentRepository : ClassifierRepository<KEquipment> 
     {
         public KEquipmentRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<KEquipment>(dataManager.GetContext), dataManager)         

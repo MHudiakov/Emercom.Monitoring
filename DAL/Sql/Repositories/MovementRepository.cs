@@ -34,6 +34,17 @@ namespace Server.Dal.Sql.Repositories
         }
 
         /// <summary>
+        /// Получить список всех последних передвижений
+        /// </summary>
+        /// <returns>
+        /// Список всех последних передвижений
+        /// </returns>
+        public List<Movement> GetAllLastMovements()
+        {
+            return null;
+        }
+
+        /// <summary>
         /// Метод получения списка передвижений по ид оборудования и промежутку времени
         /// </summary>
         /// <param name="unitId"></param>

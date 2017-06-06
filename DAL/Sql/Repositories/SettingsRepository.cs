@@ -4,7 +4,7 @@ using Server.Dal.Sql.DataObjects;
 
 namespace Server.Dal.Sql.Repositories
 {
-    public sealed class SettingsRepository : Repository<Settings>
+    public sealed class SettingsRepository : ClassifierRepository<Settings>
     {
         public SettingsRepository(DataManager dataManager) :   
             base(new MsSqlDataAccess<Settings>(dataManager.GetContext), dataManager)
