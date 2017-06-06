@@ -304,7 +304,7 @@ namespace Init.DbCore.DB.MsSql
             foreach (var pair in dbWhereArgs)
             {
                 if (!string.IsNullOrEmpty(sqlWhere)) sqlWhere += " AND ";
-                sqlWhere += string.Format("[{0}]=@{0}", pair.Key);
+                sqlWhere += string.Format(pair.Value == null ? "{0} is null" : "[{0}]=@{0}", pair.Key);
             }
 
             var dt = this.Context.ExecuteDataTable(string.Format("Select * From [{0}] WHERE {1}", this.TableName, sqlWhere), dbWhereArgs.Select(e => (DbParameter)new SqlParameter(e.Key, e.Value)).ToArray());
