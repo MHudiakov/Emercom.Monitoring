@@ -19,22 +19,19 @@
                         @Html.ValidationMessageFor(model => model.DivisionId)
                     </div>
 
-                        <div class="col-sm-8">
-                            <button type="submit" class="btn btn-default pull-left">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                Найти
-                            </button>
-                        </div>
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-default pull-left">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            Найти
+                        </button>
+                    </div>
                 }
             </div>
 
         </div>
     </div>
 </div>
-<div class="panel-body">
 
-</div>
-
-<div class="panel-body" id="users">
+<div id="users">
     @{Html.RenderAction("List", "Unit", Model);}
 </div>

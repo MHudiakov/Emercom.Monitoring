@@ -1,4 +1,6 @@
-﻿namespace Web.Models
+﻿using System.Web.WebPages;
+
+namespace Web.Models
 {
     using System;
     using DAL.WCF.ServiceReference;
@@ -20,20 +22,20 @@
                 throw new ArgumentNullException(nameof(equipment));
 
             this.Id = equipment.Id;
+            this.Name = equipment.Name.IsEmpty() ? equipment.KEquipment.Name : equipment.Name;
             this.Tag = equipment.Tag;
             this.KEquipmentId = equipment.KEquipmentId;
             this.Description = equipment.Description;
         }
-
-        #region DataFields
+        
         public int Id { get; set; }
+
+        public string Name { get; set; }
 
         public string Tag { get; set; }
 
         public int KEquipmentId { get; set; }
 
         public string Description { get; set; }
-
-        #endregion
     }
 }
