@@ -1,33 +1,20 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EquipmentController.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2016г.
-// </copyright>
-// <summary>
-//   Контроллер раздела "Оборудование на складе"
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-namespace Web.Controllers
+﻿namespace Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
 
     using DAL.WCF;
-    using Web.Models;
+    using Models;
 
     /// <summary>
-    /// Контроллер раздела "Оборудование на складе"
+    /// Контроллер раздела "Оборудование"
     /// </summary>
     public class EquipmentController : Controller
     {
-        /// <summary>
-        /// Главная страница раздела "Наличие на складе"
-        /// </summary>
-        /// <returns>Представление</returns>
         [HttpGet]
         public ActionResult Index()
         {
             var filter = new FilterEquipmentModel();
-
             return View(filter);
         }
 
@@ -36,18 +23,18 @@ namespace Web.Controllers
         /// </summary>
         /// <param name="filter">Настройки отчёта</param>
         /// <returns>Частичное представление</returns>
-        public ActionResult List(FilterEquipmentModel filter)
+        public PartialViewResult List(FilterEquipmentModel filter)
         {
             var equipmentList = DalContainer.WcfDataManager.EquipmentList;
 
-            //if (filter.kEquipmentId != null)
-            //   equipmentList = equipmentList.Where(equipment => equipment.kEquipmentId == filter.kEquipmentId).ToList();
+            if (filter.kEquipmentId != null)
+                equipmentList = equipmentList.Where(equipment => equipment.KEquipmentId == filter.kEquipmentId).ToList();
 
-            //var equipmentModelList = equipmentList.Select(equipment => new EquipmentModel(equipment))
-            //    .OrderBy(equipment => equipment.Equipment.RFId)
-            //    .ToList();
+            var equipmentModelList = equipmentList.Select(equipment => new EquipmentModel(equipment))
+                .OrderBy(equipment => equipment.KEquipmentId)
+                .ToList();
 
-            return PartialView();
+            return PartialView(equipmentModelList);
         }
     }
 }

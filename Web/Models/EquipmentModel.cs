@@ -1,85 +1,41 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="StorageModel.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2016г.
-// </copyright>
-// <summary>
-//   Модель списка оборудования на складе
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using System.Web.WebPages;
+
 namespace Web.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web.Mvc;
-
-    using DAL.WCF;
     using DAL.WCF.ServiceReference;
 
     /// <summary>
-    /// Модель списка оборудования на складе
+    /// Модель оборудования
     /// </summary>
     public class EquipmentModel
     {
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="EquipmentModel"/>.
         /// </summary>
-        /// <param name="movement">
-        /// Оборудование на складе
+        /// <param name="equipment">
+        /// The equipment.
         /// </param>
         public EquipmentModel(Equipment equipment)
         {
-            this.Equipment = equipment;
+            if (equipment == null)
+                throw new ArgumentNullException(nameof(equipment));
 
-            if (equipment != null)
-            {
-                Id = equipment.Id;
-           /*     RFId = equipment.RFId;
-                kEquipmentId = equipment.kEquipmentId;
-                Description = equipment.Description;
-                kEquipment = equipment.KKEquipment;*/
-            }
+            this.Id = equipment.Id;
+            this.Name = equipment.Name.IsEmpty() ? equipment.KEquipment.Name : equipment.Name;
+            this.Tag = equipment.Tag;
+            this.KEquipmentId = equipment.KEquipmentId;
+            this.Description = equipment.Description;
         }
-
-        /// <summary>
-        /// Оборудование на складе
-        /// </summary>
-        public Equipment Equipment { get; set; }
-
-
-        [DisplayName("Оборудование")]
-        public KEquipment kEquipment { get; set; }
-
-
-        #region DataFields
-        /// <summary>
-        /// Id
-        /// </summary>
-        [DisplayName("Id")]
+        
         public int Id { get; set; }
 
-        /// <summary>
-        /// Name
-        /// </summary>
-        [DisplayName("Название хранения на складе")]
-        public string RFId { get; set; }
+        public string Name { get; set; }
 
+        public string Tag { get; set; }
 
-        /// <summary>
-        /// Id оборудования
-        /// </summary>
-        [DisplayName("Id оборудования")]
-        public int kEquipmentId { get; set; }
+        public int KEquipmentId { get; set; }
 
-
-        /// <summary>
-        /// Описание/Примечание
-        /// </summary>
-        [DisplayName("Описание/Примечание")]
         public string Description { get; set; }
-
-        #endregion
     }
 }
