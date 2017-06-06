@@ -1,83 +1,37 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="StorageModel.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2016г.
-// </copyright>
-// <summary>
-//   Модель списка оборудования на складе
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-namespace Web.Models
+﻿namespace Web.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web.Mvc;
-
-    using DAL.WCF;
     using DAL.WCF.ServiceReference;
 
     /// <summary>
-    /// Модель списка оборудования на складе
+    /// Модель оборудования
     /// </summary>
     public class EquipmentModel
     {
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="EquipmentModel"/>.
         /// </summary>
-        /// <param name="movement">
-        /// Оборудование на складе
+        /// <param name="equipment">
+        /// The equipment.
         /// </param>
         public EquipmentModel(Equipment equipment)
         {
-            this.Equipment = equipment;
-
             if (equipment == null)
                 throw new ArgumentNullException(nameof(equipment));
 
             this.Id = equipment.Id;
-            this.RFId = equipment.Tag;
-            this.kEquipmentId = equipment.KEquipmentId;
+            this.Tag = equipment.Tag;
+            this.KEquipmentId = equipment.KEquipmentId;
             this.Description = equipment.Description;
-            this.kEquipment = equipment.KEquipment;
         }
 
-        /// <summary>
-        /// Оборудование на складе
-        /// </summary>
-        public Equipment Equipment { get; set; }
-
-
-        [DisplayName("Оборудование")]
-        public KEquipment kEquipment { get; set; }
-
-
         #region DataFields
-        /// <summary>
-        /// Id
-        /// </summary>
-        [DisplayName("Id")]
         public int Id { get; set; }
 
-        /// <summary>
-        /// Name
-        /// </summary>
-        [DisplayName("Название хранения на складе")]
-        public string RFId { get; set; }
+        public string Tag { get; set; }
 
+        public int KEquipmentId { get; set; }
 
-        /// <summary>
-        /// Id оборудования
-        /// </summary>
-        [DisplayName("Id оборудования")]
-        public int kEquipmentId { get; set; }
-
-
-        /// <summary>
-        /// Описание/Примечание
-        /// </summary>
-        [DisplayName("Описание/Примечание")]
         public string Description { get; set; }
 
         #endregion
