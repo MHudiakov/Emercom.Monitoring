@@ -1687,8 +1687,8 @@
     <Content Include="Scripts\plugins\upload\plupload\plupload.silverlight.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\spinner.js" />
-    <Content Include="Scripts\Views\Division\Index.js" />
-    <Content Include="Scripts\Views\EquipmentGroup\list.js" />
+    <Content Include="Scripts\Views\Division\tree.js" />
+    <Content Include="Scripts\Views\EquipmentGroup\tree.js" />
     <Content Include="Scripts\Views\Unit\Index.js" />
     <Content Include="Scripts\Views\Unit\UnitInfo.js" />
     <Content Include="Web.config">

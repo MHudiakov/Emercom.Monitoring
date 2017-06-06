@@ -1,4 +1,4 @@
-﻿$(window).load(updateTree);
+﻿$(document).ready(updateTree);
 
 function updateTree() {
     $("#tree").treegrid();

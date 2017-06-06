@@ -12,8 +12,13 @@
             </thead>
             <tbody>
                 @foreach (var item in Model)
-            {
-                string parent = "treegrid-parent-" + (item.ParentId.HasValue ? item.ParentId.ToString() : string.Empty);
+                {
+                    string parent = string.Empty;
+                    if (item.ParentId.HasValue && Model.Any(division => division.Id == item.ParentId))
+                    {
+                        parent += "treegrid-parent-" + item.ParentId;
+                    }
+
                     <tr class="treegrid-@item.Id @parent">
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace Web.Controllers
 {
@@ -30,6 +31,13 @@ namespace Web.Controllers
             {
                 sortList.Add(group);
                 sortList.AddRange(group.ChildrenList);
+            }
+
+            // фильтруем группы
+            if (!filter.SearchPattern.IsEmpty())
+            {
+                sortList = sortList.Where(group => group.Name.ToLower().Contains(filter.SearchPattern.ToLower()))
+                    .ToList();
             }
 
             var groupModelList = sortList.Select(equipmentGroup => new EquipmentGroupModel(equipmentGroup)).ToList();
