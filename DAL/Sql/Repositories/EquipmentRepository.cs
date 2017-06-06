@@ -10,7 +10,7 @@ namespace Server.Dal.Sql.Repositories
     {
         public EquipmentRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Equipment>(dataManager.GetContext), dataManager)
-        {}
+        { }
 
         public List<Equipment> GetEquipmentListForUnit(int unitId)
         {
@@ -29,7 +29,7 @@ namespace Server.Dal.Sql.Repositories
         public List<Equipment> GetCurrentComplectationForUnit(int unitId)
         {
             // Получаем список всех последних передвижений
-            var lastMovements = DalContainer.GetDataManager.MovementRepository.GetAllLastMovements();
+            var lastMovements = DalContainer.GetDataManager.MovementRepository.GetLastMovementsForUnit(unitId);
 
             // Получаем формуляр ПТВ для юнита
             var equipmentListForUnit = GetEquipmentListForUnit(unitId);
@@ -37,15 +37,17 @@ namespace Server.Dal.Sql.Repositories
             // Заполняем/обновляем все последние передвижения для формуляра ПТВ
             foreach (var equipment in equipmentListForUnit)
             {
-                var lastMovement = lastMovements.First(movement => movement.Id == equipment.LastMovementId);
+                var lastMovement = lastMovements.FirstOrDefault(movement => movement.Id == equipment.LastMovementId);
                 equipment.LastMovement = lastMovement;
             }
 
             // Отбираем из формуляра ПТВ то, что сейчас находится в текущем юните
             var currentComplectationForUnit =
-                equipmentListForUnit.Where(equipment => equipment.LastMovement.UnitId == unitId &&
-                                                        equipment.LastMovement.IsArrived).ToList();
-           
+                equipmentListForUnit.Where(
+                    equipment => equipment.LastMovement != null &&
+                    equipment.LastMovement.UnitId == unitId &&
+                    equipment.LastMovement.IsArrived).ToList();
+
             return currentComplectationForUnit;
         }
     }

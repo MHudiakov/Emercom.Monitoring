@@ -39,9 +39,37 @@ namespace Server.Dal.Sql.Repositories
         /// <returns>
         /// Список всех последних передвижений
         /// </returns>
-        public List<Movement> GetAllLastMovements()
+        public List<Movement> GetLastMovementsForUnit(int unitId)
         {
-            return null;
+            try
+            {
+                var context = DalContainer.GetDataManager.GetContext();
+
+                var dt =
+                    context.ExecuteDataTable(
+                        $"SELECT * FROM [{MovementTableName}] WHERE Movement.Id IN (" +
+                        $"SELECT MAX(movement.Id) " +
+                        $"FROM (SELECT m.EquipmentId, MAX(m.Date) AS maxDate " +
+                        $"FROM [{MovementTableName}] m " +
+                        $"GROUP BY m.EquipmentId) AS tmp " +
+                        $"INNER JOIN [{MovementTableName}] movement " +
+                        $"ON movement.EquipmentId = tmp.EquipmentId AND movement.Date = tmp.maxDate " +
+                        $"WHERE movement.IsArrived = 1 AND movement.UnitId = @unitId " +
+                        $"GROUP BY movement.EquipmentId)", 
+                        new SqlParameter("unitId", unitId));
+
+                if (dt.HasErrors)
+                    throw new Exception($"Ошибка выполнения запроса к {MovementTableName} с параметрами: {unitId}");
+
+                var listMovement = GetMovementList(dt);
+                return listMovement;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ошибка создания списка объектов {typeof(Movement).FullName} по идентификаторам объекта {unitId}",
+                    ex);
+            }
         }
 
         /// <summary>
