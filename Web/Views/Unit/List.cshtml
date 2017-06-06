@@ -8,7 +8,7 @@
                 <th>Объект</th>
                 <th>Номер</th>
                 <th>Описание/Примечание</th>
-                <th>Действие</th>
+                <th style="width: 15%"></th>
             </tr>
 
             @foreach (var item in Model)
@@ -27,9 +27,24 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        <a class="btn btn-default btn-sm pull-left" href="@Url.Action("UnitInfo", "Unit", new { id = item.Id })">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
-                        </a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="fa fa-navicon fa-fw"></span>
+                                Действие <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a rel="tooltip" title="Изменить запись в справочнике" onclick="OnEdit(@item.Id)" href="#">
+                                        <i class="fa fa-edit fa-fw"></i> Редактировать
+                                    </a>
+                                </li>
+                                <li>
+                                    <a rel="tooltip" title="Удалить запись из справочника" onclick="OnDelete(@item.Id)" href="#">
+                                        <i class="fa fa-trash-o fa-fw"></i> Удалить
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
             }
