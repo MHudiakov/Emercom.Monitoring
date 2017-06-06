@@ -10,25 +10,45 @@ namespace Server.Dal.Sql.Repositories
     {
         public EquipmentRepository(DataManager dataManager)
             : base(new MsSqlDataAccess<Equipment>(dataManager.GetContext), dataManager)
-        {}
+        { }
 
         public List<Equipment> GetEquipmentListForUnit(int unitId)
         {
             return this.GetAll().Where(item => item.UnitId == unitId).ToList();
         }
 
+        /// <summary>
+        /// Получить текущую комплектация для юнита
+        /// </summary>
+        /// <param name="unitId">
+        /// Ид юнита
+        /// </param>
+        /// <returns>
+        /// Текущая комплектация для юнита
+        /// </returns>
         public List<Equipment> GetCurrentComplectationForUnit(int unitId)
         {
-            var result = from equipment in GetAll()
-                let lastMovement = equipment.LastMovement
-                where equipment.UnitId == unitId &&
-                      lastMovement.UnitId == unitId &&
-                      lastMovement.IsArrived
-                select equipment;
+            // Получаем список всех последних передвижений
+            var lastMovements = DalContainer.GetDataManager.MovementRepository.GetLastMovementsForUnit(unitId);
 
-            //var test = this.GetAll().Where(x => x.GetLastMovement)
+            // Получаем формуляр ПТВ для юнита
+            var equipmentListForUnit = GetEquipmentListForUnit(unitId);
 
-            return result.ToList();
+            // Заполняем/обновляем все последние передвижения для формуляра ПТВ
+            foreach (var equipment in equipmentListForUnit)
+            {
+                var lastMovement = lastMovements.FirstOrDefault(movement => movement.Id == equipment.LastMovementId);
+                equipment.LastMovement = lastMovement;
+            }
+
+            // Отбираем из формуляра ПТВ то, что сейчас находится в текущем юните
+            var currentComplectationForUnit =
+                equipmentListForUnit.Where(
+                    equipment => equipment.LastMovement != null &&
+                    equipment.LastMovement.UnitId == unitId &&
+                    equipment.LastMovement.IsArrived).ToList();
+
+            return currentComplectationForUnit;
         }
     }
 }

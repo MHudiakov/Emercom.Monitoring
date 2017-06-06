@@ -4,7 +4,7 @@ using Server.Dal.Sql.DataObjects;
 
 namespace Server.Dal.Sql.Repositories
 {
-    public sealed class UserRepository : Repository<User>
+    public sealed class UserRepository : ClassifierRepository<User>
     {
         public UserRepository(DataManager dataManager) : 
             base(new MsSqlDataAccess<User>(dataManager.GetContext), dataManager)
