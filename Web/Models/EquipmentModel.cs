@@ -35,11 +35,11 @@ namespace Web.Models
 
             if (equipment != null)
             {
-                Id = equipment.Id;
-           /*     RFId = equipment.RFId;
-                kEquipmentId = equipment.kEquipmentId;
-                Description = equipment.Description;
-                kEquipment = equipment.KKEquipment;*/
+                this.Id = equipment.Id;
+                this.RFId = equipment.Tag;
+                this.kEquipmentId = equipment.KEquipmentId;
+                this.Description = equipment.Description;
+                this.kEquipment = equipment.KEquipment;
             }
         }
 

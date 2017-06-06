@@ -40,14 +40,14 @@ namespace Web.Controllers
         {
             var equipmentList = DalContainer.WcfDataManager.EquipmentList;
 
-            //if (filter.kEquipmentId != null)
-            //   equipmentList = equipmentList.Where(equipment => equipment.kEquipmentId == filter.kEquipmentId).ToList();
+            if (filter.kEquipmentId != null)
+                equipmentList = equipmentList.Where(equipment => equipment.KEquipmentId == filter.kEquipmentId).ToList();
 
-            //var equipmentModelList = equipmentList.Select(equipment => new EquipmentModel(equipment))
-            //    .OrderBy(equipment => equipment.Equipment.RFId)
-            //    .ToList();
+            var equipmentModelList = equipmentList.Select(equipment => new EquipmentModel(equipment))
+                .OrderBy(equipment => equipment.Equipment.Tag)
+                .ToList();
 
-            return PartialView();
+            return PartialView(equipmentModelList);
         }
     }
 }
