@@ -1,6 +1,7 @@
 ﻿using System;
 using DAL.WCF.ServiceReference;
 using Web.Models.UnitComplectation;
+using WebGrease.Css.Extensions;
 
 namespace Web.Controllers
 {
@@ -23,6 +24,9 @@ namespace Web.Controllers
             // Загружаем текущую комплектацию юнита
             IEnumerable<Equipment> currentComplectation = DalContainer.WcfDataManager.ServiceOperationClient
                 .GetCurrentComplectationForUnit(unitId);
+
+            // Определяем для каждой записи формуляра ПТВ, находится ли он на данный момент в юните
+            equipmentList.ForEach(equipment => equipment.IsInTheUnit = currentComplectation.Any(item => item.Id == equipment.Id));
 
             // Группируем оборудование по группам
             IEnumerable <IGrouping<EquipmentGroup, Equipment>> equipmentGroups =

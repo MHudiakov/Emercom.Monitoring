@@ -24,10 +24,8 @@ namespace Web.Models
             this.Id = equipment.Id;
             this.Name = equipment.Name.IsEmpty() ? equipment.KEquipment.Name : equipment.Name;
             this.Tag = equipment.Tag;
-            this.KEquipmentId = equipment.KEquipmentId;
+            this.IsInTheUnit = equipment.IsInTheUnit;
             this.Description = equipment.Description;
-            this.LastMovement = equipment.LastMovement;
-            this.KEquipment = equipment.KEquipment;
         }
 
         public int Id { get; set; }
@@ -35,15 +33,11 @@ namespace Web.Models
         public string Name { get; set; }
 
         public string Tag { get; set; }
-
-        public int KEquipmentId { get; set; }
-
+        
         public string Description { get; set; }
 
-        public Movement LastMovement { get; set; }
+        public bool IsInTheUnit { get; set; }
 
-        public KEquipment KEquipment { get; set; }
-
-        public string Date => LastMovement?.Date.ToString("g") ?? "";
+        public string Date => "В процессе";
     }
 }

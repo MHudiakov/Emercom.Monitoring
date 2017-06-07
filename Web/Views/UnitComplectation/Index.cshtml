@@ -23,7 +23,8 @@
                 </tr>
                 @foreach (var item in Model)
                 {
-                    <tr class="treegrid-@item.Id">
+                    string colorForGroup = item.IsFullyEquipped ? "#e0f1d6" : "#E1E1E1";
+                    <tr style="background: @colorForGroup" class="treegrid-@item.Id">
                         <td></td>
                         <td colspan="3" class="text-center">
                             <b>@Html.DisplayFor(modelItem => item.Name)</b>
@@ -33,7 +34,8 @@
                     foreach (var equipment in item.EquipmentModelList)
                     {
                         i++;
-                        <tr class="@(equipment.LastMovement != null && equipment.LastMovement.IsArrived ? "success" : "warning") treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
+                        string colorForEquipment = equipment.IsInTheUnit ? "#e0f1d6" : "#E1E1E1";
+                        <tr style="background: @colorForEquipment"  class="treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
                             <td>
                                 @i
                             </td>

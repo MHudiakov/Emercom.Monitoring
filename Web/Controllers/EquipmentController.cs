@@ -30,9 +30,8 @@
             if (filter.kEquipmentId != null)
                 equipmentList = equipmentList.Where(equipment => equipment.KEquipmentId == filter.kEquipmentId).ToList();
 
-            var equipmentModelList = equipmentList.Select(equipment => new EquipmentModel(equipment))
-                .OrderBy(equipment => equipment.KEquipmentId)
-                .ToList();
+            var equipmentModelList = equipmentList.OrderBy(equipment => equipment.KEquipmentId).
+                Select(equipment => new EquipmentModel(equipment)).ToList();
 
             return PartialView(equipmentModelList);
         }
