@@ -289,6 +289,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MovementModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
+    <Compile Include="Models\UnitComplectationModel.cs" />
     <Compile Include="Models\Unit\FilterUnitModel.cs" />
     <Compile Include="Models\Unit\MovementListModel.cs" />
     <Compile Include="Models\Unit\UnitInfoModel.cs" />

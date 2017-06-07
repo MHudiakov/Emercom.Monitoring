@@ -27,6 +27,7 @@ namespace Web.Models
             this.KEquipmentId = equipment.KEquipmentId;
             this.Description = equipment.Description;
             this.LastMovement = equipment.LastMovement;
+            this.KEquipment = equipment.KEquipment;
         }
 
         public int Id { get; set; }
@@ -40,6 +41,8 @@ namespace Web.Models
         public string Description { get; set; }
 
         public Movement LastMovement { get; set; }
+
+        public KEquipment KEquipment { get; set; }
 
         public string Date => LastMovement?.Date.ToString("g") ?? "";
     }
