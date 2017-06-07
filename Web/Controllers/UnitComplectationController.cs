@@ -1,4 +1,8 @@
-﻿namespace Web.Controllers
+﻿using System;
+using DAL.WCF.ServiceReference;
+using Web.Models.UnitComplectation;
+
+namespace Web.Controllers
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -6,23 +10,26 @@
 
     using DAL.WCF;
 
-    using Web.Models;
+    using Models;
 
     public class UnitComplectationController : Controller
     {
         [System.Web.Http.HttpGet]
-        public ActionResult Index(int id)
+        public ActionResult Index(int unitId)
         {
-            var equipmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetEquipmentListForUnit(id);
-            var equipmentGroupList = DalContainer.WcfDataManager.EquipmentGroupList;
+            // Загружаем формуляр ПТВ для юнита
+            IEnumerable<Equipment> equipmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetEquipmentListForUnit(unitId);
 
-            var equipmentModelList= equipmentList.Select(equipment => new EquipmentModel(equipment))
-                .OrderBy(equipment => equipment.KEquipmentId)
-                .ToList();
+            // Загружаем текущую комплектацию юнита
+            IEnumerable<Equipment> currentComplectation = DalContainer.WcfDataManager.ServiceOperationClient
+                .GetCurrentComplectationForUnit(unitId);
 
-            var unitComplectationModelList = equipmentGroupList.
-                Select(equipmentGroup => new UnitComplectationModel(equipmentGroup, equipmentModelList.Where(item => item.KEquipment.EquipmentGroup.Id == equipmentGroup.Id).ToList())).
-                Where(unitComplectationModel => unitComplectationModel.EquipmentModels.Count > 0).ToList();
+            // Группируем оборудование по группам
+            IEnumerable <IGrouping<EquipmentGroup, Equipment>> equipmentGroups =
+                equipmentList.GroupBy(equipment => equipment.KEquipment.EquipmentGroup).OrderBy(group => group.Key.Name);
+
+            List <UnitComplectationModel> unitComplectationModelList =
+                equipmentGroups.Select(equipmentGroup => new UnitComplectationModel(equipmentGroup)).ToList();
 
             return View(unitComplectationModelList);
         }

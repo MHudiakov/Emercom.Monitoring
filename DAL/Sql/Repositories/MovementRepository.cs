@@ -45,6 +45,8 @@ namespace Server.Dal.Sql.Repositories
             {
                 var context = DalContainer.GetDataManager.GetContext();
 
+                // Монструозный SQL запрос, выбирающий из базы все последние передвижения оборудований для указанного юнита
+                // (movement.IsArrived = 1 AND movement.UnitId = @unitId)
                 var dt =
                     context.ExecuteDataTable(
                         $"SELECT * FROM [{MovementTableName}] WHERE Movement.Id IN (" +

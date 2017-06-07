@@ -1,4 +1,4 @@
-﻿@model  List<Web.Models.UnitComplectationModel>
+﻿@model  List<Web.Models.UnitComplectation.UnitComplectationModel>
 
 @{
     ViewBag.Title = "Формуляр ПТВ";
@@ -30,10 +30,10 @@
                         </td>
                     </tr>
                     var i = 0;
-                    foreach (var equipment in item.EquipmentModels)
+                    foreach (var equipment in item.EquipmentModelList)
                     {
-                        i ++;
-                        <tr class="@(equipment.LastMovement != null && equipment.LastMovement.IsArrived ? "success" : "") treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
+                        i++;
+                        <tr class="@(equipment.LastMovement != null && equipment.LastMovement.IsArrived ? "success" : "warning") treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
                             <td>
                                 @i
                             </td>

@@ -29,7 +29,7 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("Index", "UnitComplectation",  new {id=item.Id})">
+                            <a class="btn btn-default btn-sm pull-left" href="@Url.Action("Index", "UnitComplectation",  new { unitId = item.Id })">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
                             </a>
                         </td>

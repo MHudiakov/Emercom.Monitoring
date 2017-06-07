@@ -289,7 +289,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MovementModel.cs" />
     <Compile Include="Models\EquipmentModel.cs" />
-    <Compile Include="Models\UnitComplectationModel.cs" />
+    <Compile Include="Models\UnitComplectation\UnitComplectationModel.cs" />
     <Compile Include="Models\Unit\FilterUnitModel.cs" />
     <Compile Include="Models\Unit\MovementListModel.cs" />
     <Compile Include="Models\Unit\UnitInfoModel.cs" />
@@ -1800,7 +1800,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\patterns\" />
-    <Folder Include="Models\UnitComplectation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
