@@ -1,0 +1,73 @@
+﻿@model  List<Web.Models.UnitComplectation.UnitComplectationModel>
+
+@{
+    ViewBag.Title = "Формуляр ПТВ";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        @if (Model.Any())
+        {
+            <table class="table table-bordered tree" id="tree">
+                <tr>
+                    <th>№</th>
+                    <th style="width: 35%">
+                        Оборудование
+                    </th>
+                    <th style="width: 40%">
+                        BLE оборудования
+                    </th>
+                    <th style="width: 25%">
+                        Дата последнего движения
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    string colorForGroup = item.IsFullyEquipped ? "#e0f1d6" : "#E1E1E1";
+                    <tr style="background: @colorForGroup" class="treegrid-@item.Id">
+                        <td></td>
+                        <td colspan="3" class="text-center">
+                            <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                        </td>
+                    </tr>
+                    var i = 0;
+                    foreach (var equipment in item.EquipmentModelList)
+                    {
+                        i++;
+                        string colorForEquipment = equipment.IsInTheUnit ? "#e0f1d6" : "#E1E1E1";
+                        <tr style="background: @colorForEquipment"  class="treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
+                            <td>
+                                @i
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => equipment.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => equipment.Tag)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => equipment.Date)
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        }
+        else
+        {
+        <h1 class="text-center">Формуляр ПТВ для данного объекта учета не сформирован</h1>
+        }
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/plugins/treegrid/jquery.treegrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/treegrid/jquery.treegrid.bootstrap3.js")" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $("#tree").treegrid();
+            $("#tree").treegrid("collapseAll");
+        });
+    </script>
+}

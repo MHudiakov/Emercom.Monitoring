@@ -144,6 +144,30 @@ namespace Server.WCF
         [OperationContract]
         List<Equipment> GetEquipmentList();
 
+        /// <summary>
+        /// Получить формуляр ПТВ (список оборудования) для юнита
+        /// </summary>
+        /// <param name="unitId">
+        /// Ид юнита
+        /// </param>
+        /// <returns>
+        /// Формуляр ПТВ для юнита
+        /// </returns>
+        [OperationContract]
+        List<Equipment> GetEquipmentListForUnit(int unitId);
+
+        /// <summary>
+        /// Получить текущую комплектацию юнита
+        /// </summary>
+        /// <param name="unitId">
+        /// Ид юнита
+        /// </param>
+        /// <returns>
+        /// Список оборудования в текущей комплектации юнита
+        /// </returns>
+        [OperationContract]
+        List<Equipment> GetCurrentComplectationForUnit(int unitId);
+
         #endregion
 
         #region Movement

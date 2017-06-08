@@ -38,6 +38,11 @@ namespace Web.Models
         public int? EquipmentId { get; set; }
 
         /// <summary>
+        /// Id машины
+        /// </summary>
+        public int? UnitId { get; set; }
+
+        /// <summary>
         /// Список оборудования
         /// </summary>
         public SelectList EquipmentList

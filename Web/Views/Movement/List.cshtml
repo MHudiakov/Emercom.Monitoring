@@ -1,17 +1,14 @@
-﻿@model List<Web.Models.MovementModel>
+﻿@model List<Web.Models.EquipmentModel>
 
 <div class="row">
     <div class="col-lg-12">
         <table class=" table table-bordered table-hover">
             <tr>
                 <th style="width: 35%">
-                    Справочник оборудования
+                    Оборудование
                 </th>
-                <th style="width: 20%">
+                <th style="width: 40%">
                     BLE  оборудования
-                </th>
-                <th style="width: 20%">
-                    Прибыло/убыло
                 </th>
                 <th style="width: 25%">
                     Дата движения
@@ -20,22 +17,18 @@
 
             @foreach (var item in Model)
             {
-                <tr>
+                <tr class="@(item.LastMovement.IsArrived ? "success" : "")">
                     <td>
-                        @Html.DisplayFor(modelItem => item.kEquipmentName)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.EquipmentRFId)
+                        @Html.DisplayFor(modelItem => item.Tag)
                     </td>
                     <td>
-                        @(item.IsArrived?"Прибыло":"Убыло")
-                    </td>
-                    <td>
-                        @item.Date.ToString("g")
+                        @item.LastMovement.Date.ToString("g")
                     </td>
                 </tr>
             }
-
         </table>
     </div>
 </div>

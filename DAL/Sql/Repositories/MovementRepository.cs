@@ -34,6 +34,47 @@ namespace Server.Dal.Sql.Repositories
         }
 
         /// <summary>
+        /// Получить список всех последних передвижений
+        /// </summary>
+        /// <returns>
+        /// Список всех последних передвижений
+        /// </returns>
+        public List<Movement> GetLastMovementsForUnit(int unitId)
+        {
+            try
+            {
+                var context = DalContainer.GetDataManager.GetContext();
+
+                // Монструозный SQL запрос, выбирающий из базы все последние передвижения оборудований для указанного юнита
+                // (movement.IsArrived = 1 AND movement.UnitId = @unitId)
+                var dt =
+                    context.ExecuteDataTable(
+                        $"SELECT * FROM [{MovementTableName}] WHERE Movement.Id IN (" +
+                        $"SELECT MAX(movement.Id) " +
+                        $"FROM (SELECT m.EquipmentId, MAX(m.Date) AS maxDate " +
+                        $"FROM [{MovementTableName}] m " +
+                        $"GROUP BY m.EquipmentId) AS tmp " +
+                        $"INNER JOIN [{MovementTableName}] movement " +
+                        $"ON movement.EquipmentId = tmp.EquipmentId AND movement.Date = tmp.maxDate " +
+                        $"WHERE movement.IsArrived = 1 AND movement.UnitId = @unitId " +
+                        $"GROUP BY movement.EquipmentId)", 
+                        new SqlParameter("unitId", unitId));
+
+                if (dt.HasErrors)
+                    throw new Exception($"Ошибка выполнения запроса к {MovementTableName} с параметрами: {unitId}");
+
+                var listMovement = GetMovementList(dt);
+                return listMovement;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Ошибка создания списка объектов {typeof(Movement).FullName} по идентификаторам объекта {unitId}",
+                    ex);
+            }
+        }
+
+        /// <summary>
         /// Метод получения списка передвижений по ид оборудования и промежутку времени
         /// </summary>
         /// <param name="unitId"></param>
@@ -83,16 +124,8 @@ namespace Server.Dal.Sql.Repositories
         {
             try
             {
-                var context = DalContainer.GetDataManager.GetContext();
-                var dt =
-                    context.ExecuteDataTable(
-                        $"SELECT * FROM [{MovementTableName}] WHERE[EquipmentId] = @EquipmentId",
-                        new SqlParameter("EquipmentId", equipmentId));
-
-                if (dt.HasErrors)
-                    throw new Exception($"Ошибка выполнения запроса к {MovementTableName} с параметрами:{equipmentId}");
-
-                return GetMovementList(dt);
+                var result = this.GetItemsWhere(new Dictionary<string, object> {{"EquipmentId", equipmentId}});
+                return result;
             }
             catch (Exception ex)
             {
@@ -121,5 +154,6 @@ namespace Server.Dal.Sql.Repositories
                                     }).ToList();
             return listMovement;
         }
+
     }
 }

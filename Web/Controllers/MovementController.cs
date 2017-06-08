@@ -29,10 +29,10 @@ namespace Web.Controllers
         /// </summary>
         /// <returns>Представление</returns>
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int unitId)
         {
             var filter = new FilterMovementModel();
-
+            filter.UnitId = unitId;
             return View(filter);
         }
 
@@ -45,17 +45,17 @@ namespace Web.Controllers
         {
             var movementList = new List<Movement>();
 
-            //if ((filter.DtBegin != null) && (filter.DtEnd != null))
-            //    movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin && e.Date.Date <= filter.DtEnd).ToList();
+            if ((filter.DtBegin != null) && (filter.DtEnd != null))
+                movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin && e.Date.Date <= filter.DtEnd).ToList();
 
-            //else if (filter.DtBegin != null)
-            //    movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin).ToList();
+            else if (filter.DtBegin != null)
+                movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin).ToList();
 
-            //else if (filter.DtEnd != null)
-            //    movementList = movementList.Where(e => e.Date.Date <= filter.DtEnd).ToList();
+            else if (filter.DtEnd != null)
+                movementList = movementList.Where(e => e.Date.Date <= filter.DtEnd).ToList();
 
-            //if (filter.EquipmentId != null)
-            //    movementList = movementList.Where(movement => movement.KEquipment.Id == filter.EquipmentId).ToList();
+            if (filter.EquipmentId != null)
+                movementList = movementList.Where(movement => movement.EquipmentId == filter.EquipmentId).ToList();
 
 
             var movementModelList = movementList.Select(movement => new MovementModel(movement))

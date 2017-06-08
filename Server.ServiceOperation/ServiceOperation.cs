@@ -168,6 +168,34 @@ namespace Server.WCF
             return DalContainer.GetDataManager.EquipmentRepository.GetAll();
         }
 
+        /// <summary>
+        /// Получить формуляр ПТВ (список оборудования) для юнита
+        /// </summary>
+        /// <param name="unitId">
+        /// Ид юнита
+        /// </param>
+        /// <returns>
+        /// Формуляр ПТВ для юнита
+        /// </returns>
+        public List<Equipment> GetEquipmentListForUnit(int unitId)
+        {
+            return DalContainer.GetDataManager.EquipmentRepository.GetEquipmentListForUnit(unitId);
+        }
+
+        /// <summary>
+        /// Получить текущую комплектацию юнита
+        /// </summary>
+        /// <param name="unitId">
+        /// Ид юнита
+        /// </param>
+        /// <returns>
+        /// Список оборудования в текущей комплектации юнита
+        /// </returns>
+        public List<Equipment> GetCurrentComplectationForUnit(int unitId)
+        {
+            return DalContainer.GetDataManager.EquipmentRepository.GetCurrentComplectationForUnit(unitId);
+        }
+
         #endregion
 
         #region Movement

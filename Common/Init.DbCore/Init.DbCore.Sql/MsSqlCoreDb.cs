@@ -119,7 +119,7 @@ namespace Init.DbCore.DB.MsSql
                 if (transaction != null)
                     command.Transaction = transaction;
                 command.CommandText = sql;
-                command.Parameters.AddRange(args.Select(p => new SqlParameter("@" + p.ParameterName.Trim('@'), p.Value)).ToArray());
+                command.Parameters.AddRange(args.Select(p => new SqlParameter("@" + p.ParameterName.Trim('@'), p.Value ?? DBNull.Value)).ToArray());
                 var adapter = this.CreateDataAdapter();
                 adapter.SelectCommand = command;
                 var result = new DataTable();
