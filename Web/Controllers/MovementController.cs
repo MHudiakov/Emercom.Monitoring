@@ -33,6 +33,8 @@ namespace Web.Controllers
         {
             var filter = new FilterMovementModel();
             filter.UnitId = unitId;
+            filter.DtEnd=DateTime.Now;
+            filter.DtBegin=DateTime.Now.AddDays(-5);
             return View(filter);
         }
 
@@ -45,21 +47,19 @@ namespace Web.Controllers
         {
             var movementList = new List<Movement>();
 
+
             if ((filter.DtBegin != null) && (filter.DtEnd != null))
-                movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin && e.Date.Date <= filter.DtEnd).ToList();
-
-            else if (filter.DtBegin != null)
-                movementList = movementList.Where(e => e.Date.Date >= filter.DtBegin).ToList();
-
-            else if (filter.DtEnd != null)
-                movementList = movementList.Where(e => e.Date.Date <= filter.DtEnd).ToList();
+                movementList =
+                    DalContainer.WcfDataManager.ServiceOperationClient.GetMovementListByTimeAndUnitId(
+                        filter.DtBegin.Value,
+                        filter.DtEnd.Value,
+                        filter.UnitId);
 
             if (filter.EquipmentId != null)
-                movementList = movementList.Where(movement => movement.EquipmentId == filter.EquipmentId).ToList();
+                movementList = movementList.Where(item => item.EquipmentId == filter.EquipmentId).ToList();
 
-
-            var movementModelList = movementList.Select(movement => new MovementModel(movement))
-                .OrderBy(movement => movement.Date)
+            var movementModelList =
+                movementList.Select(movement => new MovementModel(movement)).OrderBy(movement => movement.Date)
                 .ToList();
 
             return PartialView(movementModelList);

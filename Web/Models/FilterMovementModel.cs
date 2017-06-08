@@ -11,11 +11,7 @@ namespace Web.Models
 {
     using System;
     using System.Web.Mvc;
-    using System.Linq;
-
     using DAL.WCF;
-    using DAL.WCF.ServiceReference;
-    
 
     /// <summary>
     /// Модель фильтра списка движений
@@ -40,7 +36,7 @@ namespace Web.Models
         /// <summary>
         /// Id машины
         /// </summary>
-        public int? UnitId { get; set; }
+        public int UnitId { get; set; }
 
         /// <summary>
         /// Список оборудования
@@ -50,7 +46,7 @@ namespace Web.Models
             get
             {
                 var equipmentList = DalContainer.WcfDataManager.EquipmentList;
-                return new SelectList(equipmentList, "Id", "ble");
+                return new SelectList(equipmentList, "Id", "Tag");
             }
         }
     }
