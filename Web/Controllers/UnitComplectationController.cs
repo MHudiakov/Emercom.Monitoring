@@ -10,6 +10,7 @@ namespace Web.Controllers
 
     using DAL.WCF;
 
+    [Authorize]
     public class UnitComplectationController : Controller
     {
         [System.Web.Http.HttpGet]

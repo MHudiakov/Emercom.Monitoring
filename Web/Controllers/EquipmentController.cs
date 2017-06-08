@@ -9,6 +9,7 @@
     /// <summary>
     /// Контроллер раздела "Оборудование"
     /// </summary>
+    [Authorize(Roles = UserRolesConsts.Administrator)]
     public class EquipmentController : Controller
     {
         [HttpGet]

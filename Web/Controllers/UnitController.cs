@@ -1,21 +1,10 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EquipmentController.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2016г.
-// </copyright>
-// <summary>
-//   Контроллер раздела "Оборудование на складе"
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-namespace Web.Controllers
+﻿namespace Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
     using DAL.WCF;
     using Models.Unit;
-
-    /// <summary>
-    /// Контроллер раздела "Оборудование на складе"
-    /// </summary>
+    
     [Authorize(Roles = UserRolesConsts.Administrator)]
     public class UnitController : Controller
     {

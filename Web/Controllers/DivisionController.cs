@@ -6,10 +6,6 @@ using Web.Models.Division;
 
 namespace Web.Controllers
 {
-    using System.Collections.Generic;
-
-    using DAL.WCF.ServiceReference;
-
     /// <summary>
     /// Контроллер подразделений
     /// </summary>
