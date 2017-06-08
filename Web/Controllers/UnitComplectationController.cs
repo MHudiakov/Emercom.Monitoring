@@ -1,5 +1,4 @@
-﻿using System;
-using DAL.WCF.ServiceReference;
+﻿using DAL.WCF.ServiceReference;
 using Web.Models.UnitComplectation;
 using WebGrease.Css.Extensions;
 
@@ -10,8 +9,6 @@ namespace Web.Controllers
     using System.Web.Mvc;
 
     using DAL.WCF;
-
-    using Models;
 
     public class UnitComplectationController : Controller
     {
@@ -35,7 +32,9 @@ namespace Web.Controllers
             List <UnitComplectationModel> unitComplectationModelList =
                 equipmentGroups.Select(equipmentGroup => new UnitComplectationModel(equipmentGroup)).ToList();
 
-            return View(unitComplectationModelList);
+            var unitComplectationListModel = new UnitComplectationListModel(unitComplectationModelList, unitId);
+
+            return View(unitComplectationListModel);
         }
     }
 }

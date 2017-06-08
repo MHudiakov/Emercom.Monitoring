@@ -1,4 +1,5 @@
-﻿@model  List<Web.Models.UnitComplectation.UnitComplectationModel>
+﻿@using Web.Models.UnitComplectation;
+@model  UnitComplectationListModel
 
 @{
     ViewBag.Title = "Формуляр ПТВ";
@@ -6,7 +7,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        @if (Model.Any())
+        @if (Model.UnitComplectationModels.Any())
         {
             <table class="table table-bordered tree" id="tree">
                 <tr>
@@ -21,7 +22,7 @@
                         Дата последнего движения
                     </th>
                 </tr>
-                @foreach (var item in Model)
+                @foreach (var item in Model.UnitComplectationModels)
                 {
                     string colorForGroup = item.IsFullyEquipped ? "#e0f1d6" : "#E1E1E1";
                     <tr style="background: @colorForGroup" class="treegrid-@item.Id">
@@ -35,7 +36,7 @@
                     {
                         i++;
                         string colorForEquipment = equipment.IsInTheUnit ? "#e0f1d6" : "#E1E1E1";
-                        <tr style="background: @colorForEquipment"  class="treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
+                        <tr style="background: @colorForEquipment" class="treegrid-equip-@equipment.Id treegrid-parent-@item.Id">
                             <td>
                                 @i
                             </td>
@@ -55,9 +56,17 @@
         }
         else
         {
-        <h1 class="text-center">Формуляр ПТВ для данного объекта учета не сформирован</h1>
+            <h1 class="text-center">Формуляр ПТВ для данного объекта учета не сформирован</h1>
         }
     </div>
+
+    <div class="col-sm-12">
+        <button class="btn btn-info pull-right" href="@Url.Action("Index", "Movement",  new { unitId = Model.UnitId })">
+            <span class="glyphicon glyphicon-circle-arrow-right"></span>
+            История передвижений
+        </button>
+    </div>
+
 </div>
 
 @section Scripts
