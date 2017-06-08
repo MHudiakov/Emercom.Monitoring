@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
 
@@ -9,8 +7,9 @@ namespace Web.Controllers
 {
     using DAL.WCF;
     using DAL.WCF.ServiceReference;
-    using Web.Models.EquipmetGroup;
+    using Models.EquipmetGroup;
 
+    [Authorize(Roles = UserRolesConsts.Administrator)]
     public class EquipmentGroupController : Controller
     {
         [HttpGet]

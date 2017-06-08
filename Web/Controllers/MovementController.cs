@@ -9,7 +9,8 @@ namespace Web.Controllers
 
     using DAL.WCF;
     using Models;
-    
+
+    [Authorize]
     public class MovementController : Controller
     {
         [HttpGet]
