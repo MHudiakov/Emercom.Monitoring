@@ -25,7 +25,7 @@
                         <div class="col-sm-6">
                             <span class="input-group-addon">Дата начала </span>
                             <div class="input-group-addon">
-                                @Html.TextBoxFor(model => model.DtBegin, "{0:d.MM.yyyy}", new { @class = "input-group datepicker", id = "DtBegin" })
+                                @Html.TextBoxFor(model => model.DtBegin, new { @class = "input-group date", id = "DtBegin" })
                                 @Html.ValidationMessageFor(model => model.DtBegin)
                             </div>
                         </div>
@@ -33,8 +33,8 @@
                         <div class="col-sm-3">
                             <span class="input-group-addon">Дата окончания</span>
                             <div class="input-group-addon">
-                                @Html.TextBoxFor(model => model.DtEnd, "{0:d.MM.yyyy}", new { @class = "input-group datepicker", id = "DtEnd" })
-                                @Html.ValidationMessageFor(model => model.DtBegin)
+                                @Html.TextBoxFor(model => model.DtEnd, new { @class = "input-group date", id = "DtEnd" })
+                                @Html.ValidationMessageFor(model => model.DtEnd)
                             </div>
                         </div>
                     </div>
@@ -54,3 +54,15 @@
 <div id="movements">
     @{Html.RenderAction("List", "Movement", Model);}
 </div>
+
+@section Scripts
+{    
+    <script type="text/javascript">
+        $(function () {
+            $('.date').datetimepicker({
+                format: "DD.MM.YYYY",
+                minDate: "01/01/2000"
+            });
+        });
+    </script>
+}
