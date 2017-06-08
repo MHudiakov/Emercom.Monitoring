@@ -9,6 +9,17 @@
     /// </summary>
     public class FilterMovementModel
     {
+        public FilterMovementModel(int unitId)
+        {
+            var equipmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetEquipmentListForUnit(unitId);
+            this.EquipmentList = new SelectList(equipmentList, "Id", "Tag");
+            this.UnitId = unitId;
+        }
+
+        public FilterMovementModel()
+        {
+        }
+
         /// <summary>
         /// Дата начала
         /// </summary>
@@ -32,14 +43,6 @@
         /// <summary>
         /// Список оборудования
         /// </summary>
-        public SelectList EquipmentList
-        {
-            get
-            {
-                // todo в списке должно быть только оборудование, которое есть в формуляре ПТВ для отображаемого юнита
-                var equipmentList = DalContainer.WcfDataManager.EquipmentList;
-                return new SelectList(equipmentList, "Id", "Tag");
-            }
-        }
+        public SelectList EquipmentList { get; set; }
     }
 }

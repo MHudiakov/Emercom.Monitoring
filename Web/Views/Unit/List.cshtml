@@ -2,52 +2,59 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <table class="table table-bordered">
-            <tr>
-                <th>Подразделение</th>
-                <th>Объект</th>
-                <th>Номер</th>
-                <th>Описание/Примечание</th>
-                <th style="width: 15%"></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        @if (Model.Any())
+        {
+            <table class="table table-bordered">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DivisionName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Number)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <span class="fa fa-navicon fa-fw"></span>
-                                Действие <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a rel="tooltip" title="Изменить запись в справочнике" onclick="OnEdit(@item.Id)" href="#">
-                                        <i class="fa fa-edit fa-fw"></i> Редактировать
-                                    </a>
-                                </li>
-                                <li>
-                                    <a rel="tooltip" title="Удалить запись из справочника" onclick="OnDelete(@item.Id)" href="#">
-                                        <i class="fa fa-trash-o fa-fw"></i> Удалить
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
+                    <th>Подразделение</th>
+                    <th>Объект</th>
+                    <th>Номер</th>
+                    <th>Описание/Примечание</th>
+                    <th style="width: 15%"></th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DivisionName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span class="fa fa-navicon fa-fw"></span>
+                                    Действие <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a rel="tooltip" title="Изменить запись в справочнике" onclick="OnEdit(@item.Id)" href="#">
+                                            <i class="fa fa-edit fa-fw"></i> Редактировать
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a rel="tooltip" title="Удалить запись из справочника" onclick="OnDelete(@item.Id)" href="#">
+                                            <i class="fa fa-trash-o fa-fw"></i> Удалить
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h1 class="text-center">Для данного подразделения нет объектов учета</h1>
+        }
     </div>
 </div>

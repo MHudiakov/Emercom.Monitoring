@@ -15,8 +15,7 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Index(int unitId)
         {
-            var filter = new FilterMovementModel();
-            filter.UnitId = unitId;
+            var filter = new FilterMovementModel(unitId);
             filter.DtEnd=DateTime.Now;
             filter.DtBegin=DateTime.Now.AddDays(-5);
             return View(filter);

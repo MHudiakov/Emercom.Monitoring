@@ -2,34 +2,41 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <table class="table table-bordered table-hover">
-            <tr>
-                <th style="width: 35%">
-                    Оборудование
-                </th>
-                <th style="width: 40%">
-                    BLE  оборудования
-                </th>
-                <th style="width: 25%">
-                    Дата движения
-                </th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                var colorForEquipment = item.IsArrived ? "#e0f1d6" : "#E1E1E1";
-                <tr style="background: @colorForEquipment" class="@(item.IsArrived ? "success" : "")">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Equipment.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Equipment.Tag)
-                    </td>
-                    <td>
-                        @item.Date.ToString("g")
-                    </td>
+        @if (Model.Any())
+        {
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th style="width: 35%">
+                        Оборудование
+                    </th>
+                    <th style="width: 40%">
+                        BLE оборудования
+                    </th>
+                    <th style="width: 25%">
+                        Дата движения
+                    </th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var item in Model)
+                {
+                    var colorForEquipment = item.IsArrived ? "#e0f1d6" : "#E1E1E1";
+                    <tr style="background: @colorForEquipment" class="@(item.IsArrived ? "success" : "")">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Equipment.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Equipment.Tag)
+                        </td>
+                        <td>
+                            @item.Date.ToString("g")
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h1 class="text-center">Для данного объекта учета нет передвижений за данный промежуток времени</h1>
+        }
     </div>
 </div>

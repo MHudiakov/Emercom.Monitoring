@@ -284,11 +284,11 @@
     <Compile Include="Models\EquipmetGroup\EquipmentGroupModel.cs" />
     <Compile Include="Models\EquipmetGroup\FilterEquipmentGroupModel.cs" />
     <Compile Include="Models\EquipmetGroup\KEquipmentModel.cs" />
-    <Compile Include="Models\FilterMovementModel.cs" />
-    <Compile Include="Models\FilterEquipmentModel.cs" />
+    <Compile Include="Models\Movement\FilterMovementModel.cs" />
+    <Compile Include="Models\Equipment\FilterEquipmentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\MovementModel.cs" />
-    <Compile Include="Models\EquipmentModel.cs" />
+    <Compile Include="Models\Movement\MovementModel.cs" />
+    <Compile Include="Models\Equipment\EquipmentModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationListModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationModel.cs" />
     <Compile Include="Models\Unit\FilterUnitModel.cs" />

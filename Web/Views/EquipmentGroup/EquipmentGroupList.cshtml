@@ -2,16 +2,18 @@
 
 <div class="row">
     <div class="col-md-6">
+        @if (Model.Any())
+        {
         <table id="tree"
                class="table table-bordered table-hover tree">
             <thead>
-                <tr>
-                    <th>Группа оборудования</th>
-                    <th style="width: 25%"></th>
-                </tr>
+            <tr>
+                <th>Группа оборудования</th>
+                <th style="width: 25%"></th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+            @foreach (var item in Model)
             {
                 string parent = string.Empty;
                 if (item.ParentId.HasValue && Model.Any(division => division.Id == item.ParentId))
@@ -43,9 +45,14 @@
                         </div>
                     </td>
                 </tr>
-                }
+            }
             </tbody>
         </table>
+        }
+        else
+        {
+        <h1 class="text-center">Отсуствует список групп оборудования</h1>
+        }
     </div>
 
     <div class="col-md-6" id="list-partial">

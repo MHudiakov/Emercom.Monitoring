@@ -2,6 +2,8 @@
 
 <div class="row">
     <div class="col-lg-12">
+        @if (Model.Any())
+        {
         <table class="table table-bordered table-hover">
             <thead>
             <tr>
@@ -13,29 +15,34 @@
             </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DivisionName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Number)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            <a class="btn btn-default btn-sm pull-left" href=@Url.Action("Index", "UnitComplectation",  new { unitId = item.Id })>
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
-                            </a>
-                        </td>
-                    </tr>
-                }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DivisionName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a class="btn btn-default btn-sm pull-left" href="@Url.Action("Index", "UnitComplectation", new { unitId = item.Id })">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
+                        </a>
+                    </td>
+                </tr>
+            }
             </tbody>
         </table>
+        }
+        else
+        {
+        <h1 class="text-center">Отсуствует список объектов учета</h1>
+        }
     </div>
 </div>
