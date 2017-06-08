@@ -1,4 +1,6 @@
-﻿namespace Web.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Web.Models
 {
     using System;
     using System.Web.Mvc;
@@ -23,11 +25,13 @@
         /// <summary>
         /// Дата начала
         /// </summary>
+        [Required(ErrorMessage = "Укажите значение поля")]
         public DateTime? DtBegin { get; set; }
 
         /// <summary>
         /// Дата завершения
         /// </summary>
+        [Required(ErrorMessage = "Укажите значение поля")]
         public DateTime? DtEnd { get; set; }
 
         /// <summary>
