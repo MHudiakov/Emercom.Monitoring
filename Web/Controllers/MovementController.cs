@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="MovementController.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2016г.
-// </copyright>
-// <summary>
-//   Контроллер раздела "Движение по складу"
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DAL.WCF.ServiceReference;
 
 namespace Web.Controllers
@@ -17,17 +8,10 @@ namespace Web.Controllers
     using System.Web.Mvc;
 
     using DAL.WCF;
-    using Web.Models;
-
-    /// <summary>
-    /// Контроллер раздела "Движение по складу"
-    /// </summary>
+    using Models;
+    
     public class MovementController : Controller
     {
-        /// <summary>
-        /// Главная страница раздела "Движение по складу"
-        /// </summary>
-        /// <returns>Представление</returns>
         [HttpGet]
         public ActionResult Index(int unitId)
         {
@@ -38,18 +22,16 @@ namespace Web.Controllers
             return View(filter);
         }
 
-        /// <summary>
-        /// Отображает отчет аналитики
-        /// </summary>
-        /// <param name="filter">Настройки отчёта</param>
-        /// <returns>Частичное представление</returns>
         public ActionResult List(FilterMovementModel filter)
         {
-            var movementList = new List<Movement>();
+            // Проводим валидацию фильтра
+            if (filter.DtBegin == null)
+                filter.DtBegin = DateTime.Now.AddDays(-5);
 
-
-            if ((filter.DtBegin != null) && (filter.DtEnd != null))
-                movementList =
+            if (filter.DtEnd == null)
+                filter.DtEnd = DateTime.Now;
+            
+            List<Movement> movementList =
                     DalContainer.WcfDataManager.ServiceOperationClient.GetMovementListByTimeAndUnitId(
                         filter.DtBegin.Value,
                         filter.DtEnd.Value,

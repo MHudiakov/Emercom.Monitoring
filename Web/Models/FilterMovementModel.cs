@@ -1,20 +1,11 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FilterMovementModel.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2016г.
-// </copyright>
-// <summary>
-//   Модель фильтра списка движений
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace Web.Models
+﻿namespace Web.Models
 {
     using System;
     using System.Web.Mvc;
     using DAL.WCF;
 
     /// <summary>
-    /// Модель фильтра списка движений
+    /// Модель фильтра списка движений оборудования
     /// </summary>
     public class FilterMovementModel
     {
@@ -34,7 +25,7 @@ namespace Web.Models
         public int? EquipmentId { get; set; }
 
         /// <summary>
-        /// Id машины
+        /// Id юнита
         /// </summary>
         public int UnitId { get; set; }
 
@@ -45,6 +36,7 @@ namespace Web.Models
         {
             get
             {
+                // todo в списке должно быть только оборудование, которое есть в формуляре ПТВ для отображаемого юнита
                 var equipmentList = DalContainer.WcfDataManager.EquipmentList;
                 return new SelectList(equipmentList, "Id", "Tag");
             }
