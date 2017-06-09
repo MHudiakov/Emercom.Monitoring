@@ -4,6 +4,11 @@
     ViewBag.Title = "Движение оборудования";
 }
 
+@section CSS
+{
+    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+}
+
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-default">
@@ -14,27 +19,32 @@
                 @using (Ajax.BeginForm("List", "Movement", null, new AjaxOptions { UpdateTargetId = "movements", OnBegin = "spinner.start", OnSuccess = "spinner.stop", OnFailure = "onFail", InsertionMode = InsertionMode.Replace }))
                 {
                     @Html.HiddenFor(x => x.UnitId)
-
-
                     <div class="col-sm-3">
                         @Html.DropDownListFor(model => model.EquipmentId, Model.EquipmentList as SelectList, "- выберите оборудование -", htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.EquipmentId)
                     </div>
 
                     <div class="input-group">
+
                         <div class="col-sm-6">
-                            <span class="input-group-addon">Дата начала </span>
-                            <div class="input-group-addon">
-                                @Html.TextBoxFor(model => model.DtBegin, "{0:d.MM.yyyy}", new { @class = "input-group datepicker", id = "DtBegin" })
-                                @Html.ValidationMessageFor(model => model.DtBegin)
+                            <div class="row">
+                                <span class="col-sm-4">Дата начала: </span>
+                                <div class="col-sm-8">
+                                @*    <input class="input-group datetimepicker" id="DtBegin" name="DtBegin" type="text" value="@Model.DtBegin">*@
+                                    @Html.TextBoxFor(model => model.DtBegin, new {@class = "input-group datetimepicker", id = "DtBegin"})
+                                    @Html.ValidationMessageFor(model => model.DtBegin)
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
-                            <span class="input-group-addon">Дата окончания</span>
-                            <div class="input-group-addon">
-                                @Html.TextBoxFor(model => model.DtEnd, "{0:d.MM.yyyy}", new { @class = "input-group datepicker", id = "DtEnd" })
-                                @Html.ValidationMessageFor(model => model.DtBegin)
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <span class="col-sm-4">Дата окончания: </span>
+                                <div class="col-sm-8">
+                                   @* <input class="input-group datetimepicker" id="DtEnd" name="DtEnd" type="text" value="@Model.DtEnd">*@
+                                    @Html.TextBoxFor(model => model.DtEnd, new {@class = "input-group datetimepicker", id = "DtEnd"})
+                                    @Html.ValidationMessageFor(model => model.DtEnd)
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -54,3 +64,9 @@
 <div id="movements">
     @{Html.RenderAction("List", "Movement", Model);}
 </div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="/scripts/moment-with-locales.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.js"></script>
+}
