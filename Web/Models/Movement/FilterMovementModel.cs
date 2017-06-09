@@ -34,6 +34,8 @@ namespace Web.Models
         /// Дата завершения
         /// </summary>
         [Required(ErrorMessage = "Укажите значение поля")]
+        [DataType(DataType.DateTime, ErrorMessage = "Starange error")]
+        [DisplayFormat(DataFormatString = "{dd.MM.yyyy HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime? DtEnd { get; set; }
 
         /// <summary>

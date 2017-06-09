@@ -40,8 +40,8 @@ namespace Web
                 "~/Scripts/app.js",
                 "~/Scripts/jquery.genyxAdmin.js",
                 "~/Scripts/plugins/tables/datatables/jquery.dataTables.min.js",
-                "~/Scripts/plugins/misc/gallery/jquery.magnific-popup.min.js",
-                "~/Scripts/plugins/misc/fullcalendar/fullcalendar.min.js",
+                //"~/Scripts/plugins/misc/gallery/jquery.magnific-popup.min.js",
+                //"~/Scripts/plugins/misc/fullcalendar/fullcalendar.min.js",
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
