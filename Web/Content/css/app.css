@@ -371,8 +371,8 @@ body, p {font-family: 'Droid Sans', Helvetica, Arial, sans-serif;}
 .label-info, .badge-info {background-color: #62aeef;}
 .label-inverse, .badge-inverse {background-color: #333333;}
 
-/* Btn groups preapend and append elements */
-.btn-group > .btn:first-child {
+/* btn-app groups preapend and append elements */
+.btn-app-group > .btn-app:first-child {
 	-webkit-border-bottom-left-radius: 1px;
 	border-bottom-left-radius: 1px;
 	-webkit-border-top-left-radius: 1px;
@@ -380,7 +380,7 @@ body, p {font-family: 'Droid Sans', Helvetica, Arial, sans-serif;}
 	-moz-border-radius-bottomleft: 1px;
 	-moz-border-radius-topleft: 1px;
 }
-.btn-group > .btn:last-child, .btn.last-child, .btn-group > .dropdown-toggle {
+.btn-app-group > .btn-app:last-child, .btn-app.last-child, .btn-app-group > .dropdown-toggle {
 	-webkit-border-top-right-radius: 1px;
 	border-top-right-radius: 1px;
 	-webkit-border-bottom-right-radius: 1px;
@@ -388,23 +388,23 @@ body, p {font-family: 'Droid Sans', Helvetica, Arial, sans-serif;}
 	-moz-border-radius-topright: 1px;
 	-moz-border-radius-bottomright: 1px;
 }
-.btn-group-vertical > .btn:first-child {
+.btn-app-group-vertical > .btn-app:first-child {
 	-webkit-border-radius: 1px 1px 0 0;
 	-moz-border-radius: 1px 1px 0 0;
 	border-radius: 1px 1px 0 0;
 }
-.btn-group-vertical > .btn:last-child, .btn-group-vertical > .btn.last-child {
+.btn-app-group-vertical > .btn-app:last-child, .btn-app-group-vertical > .btn-app.last-child {
 	-webkit-border-radius: 0 0 1px 1px;
 	-moz-border-radius: 0 0 1px 1px;
 	border-radius: 0 0 1px 1px;
 }
-.btn-group {vertical-align: top;}
-.input-group .input-group-addon, .input-group .btn {height: 36px;padding: 4px 7px;line-height: 26px;}
-.input-group .input-group-addon, .input-group .btn, .input-group .btn-group {height: 36px;padding: 4px 7px;line-height: 26px;}
+.btn-app-group {vertical-align: top;}
+.input-group .input-group-addon, .input-group .btn-app {height: 36px;padding: 4px 7px;line-height: 26px;}
+.input-group .input-group-addon, .input-group .btn-app, .input-group .btn-app-group {height: 36px;padding: 4px 7px;line-height: 26px;}
 .controls.controls-row .input-group .input-group-addon {float: left;}
-.controls.controls-row .input-group .btn-group {padding:0;}
-.controls.controls-row .input-group .btn-group {float: left;}
-.controls.controls-row .input-group .btn-group > .btn:first-child {
+.controls.controls-row .input-group .btn-app-group {padding:0;}
+.controls.controls-row .input-group .btn-app-group {float: left;}
+.controls.controls-row .input-group .btn-app-group > .btn-app:first-child {
 	margin-left: -1px;
 	border-top-left-radius: 0px;
 	-moz-border-radius-bottomleft: 0px;
@@ -420,12 +420,12 @@ margin-bottom: 0;
 }
 .form-horizontal .radio {padding-top: 0;}
 
-.input-group .input-group-addon:last-child, .input-group .btn:last-child, .input-group .btn-group:last-child > .dropdown-toggle {
+.input-group .input-group-addon:last-child, .input-group .btn-app:last-child, .input-group .btn-app-group:last-child > .dropdown-toggle {
 	-webkit-border-radius: 0 1px 1px 0;
 	-moz-border-radius: 0 1px 1px 0;
 	border-radius: 0 1px 1px 0;
 }
-.input-group .input-group-addon:first-child, .input-group .btn:first-child {
+.input-group .input-group-addon:first-child, .input-group .btn-app:first-child {
 	-webkit-border-radius: 1px 0 0 1px;
 	-moz-border-radius: 1px 0 0 1px;
 	border-radius: 1px 0 0 1px;
@@ -538,7 +538,7 @@ input[type="color"]:focus,
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(98, 174, 239, 0.6);
 }
 
-.input-group-btn .btn {margin-left: -1px;}
+.input-group-btn-app .btn-app {margin-left: -1px;}
 
 select {background-color: #ffffff;border: 1px solid #c9c9c9;}
 
@@ -726,7 +726,7 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	padding-bottom: 10px;
 	border-bottom: 1px solid #c9c9c9;
 }
-	.table-toolbar .btn-group {margin-left: 20px;margin-right: 20px;}
+	.table-toolbar .btn-app-group {margin-left: 20px;margin-right: 20px;}
 
 
 /* ------------------Pagination--------------------*/
@@ -787,22 +787,22 @@ tr.rowlink:hover td.nolink {cursor: default;}
 .pagination ul > li > a:hover, .pagination ul > li > a:focus {border-color: #bababa;background: #e6e6e6;}
 
 /* ------------------Buttons--------------------*/
-.btn {
+.btn-app {
 	border: 1px solid #c9c9c9;
 	-webkit-border-radius: 1px;
 	-moz-border-radius: 1px;
 	border-radius: 1px;
 }
-.btn:hover, .btn:focus {
+.btn-app:hover, .btn-app:focus {
 	-webkit-transition: background-position 0.2s linear;
 	-moz-transition: background-position 0.2s linear;
 	-o-transition: background-position 0.2s linear;
 	transition: background-position 0.2s linear;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+.btn-app-primary:hover, .btn-app-primary:focus, .btn-app-primary:active, .btn-app-primary.active, .btn-app-primary.disabled, .btn-app-primary[disabled] {
 	background-color: #519fe2;
 }
-.btn-primary {
+.btn-app-primary {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #62aeef;
@@ -817,11 +817,11 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
 	
 }
-.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
+.btn-app-info:hover, .btn-app-info:focus, .btn-app-info:active, .btn-app-info.active, .btn-app-info.disabled, .btn-app-info[disabled] {
 	background-color: #4eacc8;
 }
 
-.btn-info {
+.btn-app-info {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #49afcd;
@@ -837,11 +837,11 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	
 }
 
-.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+.btn-app-success:hover, .btn-app-success:focus, .btn-app-success:active, .btn-app-success.active, .btn-app-success.disabled, .btn-app-success[disabled] {
 	background-color: #72b110;
 }
 
-.btn-success {
+.btn-app-success {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #5bb75b;
@@ -857,11 +857,11 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	
 }
 
-.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+.btn-app-warning:hover, .btn-app-warning:focus, .btn-app-warning:active, .btn-app-warning.active, .btn-app-warning.disabled, .btn-app-warning[disabled] {
 	background-color: #f88c00;
 }
 
-.btn-warning {
+.btn-app-warning {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #faa732;
@@ -877,11 +877,11 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	
 }
 
-.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
+.btn-app-danger:hover, .btn-app-danger:focus, .btn-app-danger:active, .btn-app-danger.active, .btn-app-danger.disabled, .btn-app-danger[disabled] {
 	background-color: #d8605f;
 }
 
-.btn-danger {
+.btn-app-danger {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #da4f49;
@@ -897,11 +897,11 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	
 }
 
-.btn-inverse:hover, .btn-inverse:focus, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
+.btn-app-inverse:hover, .btn-app-inverse:focus, .btn-app-inverse:active, .btn-app-inverse.active, .btn-app-inverse.disabled, .btn-app-inverse[disabled] {
 	background-color: #6f7a8a;
 }
 
-.btn-inverse {
+.btn-app-inverse {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background-color: #363636;
@@ -917,7 +917,7 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	
 }
 
-.btn-link {
+.btn-app-link {
 	color: #7090c8;
 	cursor: pointer;
 	border-color: transparent;
@@ -926,17 +926,17 @@ tr.rowlink:hover td.nolink {cursor: default;}
 	border-radius: 0;
 }
 
-.btn-link, .btn-link:active, .btn-link[disabled] {
+.btn-app-link, .btn-app-link:active, .btn-app-link[disabled] {
 	background-color: transparent;
 	background-image: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
-.btn:focus {outline: none;}
+.btn-app:focus {outline: none;}
 
 /* ------------------dropdowns--------------------*/
-.btn-group.open .btn-primary.dropdown-toggle {background-color: #62aeef;}
+.btn-app-group.open .btn-app-primary.dropdown-toggle {background-color: #62aeef;}
 .dropdown-menu {
 	padding: 0;
 	margin: 2px 0 0;
@@ -1035,8 +1035,8 @@ border-color: #c9c9c9;
 }
 
 /* ------------------ Accordion --------------------*/
-.accordion-toggle {margin-left: -30px;}
-.panel-heading .accordion-toggle:after {
+.accordion-toggle-app {margin-left: -30px;}
+.panel-heading .accordion-toggle-app:after {
     font-family: 'icomoonregular'; 
     content: "\e3b4"; 
     position: absolute;
@@ -1335,7 +1335,7 @@ border-color: #c9c9c9;
 			filter: none;
 		}
 			#header #top-search.shown form {display: inline-block;}
-				#header #top-search.shown form .input-btn-group {text-align: center;}
+				#header #top-search.shown form .input-btn-app-group {text-align: center;}
 		#header #top-search form {margin-bottom: 0;}
 		#header #top-search input#tsearch {
 			height: 25px;
@@ -1344,7 +1344,7 @@ border-color: #c9c9c9;
 			-webkit-border-radius:1px;
 			border-radius: 1px;
 		}
-		#header #top-search .btn {
+		#header #top-search .btn-app {
 			-webkit-border-radius:1px;
 			border-radius: 1px;
 			margin-top: 0;
@@ -1453,7 +1453,7 @@ border-color: #c9c9c9;
 	#header .dropdown-menu.messages .avatar {float: left; padding-left: 10px;}
 	#header .dropdown-menu.messages .avatar img {width: 32px;height: 32px;}
 	#header .dropdown-menu.messages .msg {float: left;padding: 0 10px;}
-	#header .dropdown-menu.messages li .btn.close {margin-right: 6px;margin-top: 6px;}
+	#header .dropdown-menu.messages li .btn-app.close {margin-right: 6px;margin-top: 6px;}
 	#header .dropdown-menu.messages .foot {background: url(../images/patterns/furley_bg.png) repeat !important;line-height: 36px;text-align: center;}
 	#header .dropdown-menu.messages .foot a {font-size: 14px;font-weight: bold;}
 
@@ -1896,7 +1896,7 @@ border-color: #c9c9c9;
 			margin-left: 4px;
 		}
 		.panel .panel-heading .w-right {float: right;margin-top: 5px;margin-bottom: 5px;margin-right: 10px;padding-top: 5px;}
-			.panel .panel-heading .w-right .btn-full {
+			.panel .panel-heading .w-right .btn-app-full {
 				height: 40px;
 				margin-top: -10px;
 				margin-right: -10px;
@@ -2355,7 +2355,7 @@ border-color: #c9c9c9;
 		.chat-layout li .message .name {color: #6f7a8a; font-weight: bold; width: 100%; display: inline-block;}
 		.chat-layout li .message .txt {font-size: 13px;}
 .chat-layout form {margin-top: 10px;}
-.chat-layout .btn {font-weight: bold; line-height: 26px;}
+.chat-layout .btn-app {font-weight: bold; line-height: 26px;}
 
 /* ------------------ Weather.panel--------------------*/
 .weather ul {list-style:none; margin-left: 0; margin-bottom: 0; margin-top: 10px; border-top: 1px dashed #c9c9c9; padding-left: 0;}
@@ -2919,7 +2919,7 @@ html.errorPage {
 	position: relative;
 }
 	.faq-search form {margin-bottom: 0; position: relative;}
-	.faq-search .search-btn {
+	.faq-search .search-btn-app {
 		background: url(../images/search.png) no-repeat;
 		border: none;
 		width:20px;
@@ -2965,8 +2965,8 @@ html.errorPage {
 }	
 	#email .email-bar .navbar-form {padding: 0;margin: 0; margin-top: -1px; width: 220px;}
 	#email .email-bar .navbar-form .srch {margin-left: -15px; margin-right: 15px;}
-	#email .email-bar .btn {padding: 6px 12px 5px; height: 36px; margin-top: -1px;line-height: 23px;}
-	#email .email-bar .navbar-form .btn {margin-top: 0;}
+	#email .email-bar .btn-app {padding: 6px 12px 5px; height: 36px; margin-top: -1px;line-height: 23px;}
+	#email .email-bar .navbar-form .btn-app {margin-top: 0;}
 	#email .email-bar .navbar-form .input-group {margin-top:-1px; width: 218px;}
 
 	#email .email-nav {width: 210px;padding: 5px;float: left;margin-top: 15px;margin-left: 15px;}
@@ -3024,8 +3024,8 @@ html.errorPage {
 }
 
 /* ------------------Responsive buttons --------------------*/
-#resBtn {margin-top: 7px; margin-left: 20px; margin-right: 5px; float: left;position: absolute;}
-#resBtnSearch {margin-top: 7px; margin-left: 10px;margin-right: 5px; float: left;position: absolute;left: 75px;}
+#resbtn-app {margin-top: 7px; margin-left: 20px; margin-right: 5px; float: left;position: absolute;}
+#resbtn-appSearch {margin-top: 7px; margin-left: 10px;margin-right: 5px; float: left;position: absolute;left: 75px;}
 .navbar-toggle {
 	padding: 7px 10px;
 	margin-top: 7px;
@@ -3161,7 +3161,7 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 
 	/* ------------------ Email page --------------------*/
 	#email .email-bar {height: auto; float: left; border-left: 1px solid #c9c9c9; border-right: 1px solid #c9c9c9;padding: 10px;}
-	#email .email-bar  .btn-group.pull-right {float: left; margin-top: 10px;margin-left: 0; white-space: normal;}
+	#email .email-bar  .btn-app-group.pull-right {float: left; margin-top: 10px;margin-left: 0; white-space: normal;}
 	#email .email-bar .navbar-form .input-group, #email .email-bar .navbar-form .input-group input {margin-bottom: 0;}
 	#email .email-nav {width: 100%;}
 	#email .email-wrapper {padding-left: 0;}
@@ -3185,7 +3185,7 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	/* ------------------Jgrowl--------------------*/
 	div.jGrowl.top-left, div.jGrowl.top-right, div.jGrowl.center {top:110px;}
 	/* ------------------Chat layout--------------------*/
-	.chat-layout .btn {margin-left: 0;}
+	.chat-layout .btn-app {margin-left: 0;}
 	/* ------------------ Calnedar --------------------*/
 	.fc-content {margin-right: -1px;}
 	/* ------------------ Form styles--------------------*/
@@ -3215,7 +3215,7 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	.dataTables_wrapper>.row-fluid>.col-lg-6>.dataTables_paginate {display: inline-block; width: 100%;}
 
 	/* ------------------Login page--------------------*/
-	#login #loginBtn {width: 120px;}
+	#login #loginbtn-app {width: 120px;}
 
 }
 
@@ -3228,10 +3228,10 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 
 	/* ------------------ Email page--------------------*/
 	#email .email-bar {padding-bottom: 0;}
-	#email .email-bar .btn-group.pull-right .btn {margin-bottom: 10px;}
-	#login #bar .btn-group-vertical > .btn {float: left;width: inherit;max-width: inherit;}
+	#email .email-bar .btn-app-group.pull-right .btn-app {margin-bottom: 10px;}
+	#login #bar .btn-app-group-vertical > .btn-app {float: left;width: inherit;max-width: inherit;}
 	#login .row {margin-left: 15px; margin-right: 15px;}
-	#login .btn-group-vertical {margin-top: 0;}
+	#login .btn-app-group-vertical {margin-top: 0;}
 
 
 /* ------------------ Samsung galaxy landscape --------------------*/
@@ -3243,7 +3243,7 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	#login form {margin-bottom: 10px;}
 	#login .login-wrapper form .from-group {margin-bottom: 0;}
 	#login .login-wrapper form label.checkbox {margin-top: -10px;margin-bottom: 10px;}
-	#login #loginBtn {margin-top: -10px;}
+	#login #loginbtn-app {margin-top: -10px;}
 	#header {position: relative;}
 	#header .dropdown.open .dropdown-toggle{padding-bottom: 13px;}
 	#header .dropdown-menu {padding-top: 8px;}
@@ -3265,21 +3265,21 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	#login form {margin-bottom: 10px;}
 	#login .login-wrapper form .from-group {margin-bottom: 0;}
 	#login .login-wrapper form label.checkbox {margin-top: -10px;margin-bottom: 10px;}
-	#login #loginBtn {width: 100px;}
+	#login #loginbtn-app {width: 100px;}
 	#login #bar {top:-35px; right:70px;}
 	#login #bar[data-active="log"] a#log, #login #bar[data-active="reg"] a#reg, #login #bar[data-active="forgot"] a#forgot {
 		border-left: 1px solid #c9c9c9;border-bottom: 1px solid transparent;
 	}
-	#login #bar .btn-group-vertical > .btn {float: left;width: inherit;max-width: inherit;}
+	#login #bar .btn-app-group-vertical > .btn-app {float: left;width: inherit;max-width: inherit;}
 	#login .row {margin-left: 15px; margin-right: 15px;}
-	#login .btn-group-vertical {margin-top: 0;}
+	#login .btn-app-group-vertical {margin-top: 0;}
 	/* ------------------ Error page--------------------*/
 	.errorContainer {padding-bottom: 10px; margin-top: -180px;width: 360px;margin-left: -180px;}
 	.errorContainer .page-header {margin-bottom: 10px; margin-top: 0;}
 	.errorContainer .page-header h1 {margin-bottom: 0;}
 	.errorContainer form {margin-bottom: 0;}
-	.errorContainer a.btn.pull-right.gap-right20 {margin-right: 5px;}
-	.errorContainer a.btn.pull-left.gap-left20 {margin-left: 5px; margin-right: 5px;}
+	.errorContainer a.btn-app.pull-right.gap-right20 {margin-right: 5px;}
+	.errorContainer a.btn-app.pull-left.gap-left20 {margin-left: 5px; margin-right: 5px;}
 	.errorContainer .page-header h1.offline {font-size: 80px;}
 	
 	/* ------------------ Contact list --------------------*/
@@ -3311,16 +3311,16 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	#login form {margin-bottom: 10px;}
 	#login .login-wrapper form .from-group {margin-bottom: 0;}
 	#login .login-wrapper form label.checkbox {margin-top: -10px;margin-bottom: 10px;}
-	#login #loginBtn {width: 100px;}
+	#login #loginbtn-app {width: 100px;}
 	#login #bar {top:-35px; right:70px;}
-	#login #bar .btn-group-vertical > .btn {float: left;}
+	#login #bar .btn-app-group-vertical > .btn-app {float: left;}
 	#login #bar[data-active="log"] a#log, #login #bar[data-active="reg"] a#reg, #login #bar[data-active="forgot"] a#forgot {
 		border-left: 1px solid #c9c9c9;border-bottom: 1px solid transparent;
 	}
 
 	/* ------------------ Responisve buttons--------------------*/
-	#resBtn {position: absolute;top: 50px;left: 0;margin-left: 15px;}
-	#resBtnSearch {position: absolute;left: 70px;top: 50px;}
+	#resbtn-app {position: absolute;top: 50px;left: 0;margin-left: 15px;}
+	#resbtn-appSearch {position: absolute;left: 70px;top: 50px;}
 	.navbar-toggle {position: absolute;right: 0;top: 50px;}
 	/* ------------------ Calendar --------------------*/
 	.fc-header-title {text-align: center;}
@@ -3347,24 +3347,24 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	.elfinder .elfinder-navbar {width: 170px;}
 
 	/* ------------------ Email page --------------------*/
-	#email .email-bar .btn-group.pull-left.gap-left20 {margin-left: 0px}
+	#email .email-bar .btn-app-group.pull-left.gap-left20 {margin-left: 0px}
 
 }
 @media only screen and (max-width: 380px) {
 	/* ------------------ Email page --------------------*/
-	#email .email-bar .btn-group.pull-left.gap-left20 {margin-top: 10px;}
+	#email .email-bar .btn-app-group.pull-left.gap-left20 {margin-top: 10px;}
 	/* ------------------ Error page--------------------*/
 	.errorContainer {margin-top: -180px;width: 320px;margin-left: -160px;}
 	.errorContainer .page-header {margin-bottom: 10px; margin-top: 0;}
 	.errorContainer .page-header h1 {margin-bottom: 0;}
 	.errorContainer form {margin-bottom: 0;}
-	.errorContainer a.btn.pull-right.gap-right20 {margin-top: 10px;}
-	.errorContainer a.btn.pull-left.gap-left20 {margin-left: 15px; margin-right: 15px;}
-	.errorContainer a.btn {margin-left: 15px; float: left;}
+	.errorContainer a.btn-app.pull-right.gap-right20 {margin-top: 10px;}
+	.errorContainer a.btn-app.pull-left.gap-left20 {margin-left: 15px; margin-right: 15px;}
+	.errorContainer a.btn-app {margin-left: 15px; float: left;}
 	.errorContainer .page-header h1.offline {font-size: 80px;}
-	#login #bar .btn-group-vertical > .btn {float: left;width: inherit;max-width: inherit;}
+	#login #bar .btn-app-group-vertical > .btn-app {float: left;width: inherit;max-width: inherit;}
 	#login .row {margin-left: 15px; margin-right: 15px;}
-	#login .btn-group-vertical {margin-top: 0;}
+	#login .btn-app-group-vertical {margin-top: 0;}
 }
 
 @media only screen and (max-width: 320px) {
@@ -3381,9 +3381,9 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	#login form {margin-bottom: 10px;}
 	#login .login-wrapper form .from-group {margin-bottom: 0;}
 	#login .login-wrapper form label.checkbox {margin-top: -10px;margin-bottom: 10px;}
-	#login #loginBtn {width: 100px;margin-top: -10px;}
+	#login #loginbtn-app {width: 100px;margin-top: -10px;}
 	#login #bar {top:-30px; right:70px;}
-	#login #bar .btn-group-vertical > .btn {float: left;}
+	#login #bar .btn-app-group-vertical > .btn-app {float: left;}
 	#login #bar[data-active="log"] a#log, #login #bar[data-active="reg"] a#reg, #login #bar[data-active="forgot"] a#forgot {
 		border-left: 1px solid #c9c9c9;border-bottom: 1px solid transparent;
 	}
@@ -3391,8 +3391,8 @@ html.fixedWidth .main.isCollapse #sidebarbg {width: 38px;}
 	#sidebar, #content .wrapper {margin-top: 0;}
 
 	/* ------------------ Support page--------------------*/
-	#sendMsg .form-actions .btn-group {margin-bottom: 10px; margin-left: 0;}
-	#sendMsg .form-actions .btn.btn-danger[type="submit"] {margin-top: 0;}
+	#sendMsg .form-actions .btn-app-group {margin-bottom: 10px; margin-left: 0;}
+	#sendMsg .form-actions .btn-app.btn-app-danger[type="submit"] {margin-top: 0;}
 	/* ------------------ Error page--------------------*/
 	.errorContainer {margin-top: -180px;width: 280px;margin-left: -140px;}
 

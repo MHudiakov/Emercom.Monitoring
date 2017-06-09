@@ -45,16 +45,16 @@ namespace Web
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/themes/base/jquery.ui.core.css",
-                "~/Content/themes/base/jquery.ui.resizable.css",
-                "~/Content/themes/base/jquery.ui.selectable.css",
-                "~/Content/themes/base/jquery.ui.accordion.css",
-                "~/Content/themes/base/jquery.ui.autocomplete.css",
-                "~/Content/themes/base/jquery.ui.button.css",
-                "~/Content/themes/base/jquery.ui.dialog.css",
-                "~/Content/themes/base/jquery.ui.slider.css",
-                "~/Content/themes/base/jquery.ui.tabs.css",
-                "~/Content/themes/base/jquery.ui.datepicker.css",
+                  "~/Content/themes/base/jquery.ui.core.css",
+                  "~/Content/themes/base/jquery.ui.resizable.css",
+                  "~/Content/themes/base/jquery.ui.selectable.css",
+                  "~/Content/themes/base/jquery.ui.accordion.css",
+                  "~/Content/themes/base/jquery.ui.autocomplete.css",
+                  "~/Content/themes/base/jquery.ui.button.css",
+                  "~/Content/themes/base/jquery.ui.dialog.css",
+                  "~/Content/themes/base/jquery.ui.slider.css",
+                  "~/Content/themes/base/jquery.ui.tabs.css",
+                //  "~/Content/themes/base/jquery.ui.datepicker.css",
                 "~/Content/themes/base/jquery.ui.progressbar.css",
                 "~/Content/themes/base/jquery.ui.theme.css",
                 "~/Content/bootstrap.css",
@@ -69,7 +69,8 @@ namespace Web
                 "~/Scripts/plugins/ui/jgrowl/jquery.jgrowl.css",
                 "~/Scripts/plugins/tables/datatables/jquery.dataTables.css",
                 "~/Scripts/plugins/forms/switch/bootstrapSwitch.css",
-                "~/Content/css/app.css",
+                  "~/Content/css/app.css",
+                "~/Content/bootstrap-datetimepicker.css",
                 "~/Content/css/genyx-theme/jquery.ui.genyx.css",
                 "~/Content/portal.css"));
         }

@@ -24,6 +24,7 @@ namespace Web.Controllers
 
         public ActionResult List(FilterMovementModel filter)
         {
+            var valid = ModelState.IsValid;
             // Проводим валидацию фильтра
             if (filter.DtBegin == null)
                 filter.DtBegin = DateTime.Now.AddDays(-5);
