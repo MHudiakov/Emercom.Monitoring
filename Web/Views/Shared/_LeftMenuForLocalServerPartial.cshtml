@@ -1,0 +1,41 @@
+﻿@using Web
+<nav id="mainnav">
+    <ul class="nav nav-list">
+
+        @* Формуляр ПТВ *@
+        <li>
+            <a href="@Url.Action("Index", "Home")">
+                <span class="icon"><i class="icon20 i-car"></i></span>
+                <span class="txt">Формуляр ПТВ</span>
+            </a>
+        </li>
+
+        @* История передвижений *@
+        <li>
+            <a href="@Url.Action("Index", "Home")">
+                <span class="icon"><i class="icon20 i-move"></i></span>
+                <span class="txt">История передвижений</span>
+            </a>
+        </li>
+
+        @* Администрирование *@
+        @if (User.IsInRole(UserRolesConsts.Administrator))
+        {
+            <li>
+                <a href="@Url.Action("Index", "Home")">
+                    <span class="icon"><i class="icon20 i-settings"></i></span>
+                    <span class="txt">Администрирование</span>
+                </a>
+            </li>
+        }
+
+        @* Выход *@
+        <li>
+            <a href="@Url.Action("Logout", "Account")">
+                <span class="icon"><i class="icon20 i-exit"></i></span>
+                <span class="txt">Выход</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>

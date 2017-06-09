@@ -29,7 +29,18 @@
             </div>
 
             <div class="sidebar-wrapper">
-                @Html.Partial("_LeftMenuPartial")
+                
+                @{
+                    var cookie = Request.Cookies["Server type"];
+                    bool isLocalServer = false;
+
+                    if (cookie != null)
+                    {
+                        bool.TryParse(cookie.Value, out isLocalServer);   
+                    }
+
+                    @(isLocalServer ? Html.Partial("_LeftMenuForLocalServerPartial") : Html.Partial("_LeftMenuPartial"))
+                }
 
                 @RenderSection("LeftMenuWidgets", false)
             </div>

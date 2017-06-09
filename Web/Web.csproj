@@ -1806,6 +1806,7 @@
     <Content Include="Views\EquipmentGroup\Index.cshtml" />
     <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
     <Content Include="Views\UnitComplectation\Index.cshtml" />
+    <Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
