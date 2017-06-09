@@ -4,6 +4,10 @@
     ViewBag.Title = "Движение оборудования";
 }
 
+@section CSS
+{
+    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+}
 
 <div class="row">
     <div class="col-sm-12">
@@ -26,9 +30,9 @@
                             <div class="row">
                                 <span class="col-sm-4">Дата начала: </span>
                                 <div class="col-sm-8">
-                                    <input class="input-group" id="DtBegin" name="DtBegin" type="text" value="@Model.DtBegin">
-                                    @*Html.TextBoxFor(model => model.DtBegin, new {@class = "input-group", id = "DtBegin"})
-                                    @Html.ValidationMessageFor(model => model.DtBegin)*@
+                                @*    <input class="input-group datetimepicker" id="DtBegin" name="DtBegin" type="text" value="@Model.DtBegin">*@
+                                    @Html.TextBoxFor(model => model.DtBegin, new {@class = "input-group datetimepicker", id = "DtBegin"})
+                                    @Html.ValidationMessageFor(model => model.DtBegin)
                                 </div>
                             </div>
                         </div>
@@ -37,9 +41,9 @@
                             <div class="row">
                                 <span class="col-sm-4">Дата окончания: </span>
                                 <div class="col-sm-8">
-                                    <input class="input-group" id="DtEnd" name="DtEnd" type="text" value="@Model.DtEnd">
-                                    @*@Html.TextBoxFor(model => model.DtEnd, new {@class = "input-group", id = "DtEnd"})
-                                    @Html.ValidationMessageFor(model => model.DtEnd)*@
+                                   @* <input class="input-group datetimepicker" id="DtEnd" name="DtEnd" type="text" value="@Model.DtEnd">*@
+                                    @Html.TextBoxFor(model => model.DtEnd, new {@class = "input-group datetimepicker", id = "DtEnd"})
+                                    @Html.ValidationMessageFor(model => model.DtEnd)
                                 </div>
                             </div>
                         </div>
@@ -61,27 +65,8 @@
     @{Html.RenderAction("List", "Movement", Model);}
 </div>
 
-@section CSS
-{
-    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
-}
-
 @section Scripts
 {
-    <script type="text/javascript">
-        $(function () {
-            var dateTimePickerParameters = {
-                widgetPositioning: {
-                    horizontal: 'left',
-                    vertical: 'top'
-                },
-                format: "DD.MM.YYYY hh:mm",
-                minDate: "01.01.2000"
-            };
-            $('#DtBegin').datetimepicker(dateTimePickerParameters);
-
-            $('#DtEnd').datetimepicker(dateTimePickerParameters);
-
-        });
-    </script>
+    <script type="text/javascript" src="/scripts/moment-with-locales.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.js"></script>
 }
