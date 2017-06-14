@@ -289,6 +289,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Movement\MovementModel.cs" />
     <Compile Include="Models\Equipment\EquipmentModel.cs" />
+    <Compile Include="Models\UnitComplectation\UnitComplectationIndexModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationListModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationModel.cs" />
     <Compile Include="Models\Unit\FilterUnitModel.cs" />
@@ -889,6 +890,8 @@
     <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
     <Content Include="Scripts\jquery-ui-sliderAccess.js" />
     <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.genyxAdmin.js" />
     <Content Include="Scripts\jquery.mousewheel.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -1806,7 +1809,8 @@
     <Content Include="Views\EquipmentGroup\Index.cshtml" />
     <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
     <Content Include="Views\UnitComplectation\Index.cshtml" />
-    <Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
+    <Content Include="Views\UnitComplectation\UnitComplectationTablePartial.cshtml" />
+	<Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
