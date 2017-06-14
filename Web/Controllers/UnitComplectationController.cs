@@ -13,10 +13,18 @@ namespace Web.Controllers
     [Authorize]
     public class UnitComplectationController : Controller
     {
-        [System.Web.Http.HttpGet]
         public ActionResult Index(int unitId)
         {
             // Загружаем формуляр ПТВ для юнита
+
+            var model = new UnitComplectationIndexModel(unitId);
+
+            return View(model);
+        }
+
+
+        public PartialViewResult UnitComplectationTablePartial(int unitId)
+        {
             IEnumerable<Equipment> equipmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetEquipmentListForUnit(unitId);
 
             // Загружаем текущую комплектацию юнита
@@ -27,15 +35,15 @@ namespace Web.Controllers
             equipmentList.ForEach(equipment => equipment.IsInTheUnit = currentComplectation.Any(item => item.Id == equipment.Id));
 
             // Группируем оборудование по группам
-            IEnumerable <IGrouping<EquipmentGroup, Equipment>> equipmentGroups =
+            IEnumerable<IGrouping<EquipmentGroup, Equipment>> equipmentGroups =
                 equipmentList.GroupBy(equipment => equipment.KEquipment.EquipmentGroup).OrderBy(group => group.Key.Name);
 
-            List <UnitComplectationModel> unitComplectationModelList =
+            List<UnitComplectationModel> unitComplectationModelList =
                 equipmentGroups.Select(equipmentGroup => new UnitComplectationModel(equipmentGroup)).ToList();
 
             var unitComplectationListModel = new UnitComplectationListModel(unitComplectationModelList, unitId);
 
-            return View(unitComplectationListModel);
+            return PartialView(unitComplectationListModel);
         }
     }
 }
