@@ -27,30 +27,5 @@
         <script src="@Url.Content("~/Scripts/plugins/treegrid/jquery.treegrid.min.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/Scripts/plugins/treegrid/jquery.treegrid.bootstrap3.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/Scripts/jquery.cookie-1.4.1.min.js")" type="text/javascript"></script>
-        
-        <script>
-            $(document).ready(function () {
-                applyTreeGreed();
-                setInterval(updateTable, 60 * 1000);
-            });
-
-            function applyTreeGreed() {
-                $("#tree").treegrid({
-                    'initialState': 'collapsed',
-                    'saveState': true
-                });
-                //$("#tree").treegrid("collapseAll");
-            }
-
-            function updateTable() {
-                $.get("/UnitComplectation/UnitComplectationTablePartial", { unitId: $('#UnitId').val() }, function (result) {
-                    if (result) {
-                        $("#unitComplectation").html(result);
-                        applyTreeGreed();
-                    } else {
-                        alert("Ошибка при обновлении таблицы");
-                    }
-                });
-            }
-        </script>
+        <script src="@Url.Content("~/Scripts/Views/UnitComplectation/UnitComplectation.js")" type="text/javascript"></script>
     }
