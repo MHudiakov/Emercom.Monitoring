@@ -1703,6 +1703,7 @@
     <Content Include="Scripts\Views\EquipmentGroup\tree.js" />
     <Content Include="Scripts\Views\Unit\Index.js" />
     <Content Include="Scripts\Views\Unit\UnitInfo.js" />
+    <Content Include="Scripts\Views\User\User.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1806,6 +1807,7 @@
     <Content Include="Views\EquipmentGroup\Index.cshtml" />
     <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
     <Content Include="Views\UnitComplectation\Index.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
