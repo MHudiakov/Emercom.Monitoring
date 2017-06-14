@@ -14,6 +14,11 @@ namespace Web.Models.User
 
     public class UserModel
     {
+        public UserModel()
+        {
+            
+        }
+
         public UserModel(User user)
         {
             if (user == null)
@@ -63,7 +68,7 @@ namespace Web.Models.User
                     return null;
 
                 return enumValues.Select(enumValue => 
-                new SelectListItem { Value = enumValue.ToString(),
+                new SelectListItem { Value = Convert.ToInt32(enumValue).ToString(),
                     Text = enumValue.GetType().GetMember(enumValue.ToString()).First().GetCustomAttribute<DisplayAttribute>().Name }).ToList();
             }
         }

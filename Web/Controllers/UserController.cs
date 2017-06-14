@@ -18,17 +18,17 @@ namespace Web.Controllers
     [Authorize(Roles = UserRolesConsts.Administrator)]
     public class UserController : Controller
     {
-        [HttpGet]
         public ViewResult Index()
         {
             var filter = new FilterUserModel();
             return View(filter);
         }
 
-
+       
         [HttpPost]
         public PartialViewResult AddOrEditUser(UserModel userModel)
         {
+
             var user = new User();
             user.Login = userModel.Login;
             user.RoleId = userModel.RoleId;
@@ -53,7 +53,7 @@ namespace Web.Controllers
         {
             var user = id == 0 ? new User() : DalContainer.WcfDataManager.UserList.FirstOrDefault(item => item.Id == id);
             var userModel = new UserModel(user);
-            return this.PartialView("Edit"userModel);
+            return this.PartialView("Edit",userModel);
         }
 
         public PartialViewResult List(FilterUserModel filter)
