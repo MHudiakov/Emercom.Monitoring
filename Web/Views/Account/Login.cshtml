@@ -28,7 +28,10 @@
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Пароль" })
                     </div>
 
-                    <div class="form-group relative">
+                    <div class="form-group">
+                        @Html.CheckBoxFor(m => m.IsLocalServer, new { id = "isLocalServer", @class = "checkbox-inline" })
+                        <label for="isLocalServer"> Локальный сервер </label>
+                        
                         <button id="loginBtn" type="submit" class="btn btn-primary pull-right col-lg-5">
                             Войти
                         </button>

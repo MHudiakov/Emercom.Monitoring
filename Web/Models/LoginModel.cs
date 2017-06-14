@@ -22,5 +22,11 @@ namespace Web.Models
         [DisplayName("Пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        /// <summary>
+        /// Подключиться к локальному серверу
+        /// </summary>
+        [DisplayName("Локальный сервер")]
+        public bool IsLocalServer { get; set; }
     }
 }

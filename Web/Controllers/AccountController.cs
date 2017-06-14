@@ -44,7 +44,20 @@ namespace Web.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, true);
-                    return this.RedirectTo(returnUrl);
+
+                    // Записываем в куки тип сервера (глобальный/локальный)
+                    HttpCookie cookie = new HttpCookie("Server type");
+                    cookie.Value = model.IsLocalServer.ToString();
+                    Response.SetCookie(cookie);
+
+                    if (model.IsLocalServer)
+                    {
+                        this.RedirectToAction("Index", "UnitComplectation", new { unitId = 5 });
+                    }
+                    else
+                    {
+                        return this.RedirectTo(returnUrl);
+                    }
                 }
 
                 this.ModelState.AddModelError(string.Empty, @"Некорректно введен логин или пароль");

@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Web.Wrappers
 {
-    public class UserStore : IUserPasswordStore<User, int>, IUserRoleStore<User, int>, IUserLoginStore<User, int>
+    public class UserStore : IUserRoleStore<User, int>
     {
         public void Dispose()
         {
@@ -48,21 +48,6 @@ namespace Web.Wrappers
             return Task.Run(() => DalContainer.WcfDataManager.UserList.SingleOrDefault(user => user.Login.Equals(userName)));
         }
 
-        public Task SetPasswordHashAsync(User user, string passwordHash)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> GetPasswordHashAsync(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> HasPasswordAsync(User user)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task AddToRoleAsync(User user, string roleName)
         {
             throw new NotImplementedException();
@@ -88,26 +73,6 @@ namespace Web.Wrappers
 
                 return false;
             });
-        }
-
-        public Task AddLoginAsync(User user, UserLoginInfo login)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveLoginAsync(User user, UserLoginInfo login)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IList<UserLoginInfo>> GetLoginsAsync(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> FindAsync(UserLoginInfo login)
-        {
-            throw new NotImplementedException();
         }
     }
 }
