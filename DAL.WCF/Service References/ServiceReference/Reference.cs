@@ -903,7 +903,7 @@ namespace DAL.WCF.ServiceReference {
         System.Collections.Generic.List<DAL.WCF.ServiceReference.Equipment> GetCurrentComplectationForUnit(int unitId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/AddMovement", ReplyAction="http://tempuri.org/IServiceOperation/AddMovementResponse")]
-        void AddMovement(DAL.WCF.ServiceReference.Movement item);
+        void AddMovement(DAL.WCF.ServiceReference.Movement item, string bleTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOperation/EditMovement", ReplyAction="http://tempuri.org/IServiceOperation/EditMovementResponse")]
         void EditMovement(DAL.WCF.ServiceReference.Movement item);
@@ -1065,8 +1065,8 @@ namespace DAL.WCF.ServiceReference {
             return base.Channel.GetCurrentComplectationForUnit(unitId);
         }
         
-        public void AddMovement(DAL.WCF.ServiceReference.Movement item) {
-            base.Channel.AddMovement(item);
+        public void AddMovement(DAL.WCF.ServiceReference.Movement item, string bleTag) {
+            base.Channel.AddMovement(item, bleTag);
         }
         
         public void EditMovement(DAL.WCF.ServiceReference.Movement item) {
