@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using DAL.WCF;
 using DAL.WCF.ServiceReference;
 using Quartz;
 
@@ -49,6 +50,7 @@ namespace BleReader
                 Movement movement = new Movement();
                 movement.IsArrived = true;
                 movement.UnitId = Settings.Default.UnitId;
+                //DalContainer.WcfDataManager.ServiceOperationClient.AddMovement();
 
             }  
         }
