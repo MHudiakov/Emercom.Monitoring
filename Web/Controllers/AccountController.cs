@@ -52,7 +52,7 @@ namespace Web.Controllers
 
                     if (model.IsLocalServer)
                     {
-                        this.RedirectToAction("Index", "UnitComplectation", new { unitId = 5 });
+                        return this.RedirectToAction("Index", "UnitComplectation", new { unitId = 5 });
                     }
                     else
                     {
