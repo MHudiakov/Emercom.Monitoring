@@ -43,16 +43,42 @@ namespace BleReader
 
         private void DataProcessing(List<string> tags)
         {
+            // Если предыдущий список метки пустой, то создаем для каждой метки движение и добавляем на сервер
             if (_lastTagList == null)
             {
                 _lastTagList = tags;
 
-                Movement movement = new Movement();
-                movement.IsArrived = true;
-                movement.UnitId = Settings.Default.UnitId;
-                //DalContainer.WcfDataManager.ServiceOperationClient.AddMovement();
+                foreach (var tag in tags)
+                {
+                    AddMovement(tag, true);
+                }
+            }
 
-            }  
+            // Сравниваем текущий список меток с предыдущим, смотрим, какие метки пришли
+            foreach (var tag in tags)
+            {
+                if (!_lastTagList.Contains(tag))
+                {
+                    AddMovement(tag, true);
+                }
+            }
+
+            // Смотрим, какие ушли
+            foreach (var tag in _lastTagList)
+            {
+                if (!tags.Contains(tag))
+                {
+                    AddMovement(tag, false);
+                }   
+            }
+        }
+
+        private void AddMovement(string tag, bool isArrived)
+        {
+            Movement movement = new Movement();
+            movement.IsArrived = isArrived;
+            movement.UnitId = Settings.Default.UnitId;
+            DalContainer.WcfDataManager.ServiceOperationClient.AddMovement(movement, tag);
         }
 
         private List<string> PharseData(string data)
