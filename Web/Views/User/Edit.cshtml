@@ -1,0 +1,52 @@
+﻿@using Ble.Common.Enums;
+@using DAL.WCF
+@model Web.Models.User.UserModel
+
+@using (Html.BeginForm("AddOrEditUser", "User", null, FormMethod.Post, new { id = "EditUser", @class = "form-horizontal", role = "form" }))
+{<div class="panel-body">
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Login, "Логин", new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Login, new { @class = "form-control", @placeholder = "Логин работника" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Password, "Пароль", new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Пароль работника", @type = "password" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Name, "Имя", new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Имя работника" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.RoleId, "Должность", new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+             
+                @Html.DropDownListFor(x => x.RoleId, Model.UserRoleList, new { @class = "selectpicker form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.DivisionName, "Подразделение", new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                @Html.DropDownListFor(x => x.DivisionId, Model.DivisionList, new { @class = "selectpicker form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Description, "Описание", new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Описание пользователя" })
+            </div>
+        </div>
+    </div>
+                    }

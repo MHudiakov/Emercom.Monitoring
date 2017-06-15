@@ -1,14 +1,14 @@
-﻿.modal-dialog
+﻿.modal-dialog-spinner
 {
     margin-top: 20%;
     width: 300px;
 }
 
-.modal-content
+.modal-content-spinner
 {
     height: 90px;
 }
 
-.modal {
+.modal-spinner {
     overflow-y: hidden !important;
 }

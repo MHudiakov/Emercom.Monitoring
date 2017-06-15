@@ -1706,6 +1706,7 @@
     <Content Include="Scripts\Views\EquipmentGroup\tree.js" />
     <Content Include="Scripts\Views\Unit\Index.js" />
     <Content Include="Scripts\Views\Unit\UnitInfo.js" />
+    <Content Include="Scripts\Views\User\User.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
