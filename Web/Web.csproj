@@ -312,6 +312,7 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="UserRolesConsts.cs" />
+    <Compile Include="Wrappers\AuthUser.cs" />
     <Compile Include="Wrappers\CustomPasswordHasher.cs" />
     <Compile Include="Wrappers\CustomUserManager.cs" />
     <Compile Include="Wrappers\UserStore.cs" />
@@ -1811,7 +1812,7 @@
     <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
     <Content Include="Views\UnitComplectation\Index.cshtml" />
     <Content Include="Views\UnitComplectation\UnitComplectationTablePartial.cshtml" />
-	<Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
+    <Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,14 +1,13 @@
 ﻿using System.Threading.Tasks;
-using DAL.WCF.ServiceReference;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 
 namespace Web.Wrappers
 {
-    public class CustomUserManager : UserManager<User, int>
+    public class CustomUserManager : UserManager<AuthUser, int>
     {
-        public CustomUserManager(IUserStore<User, int> store) : base(store)
+        public CustomUserManager(IUserStore<AuthUser, int> store) : base(store)
         {
             this.PasswordHasher = new CustomPasswordHasher();
         }
@@ -17,7 +16,7 @@ namespace Web.Wrappers
         {
             var manager = new CustomUserManager(new UserStore());
 
-            manager.UserValidator = new UserValidator<User, int>(manager)
+            manager.UserValidator = new UserValidator<AuthUser, int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -36,15 +35,15 @@ namespace Web.Wrappers
 
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = new DataProtectorTokenProvider<User, int>(dataProtectionProvider.Create("PasswordReset"));
+                manager.UserTokenProvider = new DataProtectorTokenProvider<AuthUser, int>(dataProtectionProvider.Create("PasswordReset"));
             }
 
             return manager;
         }
 
-        public override Task<User> FindAsync(string userName, string password)
+        public override Task<AuthUser> FindAsync(string userName, string password)
         {
-            Task<User> taskInvoke = Task<User>.Factory.StartNew(() =>
+            Task<AuthUser> taskInvoke = Task<AuthUser>.Factory.StartNew(() =>
             {
                 PasswordVerificationResult result = this.PasswordHasher.VerifyHashedPassword(userName, password);
                 return result == PasswordVerificationResult.SuccessRehashNeeded 
