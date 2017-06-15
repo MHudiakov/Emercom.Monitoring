@@ -4,7 +4,7 @@
 
         @* Формуляр ПТВ *@
         <li>
-            <a href="@Url.Action("Index", "Home")">
+            <a href="@Url.Action("Index", "UnitComplectation", new {unitId=5})">
                 <span class="icon"><i class="icon20 i-car"></i></span>
                 <span class="txt">Формуляр ПТВ</span>
             </a>
@@ -12,14 +12,14 @@
 
         @* История передвижений *@
         <li>
-            <a href="@Url.Action("Index", "Home")">
+            <a href="@Url.Action("Index", "Movement", new {unitId=5})">
                 <span class="icon"><i class="icon20 i-move"></i></span>
                 <span class="txt">История передвижений</span>
             </a>
         </li>
 
         @* Администрирование *@
-        @if (User.IsInRole(UserRolesConsts.Administrator))
+        @*@if (User.IsInRole(UserRolesConsts.Administrator))
         {
             <li>
                 <a href="@Url.Action("Index", "Home")">
@@ -27,7 +27,7 @@
                     <span class="txt">Администрирование</span>
                 </a>
             </li>
-        }
+        }*@
 
         @* Выход *@
         <li>
