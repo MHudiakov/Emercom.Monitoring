@@ -206,8 +206,23 @@ namespace Server.WCF
         /// <param name="item">
         /// Движение оборудования
         /// </param>
-        public void AddMovement(Movement item)
+        /// <param name="bleTag">
+        /// Тег
+        /// </param>
+        public void AddMovement(Movement item, string bleTag)
         {
+            item.Date = DateTime.Now;
+
+            var equipment = DalContainer.GetDataManager.EquipmentRepository.GetAll()
+                .FirstOrDefault(e => e.Tag.Equals(bleTag));
+
+            if (equipment == null)
+            {
+                return;
+            }
+
+            item.EquipmentId = equipment.Id;
+
             DalContainer.GetDataManager.MovementRepository.Add(item);
         }
 

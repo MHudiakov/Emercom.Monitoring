@@ -178,8 +178,11 @@ namespace Server.WCF
         /// <param name="item">
         /// Движение оборудования
         /// </param>
+        /// <param name="bleTag">
+        /// Тег
+        /// </param>
         [OperationContract]
-        void AddMovement(Movement item);
+        void AddMovement(Movement item, string bleTag);
 
         /// <summary>
         /// Редактировать движение оборудования

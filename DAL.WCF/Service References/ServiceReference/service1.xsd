@@ -187,6 +187,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Server.Dal.Sql.DataObjects" minOccurs="0" name="item" nillable="true" type="q15:Movement" />
+        <xs:element minOccurs="0" name="bleTag" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
