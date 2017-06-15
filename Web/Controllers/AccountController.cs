@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using DAL.WCF.ServiceReference;
 using Microsoft.AspNet.Identity;
 using Web.Models;
 using Microsoft.Owin.Security;
@@ -67,7 +66,7 @@ namespace Web.Controllers
             return View(model);
         }
 
-        private async Task SignInAsync(User user, bool isPersistent)
+        private async Task SignInAsync(AuthUser user, bool isPersistent)
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);

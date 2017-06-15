@@ -9,61 +9,84 @@ using Microsoft.AspNet.Identity;
 
 namespace Web.Wrappers
 {
-    public class UserStore : IUserRoleStore<User, int>
+    public class UserStore : IUserRoleStore<AuthUser, int>
     {
         public void Dispose()
         {
         }
 
-        public Task CreateAsync(User user)
+        public Task CreateAsync(AuthUser user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
             return Task.Run(() => DalContainer.WcfDataManager.ServiceOperationClient.AddUser(user));
         }
 
-        public Task UpdateAsync(User user)
+        public Task UpdateAsync(AuthUser user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
             return Task.Run(() => DalContainer.WcfDataManager.ServiceOperationClient.EditUser(user));
         }
 
-        public Task DeleteAsync(User user)
+        public Task DeleteAsync(AuthUser user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
             return Task.Run(() => DalContainer.WcfDataManager.ServiceOperationClient.DeleteUser(user));
         }
 
-        public Task<User> FindByIdAsync(int userId)
+        public Task<AuthUser> FindByIdAsync(int userId)
         {
-            return Task.Run(() => DalContainer.WcfDataManager.UserList.Single(user => user.Id == userId));
+            return Task.Run(() =>
+            {
+                AuthUser authUser = new AuthUser();
+                User user = DalContainer.WcfDataManager.UserList.Single(u => u.Id == userId);
+
+                authUser.Id = user.Id;
+                authUser.Name = user.Name;
+                authUser.Login = user.Login;
+                authUser.RoleId = user.RoleId;
+                authUser.PasswordHash = user.PasswordHash;
+                return authUser;
+            });
         }
 
-        public Task<User> FindByNameAsync(string userName)
+        public Task<AuthUser> FindByNameAsync(string userName)
         {
             if (userName == null)
                 throw new ArgumentNullException(nameof(userName));
-            return Task.Run(() => DalContainer.WcfDataManager.UserList.SingleOrDefault(user => user.Login.Equals(userName)));
+            return Task.Run(() =>
+            {
+                AuthUser authUser = new AuthUser();
+                User user = DalContainer.WcfDataManager.UserList.Single(u => u.Login.Equals(userName));
+
+                authUser.Id = user.Id;
+                authUser.Name = user.Name;
+                authUser.Login = user.Login;
+                authUser.RoleId = user.RoleId;
+                authUser.PasswordHash = user.PasswordHash;
+
+                return authUser;
+            });
         }
 
-        public Task AddToRoleAsync(User user, string roleName)
+        public Task AddToRoleAsync(AuthUser user, string roleName)
         {
             throw new NotImplementedException();
         }
 
-        public Task RemoveFromRoleAsync(User user, string roleName)
+        public Task RemoveFromRoleAsync(AuthUser user, string roleName)
         {
             throw new NotImplementedException();
         }
         
-        public Task<IList<string>> GetRolesAsync(User user)
+        public Task<IList<string>> GetRolesAsync(AuthUser user)
         {
             return Task.Run(() => (IList<string>)new List<string> {user.Role.ToString()});
         }
 
-        public Task<bool> IsInRoleAsync(User user, string roleName)
+        public Task<bool> IsInRoleAsync(AuthUser user, string roleName)
         {
             return Task.Run(() =>
             {
