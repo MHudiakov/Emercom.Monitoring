@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluetoothTagEmulator", "Blu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ble.Common", "Ble.Common\Ble.Common.csproj", "{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BleReader", "BleReader\BleReader.csproj", "{E7E3977E-19BC-4416-998B-ADAAED941E44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -264,6 +266,18 @@ Global
 		{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}.Release|x64.Build.0 = Release|Any CPU
 		{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}.Release|x86.ActiveCfg = Release|Any CPU
 		{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}.Release|x86.Build.0 = Release|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Debug|x64.Build.0 = Debug|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Debug|x86.Build.0 = Debug|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Release|x64.ActiveCfg = Release|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Release|x64.Build.0 = Release|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Release|x86.ActiveCfg = Release|Any CPU
+		{E7E3977E-19BC-4416-998B-ADAAED941E44}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

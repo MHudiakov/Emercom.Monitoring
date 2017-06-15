@@ -208,6 +208,7 @@ namespace Server.WCF
         /// </param>
         public void AddMovement(Movement item)
         {
+            item.Date = DateTime.Now;
             DalContainer.GetDataManager.MovementRepository.Add(item);
         }
 
