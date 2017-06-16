@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Globalization;
+using System.Linq;
 using System.Web.Mvc;
 using DAL.WCF;
 using DAL.WCF.ServiceReference;
@@ -18,7 +19,7 @@ namespace Web.Controllers
                 item.UnitId,
                 item.EquipmentId,
                 item.IsArrived,
-                Date = item.Date.ToFileTimeUtc()
+                Date = item.Date.ToString(CultureInfo.InvariantCulture)
             });
 
             var equipmentList = unit.GetEquipmentList.Select(item => new

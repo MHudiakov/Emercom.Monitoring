@@ -44,7 +44,7 @@ namespace Web
                 //"~/Scripts/plugins/misc/fullcalendar/fullcalendar.min.js",
                 "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/cssBundles").Include(
                   "~/Content/themes/base/jquery.ui.core.css",
                   "~/Content/themes/base/jquery.ui.resizable.css",
                   "~/Content/themes/base/jquery.ui.selectable.css",
@@ -72,7 +72,9 @@ namespace Web
                   "~/Content/css/app.css",
                 "~/Content/bootstrap-datetimepicker.css",
                 "~/Content/css/genyx-theme/jquery.ui.genyx.css",
-                "~/Content/portal.css"));
+                "~/Content/portal.css",
+                "~/Content/css/fonts/icomoon.woff",
+                "~/Content/css/fonts/icomoon.ttf"));
         }
     }
 }
