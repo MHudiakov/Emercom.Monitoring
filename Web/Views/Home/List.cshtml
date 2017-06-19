@@ -11,7 +11,7 @@
                 <th>Подразделение</th>
                 <th>Номер</th>
                 <th>Описание/Примечание</th>
-                <th style="width: 15%"></th>
+                <th style="width: 15%">Просмотр</th>
             </tr>
             </thead>
             <tbody>
@@ -30,8 +30,8 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
-                    <td>
-                        <a class="btn btn-default btn-sm pull-left" href="@Url.Action("Index", "UnitComplectation", new { unitId = item.Id })">
+                    <td class="center vcenter">
+                        <a class="btn btn-default btn-sm" href="@Url.Action("Index", "UnitComplectation", new { unitId = item.Id })">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Показать
                         </a>
                     </td>
