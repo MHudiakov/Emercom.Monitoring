@@ -3,13 +3,14 @@ using System.Web.Mvc;
 using System.Web.WebPages;
 using DAL.WCF;
 using Web.Models.Division;
+using Web.Wrappers;
 
 namespace Web.Controllers
 {
     /// <summary>
     /// Контроллер подразделений
     /// </summary>
-    [Authorize(Roles = UserRolesConsts.Administrator)]
+    [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class DivisionController : Controller
     {
         [HttpGet]

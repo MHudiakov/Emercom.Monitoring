@@ -1,4 +1,6 @@
-﻿namespace Web.Controllers
+﻿using Web.Wrappers;
+
+namespace Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
@@ -9,7 +11,7 @@
     /// <summary>
     /// Контроллер раздела "Оборудование"
     /// </summary>
-    [Authorize(Roles = UserRolesConsts.Administrator)]
+    [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class EquipmentController : Controller
     {
         [HttpGet]

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using Web.Wrappers;
 
 namespace Web.Controllers
 {
@@ -9,7 +10,7 @@ namespace Web.Controllers
     using DAL.WCF.ServiceReference;
     using Models.EquipmetGroup;
 
-    [Authorize(Roles = UserRolesConsts.Administrator)]
+    [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class EquipmentGroupController : Controller
     {
         [HttpGet]

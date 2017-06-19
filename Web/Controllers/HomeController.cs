@@ -10,6 +10,7 @@
 using System.Linq;
 using DAL.WCF;
 using Web.Models.Unit;
+using Web.Wrappers;
 
 namespace Web.Controllers
 {
@@ -18,7 +19,7 @@ namespace Web.Controllers
     /// <summary>
     /// Контроллер главной страницы
     /// </summary>
-    [Authorize]
+    [CustomAuthorize]
     public class HomeController : Controller
     {
         /// <summary>
