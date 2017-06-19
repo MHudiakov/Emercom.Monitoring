@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DAL.WCF.ServiceReference;
+using Web.Wrappers;
 
 namespace Web.Controllers
 {
@@ -10,7 +11,7 @@ namespace Web.Controllers
     using DAL.WCF;
     using Models;
 
-    [Authorize]
+    [CustomAuthorize]
     public class MovementController : Controller
     {
         [HttpGet]
