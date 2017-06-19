@@ -15,7 +15,7 @@
                     <th style="width: 35%">
                         Описание/Примечание
                     </th>
-                    <th style="width: 15%"></th>
+                    <th style="width: 15%">Действие</th>
                 </tr>
 
                 @foreach (var item in Model)
@@ -30,7 +30,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
-                        <td>
+                        <td class="center vcenter">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                     <span class="fa fa-navicon fa-fw"></span>
