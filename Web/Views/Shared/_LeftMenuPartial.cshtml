@@ -76,7 +76,7 @@
     @if (um.IsInRole(Context.User.Identity.GetUserId<int>(), UserRolesConsts.Administrator))
     {
             <li>
-                <a href="@Url.Action("1", "1")">
+                <a href="@Url.Action("Index", "Settings")">
                     <span class="icon"><i class="icon20 i-settings"></i></span>
                     <span class="txt">Настройки</span>
                 </a>

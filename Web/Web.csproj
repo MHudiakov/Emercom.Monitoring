@@ -269,6 +269,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="Controllers\EquipmentGroupController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\TestApiController.cs" />
     <Compile Include="Controllers\UnitComplectationController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
@@ -289,6 +290,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Movement\MovementModel.cs" />
     <Compile Include="Models\Equipment\EquipmentModel.cs" />
+    <Compile Include="Models\Settings\SettingsModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationIndexModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationListModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationModel.cs" />
@@ -1815,6 +1817,7 @@
     <Content Include="Views\UnitComplectation\Index.cshtml" />
     <Content Include="Views\UnitComplectation\UnitComplectationTablePartial.cshtml" />
     <Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
