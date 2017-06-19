@@ -1,11 +1,13 @@
-﻿namespace Web.Controllers
+﻿using Web.Wrappers;
+
+namespace Web.Controllers
 {
     using System.Linq;
     using System.Web.Mvc;
     using DAL.WCF;
     using Models.Unit;
     
-    [Authorize(Roles = UserRolesConsts.Administrator)]
+    [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class UnitController : Controller
     {
         /// <summary>

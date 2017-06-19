@@ -1,5 +1,6 @@
 ﻿using DAL.WCF.ServiceReference;
 using Web.Models.UnitComplectation;
+using Web.Wrappers;
 using WebGrease.Css.Extensions;
 
 namespace Web.Controllers
@@ -10,7 +11,7 @@ namespace Web.Controllers
 
     using DAL.WCF;
 
-    [Authorize]
+    [CustomAuthorize]
     public class UnitComplectationController : Controller
     {
         public ActionResult Index(int unitId)

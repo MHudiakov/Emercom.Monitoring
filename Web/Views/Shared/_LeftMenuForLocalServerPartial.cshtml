@@ -1,4 +1,4 @@
-﻿@using Web
+﻿@using Web.Wrappers
 <nav id="mainnav">
     <ul class="nav nav-list">
 
@@ -19,15 +19,18 @@
         </li>
 
         @* Администрирование *@
-        @*@if (User.IsInRole(UserRolesConsts.Administrator))
-        {
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <span class="icon"><i class="icon20 i-settings"></i></span>
-                    <span class="txt">Администрирование</span>
-                </a>
-            </li>
-        }*@
+        @{
+            var um = new CustomUserManager(new UserStore());
+        }
+        @*@if (um.IsInRole(Context.User.Identity.GetUserId<int>(), UserRolesConsts.Administrator))
+            {
+                <li>
+                    <a href="@Url.Action("Index", "Home")">
+                        <span class="icon"><i class="icon20 i-settings"></i></span>
+                        <span class="txt">Администрирование</span>
+                    </a>
+                </li>
+            }*@
 
         @* Выход *@
         <li>

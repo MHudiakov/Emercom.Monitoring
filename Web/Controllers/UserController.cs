@@ -2,20 +2,17 @@
 using System.Web.Mvc;
 using DAL.WCF;
 using Web.Models.User;
+using Web.Wrappers;
 
 namespace Web.Controllers
 {
-    using System;
-
     using Ble.Common;
-    using Ble.Common.Enums;
-
     using DAL.WCF.ServiceReference;
 
     /// <summary>
     /// Контроллер пользователей
     /// </summary>
-    [Authorize(Roles = UserRolesConsts.Administrator)]
+    [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class UserController : Controller
     {
         public ViewResult Index()

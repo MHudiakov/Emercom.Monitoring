@@ -1,4 +1,6 @@
-﻿@using Web
+﻿@using Microsoft.AspNet.Identity
+@using Web
+@using Web.Wrappers
 <nav id="mainnav">
     <ul class="nav nav-list">
 
@@ -11,7 +13,10 @@
         </li>
         
         @* Справочники *@
-        @if (User.IsInRole(UserRolesConsts.Administrator))
+        @{
+            var um = new CustomUserManager(new UserStore());
+        }
+        @if (um.IsInRole(Context.User.Identity.GetUserId<int>(), UserRolesConsts.Administrator))
         {
             <li class="hasSub">
                 <a href="#">
@@ -57,8 +62,8 @@
         }
 
         @* Пользователи *@
-        @if (User.IsInRole(UserRolesConsts.Administrator))
-        {
+    @if (um.IsInRole(Context.User.Identity.GetUserId<int>(), UserRolesConsts.Administrator))
+    {
             <li>
                 <a href="@Url.Action("Index", "User")">
                     <span class="icon"><i class="icon20 i-user"></i></span>
@@ -68,8 +73,8 @@
         }
 
         @* Настройки *@
-        @if (User.IsInRole(UserRolesConsts.Administrator))
-        {
+    @if (um.IsInRole(Context.User.Identity.GetUserId<int>(), UserRolesConsts.Administrator))
+    {
             <li>
                 <a href="@Url.Action("1", "1")">
                     <span class="icon"><i class="icon20 i-settings"></i></span>

@@ -313,6 +313,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="UserRolesConsts.cs" />
     <Compile Include="Wrappers\AuthUser.cs" />
+    <Compile Include="Wrappers\CustomAuthorizeAttribute.cs" />
     <Compile Include="Wrappers\CustomPasswordHasher.cs" />
     <Compile Include="Wrappers\CustomUserManager.cs" />
     <Compile Include="Wrappers\UserStore.cs" />
@@ -878,6 +879,7 @@
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\Mchs.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
