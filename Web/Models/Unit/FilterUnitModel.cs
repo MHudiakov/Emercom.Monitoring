@@ -4,9 +4,6 @@ using DAL.WCF;
 
 namespace Web.Models.Unit
 {
-    /// <summary>
-    /// Модель фильтра списка машин
-    /// </summary>
     public class FilterUnitModel
     {
         public int? DivisionId { get; set; }

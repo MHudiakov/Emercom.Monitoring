@@ -17,20 +17,11 @@ namespace Web.Models.Division
         }
 
         public int Id { get; set; }
-
-        /// <summary>
-        /// Название объекта
-        /// </summary>
+        
         public string Name { get; set; }
-
-        /// <summary>
-        /// Идентификатор родительского подразделения
-        /// </summary>
+        
         public int? ParentId { get; set; }
-
-        /// <summary>
-        /// Описание/примечание объекта
-        /// </summary>
+        
         public string Description { get; set; }
     }
 }

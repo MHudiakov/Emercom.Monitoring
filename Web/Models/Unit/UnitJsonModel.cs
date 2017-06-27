@@ -11,15 +11,9 @@ namespace Web.Models.Unit
     public class UnitJsonModel
     {
         public int Id { get; set; }
-
-        /// <summary>
-        /// Название объекта
-        /// </summary>
+        
         public string Name { get; set; }
-
-        /// <summary>
-        /// Описание/примечание объекта
-        /// </summary>
+        
         public string Description { get; set; }
 
         public List<MovementModel> MovmentList { get; }
@@ -30,7 +24,7 @@ namespace Web.Models.Unit
             this.Name = unit.Name;
             this.Description = unit.Description;
             
-            // последние 50 движений которые отображаем
+            // movements for last 5 days
             this.MovmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetMovementListByTimeAndUnitId(
                     DateTime.Now.AddDays(-5), DateTime.Now, unit.Id).
                 OrderByDescending(m => m.Date).Select(e =>

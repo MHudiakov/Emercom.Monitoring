@@ -268,29 +268,17 @@
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DivisionController.cs" />
-    <Compile Include="Controllers\EquipmentGroupController.cs" />
-    <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Controllers\TestApiController.cs" />
     <Compile Include="Controllers\UnitComplectationController.cs" />
-    <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MovementController.cs" />
-    <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Division\DivisionModel.cs" />
     <Compile Include="Models\Division\FilterDivisionModel.cs" />
-    <Compile Include="Models\EquipmetGroup\EquipmentGroupModel.cs" />
-    <Compile Include="Models\EquipmetGroup\FilterEquipmentGroupModel.cs" />
-    <Compile Include="Models\EquipmetGroup\KEquipmentModel.cs" />
     <Compile Include="Models\Movement\FilterMovementModel.cs" />
-    <Compile Include="Models\Equipment\FilterEquipmentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Movement\MovementModel.cs" />
-    <Compile Include="Models\Equipment\EquipmentModel.cs" />
-    <Compile Include="Models\Settings\SettingsModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationIndexModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationListModel.cs" />
     <Compile Include="Models\UnitComplectation\UnitComplectationModel.cs" />
@@ -1797,27 +1785,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\_LeftMenuPartial.cshtml" />
-    <Content Include="Views\Movement\Index.cshtml" />
-    <Content Include="Views\Equipment\Index.cshtml" />
-    <Content Include="Views\Movement\List.cshtml" />
-    <Content Include="Views\Equipment\List.cshtml" />
-    <Content Include="Views\Unit\Index.cshtml" />
-    <Content Include="Views\Unit\UnitInfo.cshtml" />
-    <Content Include="Views\Unit\UnitInfoPartial.cshtml" />
-    <Content Include="Views\Unit\UnitMovementPartial.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
-    <Content Include="Views\Unit\List.cshtml" />
     <Content Include="Views\Division\Index.cshtml" />
     <Content Include="Views\Division\List.cshtml" />
-    <Content Include="Views\EquipmentGroup\EquipmentGroupList.cshtml" />
-    <Content Include="Views\EquipmentGroup\Index.cshtml" />
-    <Content Include="Views\EquipmentGroup\KEquipmentList.cshtml" />
     <Content Include="Views\UnitComplectation\Index.cshtml" />
     <Content Include="Views\UnitComplectation\UnitComplectationTablePartial.cshtml" />
     <Content Include="Views\Shared\_LeftMenuForLocalServerPartial.cshtml" />
-    <Content Include="Views\Settings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1830,10 +1805,6 @@
     <ProjectReference Include="..\Ble.Common\Ble.Common.csproj">
       <Project>{0E58C5D2-A158-4DAE-8C80-118A7B1E4EB5}</Project>
       <Name>Ble.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
-      <Project>{F77F1DC7-3F2B-48BB-BE3E-705893815123}</Project>
-      <Name>Init.DbCore %28Common\Init.DbCore\Init.DbCore%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL.WCF\DAL.WCF.csproj">
       <Project>{78d251fd-33f3-414a-ab6a-a1d8709ca7e1}</Project>

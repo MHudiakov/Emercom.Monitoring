@@ -19,25 +19,13 @@ namespace Web.Models.Unit
         }
 
         public int Id { get; set; }
-
-        /// <summary>
-        /// Название подразделения, которому принадлежит юнит
-        /// </summary>
+        
         public string DivisionName { get; set; }
-
-        /// <summary>
-        /// Название объекта
-        /// </summary>
+        
         public string Name { get; set; }
-
-        /// <summary>
-        /// Номер объекта
-        /// </summary>
+        
         public string Number { get; set; }
-
-        /// <summary>
-        /// Описание/примечание объекта
-        /// </summary>
+        
         public string Description { get; set; }
     }
 }

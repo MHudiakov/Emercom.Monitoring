@@ -10,7 +10,6 @@ namespace Web.Models.Unit
 
     public class UnitInfoModel
     {
-        // сделать отдельными моделями
         public UnitModel Unit { get; }
 
         public List<MovementModel> MovmentList { get; }
@@ -18,10 +17,9 @@ namespace Web.Models.Unit
         public UnitInfoModel(Unit unit)
         {
             this.Unit = new UnitModel(unit);
-
-            // движения за последние 5 дней
+            
             this.MovmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetMovementListByTimeAndUnitId(
-                DateTime.Now.AddDays(-5), DateTime.Now, unit.Id).
+                DateTime.Now.AddDays(-5), DateTime.Now, unit.Id).   // movemetns for last 5 days
                 OrderByDescending(m => m.Date).Select(e => 
                 new MovementModel(e)).ToList();
         }

@@ -7,12 +7,7 @@ namespace Ble.Common
     public static class CryptographyHelper
     {
         private static string _salt = "fby9u2Ch7CGd1FVFjHA395y46UJiBjoap3I9m8";
-
-        /// <summary>
-        /// Получить SHA256 хэш строки
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        
         public static string GetSha256Hash(string value)
         {
             using (var sha256 = SHA256.Create())

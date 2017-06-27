@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="HomeController.cs" company="ИНИТ-центр">
-//   ИНИТ-центр, 2014г.
-// </copyright>
-// <summary>
-//   Контроллер главной страницы
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-using System.Linq;
+﻿using System.Linq;
 using DAL.WCF;
 using Web.Models.Unit;
 using Web.Wrappers;
@@ -15,17 +6,10 @@ using Web.Wrappers;
 namespace Web.Controllers
 {
     using System.Web.Mvc;
-
-    /// <summary>
-    /// Контроллер главной страницы
-    /// </summary>
+    
     [CustomAuthorize]
     public class HomeController : Controller
     {
-        /// <summary>
-        /// Получение главной страницы
-        /// </summary>
-        /// <returns>Главная страницы</returns>
         public ActionResult Index()
         {
             var filter = new FilterUnitModel();

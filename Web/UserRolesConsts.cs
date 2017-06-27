@@ -1,10 +1,5 @@
 ﻿namespace Web
 {
-    /// <summary>
-    /// Константное строковое представление ролей.
-    /// Используется для обозначения ролей в атрибуте 
-    /// Authorize для каждого из контроллеров с ограниченным доступом
-    /// </summary>
     public static class UserRolesConsts
     {
         /// <summary>

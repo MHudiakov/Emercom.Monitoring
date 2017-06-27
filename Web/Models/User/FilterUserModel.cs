@@ -4,9 +4,6 @@ using DAL.WCF;
 
 namespace Web.Models.User
 {
-    /// <summary>
-    /// Модель фильтра списка пользователей
-    /// </summary>
     public class FilterUserModel
     {
         public int? DivisionId { get; set; }

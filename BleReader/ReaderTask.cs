@@ -16,7 +16,7 @@ namespace BleReader
 
         public void Execute(IJobExecutionContext context)
         {
-            string urlAddress = "http://192.168.1.17:8595/";
+            string urlAddress = "http://192.168.10.7/";
 
             var request = (HttpWebRequest)WebRequest.Create(urlAddress);
 

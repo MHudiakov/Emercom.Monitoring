@@ -8,10 +8,7 @@ namespace Web.Controllers
 {
     using Ble.Common;
     using DAL.WCF.ServiceReference;
-
-    /// <summary>
-    /// Контроллер пользователей
-    /// </summary>
+    
     [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class UserController : Controller
     {
@@ -20,8 +17,7 @@ namespace Web.Controllers
             var filter = new FilterUserModel();
             return View(filter);
         }
-
-       
+   
         [HttpPost]
         public PartialViewResult AddOrEditUser(UserModel userModel)
         {

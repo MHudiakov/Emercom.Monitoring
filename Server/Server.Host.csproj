@@ -99,10 +99,6 @@
       <Project>{4600b640-adf9-437e-8b17-08032b7cd058}</Project>
       <Name>Server.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Server.ServiceOperation\Server.WCF.csproj">
-      <Project>{87ff8d95-30d3-4494-bead-c05dbbd62ed0}</Project>
-      <Name>Server.WCF</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

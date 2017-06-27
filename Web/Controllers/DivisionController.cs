@@ -7,9 +7,6 @@ using Web.Wrappers;
 
 namespace Web.Controllers
 {
-    /// <summary>
-    /// Контроллер подразделений
-    /// </summary>
     [CustomAuthorize(Roles = UserRolesConsts.Administrator)]
     public class DivisionController : Controller
     {

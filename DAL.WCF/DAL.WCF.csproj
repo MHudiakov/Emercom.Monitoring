@@ -126,14 +126,6 @@
       <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
       <Name>Init.DbCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Init.DbCore\Init.DbCore\Init.DbCore.csproj">
-      <Project>{f77f1dc7-3f2b-48bb-be3e-705893815123}</Project>
-      <Name>Init.DbCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Init.Tools\Tools\Init.Tools.csproj">
-      <Project>{76db3053-1978-4d3e-9b26-dd3e2096467e}</Project>
-      <Name>Init.Tools</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference\" />

@@ -16,10 +16,8 @@ namespace Web.Controllers
     {
         public ActionResult Index(int unitId)
         {
-            // Загружаем формуляр ПТВ для юнита
-
+            // Load PTV for unit
             var model = new UnitComplectationIndexModel(unitId);
-
             return View(model);
         }
 
@@ -28,14 +26,14 @@ namespace Web.Controllers
         {
             IEnumerable<Equipment> equipmentList = DalContainer.WcfDataManager.ServiceOperationClient.GetEquipmentListForUnit(unitId);
 
-            // Загружаем текущую комплектацию юнита
+            // Load current unit complectation
             IEnumerable<Equipment> currentComplectation = DalContainer.WcfDataManager.ServiceOperationClient
                 .GetCurrentComplectationForUnit(unitId);
 
-            // Определяем для каждой записи формуляра ПТВ, находится ли он на данный момент в юните
+            // Check for every item in PTV if this item in the unit now
             equipmentList.ForEach(equipment => equipment.IsInTheUnit = currentComplectation.Any(item => item.Id == equipment.Id));
 
-            // Группируем оборудование по группам
+            // Group equipment by equipment froups
             IEnumerable<IGrouping<EquipmentGroup, Equipment>> equipmentGroups =
                 equipmentList.GroupBy(equipment => equipment.KEquipment.EquipmentGroup).OrderBy(group => group.Key.Name);
 

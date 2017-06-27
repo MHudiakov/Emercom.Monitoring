@@ -21,13 +21,7 @@ namespace Web.Controllers
         {
             this._userManager = userManager;
         }
-
-        /// <summary>
-        /// Возвращает View авторизации пользователя в системе
-        /// </summary>
-        /// <returns>
-        /// View авторизации пользователя в системе
-        /// </returns>
+        
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Login()
@@ -44,14 +38,14 @@ namespace Web.Controllers
                 {
                     await SignInAsync(user, true);
 
-                    // Записываем в куки тип сервера (глобальный/локальный)
+                    // Write to cookies server type (global/local)
                     HttpCookie cookie = new HttpCookie("Server type");
                     cookie.Value = model.IsLocalServer.ToString();
                     Response.SetCookie(cookie);
 
                     if (model.IsLocalServer)
                     {
-                        return this.RedirectToAction("Index", "UnitComplectation", new { unitId = 5 });
+                        return this.RedirectToAction("Index", "UnitComplectation", new { unitId = 1 });
                     }
                     else
                     {
@@ -82,12 +76,6 @@ namespace Web.Controllers
             return this.RedirectToAction("Index", "Home");
         }
 
-        /// <summary>
-        /// Завершение работы пользователя в системе
-        /// </summary>
-        /// <returns>
-        /// The <see cref="ActionResult"/>.
-        /// </returns>
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
